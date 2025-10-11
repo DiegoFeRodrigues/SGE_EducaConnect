@@ -2,7 +2,12 @@ public class Aluno {
 
     private String nome, curso;
     private int matricula;
-    
+
+    public Aluno(String nome, String curso, int matricula) {
+        this.nome = nome;
+        this.curso = curso;
+        this.matricula = matricula;
+    }
     
     public String getNome() {
         return nome;
