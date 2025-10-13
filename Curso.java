@@ -22,10 +22,10 @@ public class Curso {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    public float getCargaHoraria() {
+    public float getCargaH() {
         return cargaHoraria;
     }
-    public void setCargaHoraria(float cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
+    public void setCarga(float carga) {
+        this.cargaHoraria = carga;
     }
 }

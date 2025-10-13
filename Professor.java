@@ -9,17 +9,17 @@ public class Professor {
         this.registro = reg;
     }
 
-    public String getNomeProfessor() {
+    public String getNomeProf() {
         return nomeProfessor;
     }
-    public void setNomeProfessor(String nome) {
+    public void setNomeProf(String nome) {
         this.nomeProfessor = nome;
     }
-    public String getEspecialidade() {
+    public String getEspec() {
         return especialidade;
     }
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setEspec(String espec) {
+        this.especialidade = espec;
     }
     public int getRegistro() {
         return registro;
