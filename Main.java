@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println("Dados do aluno:\n"+
         aluno.dadosAluno()+"\n\nDados do curso:\n"+
-        curso.dadosCurso()+"\n\nDados do Professor:\n"+
+        curso.dadosCurso()+"\n\nDados do professor:\n"+
         professor.dadosProf());
     }
 }

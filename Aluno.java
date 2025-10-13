@@ -29,7 +29,7 @@ public class Aluno {
     }
 
     public String dadosAluno() {
-        return "Nome do Aluno: "+getNome()+
+        return "Nome do aluno: "+getNome()+
         "\nMatrícula: "+getMatricula()+
         "\nCurso: "+getCurso();
     }

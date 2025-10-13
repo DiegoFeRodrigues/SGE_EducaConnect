@@ -29,7 +29,7 @@ public class Professor {
     }
 
     public String dadosProf() {
-        return "Nome do Professor: "+getNomeProf()+
+        return "Nome do professor: "+getNomeProf()+
         "\nRegistro: "+getRegistro()+
         "\nEspecialidade: "+getEspec();
     }
