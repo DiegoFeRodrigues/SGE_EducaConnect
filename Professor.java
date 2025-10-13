@@ -1,14 +1,14 @@
 public class Professor {
-
+    // atributos:
     private String nomeProfessor, especialidade;
     private int registro;
-    
+    // constructor:
     public Professor(String nomeProf, String espec, int reg) {
         this.nomeProfessor = nomeProf;
         this.especialidade = espec;
         this.registro = reg;
     }
-
+    // getters e setters:
     public String getNomeProf() {
         return nomeProfessor;
     }
@@ -27,7 +27,7 @@ public class Professor {
     public void setRegistro(int registro) {
         this.registro = registro;
     }
-
+    // método saída:
     public String dadosProf() {
         return "Nome do professor: "+getNomeProf()+
         "\nRegistro: "+getRegistro()+
