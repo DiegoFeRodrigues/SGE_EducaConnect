@@ -27,4 +27,10 @@ public class Professor {
     public void setRegistro(int registro) {
         this.registro = registro;
     }
+
+    public String dadosProf() {
+        return "Nome do Professor: "+getNomeProf()+
+        "\nRegistro: "+getRegistro()+
+        "\nEspecialidade: "+getEspec();
+    }
 }

@@ -27,4 +27,10 @@ public class Aluno {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
+
+    public String dadosAluno() {
+        return "Nome do Aluno: "+getNome()+
+        "\nMatrícula: "+getMatricula()+
+        "\nCurso: "+getCurso();
+    }
 }

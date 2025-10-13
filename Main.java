@@ -11,10 +11,15 @@ public class Main {
 
         curso.setNomeCurso("ADS");
         curso.setCodigo(54321);
-        curso.setCarga(2180);
+        curso.setCarga(2180f);
 
         professor.setNomeProf("Nome Prof!!!"); 
         professor.setEspec("POO");
         professor.setRegistro(98765);
+
+        System.out.println("Dados do aluno:\n"+
+        aluno.dadosAluno()+"\n\nDados do curso:\n"+
+        curso.dadosCurso()+"\n\nDados do Professor:\n"+
+        professor.dadosProf());
     }
 }

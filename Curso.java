@@ -28,4 +28,10 @@ public class Curso {
     public void setCarga(float carga) {
         this.cargaHoraria = carga;
     }
+
+    public String dadosCurso() {
+        return "Curso: " +getNomeCurso()+
+        "\nCódigo: "+getCodigo()+
+        "\nCarga horária: "+getCargaH();
+    }
 }
