@@ -1,15 +1,15 @@
 public class Curso {
-
+    // atributos:
     private String nomeCurso;
     private int codigo;
     private float cargaHoraria;
-    
+    // constructor:
     public Curso(String nomeCur, int codigo, float carga) {
         this.nomeCurso = nomeCur;
         this.codigo = codigo;
         this.cargaHoraria = carga;
     }
-
+    // getters e setters - curso:
     public String getNomeCurso() {
         return nomeCurso;
     }
@@ -28,7 +28,7 @@ public class Curso {
     public void setCarga(float carga) {
         this.cargaHoraria = carga;
     }
-
+    // método saída:
     public String dadosCurso() {
         return "Curso: " +getNomeCurso()+
         "\nCódigo: "+getCodigo()+

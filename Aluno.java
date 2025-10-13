@@ -1,14 +1,14 @@
 public class Aluno {
-
+    // atributos:
     private String nome, curso;
     private int matricula;
-
+    // constructor:
     public Aluno(String nome, String curso, int matricula) {
         this.nome = nome;
         this.curso = curso;
         this.matricula = matricula;
     }
-    
+    // getters e setters - aluno:
     public String getNome() {
         return nome;
     }
@@ -27,7 +27,7 @@ public class Aluno {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-
+    // método saída:
     public String dadosAluno() {
         return "Nome do Aluno: "+getNome()+
         "\nMatrícula: "+getMatricula()+
