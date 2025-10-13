@@ -26,5 +26,5 @@ public class Aluno {
     }
     public void setMatricula(int matricula) {
         this.matricula = matricula;
-    }    
+    }
 }
