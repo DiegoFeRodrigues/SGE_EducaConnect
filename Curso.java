@@ -4,8 +4,8 @@ public class Curso {
     private int codigo;
     private float cargaHoraria;
     
-    public Curso(String nome, int codigo, float carga) {
-        this.nomeCurso = nome;
+    public Curso(String nomeCur, int codigo, float carga) {
+        this.nomeCurso = nomeCur;
         this.codigo = codigo;
         this.cargaHoraria = carga;
     }

@@ -3,8 +3,8 @@ public class Professor {
     private String nomeProfessor, especialidade;
     private int registro;
     
-    public Professor(String nome, String espec, int reg) {
-        this.nomeProfessor = nome;
+    public Professor(String nomeProf, String espec, int reg) {
+        this.nomeProfessor = nomeProf;
         this.especialidade = espec;
         this.registro = reg;
     }
