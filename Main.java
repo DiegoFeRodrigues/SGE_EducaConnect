@@ -1,26 +1,14 @@
 public class Main {
     public static void main(String[] args) {
         // instanciando novos objetos:
-        Aluno aluno = new Aluno("", "", 0);
-        Curso curso = new Curso("", 0, 0);
-        Professor professor = new Professor("", "", 0);
-        // set atributos - aluno:
-        aluno.setNome("Diego Ferreira Rodrigues");
-        aluno.setCurso("ADS");
-        aluno.setMatricula(123456);
-
+        Aluno aluno = new Aluno("Diego", "ADS", 12345);
+        Curso curso = new Curso("ADS", 54321, 2180f);
+        Professor professor = new Professor("Mestre Roshi", "Estilo da tartaruga", 00001);
+        
         Aluno aluno2 = new Aluno("Jacinto", "Pedagogia", 578913);
         Curso curso2 = new Curso("Pedagogia", 58931, 3865.3f);
         Professor professor2 = new Professor("Ananias", "C#", 237189);
         
-        // set atributos - curso:
-        curso.setNomeCurso("ADS");
-        curso.setCodigo(54321);
-        curso.setCarga(2180f);
-        // set atributos - professor:
-        professor.setNomeProf("Nome Prof!!!"); 
-        professor.setEspec("POO");
-        professor.setRegistro(56789);
         // saída:
         System.out.println("Dados do aluno:\n"+
         aluno.dadosAluno()+"\n\nDados do curso:\n"+
