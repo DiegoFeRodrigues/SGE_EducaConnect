@@ -9,9 +9,10 @@ public class Aluno {
         this.matricula = matricula;
     }
 
-    // método saída:
-    public String dadosAluno() {
-        return "Nome do aluno: "+this.nome+
+    // saída aluno:
+    @Override
+    public String toString() {
+        return "Dados aluno:\nNome do aluno: "+this.nome+
         "\nMatrícula: "+this.matricula+
         "\nCurso: "+this.curso;
     }

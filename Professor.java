@@ -8,29 +8,19 @@ public class Professor {
         this.especialidade = espec;
         this.registro = reg;
     }
-    // getters e setters:
+    
+    // getters e setters nome professor:
     public String getNomeProf() {
         return nomeProfessor;
     }
     public void setNomeProf(String nome) {
         this.nomeProfessor = nome;
     }
-    public String getEspec() {
-        return especialidade;
-    }
-    public void setEspec(String espec) {
-        this.especialidade = espec;
-    }
-    public int getRegistro() {
-        return registro;
-    }
-    public void setRegistro(int registro) {
-        this.registro = registro;
-    }
-    // método saída:
-    public String dadosProf() {
-        return "Nome do professor: "+getNomeProf()+
-        "\nRegistro: "+getRegistro()+
-        "\nEspecialidade: "+getEspec();
+
+    // saída professor:
+    public String toString() {
+        return "\n\nDados do Professor:\nNome do professor: "+
+        this.nomeProfessor+"\nRegistro: "+this.registro+
+        "\nEspecialidade: "+this.especialidade;
     }
 }

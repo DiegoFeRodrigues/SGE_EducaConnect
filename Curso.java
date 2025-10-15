@@ -9,7 +9,7 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = carga;
     }
-    //getters e setters:
+    //getters e setters nome e código:
     public String getNomeCurso() {
         return nomeCurso;
     }
@@ -22,16 +22,10 @@ public class Curso {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    public float getCargaH() {
-        return cargaHoraria;
-    }
-    public void setCarga(float carga) {
-        this.cargaHoraria = carga;
-    }
-    // método saída:
-    public String dadosCurso() {
-        return "Curso: " +getNomeCurso()+
-        "\nCódigo: "+getCodigo()+
-        "\nCarga horária: "+getCargaH();
+
+    // saída curso:
+    public String toString() {
+        return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
+        "\nCódigo: "+getCodigo()+"\nCarga horária: "+this.cargaHoraria;
     }
 }
