@@ -13,14 +13,8 @@ public class Curso {
     public String getNomeCurso() {
         return nomeCurso;
     }
-    public void setNomeCurso(String nomeCurso) {
-        this.nomeCurso = nomeCurso;
-    }
     public int getCodigo() {
         return codigo;
-    }
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     // saída curso:

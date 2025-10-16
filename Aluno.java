@@ -9,6 +9,13 @@ public class Aluno {
         this.matricula = matricula;
     }
 
+    public String getNomeAlu() {
+        return nome;
+    }
+    public String getCursoAlu() {
+        return curso;
+    }
+
     // saída aluno:
     @Override
     public String toString() {
