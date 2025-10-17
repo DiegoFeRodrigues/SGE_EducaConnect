@@ -15,10 +15,10 @@ public class Main {
         Turma tur1 = new Turma(curso1, curso1, professor1);
         Turma tur2 = new Turma(curso2, curso2, professor2);
 
-        /* saída:
-        System.out.println(aluno1.toString()+curso1.toString()+
-        professor1.toString()+"\n\n"+aluno2.toString()+curso2.toString()+
-        professor2.toString()+tur1.toString()+tur2.toString()); */
+        // saída:
+        // System.out.println(aluno1.toString()+curso1.toString()+
+        // professor1.toString()+"\n\n"+aluno2.toString()+curso2.toString()+
+        // professor2.toString()+tur1.toString()+tur2.toString());
 
         tur1.addAluno(aluno1, curso1);
         tur2.addAluno(aluno2, curso2);
