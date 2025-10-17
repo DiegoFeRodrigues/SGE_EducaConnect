@@ -7,6 +7,7 @@ public class Turma {
     private Curso nomeCurso;
     private Professor professor;
     private List<String> listaAlunos;
+    private Avaliacao avaliação;
     // constructor:
     public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
         this.codigo = codigo;

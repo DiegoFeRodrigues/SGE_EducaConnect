@@ -32,6 +32,19 @@ public class Main {
         tur2.removeAluno(aluno4, curso2);
 
         System.out.println(tur1.toString()+"\n"+tur2.toString());
+
+        Avaliacao prova = new Avaliacao("Prova de POO.");
+
+        // prova.atribuirNota(10);
+
+        prova.atribuirNota(aluno1, 6);
+
+        Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
+
+        treino.atribuirNota(aluno2, 5);
+        treino.atribuirNota(aluno3, 10);
         
+        System.out.println(prova.toString()+"\n"+
+        treino.toString());
     }
 }
