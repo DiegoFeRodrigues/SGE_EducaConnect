@@ -9,12 +9,9 @@ public class Professor {
         this.registro = reg;
     }
     
-    // getters e setters nome professor:
+    // getter nome professor:
     public String getNomeProf() {
         return nomeProfessor;
-    }
-    public void setNomeProf(String nome) {
-        this.nomeProfessor = nome;
     }
 
     // saída professor:
