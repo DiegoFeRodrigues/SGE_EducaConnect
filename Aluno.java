@@ -9,12 +9,11 @@ public class Aluno {
         this.matricula = matricula;
     }
 
-    // getters - nome e curso aluno:
-    public String getCursoAlu() {
-        return curso;
-    }
     public String getNomeAlu() {
         return nome;
+    }
+    public String getCursoAlu() {
+        return curso;
     }
 
     // saída aluno:

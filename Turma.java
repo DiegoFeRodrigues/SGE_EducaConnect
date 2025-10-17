@@ -6,8 +6,8 @@ public class Turma {
     private Curso codigo;
     private Curso nomeCurso;
     private Professor professor;
-    private List<String> listaAlunos;
-    // constructor:
+    private List<Aluno> listaAlunos;
+    
     public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
         this.codigo = codigo;
         this.nomeCurso = nomeCurso;
@@ -15,30 +15,22 @@ public class Turma {
         this.listaAlunos = new ArrayList<>();
     }
 
-    // método adiciona aluno: 
+    public Curso getCursoTur() {
+        return nomeCurso;
+    }
+
     public void addAluno(Aluno aluno, Curso curso) {
         if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAlu());
-            System.out.println(aluno.getNomeAlu()+
-            " foi adicionado ao curso de "+curso.getNomeCurso()+".");
+            listaAlunos.add(aluno);
         }
-    }
-    // método remove aluno:
-    public void removeAluno(Aluno aluno, Curso curso) {
-        if (aluno == null){
-            System.out.println("Aluno inválido!");
-        }else {
-            listaAlunos.remove(aluno.getNomeAlu());
-                System.out.println(aluno.getNomeAlu()+" foi removido.");
-            }
     }
     
     // saída turma:
     @Override
     public String toString() {
-        return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
+        return "\n\nDados da turma:"+
         "\nProfessor: "+this.professor.getNomeProf()+
         "\nCurso: "+this.nomeCurso.getNomeCurso()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+        "\nQuantidade de alunos:"+listaAlunos.size();
     }
 }

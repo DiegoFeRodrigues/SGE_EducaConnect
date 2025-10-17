@@ -9,14 +9,17 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = carga;
     }
-    //getters nome curso:
+    //getters e setters nome e código:
     public String getNomeCurso() {
         return nomeCurso;
+    }
+    public int getCodigo() {
+        return codigo;
     }
 
     // saída curso:
     public String toString() {
         return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
-        "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
+        "\nCódigo: "+getCodigo()+"\nCarga horária: "+this.cargaHoraria;
     }
 }
