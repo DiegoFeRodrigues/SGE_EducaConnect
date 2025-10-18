@@ -27,18 +27,15 @@ public class Avaliacao {
     public String getDescricao() {
         return descricao;
     }
-    
-    @Override
-    public String toString() {
+    // saída com resumo da avaliação:
+    public String avaliacao(Aluno aluno, Turma turma, Avaliacao nota) {
         if (!this.testaNota()) {
             return "\nNota inválida para a avaliação "+
             this.descricao;
         } else {
-            return "\nResultado da avaliação:"+
-            "\nNome do Aluno: "+aluno.getNomeAlu()+
+            return "\nNome do Aluno: "+this.aluno.getNomeAlu()+
             "\nDescrição da avaliação: "+this.descricao+
             "\nNota: "+this.getNota();
         }
     }
-
 }

@@ -8,7 +8,6 @@ public class Aluno {
         this.curso = curso;
         this.matricula = matricula;
     }
-
     // getters - nome e curso aluno:
     public String getCursoAlu() {
         return curso;
@@ -16,7 +15,6 @@ public class Aluno {
     public String getNomeAlu() {
         return nome;
     }
-
     // saída aluno:
     @Override
     public String toString() {

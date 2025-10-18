@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class Turma {
     // atributos:
     private Curso codigo;
     private Curso nomeCurso;
     private Professor professor;
     private List<String> listaAlunos;
-    private Avaliacao avaliacao;
     // constructor:
     public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
         this.codigo = codigo;
@@ -15,7 +13,6 @@ public class Turma {
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
     }
-
     // método adiciona aluno: 
     public void addAluno(Aluno aluno, Curso curso) {
         if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
@@ -33,18 +30,13 @@ public class Turma {
                 System.out.println(aluno.getNomeAlu()+" foi removido.");
             }
     }
-    
     // saída com resumo da turma:
     @Override
     public String toString() {
         return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
         "\nProfessor: "+this.professor.getNomeProf()+
         "\nCurso: "+this.nomeCurso.getNomeCurso()+
+        "\nCódigo: "+this.codigo.getCodigo()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
-    }
-    public String avaliacao(Aluno aluno, Curso curso, Avaliacao nota) {
-        return "\nAluno: "+aluno.getNomeAlu()+
-        "\nTurma: "+curso.getNomeCurso()+
-        "\nNota: "+nota.getNota();
     }
 }

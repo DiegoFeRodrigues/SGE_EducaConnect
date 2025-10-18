@@ -8,12 +8,10 @@ public class Professor {
         this.especialidade = espec;
         this.registro = reg;
     }
-    
     // getter nome professor:
     public String getNomeProf() {
         return nomeProfessor;
     }
-
     // saída professor:
     public String toString() {
         return "\n\nDados do Professor:\nNome do professor: "+

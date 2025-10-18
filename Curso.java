@@ -13,7 +13,9 @@ public class Curso {
     public String getNomeCurso() {
         return nomeCurso;
     }
-
+    public int getCodigo() {
+        return codigo;
+    }
     // saída curso:
     public String toString() {
         return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
