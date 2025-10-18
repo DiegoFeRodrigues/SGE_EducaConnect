@@ -7,7 +7,7 @@ public class Turma {
     private Curso nomeCurso;
     private Professor professor;
     private List<String> listaAlunos;
-    private Avaliacao avaliação;
+    private Avaliacao avaliacao;
     // constructor:
     public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
         this.codigo = codigo;
@@ -34,12 +34,17 @@ public class Turma {
             }
     }
     
-    // saída turma:
+    // saída com resumo da turma:
     @Override
     public String toString() {
         return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
         "\nProfessor: "+this.professor.getNomeProf()+
         "\nCurso: "+this.nomeCurso.getNomeCurso()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+    }
+    public String avaliacao(Aluno aluno, Curso curso, Avaliacao nota) {
+        return "\nAluno: "+aluno.getNomeAlu()+
+        "\nTurma: "+curso.getNomeCurso()+
+        "\nNota: "+nota.getNota();
     }
 }
