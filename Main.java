@@ -31,21 +31,20 @@ public class Main {
         System.out.println("\nAlunos removidos:");
         tur2.removeAluno(aluno4, curso2);
 
-        // saída com resumo das turmas:
         System.out.println(tur1.toString()+"\n"+tur2.toString());
 
-        // instanciando nova avaliação:
         Avaliacao prova = new Avaliacao("Prova de POO.");
-        // atribuindo nota e saída com resultado - turma 1:
-        prova.atribuirNota(aluno1, 6f);
-        System.out.println(tur1.avaliacao(aluno1, curso1, prova));
 
-        // instanciando nova avaliação:
+        // prova.atribuirNota(10);
+
+        prova.atribuirNota(aluno1, 6);
+
         Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
-        // atribuindo nota e saída com resultado - turma 2:
-        treino.atribuirNota(aluno2, 7.5f);
-        System.out.println(tur2.avaliacao(aluno2, curso2, treino));
-        treino.atribuirNota(aluno3, 10f);
-        System.out.println(tur2.avaliacao(aluno3, curso2, treino));
+
+        treino.atribuirNota(aluno2, 5);
+        treino.atribuirNota(aluno3, 10);
+        
+        System.out.println(prova.toString()+"\n"+
+        treino.toString());
     }
 }
