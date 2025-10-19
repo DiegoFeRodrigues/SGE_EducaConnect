@@ -1,3 +1,4 @@
+package src;
 public class Curso {
     // atributos:
     private String nomeCurso;
