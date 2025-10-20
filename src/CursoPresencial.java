@@ -1,4 +1,3 @@
-package src;
 public class CursoPresencial extends Curso {
     // atributo sala:
     private String sala;

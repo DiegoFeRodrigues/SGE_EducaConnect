@@ -1,4 +1,3 @@
-package src;
 public class Avaliacao {
     // atributos:
     private float nota;

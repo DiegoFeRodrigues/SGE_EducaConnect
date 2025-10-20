@@ -1,4 +1,3 @@
-package src;
 public class Professor {
     // atributos:
     private String nomeProfessor, especialidade;
