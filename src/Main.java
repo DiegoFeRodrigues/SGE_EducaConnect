@@ -40,5 +40,8 @@ public class Main {
         +treino.avaliacao(aluno2, turma2, treino));
         treino.atribuirNota(aluno3, 10f);
         System.out.println(treino.avaliacao(aluno3, turma2, treino));
+
+        CursoPresencial artesMarciais = new CursoPresencial("Artes marciais");
+        System.out.println(artesMarciais.detalharCurso());
     }
 }

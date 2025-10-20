@@ -17,8 +17,11 @@ public class Curso {
     public int getCodigo() {
         return codigo;
     }
+    public float getCarga() {
+        return cargaHoraria;
+    }
     // saída curso:
-    public String toString() {
+    public String detalharCurso() {
         return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
         "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
     }
