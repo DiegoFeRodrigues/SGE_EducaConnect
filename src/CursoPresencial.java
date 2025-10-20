@@ -1,15 +1,13 @@
 package src;
 
-public class CursoPresencial extends Curso{
-    private String nome;
-    public CursoPresencial(String nome) {
-        super("", 0, 0);
-        this.nome = nome;
+public class CursoPresencial extends Curso {
+    public CursoPresencial(String nome, int codigo, float carga) {
+        super(nome, codigo, carga);
     }
 
     @Override
     public String detalharCurso() {
-        return "O curso "+this.nome+
+        return "\nLocal do curso de "+this.getNomeCurso()+
         " é presencial.";
     }
 }
