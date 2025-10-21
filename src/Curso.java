@@ -3,11 +3,15 @@ public class Curso {
     private String nomeCurso;
     private int codigo;
     private float cargaHoraria;
-    //constructor:
+    //constructor - todos atributos:
     public Curso(String nomeCur, int codigo, float carga) {
         this.nomeCurso = nomeCur;
         this.codigo = codigo;
         this.cargaHoraria = carga;
+    }
+    // constructor - apenas nome:
+    public Curso (String nome) {
+        this.nomeCurso = nome;
     }
     //getters nome curso:
     public String getNomeCurso() {

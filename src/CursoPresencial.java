@@ -1,9 +1,9 @@
 public class CursoPresencial extends Curso {
     // atributo sala:
     private String sala;
-    // constructor herdando os atributos de curso:
-    public CursoPresencial(String nome, int codigo, float carga) {
-        super(nome, codigo, carga);
+    // constructor herdando o atributo nome de curso:
+    public CursoPresencial(String nome) {
+        super(nome);
     }
     // getter e setter sala:
     public void setSala(String sala) {
@@ -12,10 +12,11 @@ public class CursoPresencial extends Curso {
     public String getSala() {
         return sala;
     }
-    // sobrescrevendo o método detalharCurso da classe Curso:
+    // sobrescrita do método detalharCurso da classe Curso:
     @Override
     public String detalharCurso() {
-        return "\nSala do curso de "+this.getNomeCurso()+
-        ": "+this.getSala();
+        return "\nDetalhes do curso:"+
+        "\nTreino: "+this.getNomeCurso()+"."+
+        "\nSala: "+this.getSala()+".";
     }
 }

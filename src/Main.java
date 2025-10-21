@@ -40,8 +40,12 @@ public class Main {
         treino.atribuirNota(aluno3, 10f);
         System.out.println(treino.avaliacao(aluno3, turma2, treino));
         // instanciando novo curso presencial e saída com metódo sobrescrito:
-        CursoPresencial artesMarciais = new CursoPresencial(curso2.getNomeCurso(), curso2.getCodigo(), curso2.getCarga());
-        artesMarciais.setSala("Sala do tempo.");
+        CursoPresencial artesMarciais = new CursoPresencial(curso2.getNomeCurso());
+        artesMarciais.setSala("Sala do tempo");
         System.out.println(artesMarciais.detalharCurso());
+
+        CursoEAD poo = new CursoEAD("Programação orientada a objetos");
+        poo.setPlataforma("Studeo");
+        System.out.println(poo.detalharCurso());
     }
 }
