@@ -1,6 +1,6 @@
 public class Curso {
     // atributos:
-    private String nomeCurso;
+    private String nomeCurso, sala;
     private int codigo;
     private float cargaHoraria;
     //constructor - todos atributos:
@@ -14,15 +14,11 @@ public class Curso {
         this.nomeCurso = nome;
     }
     //getters nome curso:
-    public String getNomeCurso() {
-        return nomeCurso;
-    }
-    public int getCodigo() {
-        return codigo;
-    }
-    public float getCarga() {
-        return cargaHoraria;
-    }
+    public String getNomeCurso() {return nomeCurso;}
+    public int getCodigo() {return codigo;}
+    public float getCarga() {return cargaHoraria;}
+    public void setSala(String sala) {this.sala = sala;}
+    public String getSala() {return sala;}
     // saída curso:
     public String detalharCurso() {
         return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+

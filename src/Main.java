@@ -39,13 +39,14 @@ public class Main {
         +treino.avaliacao(aluno2, turma2, treino));
         treino.atribuirNota(aluno3, 10f);
         System.out.println(treino.avaliacao(aluno3, turma2, treino));
-        // instanciando novo curso presencial e saída com metódo sobrescrito:
+        // instanciando novo curso presencial - construtor apenas nome 
         CursoPresencial artesMarciais = new CursoPresencial(curso2.getNomeCurso());
         artesMarciais.setSala("Sala do tempo");
+        // saída com metódo sobrescrito:
         System.out.println(artesMarciais.detalharCurso());
 
-        CursoEAD poo = new CursoEAD(curso1.getNomeCurso());
-        poo.setPlataforma("Studeo");
+        // instanciando novo curso ead com construtor "hibrido", sem setter:
+        CursoEAD poo = new CursoEAD(curso1.getNomeCurso(), "Studeo");
         System.out.println(poo.detalharCurso());
     }
 }

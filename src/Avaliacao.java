@@ -14,19 +14,14 @@ public class Avaliacao {
     }
     // metodo testa nota:
     private boolean testaNota() {
-        if (nota >= 0 && nota <= 10) {
-            return true;
-        }else {
-            return false;   
-        } 
+        if (nota >= 0 && nota <= 10) {return true;}
+        else {return false;} 
     }
-    // getters nota e descrição:
+    // getter nota:
     public float getNota() {
         return nota;
     }
-    public String getDescricao() {
-        return descricao;
-    }
+
     // saída com resumo da avaliação:
     public String avaliacao(Aluno aluno, Turma turma, Avaliacao nota) {
         if (!this.testaNota()) {

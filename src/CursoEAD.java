@@ -5,12 +5,12 @@ public class CursoEAD extends Curso {
     public CursoEAD(String nome) {
         super(nome);
     }
-    // setter e getter plataforma:
-    public void setPlataforma (String p) {
-        this.plataforma = p;
-    }
-    public String getPlataforma() {
-        return plataforma;
+
+    // constructor "hibrido", herdando nome de Curso
+    // e iniciando plataforma como parâmetro no contrutor:
+    public CursoEAD (String nome, String plataforma) {
+        super(nome);
+        this.plataforma = plataforma;
     }
     // sobrescrevendo método detalharCurso da classe curso:
     @Override
