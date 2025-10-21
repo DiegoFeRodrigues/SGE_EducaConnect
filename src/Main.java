@@ -48,5 +48,8 @@ public class Main {
         // instanciando novo curso ead com construtor "hibrido", sem setter:
         CursoEAD poo = new CursoEAD(curso1.getNomeCurso(), "Studeo");
         System.out.println(poo.detalharCurso());
+
+        Administrador adm = new Administrador("adm", "0000");
+        adm.autenticar("admin", "0000");
     }
 }
