@@ -10,10 +10,9 @@ public class Administrador implements Autenticacao{
     @Override
     public void autenticar(String l, String s) {
         if (login == l && senha == s){
-            System.out.println("\nLogin efetuado com sucesso!");
+            System.out.println("\nLogado como administrador.");
         } else {
             System.out.println("\nUsuário ou senha incorretos!");
         }
     }
-
 }
