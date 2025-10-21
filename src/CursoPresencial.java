@@ -16,7 +16,7 @@ public class CursoPresencial extends Curso {
     @Override
     public String detalharCurso() {
         return "\nDetalhes do curso:"+
-        "\nTreino: "+this.getNomeCurso()+"."+
+        "\nCurso de "+this.getNomeCurso()+"."+
         "\nSala: "+this.getSala()+".";
     }
 }

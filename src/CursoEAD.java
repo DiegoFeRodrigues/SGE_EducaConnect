@@ -16,7 +16,7 @@ public class CursoEAD extends Curso {
     @Override
     public String detalharCurso() {
         return "\nDetalhes do curso:"+
-        "\nDisciplina: "+this.getNomeCurso()+"."+
+        "\nCurso de "+this.getNomeCurso()+"."+
         "\nPlataforma: "+this.plataforma+".";
     }
 }

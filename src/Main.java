@@ -44,7 +44,7 @@ public class Main {
         artesMarciais.setSala("Sala do tempo");
         System.out.println(artesMarciais.detalharCurso());
 
-        CursoEAD poo = new CursoEAD("Programação orientada a objetos");
+        CursoEAD poo = new CursoEAD(curso1.getNomeCurso());
         poo.setPlataforma("Studeo");
         System.out.println(poo.detalharCurso());
     }
