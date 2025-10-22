@@ -1,3 +1,3 @@
 public interface Autenticacao {
-    public void autenticar(String login, String senha);
+    public boolean autenticar(String login, String senha);
 }

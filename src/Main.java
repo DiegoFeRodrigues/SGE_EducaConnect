@@ -49,15 +49,19 @@ public class Main {
         CursoEAD poo = new CursoEAD(curso1.getNomeCurso(), "Studeo");
         System.out.println(poo.detalharCurso());
 
-        Administrador adm = new Administrador("adm", "0000");
-        adm.autenticar("admin", "0000");
+        Administrador adm = new Administrador("adm", "000");
+        adm.autenticar("adm", "000");
+        System.out.println(adm.toString(adm.getLogin(), adm.getSenha()));
+        
+        // System.out.println(adm.toString());
+        
 
-        Aluno aluno5 = new Aluno("Shaolin_Matador_de_Porco201", "12345");
-        aluno5.autenticar(null, null);
+        // Aluno aluno5 = new Aluno(null, null);
+        // aluno5.autenticar(null, null);
 
-        Aluno aluno6 = new Aluno("Diego", "ADS", 1904, "Dirod", "SPEORAKSDFJAS");
-        aluno6.autenticar("Dirod", "SPEORAKSDFJAS");
+        // Aluno aluno6 = new Aluno("Diego", "ADS", 1904, "Dirod", "SPEORAKSDFJAS");
+        // aluno6.autenticar("Dirod", "SPEORAKSDFJAS");
 
-        System.out.println(aluno6.toString());
+        // System.out.println(aluno6.toString());
     }
 }

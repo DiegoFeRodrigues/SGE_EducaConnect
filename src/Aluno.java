@@ -1,14 +1,14 @@
-public class Aluno extends Usuario implements Autenticacao{
+public class Aluno implements Autenticacao{ // *** RECOLOCAR EXTENDS USUARIO
     // atributos:
     private String nomeAluno, curso, login, senha;
     private int matricula;
-    // constructor antigo:
+    // constructor anterior:
     public Aluno(String nome, String curso, int matricula) {
         this.nomeAluno = nome;
         this.curso = curso;
         this.matricula = matricula;
     }
-    // construtor novo com atributos da classe abstrata completo:
+    // construtor novo com atributos da classe abstrata - completo:
     public Aluno(String nome, String curso, int matricula, String login, String senha) {
         this.nomeAluno = nome;
         this.curso = curso;
@@ -16,7 +16,7 @@ public class Aluno extends Usuario implements Autenticacao{
         this.login = login;
         this.senha = senha;
     }
-    // construtor - apenas login e senha:
+    // construtor novo - apenas login e senha:
     public Aluno(String login, String senha) {
         this.login = login;
         this.senha = senha;
@@ -29,11 +29,11 @@ public class Aluno extends Usuario implements Autenticacao{
         return nomeAluno;
     }
 
-    public void autenticar(String log, String sen) {
+    public boolean autenticar(String log, String sen) {
         if (login == log && senha == sen) {
-            System.out.println("\nLogado como Aluno.");
+            return true;
         } else {
-            System.out.println("\nLogin ou senha incorretos.");
+            return false;
         }
     }
     // saída aluno:
