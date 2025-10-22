@@ -51,5 +51,13 @@ public class Main {
 
         Administrador adm = new Administrador("adm", "0000");
         adm.autenticar("admin", "0000");
+
+        Aluno aluno5 = new Aluno("Shaolin_Matador_de_Porco201", "12345");
+        aluno5.autenticar(null, null);
+
+        Aluno aluno6 = new Aluno("Diego", "ADS", 1904, "Dirod", "SPEORAKSDFJAS");
+        aluno6.autenticar("Dirod", "SPEORAKSDFJAS");
+
+        System.out.println(aluno6.toString());
     }
 }
