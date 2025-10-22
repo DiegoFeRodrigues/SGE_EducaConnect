@@ -49,9 +49,16 @@ public class Main {
         CursoEAD poo = new CursoEAD(curso1.getNomeCurso(), "Studeo");
         System.out.println(poo.detalharCurso());
 
+        // instanciando novo objeto da classe Administrador pra testar FaseCinco:
         Administrador adm = new Administrador("adm", "000");
         adm.autenticar("adm", "000");
         System.out.println(adm.toString(adm.getLogin(), adm.getSenha()));
+
+        Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
+        alu10.autenticar("Anninha", "98@k9Lç$");
+        System.out.println(alu10.autenticar("Anninha", "98@k9Lç$"));
+        
+        System.out.println(alu10.toString(alu10.getLogin(), alu10.getSenha()));
         
         // System.out.println(adm.toString());
         

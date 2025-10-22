@@ -1,4 +1,4 @@
-public class Aluno implements Autenticacao{ // *** RECOLOCAR EXTENDS USUARIO
+public class Aluno extends Usuario implements Autenticacao{
     // atributos:
     private String nomeAluno, curso, login, senha;
     private int matricula;
@@ -21,12 +21,18 @@ public class Aluno implements Autenticacao{ // *** RECOLOCAR EXTENDS USUARIO
         this.login = login;
         this.senha = senha;
     }
-    // getters - nome e curso aluno:
+    // getters - nome, curso, login e senha - aluno:
     public String getCursoAlu() {
         return curso;
     }
     public String getNomeAlu() {
         return nomeAluno;
+    }
+    public String getLogin() {
+        return login;
+    }
+    public String getSenha() {
+        return senha;
     }
 
     public boolean autenticar(String log, String sen) {
@@ -36,11 +42,19 @@ public class Aluno implements Autenticacao{ // *** RECOLOCAR EXTENDS USUARIO
             return false;
         }
     }
+    
     // saída aluno:
     @Override
-    public String toString() {
-        return "Dados aluno:\nNome do aluno: "+this.nomeAluno+
-        "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso;
+    public String toString(String l, String s) {
+        if (!autenticar(l, s)) {
+            return "Login ou senha incorretos.";
+        } else {
+            return "Logado como aluno. \nSeus dados:"+
+            "\nNome aluno(a): "+this.nomeAluno+
+            "\nMatrícula: "+this.matricula+
+            "\nCurso: "+this.curso;
+        }
     }
 }
+
+// SEGUIR PADRAO DE ADMINISTRADOR!!!!!!!
