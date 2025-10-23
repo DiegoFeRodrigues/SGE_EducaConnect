@@ -6,20 +6,17 @@ public class Administrador extends Usuario implements Autenticacao{
         this.senha = se;
     }
     
-    // implementando método autenticar da classe abstrata autenticacao:
+    // implementacão método da interface Autenticacao:
     @Override
     public void autenticar(String l, String s) {
-        if (l != this.login || s != this.senha) {
-            if (l == null || s == null) {
-                System.out.println("\nInforme login e senha.");
-            }
-            System.out.println("\nLogin ou senha incorretos.");
-        } else {
+        if (l != this.login || s != this.senha) { // == null também
+            System.out.println("\nFalha ao autenticar administrador: "+
+            "Login ou senha incorretos.");
+        } else { // true ou != null
             System.out.println("\nLogado como administrador.");
         }
     }
 }
-
 
 /*
  *  // implementando método autenticar da classe abstrata autenticacao:

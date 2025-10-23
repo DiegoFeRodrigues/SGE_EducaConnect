@@ -7,7 +7,7 @@ public class Main {
         Aluno aluno4 = new Aluno("Yamcha", "Artes marciais", 7);
         // cursos:
         Curso curso1 = new Curso("ADS", 54321, 2180f);
-        Curso curso2 = new Curso("Artes marciais", 98765, 3865.3f);
+        Curso curso2 = new Curso("Artes marciais", 98765, 10000f);
         // professores:
         Professor professor1 = new Professor("Flavio Ceci", "POO", 134679);
         Professor professor2 = new Professor("Mestre Kame", "Estilo da tartaruga", 00001);
@@ -34,7 +34,7 @@ public class Main {
         // instanciando nova avaliação:
         Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
         // atribuindo nota e saída com resultado - turma 2:
-        treino.atribuirNota(aluno2, 7.5f);
+        treino.atribuirNota(aluno2, 8f);
         System.out.println("\nResultado avaliação da turma 2:"
         +treino.avaliacao(aluno2, turma2, treino));
         treino.atribuirNota(aluno3, 10f);
@@ -50,23 +50,14 @@ public class Main {
         System.out.println(poo.detalharCurso());
 
         // instanciando novo objeto da classe Administrador pra testar FaseCinco:
-        Administrador adm = new Administrador("adm", "000");
-        adm.autenticar("adm", "000");
-
-        // Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
-        // alu10.autenticar("Anninha", "98@k9Lç$");
+        Administrador adm = new Administrador("adm", "0000");
+        adm.autenticar("adm","0000");
         
-        // System.out.println(alu10.toString(null, null));
+        Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
+        alu10.autenticar("Anninha", "98@k9L$");
         
-        // System.out.println(adm.toString());
-        
-
-        // Aluno aluno5 = new Aluno(null, null);
-        // aluno5.autenticar(null, null);
-
-        // Aluno aluno6 = new Aluno("Diego", "ADS", 1904, "Dirod", "SPEORAKSDFJAS");
-        // aluno6.autenticar("Dirod", "SPEORAKSDFJAS");
-
-        // System.out.println(aluno6.toString());
+        // instanciando novo objeto da classe Professor pra testar FaseCinco:
+        Professor prof10 = new Professor("Walter White", "Química", 19, "WWhite", "1234");
+        prof10.autenticar("WWhite", "1234");
     }
 }

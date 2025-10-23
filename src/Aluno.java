@@ -2,13 +2,13 @@ public class Aluno extends Usuario implements Autenticacao{
     // atributos:
     private String nomeAluno, curso, login, senha;
     private int matricula;
-    // constructor anterior:
+    // constructor inicial:
     public Aluno(String nome, String curso, int matricula) {
         this.nomeAluno = nome;
         this.curso = curso;
         this.matricula = matricula;
     }
-    // construtor novo com atributos da classe abstrata - completo:
+    // constrcutor novo - atributos da classe abstrata Usuario:
     public Aluno(String nome, String curso, int matricula, String login, String senha) {
         this.nomeAluno = nome;
         this.curso = curso;
@@ -16,48 +16,23 @@ public class Aluno extends Usuario implements Autenticacao{
         this.login = login;
         this.senha = senha;
     }
-    // construtor novo - apenas login e senha:
-    public Aluno(String login, String senha) {
-        this.login = login;
-        this.senha = senha;
-    }
-    // getters - nome, curso, login e senha - aluno:
+    // getters curso e nome - usados em Turma e Avaliacao:
     public String getCursoAlu() {
         return curso;
     }
     public String getNomeAlu() {
         return nomeAluno;
     }
-    public String getLogin() {
-        return login;
-    }
-    public String getSenha() {
-        return senha;
-    }
-
+    // implementação método da interface Autenticacao:
     public void autenticar(String log, String sen) {
-        if (login == log && senha == sen) {
-            // if (login == null || senha == null || log == null || sen == null) {
-            if ((login == null || log == null) || (senha == null || sen == null)) {
-                System.out.println("\nInforma login e senha.");
-            }
-            System.out.println("\nLogado como aluno.\nSeus dados:"+
-            "\nNome aluno(a): "+this.nomeAluno+
+        if (this.login != log || this.senha != sen) { // == null também
+            System.out.println("\nFalha ao autenticar aluno: "+
+            "Login ou senha incorretos.");
+        } else { // true ou != null
+            System.out.println("\nDados do(a) aluno(a):"+
+            "\nNome: "+this.nomeAluno+
             "\nMatrícula: "+this.matricula+
             "\nCurso: "+this.curso);
-        } else {
-            System.out.println("\nLogin ou senha incorretos");
         }
     }
-    
-    // // saída aluno:
-    // @Override
-    // public String toString(String l, String s) {
-    //     if (!autenticar(l, s)) {
-    //         return "Login ou senha incorretos.";
-    //     } else {
-    //     }
-    // }
 }
-
-// SEGUIR PADRAO DE ADMINISTRADOR!!!!!!!
