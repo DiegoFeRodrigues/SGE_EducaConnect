@@ -5,58 +5,32 @@ public class Administrador extends Usuario implements Autenticacao{
         this.login = log;
         this.senha = se;
     }
-    // getters:
-    public String getLogin() {
-        return login;
-    }
-    public String getSenha() {
-        return senha;
-    }
     
     // implementando método autenticar da classe abstrata autenticacao:
     @Override
-    public boolean autenticar(String l, String s) {
-        if (login == l && senha == s){ // ***  MELHORAR ISSO !!!!
-            if (login == null || l == null || senha == null || s == null) {
-                // System.out.println("\nInforme login e senha.");
-                return false;
+    public void autenticar(String l, String s) {
+        if (l != this.login || s != this.senha) {
+            if (l == null || s == null) {
+                System.out.println("\nInforme login e senha.");
             }
-            // System.out.println("\nLogado como administrador.");
-            return true;
+            System.out.println("\nLogin ou senha incorretos.");
         } else {
-            // System.out.println("\nLogin ou senha incorretos");
-            return false;
-        }
-    }
-    // sobrescrita do método abstrato toString da classe Usuario:
-    @Override
-    public String toString(String l, String s) {
-        if (!autenticar(l, s)) {
-            return "\nLogin ou senha incorretos.";
-        } else {
-            return "\nLogado como administrador!!!!";
+            System.out.println("\nLogado como administrador.");
         }
     }
 }
 
 
 /*
-
-MÉTODO AUTENTICA JÁ COM A SAÍDA - QUAL É MELHOR, MENOS CÓDIGO OU COM RETORNO????
-
-// implementando método autenticar da classe abstrata autenticacao:
+ *  // implementando método autenticar da classe abstrata autenticacao:
     @Override
-    public boolean autenticar(String l, String s) {
-        if (login == l && senha == s){ // ***  MELHORAR ISSO !!!!
-            if (login == null || l == null || senha == null || s == null) {
-                // System.out.println("\nInforme login e senha.");
-                return false;
-            }
-            // System.out.println("\nLogado como administrador.");
-            return true;
+    public void autenticar(String l, String s) {
+        if ((login == null || l == null) || (senha == null || s == null)) {
+            System.out.println("\nInforme login e senha.");
+        } else if (login == l && senha == s){
+            System.out.println("\nLogado como administrador.");
         } else {
-            // System.out.println("\nLogin ou senha incorretos");
-            return false;
+            System.out.println("\nLogin ou senha incorretos.");
         }
-}
-*/
+    }
+ */

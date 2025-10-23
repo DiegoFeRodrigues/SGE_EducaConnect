@@ -1,4 +1,4 @@
 public abstract class Usuario {
-    protected String nomeAluno, curso, login, senha;
-    abstract String toString(String l, String s); 
+    protected String login, senha; 
+    protected String nomeAluno, curso, matricula;
 }

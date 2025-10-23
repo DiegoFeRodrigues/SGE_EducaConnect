@@ -35,26 +35,29 @@ public class Aluno extends Usuario implements Autenticacao{
         return senha;
     }
 
-    public boolean autenticar(String log, String sen) {
+    public void autenticar(String log, String sen) {
         if (login == log && senha == sen) {
-            return true;
+            // if (login == null || senha == null || log == null || sen == null) {
+            if ((login == null || log == null) || (senha == null || sen == null)) {
+                System.out.println("\nInforma login e senha.");
+            }
+            System.out.println("\nLogado como aluno.\nSeus dados:"+
+            "\nNome aluno(a): "+this.nomeAluno+
+            "\nMatrícula: "+this.matricula+
+            "\nCurso: "+this.curso);
         } else {
-            return false;
+            System.out.println("\nLogin ou senha incorretos");
         }
     }
     
-    // saída aluno:
-    @Override
-    public String toString(String l, String s) {
-        if (!autenticar(l, s)) {
-            return "Login ou senha incorretos.";
-        } else {
-            return "Logado como aluno. \nSeus dados:"+
-            "\nNome aluno(a): "+this.nomeAluno+
-            "\nMatrícula: "+this.matricula+
-            "\nCurso: "+this.curso;
-        }
-    }
+    // // saída aluno:
+    // @Override
+    // public String toString(String l, String s) {
+    //     if (!autenticar(l, s)) {
+    //         return "Login ou senha incorretos.";
+    //     } else {
+    //     }
+    // }
 }
 
 // SEGUIR PADRAO DE ADMINISTRADOR!!!!!!!
