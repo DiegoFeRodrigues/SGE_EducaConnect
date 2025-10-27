@@ -8,12 +8,14 @@ public class Administrador extends Usuario implements Autenticacao{
     
     // implementacão método da interface Autenticacao:
     @Override
-    public void autenticar(String l, String s) {
+    public boolean autenticar(String l, String s) {
         if (l != this.login || s != this.senha) { // == null também
             System.out.println("\nFalha ao autenticar administrador: "+
             "Login ou senha incorretos.");
+            return false;
         } else { // true ou != null
             System.out.println("\nLogado como administrador.");
+            return true;
         }
     }
 }

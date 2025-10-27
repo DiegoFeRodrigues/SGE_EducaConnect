@@ -53,6 +53,7 @@ public class Main {
         Administrador adm = new Administrador("adm", "0000");
         adm.autenticar("adm","0000");
         
+        // instanciando novo objeto da classe Aluno pra testar FaseCinco:
         Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
         alu10.autenticar("Anninha", "98@k9L$");
         

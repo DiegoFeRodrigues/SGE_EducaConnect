@@ -24,15 +24,14 @@ public class Aluno extends Usuario implements Autenticacao{
         return nomeAluno;
     }
     // implementação método da interface Autenticacao:
-    public void autenticar(String log, String sen) {
+    public boolean autenticar(String log, String sen) {
         if (this.login != log || this.senha != sen) { // == null também
             System.out.println("\nFalha ao autenticar aluno: "+
             "Login ou senha incorretos.");
+            return false;
         } else { // true ou != null
-            System.out.println("\nDados do(a) aluno(a):"+
-            "\nNome: "+this.nomeAluno+
-            "\nMatrícula: "+this.matricula+
-            "\nCurso: "+this.curso);
+            System.out.println("\nLogado como aluno");
+            return true;
         }
     }
 }

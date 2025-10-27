@@ -22,15 +22,14 @@ public class Professor extends Usuario implements Autenticacao{
         return nomeProfessor;
     }
     // implementação método da interface Autenticacao:
-    public void autenticar(String lgin, String pword) {
+    public boolean autenticar(String lgin, String pword) {
         if (lgin != login || pword != senha) { // == null também
             System.out.println("\nFalha ao autenticar professor:"+
             " Login ou senha incorretos");
+            return false;
         } else { // true ou != null
-            System.out.println("\nDados do(a) professor(a):"+
-            "\nNome: "+this.nomeProfessor+
-            "\nRegistro: "+this.registro+
-            "\nEspecialidade: "+this.especialidade);
+            System.out.println("\nLogado como Professor.");
+            return true;
         }
     }
 }
