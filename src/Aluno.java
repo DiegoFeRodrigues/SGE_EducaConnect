@@ -24,6 +24,7 @@ public class Aluno extends Usuario implements Autenticacao{
         return nomeAluno;
     }
     // implementação método da interface Autenticacao:
+    @Override
     public boolean autenticar(String log, String sen) {
         if (this.login != log || this.senha != sen) { // == null também
             System.out.println("\nFalha ao autenticar aluno: "+

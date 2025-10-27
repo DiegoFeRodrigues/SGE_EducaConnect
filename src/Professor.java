@@ -22,6 +22,7 @@ public class Professor extends Usuario implements Autenticacao{
         return nomeProfessor;
     }
     // implementação método da interface Autenticacao:
+    @Override
     public boolean autenticar(String lgin, String pword) {
         if (lgin != login || pword != senha) { // == null também
             System.out.println("\nFalha ao autenticar professor:"+
