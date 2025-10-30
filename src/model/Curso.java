@@ -1,3 +1,5 @@
+package model;
+
 public class Curso {
     // atributos:
     private String nomeCurso, sala;

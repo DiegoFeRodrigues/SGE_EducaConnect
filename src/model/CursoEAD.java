@@ -1,3 +1,5 @@
+package model;
+
 public class CursoEAD extends Curso {
     // atributo:
     private String plataforma;

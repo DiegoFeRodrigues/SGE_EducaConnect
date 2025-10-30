@@ -1,6 +1,16 @@
+import model.Administrador;
+import model.Aluno;
+import model.Avaliacao;
+import model.Curso;
+import model.CursoEAD;
+import model.CursoPresencial;
+import model.Professor;
+import model.Turma;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // instanciando novos objetos - alunos:

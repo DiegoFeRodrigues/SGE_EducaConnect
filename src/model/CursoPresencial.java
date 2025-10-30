@@ -1,3 +1,5 @@
+package model;
+
 public class CursoPresencial extends Curso {
     // constructor herdando o atributo nome de curso:
     public CursoPresencial(String nome) {

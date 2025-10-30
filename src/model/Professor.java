@@ -1,3 +1,8 @@
+package model;
+
+import service.Autenticacao;
+import service.Usuario;
+
 public class Professor extends Usuario implements Autenticacao{
     // atributos:
     private String nomeProfessor, especialidade;

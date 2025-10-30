@@ -1,3 +1,5 @@
+package model;
+
 public class Avaliacao {
     // atributos:
     private float nota;

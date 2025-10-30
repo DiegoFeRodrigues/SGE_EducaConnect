@@ -1,3 +1,7 @@
+package model;
+import service.Autenticacao;
+import service.Usuario;
+
 public class Administrador extends Usuario implements Autenticacao{
     private String login, senha;
     // constructor:
