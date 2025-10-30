@@ -33,10 +33,10 @@ public class Professor extends Usuario implements Autenticacao{
             return true;
         }
     }
-
+    // método polimórfico - Relatório prof.:
     public String gerarRelatorio() {
         return "\nNome do professor: "+this.nomeProfessor+
         "\nRegistro: "+this.registro+
-        "\nEspecialidade"+this.especialidade;
+        "\nEspecialidade: "+this.especialidade;
     }
 }

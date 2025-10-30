@@ -19,9 +19,16 @@ public class Curso {
     public float getCarga() {return cargaHoraria;}
     public void setSala(String sala) {this.sala = sala;}
     public String getSala() {return sala;}
-    // saída curso:
-    public String detalharCurso() {
-        return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
-        "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
+
+    // método detalharCurso - será sobrescrito nas subclasses:
+    protected String detalharCurso() {
+        return "\nDetalhes do curso:\nNome do curso: "+
+        this.getNomeCurso()+"\nCódigo: "+this.codigo+
+        "\nCarga horária: "+this.cargaHoraria;
+    }
+    
+    // método polimórfico - Relatório cursos:
+    public String gerarRelatorio() {
+        return detalharCurso();
     }
 }

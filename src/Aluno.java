@@ -30,12 +30,11 @@ public class Aluno extends Usuario implements Autenticacao{
             System.out.println("\nFalha ao autenticar aluno: "+
             "Login ou senha incorretos.");
             return false;
-        } else { // true ou != null
-            System.out.println("\nLogado como aluno");
-            return true;
         }
+        System.out.println("\nLogado como aluno");
+        return true;
     }
-
+    // método polimórfico - Relatórios aluno::
     public String gerarRelatorio() {
         return "\nNome do aluno: "+this.nomeAluno+
         "\nMatrícula: "+this.matricula+
