@@ -26,7 +26,7 @@ public class Aluno extends Usuario implements Autenticacao{
     @Override
     // implementação método da interface Autenticacao:
     public boolean autenticar(String log, String sen) {
-        if (this.login != log || this.senha != sen) { // == null também
+        if (this.login != log || this.senha != sen) { // false ou null
             System.out.println("\nFalha ao autenticar aluno: "+
             "Login ou senha incorretos.");
             return false;
@@ -34,5 +34,11 @@ public class Aluno extends Usuario implements Autenticacao{
             System.out.println("\nLogado como aluno");
             return true;
         }
+    }
+
+    public String gerarRelatorio() {
+        return "\nNome do aluno: "+this.nomeAluno+
+        "\nMatrícula: "+this.matricula+
+        "\nCurso: "+this.curso;
     }
 }

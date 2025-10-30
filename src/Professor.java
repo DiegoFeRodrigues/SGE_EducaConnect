@@ -33,4 +33,10 @@ public class Professor extends Usuario implements Autenticacao{
             return true;
         }
     }
+
+    public String gerarRelatorio() {
+        return "\nNome do professor: "+this.nomeProfessor+
+        "\nRegistro: "+this.registro+
+        "\nEspecialidade"+this.especialidade;
+    }
 }

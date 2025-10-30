@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         // instanciando novos objetos - alunos:
@@ -55,10 +57,20 @@ public class Main {
         
         // instanciando novo objeto da classe Aluno pra testar FaseCinco:
         Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
-        alu10.autenticar("Anninha", "98@k9L$");
+        // alu10.autenticar("Anninha", "98@k9L$");
+        // System.out.println(alu10.autenticacao());
         
         // instanciando novo objeto da classe Professor pra testar FaseCinco:
         Professor prof10 = new Professor("Walter White", "Química", 19, "WWhite", "1234");
         prof10.autenticar("WWhite", "1234");
+
+        List<Aluno> listaAlunos = new ArrayList<>();
+        listaAlunos.add(alu10);
+        listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
+        
+        for (Aluno aluno : listaAlunos) {
+            System.out.println(aluno.gerarRelatorio());
+        }
+        alu10.autenticar(null, null);
     }
 }
