@@ -1,4 +1,5 @@
 package model;
+
 import service.Autenticacao;
 import service.Usuario;
 

@@ -7,10 +7,6 @@ import model.CursoPresencial;
 import model.Professor;
 import model.Turma;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         // instanciando novos objetos - alunos:
@@ -65,71 +61,7 @@ public class Main {
         // instanciando novo objeto da classe Administrador pra testar FaseCinco:
         Administrador adm = new Administrador("adm", "0000");
         adm.autenticar("adm","0000");
-        
-        // instanciando novo objeto da classe Aluno pra testar FaseCinco:
-        Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
-        alu10.autenticar("Anninha", "98@k9Lç$");
-        
-        // instanciando novo objeto da classe Professor pra testar FaseCinco:
-        Professor prof10 = new Professor("Walter White", "Química", 19, "WWhite", "1234");
-        prof10.autenticar("WWhite", "1234");
 
-        // lista alunos:
-        List<Aluno> listaAlunos = new ArrayList<>();
-        listaAlunos.add(alu10);
-        // instanciando aluno direto na lista:
-        listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
-
-        // lista professores:
-        List<Professor> listaProf = new ArrayList<>();
-        listaProf.add(professor1);
-        listaProf.add(professor2);
         
-        // lista cursos:
-        List<Curso> listaCursos = new ArrayList<>();
-        listaCursos.add(curso1);
-        listaCursos.add(curso2);
-
-        // instanciando novo scanner - input do usuário
-        Scanner scan = new Scanner(System.in);
-        // variável de controle - escolha:
-        int escolha;
-        // do-while para repetir menu de escolha (executa ao menos uma vez, testa no final):
-        do {
-            // menu:
-            System.out.println("\nRelatórios\nSelecione o relatório desejado:"+
-            "\nDigite 1 - Alunos matriculados\nDigite 2 - Professores registrados"+
-            "\nDigite 3 - Cursos disponíveis\nDigite 4 - Sair");
-            // lendo escolha do usuário:
-            escolha = scan.nextInt();
-            // usando switch-case para selecionar escolha do usuário:
-            switch (escolha) {
-                case 1 :    // alunos:
-                    System.out.println("\nRelatório de alunos matriculados:");
-                    for (Aluno alunos : listaAlunos) {
-                        System.out.println(alunos.gerarRelatorio());
-                    }
-                    break;
-                case 2:     // professores:
-                    System.out.println("\nRelatório de professores registrados:");
-                    for (Professor prof : listaProf) {
-                        System.out.println(prof.gerarRelatorio());
-                    }
-                    break;
-                case 3:     // cursos:
-                    System.out.println("\nRelatório de cursos disponíveis:");
-                    for (Curso cursos : listaCursos) {
-                        System.out.println(cursos.gerarRelatorio());
-                    }
-                default :   // opção inválida ou sair
-                    if (escolha <= 0 || escolha > 4) {
-                        System.out.println("\nOpção inválida!");
-                    } else if (escolha == 4) {
-                        System.out.println("\nSaindo...");
-                    }
-                    break;
-            }       // enquanto != 4 repete do-while
-        } while (escolha != 4);
-        scan.close();
     }
 }
