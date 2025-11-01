@@ -1,4 +1,6 @@
-package model;
+package service;
+
+import model.Curso;
 
 public class CursoPresencial extends Curso {
     // constructor herdando o atributo nome de curso:

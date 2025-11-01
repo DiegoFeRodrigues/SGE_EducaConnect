@@ -1,4 +1,6 @@
-package model;
+package service;
+
+import model.Curso;
 
 public class CursoEAD extends Curso {
     // atributo:

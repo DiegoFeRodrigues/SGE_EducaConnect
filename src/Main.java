@@ -1,11 +1,12 @@
 import model.Administrador;
 import model.Aluno;
-import model.Avaliacao;
 import model.Curso;
-import model.CursoEAD;
-import model.CursoPresencial;
 import model.Professor;
-import model.Turma;
+import service.Avaliacao;
+import service.CursoEAD;
+import service.CursoPresencial;
+import service.Turma;
+import ui.MenuRelatorios;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,6 +63,8 @@ public class Main {
         Administrador adm = new Administrador("adm", "0000");
         adm.autenticar("adm","0000");
 
-        
+        // CHAMANDO MENU DE RELATÓRIOS NO MAIN:
+        MenuRelatorios menuRelatorios = new MenuRelatorios();
+        menuRelatorios.menuR();
     }
 }

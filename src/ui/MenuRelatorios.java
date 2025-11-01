@@ -9,8 +9,8 @@ import repository.ArmazTemporario;
 
 public class MenuRelatorios {
 
-    public static void main(String[] args) {
-    // public void teste() {
+    // public static void main(String[] args) {
+    public void menuR() {
 
         // instanciando objeto da classe que contém as listas
         ArmazTemporario listaAlu = new ArmazTemporario();

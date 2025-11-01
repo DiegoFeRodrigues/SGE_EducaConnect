@@ -1,4 +1,6 @@
-package model;
+package service;
+
+import model.Aluno;
 
 public class Avaliacao {
     // atributos:
