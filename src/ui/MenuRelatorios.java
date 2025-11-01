@@ -9,12 +9,18 @@ import repository.ArmazTemporario;
 
 public class MenuRelatorios {
 
-    // public static void main(String[] args) {
-    public void teste() {
+    public static void main(String[] args) {
+    // public void teste() {
 
         // instanciando objeto da classe que contém as listas
         ArmazTemporario listaAlu = new ArmazTemporario();
         listaAlu.adicionaAluno();
+
+        ArmazTemporario listaPro = new ArmazTemporario();
+        listaPro.adicionaProf();
+
+        ArmazTemporario listaCur = new ArmazTemporario();
+        listaCur.adicionaCurso();
         
         // instanciando novo scanner - input do usuário
         Scanner scan = new Scanner(System.in);
@@ -37,22 +43,22 @@ public class MenuRelatorios {
                         System.out.println(alunos.gerarRelatorio());
                     }
                     break;
-                // case 2:     // professores:
-                //     System.out.println("\nRelatório de professores registrados:");
-                //     for (Professor prof : listaProf) {
-                //         System.out.println(prof.gerarRelatorio());
-                //     }
-                //     break;
-                // case 3:     // cursos:
-                //     System.out.println("\nRelatório de cursos disponíveis:");
-                //     for (Curso cursos : listaCursos) {
-                //         System.out.println(cursos.gerarRelatorio());
-                //     }
+                case 2:     // professores:
+                    System.out.println("\nRelatório de professores registrados:");
+                    for (Professor prof : listaPro.getListaProf()) {
+                        System.out.println(prof.gerarRelatorio());
+                    }
+                    break;
+                case 3:     // cursos:
+                    System.out.println("\nRelatório de cursos disponíveis:");
+                    for (Curso cursos : listaCur.getListaCursos()) {
+                        System.out.println(cursos.gerarRelatorio());
+                    }
                 default :   // opção inválida ou sair
                     if (escolha <= 0 || escolha > 4) {
                         System.out.println("\nOpção inválida!");
                     } else if (escolha == 4) {
-                        System.out.println("\nSaindo...");
+                        System.out.println("\nSaindo...\n");
                     }
                     break;
             }       // enquanto != 4 repete do-while

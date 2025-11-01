@@ -2,7 +2,6 @@ package repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import model.Aluno;
 import model.Curso;
@@ -10,16 +9,32 @@ import model.Professor;
 
 public class ArmazTemporario {
 
-    private static List<Aluno> listaAlunos = new ArrayList<>();
+    private List<Aluno> listaAlunos = new ArrayList<>();
+    private List<Professor> listaProf = new ArrayList<>();
+    private List<Curso> listaCursos = new ArrayList<>();
 
     public void adicionaAluno() {
-        listaAlunos.add(new Aluno("Aninha", "Letras", 564869));
+        listaAlunos.add(new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$"));
         listaAlunos.add(new Aluno("Teste", "testou",156657,"fasdfsidfa","asfasfpsofia"));
     }
-    
     public List<Aluno> getListaAlunos() {
         return listaAlunos;
     }
+
+    public void adicionaProf() {
+        listaProf.add(new Professor("Walter White", "Química", 19, "WWhite", "1234"));
+    }
+    public List<Professor> getListaProf() {
+        return listaProf;
+    }
+
+    public void adicionaCurso() {
+        listaCursos.add(new Curso("Engenharia", 57777, 53891f));
+    }
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+    
     
     // public void adicionaAluno() {
     // public static void main(String[] args) {
