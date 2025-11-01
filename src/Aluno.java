@@ -1,5 +1,5 @@
 public class Aluno {
-    // atributos:
+    // atributos aluno:
     private String nome, curso;
     private int matricula;
     // constructor:
@@ -9,19 +9,11 @@ public class Aluno {
         this.matricula = matricula;
     }
 
-    // getters - nome e curso aluno:
+    // getters nome e curso aluno - usados em turma:
     public String getCursoAlu() {
         return curso;
     }
     public String getNomeAlu() {
         return nome;
-    }
-
-    // saída aluno:
-    @Override
-    public String toString() {
-        return "Dados aluno:\nNome do aluno: "+this.nome+
-        "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso;
     }
 }
