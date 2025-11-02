@@ -1,4 +1,4 @@
-public class Avaliacao {
+    public class Avaliacao {
     // atributos avaliação:
     private float nota;
     private String descricao;
