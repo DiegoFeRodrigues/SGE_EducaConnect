@@ -1,5 +1,5 @@
 public class Professor {
-    // atributos:
+    // atributos professor:
     private String nomeProfessor, especialidade;
     private int registro;
     // constructor:
@@ -8,14 +8,8 @@ public class Professor {
         this.especialidade = espec;
         this.registro = reg;
     }
-    // getter nome professor:
+    // getter nome professor - usado em Turma:
     public String getNomeProf() {
         return nomeProfessor;
-    }
-    // saída professor:
-    public String toString() {
-        return "\n\nDados do Professor:\nNome do professor: "+
-        this.nomeProfessor+"\nRegistro: "+this.registro+
-        "\nEspecialidade: "+this.especialidade;
     }
 }

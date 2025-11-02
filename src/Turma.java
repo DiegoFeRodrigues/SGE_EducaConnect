@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 public class Turma {
-    // atributos:
+    // atributos turma:
     private Curso codigo;
     private Curso nomeCurso;
     private Professor professor;
@@ -25,14 +25,12 @@ public class Turma {
     public void removeAluno(Aluno aluno, Curso curso) {
         if (aluno == null){
             System.out.println("Aluno inválido!");
-        }else {
-            listaAlunos.remove(aluno.getNomeAlu());
-                System.out.println(aluno.getNomeAlu()+" foi removido.");
-            }
+        }
+        listaAlunos.remove(aluno.getNomeAlu());
+        System.out.println(aluno.getNomeAlu()+" foi removido.");
     }
     // saída com resumo da turma:
-    @Override
-    public String toString() {
+    public String resumoTurma() {
         return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
         "\nProfessor: "+this.professor.getNomeProf()+
         "\nCurso: "+this.nomeCurso.getNomeCurso()+

@@ -1,5 +1,5 @@
 public class Curso {
-    // atributos:
+    // atributos curso:
     private String nomeCurso;
     private int codigo;
     private float cargaHoraria;
@@ -9,16 +9,11 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = carga;
     }
-    //getters nome curso:
+    //getters nome curso - usados em Turma:
     public String getNomeCurso() {
         return nomeCurso;
     }
     public int getCodigo() {
         return codigo;
-    }
-    // saída curso:
-    public String toString() {
-        return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
-        "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
     }
 }
