@@ -2,7 +2,7 @@ public class Aluno {
     // atributos aluno:
     private String nome, curso;
     private int matricula;
-    // constructor aluno - valida e inicia atributos::
+    // constructor aluno - valida e inicia atributos:
     public Aluno(String nome, String curso, int matricula) {
         if (nome == null) {
             throw new NullPointerException("Informe o nome do aluno.");
