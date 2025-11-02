@@ -34,7 +34,7 @@ public class Main {
             System.out.println(tur1.resumoTurma()+"\n"+tur2.resumoTurma()+"\n");
         }
         // bloco catch para captura e saída de erros de objetos que não puderem ser instanciados: 
-        catch (NullPointerException | IllegalAccessError npeouiae) {
+        catch (NullPointerException | IllegalArgumentException npeouiae) {
             System.err.println("Erro: "+npeouiae.getMessage());
         }
 
