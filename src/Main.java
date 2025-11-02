@@ -15,11 +15,6 @@ public class Main {
         Turma tur1 = new Turma(curso1, curso1, professor1);
         Turma tur2 = new Turma(curso2, curso2, professor2);
 
-        /* saídas - TESTES:
-        System.out.println(aluno1.toString()+curso1.toString()+
-        professor1.toString()+"\n\n"+aluno2.toString()+curso2.toString()+
-        professor2.toString()+tur1.toString()+tur2.toString()); */
-
         // adicionando aluno em seus cursos:
         System.out.println("\nAlunos adicionados:");
         //turma 1:
@@ -30,9 +25,10 @@ public class Main {
         tur2.addAluno(aluno4, curso2);
 
         // removendo aluno:
-        System.out.println("Alunos removidos:");
+        System.out.println("\nAlunos removidos:");
         tur2.removeAluno(aluno4, curso2);
 
+        // saída com retorno do método resumoTurma():
         System.out.println(tur1.resumoTurma()+"\n"+tur2.resumoTurma()+"\n");
         
     }

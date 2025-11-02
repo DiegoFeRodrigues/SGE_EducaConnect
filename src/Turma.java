@@ -19,20 +19,19 @@ public class Turma {
         if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno.getNomeAlu());
             System.out.println(aluno.getNomeAlu()+
-            " foi adicionado ao curso de "+curso.getNomeCurso()+".\n");
+            " foi adicionado ao curso de "+curso.getNomeCurso()+".");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
         if (aluno == null){
             System.out.println("Aluno inválido!");
-        }else {
-            listaAlunos.remove(aluno.getNomeAlu());
-                System.out.println(aluno.getNomeAlu()+" foi removido "+
-                "do curso de "+curso.getNomeCurso()+".");
-            }
+        }
+        listaAlunos.remove(aluno.getNomeAlu());
+        System.out.println(aluno.getNomeAlu()+" foi removido "+
+        "do curso de "+curso.getNomeCurso()+".");
     }
-    // saída com resumo da turma:
+    // método resumo da turma:
     public String resumoTurma() {
         return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
         "\nProfessor: "+this.professor.getNomeProf()+
