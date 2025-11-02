@@ -14,8 +14,8 @@ public class Main {
             Professor professor1 = new Professor("Flavio Ceci", "POO", 134679);
             Professor professor2 = new Professor("Mestre Kame", "Estilo da tartaruga", 00001);
             // turmas:
-            Turma turma1 = new Turma(curso1, curso1, professor1);
-            Turma turma2 = new Turma(curso2, curso2, professor2);
+            Turma turma1 = new Turma(12345, curso1, professor1);
+            Turma turma2 = new Turma(54321, curso2, professor2);
 
             // adicionando aluno em seus cursos:
             System.out.println("\nAlunos adicionados:");
