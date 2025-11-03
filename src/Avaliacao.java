@@ -4,31 +4,33 @@
     private String descricao;
     private Aluno aluno;
     private Turma turma;
-    // constructor:
-    public Avaliacao(String descrição) {
-        this.descricao = descrição;
-    }
-    // metodo atribuir nota associando alunos em turmas:
-    public void atribuirNota(Aluno aluno, Turma turma, float valor) {
+    // constructor avaliação - valida e inicia atributo descrição:
+    public Avaliacao(String descricao) {
+        if (descricao == null) {
+            throw new NullPointerException("Informe a descrição da avaliação.");
+        }
+        this.descricao = descricao;
+     }
+    // metodo atribuir nota associando alunos em turmas e validando dados informados:
+    public void atribuirNota(Aluno aluno, Turma turma, float nota) {
+        if (aluno == null) {
+            throw new NullPointerException("Informe o objeto aluno desejado.");
+        }
+        if (turma == null) {
+            throw new NullPointerException("Informe o objeto turma desejado.");
+        }
+        if (nota < 0 || nota > 10) { // valida se nota está entre 0 e 10
+            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.");
+        }
         this.aluno = aluno;
         this.turma = turma;
-        this.nota = valor;
+        this.nota = nota;
     }
-    // metodo testa nota:
-    private boolean testaNota() {
-        if (nota <= 0 || nota > 10) {
-            return false;
-        }
-        return true; 
-    }
-    // saída com resumo da avaliação:
-    public String avaliacao(Aluno aluno, Avaliacao nota) {
-        if (!this.testaNota()) {
-            return "\nNota inválida para a avaliação "+
-            this.descricao;
-        }
-        return "\nNome do Aluno: "+this.aluno.getNomeAlu()+
+    // saída com resultado da avaliação:
+    public String resultado(Aluno aluno, Turma turma, Avaliacao nota) {
+        return "Nome do Aluno: "+this.aluno.getNomeAlu()+
+        "\nCódigo da turma: "+this.turma.getCodigoTurma()+
         "\nDescrição da avaliação: "+this.descricao+
-        "\nNota: "+this.nota;
+        "\nNota: "+this.nota+"\n";
     }
 }

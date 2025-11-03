@@ -1,24 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+
 public class Turma {
     // atributos turma:
-    private Curso codigo;
-    private Curso nomeCurso;
+    private int codigo;
     private Professor professor;
+    private Curso curso;
     private List<String> listaAlunos;
     // constructor turma - valida e inicia atributos:
-    public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
-        if (codigo == null) {
-            throw new NullPointerException("Informe o objeto do curso desejado para acessar seu código.");
+    public Turma(int codigo, Curso curso, Professor professor) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("Código da turma deve ser maior que 0.");
         }
-        if (nomeCurso == null) {
-            throw new NullPointerException("Informe o objeto do curso desejado para acessar seu nome.");
+        if (curso == null) {
+            throw new NullPointerException("Informe o objeto curso desejado.");
         }
         if (professor == null) {
-            throw new NullPointerException("Informe o objeto do professor desejado.");
+            throw new NullPointerException("Informe o objeto professor desejado.");
         }
         this.codigo = codigo;
-        this.nomeCurso = nomeCurso;
+        this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
     }
@@ -36,11 +37,20 @@ public class Turma {
         listaAlunos.remove(aluno.getNomeAlu());
         System.out.println(aluno.getNomeAlu()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
+    // getter codigo - usado em Avaliacao:
+    public int getCodigoTurma() {
+        return codigo;
+    }
+    // getter curso - usado no Main:
+    public Curso getCursoTurma() {
+        return curso;
+    }
     // método com resumo da turma:
     public String resumoTurma() {
-        return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
+        return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
+        "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNomeProf()+
-        "\nCurso: "+this.nomeCurso.getNomeCurso()+
+        "\nCurso: "+this.curso.getNomeCurso()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
     }
 }
