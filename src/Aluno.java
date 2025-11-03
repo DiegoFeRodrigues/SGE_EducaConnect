@@ -1,10 +1,11 @@
 public class Aluno {
     // atributos aluno:
-    private String nome, curso;
-    private int matricula;
+    String nomeAluno;
+    String curso;
+    int matricula;
     // constructor aluno - valida e inicia atributos:
-    public Aluno(String nome, String curso, int matricula) {
-        if (nome == null) {
+    public Aluno(String nomeAluno, String curso, int matricula) {
+        if (nomeAluno == null) {
             throw new NullPointerException("Informe o nome do aluno.");
         }
         if (curso == null) {
@@ -13,13 +14,13 @@ public class Aluno {
         if (matricula <= 0) {
             throw new IllegalArgumentException("O número da matrícula deve ser maior que 0.");
         }
-        this.nome = nome;
+        this.nomeAluno = nomeAluno;
         this.curso = curso;
         this.matricula = matricula;
     }
-    // método saída para testar aluno:
+    // método saída para testar dados aluno:
     public String dadosAluno() {
-        return "Nome do Aluno: "+this.nome+
+        return "Nome do Aluno: "+this.nomeAluno+
         "\nMatrícula: "+this.matricula+
         "\nCurso: "+this.curso;
     }

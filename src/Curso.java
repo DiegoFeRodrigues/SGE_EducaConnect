@@ -1,24 +1,24 @@
 public class Curso {
     // atributos curso:
-    private String nomeCurso;
-    private int codigo;
-    private float cargaHoraria;
+    String nomeCurso;
+    int codigo;
+    float cargaHoraria;
     // constructor curso - valida e inicia atributos:
-    public Curso(String nomeCur, int codigo, float carga) {
-        if (nomeCur == null) {
+    public Curso(String nomeCurso, int codigo, float cargaHoraria) {
+        if (nomeCurso == null) {
             throw new NullPointerException("Informe o nome do curso.");
         }
         if (codigo <= 0) {
             throw new IllegalArgumentException("Codigo do curso deve ser maior que 0.");
         }
-        if (carga <= 0) {
+        if (cargaHoraria <= 0) {
             throw new IllegalArgumentException("A carga horária do curso deve ser maior que 0.");
         }
-        this.nomeCurso = nomeCur;
+        this.nomeCurso = nomeCurso;
         this.codigo = codigo;
-        this.cargaHoraria = carga;
+        this.cargaHoraria = cargaHoraria;
     }
-    // método saída p/ testar curso:
+    // método saída p/ testar dados curso:
     public String dadosCurso() {
         return "Curso: " +this.nomeCurso+
         "\nCódigo: "+this.codigo+
