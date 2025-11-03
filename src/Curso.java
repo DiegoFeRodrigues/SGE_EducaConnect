@@ -1,8 +1,8 @@
 public class Curso {
     // atributos curso:
-    private String nomeCurso;
-    private int codigo;
-    private float cargaHoraria;
+    String nomeCurso;
+    int codigo;
+    float cargaHoraria;
     // constructor curso - valida e inicia atributos:
     public Curso(String nomeCur, int codigo, float carga) {
         if (nomeCur == null) {
@@ -17,9 +17,5 @@ public class Curso {
         this.nomeCurso = nomeCur;
         this.codigo = codigo;
         this.cargaHoraria = carga;
-    }
-    //getters nome curso - usado em turma:
-    public String getNomeCurso() {
-        return nomeCurso;
     }
 }

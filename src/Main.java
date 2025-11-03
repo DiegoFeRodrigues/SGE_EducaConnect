@@ -30,8 +30,11 @@ public class Main {
             System.out.println("\nAlunos removidos:");
             turma2.removeAluno(aluno4, curso2);
     
-            // saída com retorno do método resumoTurma():
-            System.out.println(turma1.resumoTurma()+"\n"+turma2.resumoTurma()+"\n");
+            // saídas com retorno do método resumoTurma() - turma 1:
+            System.out.println(turma1.resumoTurma());
+
+            // turma2:
+            System.out.println(turma2.resumoTurma()+"\n");
         }
         // bloco catch para captura e saída de erros de objetos que não puderem ser instanciados: 
         catch (NullPointerException | IllegalArgumentException npeouiae) {

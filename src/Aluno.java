@@ -1,7 +1,7 @@
 public class Aluno {
     // atributos aluno:
-    private String nome, curso;
-    private int matricula;
+    String nome, curso;
+    int matricula;
     // constructor aluno - valida e inicia atributos:
     public Aluno(String nome, String curso, int matricula) {
         if (nome == null) {
@@ -16,12 +16,5 @@ public class Aluno {
         this.nome = nome;
         this.curso = curso;
         this.matricula = matricula;
-    }
-    // getters nome e curso aluno - usados em turma:
-    public String getCursoAlu() {
-        return curso;
-    }
-    public String getNomeAlu() {
-        return nome;
     }
 }
