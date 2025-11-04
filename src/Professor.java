@@ -12,7 +12,7 @@ public class Professor {
             throw new NullPointerException("Informe a especialidade do professor.");
         }
         if (registro <= 0) {
-            throw new IllegalArgumentException("O número de registro do professor deve ser maior que 0.");
+            throw new IllegalArgumentException("Número de registro inválido.");
         }
         this.nomeProfessor = nomeProf;
         this.especialidade = especialidade;
