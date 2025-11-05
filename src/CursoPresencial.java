@@ -1,13 +1,26 @@
 public class CursoPresencial extends Curso {
-    // constructor herdando o atributo nome de curso:
-    public CursoPresencial(String nome) {
-        super(nome);
+    // atributo sala - curso presencial:
+    private String sala;
+    // constructor - herda construtor vazio da superclasse Curso:
+    public CursoPresencial(String sala) {
+        super();
+        this.sala = sala;
     }
-    // sobrescrita do método detalharCurso da classe Curso:
+    // constructor - herda construtor apenas nome da superclasse Curso:
+    public CursoPresencial(String nomeCurso, String sala) {
+        super(nomeCurso);
+        this.sala = sala;
+    }
+    // sobrescrita do método detalharCurso() da superclasse Curso:
     @Override
     public String detalharCurso() {
-        return "\nDetalhes do curso:"+
-        "\nCurso de "+this.getNomeCurso()+"."+
-        "\nSala: "+this.getSala()+".";
+        if (this.getNomeCurso() == null) {
+            return "\nDetalhes do curso presencial:"+
+            "\nSala: "+this.sala+".";
+        }
+        return "\nDetalhes do curso presencial:"+
+        "\nCurso: "+this.getNomeCurso()+
+        "\nSala: "+this.sala+".";
     }
 }
+

@@ -1,25 +1,28 @@
 public class Aluno {
-    // atributos:
-    private String nome, curso;
+    // atributos aluno:
+    private String nomeAluno;
+    private String curso;
     private int matricula;
-    // constructor:
-    public Aluno(String nome, String curso, int matricula) {
-        this.nome = nome;
+    // constructor aluno - valida e inicia atributos:
+    public Aluno(String nomeAluno, String curso, int matricula) {
+        if (nomeAluno == null) {
+            throw new NullPointerException("Informe o nome do aluno.");
+        }
+        if (curso == null) {
+            throw new NullPointerException("Informe o curso do aluno.");
+        }
+        if (matricula <= 0) {
+            throw new IllegalArgumentException("O número de matrícula deve ser maior que 0.");
+        }
+        this.nomeAluno = nomeAluno;
         this.curso = curso;
         this.matricula = matricula;
     }
-    // getters - nome e curso aluno:
-    public String getCursoAlu() {
+    // getters - usados em Turma e Avaliacao:
+    public String getCursoAluno() {
         return curso;
     }
-    public String getNomeAlu() {
-        return nome;
-    }
-    // saída aluno:
-    @Override
-    public String toString() {
-        return "Dados aluno:\nNome do aluno: "+this.nome+
-        "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso;
+    public String getNomeAluno() {
+        return nomeAluno;
     }
 }

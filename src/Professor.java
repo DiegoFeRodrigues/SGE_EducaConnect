@@ -1,21 +1,25 @@
 public class Professor {
-    // atributos:
-    private String nomeProfessor, especialidade;
+    // atributos Professor:
+    private String nomeProfessor;
+    private String especialidade;
     private int registro;
-    // constructor:
-    public Professor(String nomeProf, String espec, int reg) {
+    // constructor professor - valida e inicia atributos:
+    public Professor(String nomeProf, String especialidade, int registro) {
+        if (nomeProf == null) {
+            throw new NullPointerException("Informe o nome do professor.");
+        }
+        if (especialidade == null) {
+            throw new NullPointerException("Informe a especialidade do professor.");
+        }
+        if (registro <= 0) {
+            throw new IllegalArgumentException("Número de registro inválido.");
+        }
         this.nomeProfessor = nomeProf;
-        this.especialidade = espec;
-        this.registro = reg;
+        this.especialidade = especialidade;
+        this.registro = registro;
     }
-    // getter nome professor:
+    // getter nome professor - usado em Turma:
     public String getNomeProf() {
         return nomeProfessor;
-    }
-    // saída professor:
-    public String toString() {
-        return "\n\nDados do Professor:\nNome do professor: "+
-        this.nomeProfessor+"\nRegistro: "+this.registro+
-        "\nEspecialidade: "+this.especialidade;
     }
 }

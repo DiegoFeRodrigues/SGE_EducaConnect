@@ -1,22 +1,26 @@
 public class CursoEAD extends Curso {
-    // atributo:
+    // atributo plataforma:
     private String plataforma;
-    // constructor herdando atributo nome de curso:
-    public CursoEAD(String nome) {
-        super(nome);
-    }
-
-    // constructor "hibrido", herdando nome de Curso
-    // e iniciando plataforma como parâmetro no contrutor:
-    public CursoEAD (String nome, String plataforma) {
-        super(nome);
+    // constructor - herda construtor vazio da superclasse Curso:
+    public CursoEAD (String plataforma) {
+        super();
         this.plataforma = plataforma;
     }
-    // sobrescrevendo método detalharCurso da classe curso:
+    // constructor - herda construtor apenas nome da superclasse Curso:
+    public CursoEAD (String nomeCurso, String plataforma) {
+        super(nomeCurso);
+        this.plataforma = plataforma;
+    }
+
+    // sobrescrevendo método detalharCurso() da superclasse Curso:
     @Override
     public String detalharCurso() {
-        return "\nDetalhes do curso:"+
-        "\nCurso de "+this.getNomeCurso()+"."+
+        if (this.getNomeCurso() == null) {
+            return "\nDetalhes do curso EAD:"+
+            "\nPlataforma: "+this.plataforma+".";
+        }
+        return "\nDetalhes do curso EAD:"+
+        "\nCurso: "+this.getNomeCurso()+
         "\nPlataforma: "+this.plataforma+".";
     }
 }
