@@ -1,10 +1,11 @@
 public class Aluno {
     // atributos aluno:
-    private String nome, curso;
+    private String nomeAluno;
+    private String curso;
     private int matricula;
     // constructor aluno - valida e inicia atributos:
-    public Aluno(String nome, String curso, int matricula) {
-        if (nome == null) {
+    public Aluno(String nomeAluno, String curso, int matricula) {
+        if (nomeAluno == null) {
             throw new NullPointerException("Informe o nome do aluno.");
         }
         if (curso == null) {
@@ -13,15 +14,15 @@ public class Aluno {
         if (matricula <= 0) {
             throw new IllegalArgumentException("O número de matrícula deve ser maior que 0.");
         }
-        this.nome = nome;
+        this.nomeAluno = nomeAluno;
         this.curso = curso;
         this.matricula = matricula;
     }
     // getters - usados em Turma e Avaliacao:
-    public String getCursoAlu() {
+    public String getCursoAluno() {
         return curso;
     }
-    public String getNomeAlu() {
-        return nome;
+    public String getNomeAluno() {
+        return nomeAluno;
     }
 }

@@ -1,4 +1,4 @@
-    public class Avaliacao {
+public class Avaliacao {
     // atributos avaliação:
     private float nota;
     private String descricao;
@@ -10,7 +10,7 @@
             throw new NullPointerException("Informe a descrição da avaliação.");
         }
         this.descricao = descricao;
-     }
+    }
     // metodo atribuir nota associando alunos em turmas e validando dados informados:
     public void atribuirNota(Aluno aluno, Turma turma, float nota) {
         if (aluno == null) {
@@ -28,7 +28,7 @@
     }
     // saída com resultado da avaliação:
     public String resultado(Aluno aluno, Turma turma, Avaliacao nota) {
-        return "Nome do Aluno: "+this.aluno.getNomeAlu()+
+        return "Nome do Aluno: "+this.aluno.getNomeAluno()+
         "\nCódigo da turma: "+this.turma.getCodigoTurma()+
         "\nDescrição da avaliação: "+this.descricao+
         "\nNota: "+this.nota+"\n";

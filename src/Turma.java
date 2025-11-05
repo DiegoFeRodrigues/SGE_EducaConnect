@@ -25,17 +25,17 @@ public class Turma {
     }
     // método adiciona aluno: 
     public void addAluno(Aluno aluno, Curso curso) {
-        if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAlu());
-            System.out.println(aluno.getNomeAlu()+" foi adicionado ao curso de "+curso.getNomeCurso());
+        if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
+            listaAlunos.add(aluno.getNomeAluno());
+            System.out.println(aluno.getNomeAluno()+" foi adicionado ao curso de "+curso.getNomeCurso());
         } else {
-            System.out.println("O aluno "+aluno.getNomeAlu()+" é de outra turma");
+            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno.getNomeAlu());
-        System.out.println(aluno.getNomeAlu()+" foi removido do curso de "+curso.getNomeCurso()+".");
+        listaAlunos.remove(aluno.getNomeAluno());
+        System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
     // getter codigo - usado em Avaliacao:
     public int getCodigoTurma() {
