@@ -1,20 +1,21 @@
 public class Professor {
     // atributos professor:
-    String nomeProfessor, especialidade;
+    String nomeProfessor;
+    String especialidade;
     int registro;
     // constructor professor - valida e inicia atributos:
-    public Professor(String nomeProf, String espec, int reg) {
+    public Professor(String nomeProf, String especialidade, int registro) {
         if (nomeProf == null) {
             throw new NullPointerException("Informe o nome do professor.");
         }
-        if (espec == null) {
+        if (especialidade == null) {
             throw new NullPointerException("Informe a especialidade do professor.");
         }
-        if (reg <= 0) {
-            throw new IllegalArgumentException("O número de registro inválido.");
+        if (registro <= 0) {
+            throw new IllegalArgumentException("Número de registro inválido.");
         }        
         this.nomeProfessor = nomeProf;
-        this.especialidade = espec;
-        this.registro = reg;
+        this.especialidade = especialidade;
+        this.registro = registro;
     }
 }

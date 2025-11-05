@@ -13,7 +13,7 @@ public class Turma {
             throw new IllegalArgumentException("Código da turma deve ser maior que 0.");
         }
         if (curso == null) {
-            throw new NullPointerException("Informe o objeto curso desejado");
+            throw new NullPointerException("Informe o objeto curso desejado.");
         }
         if (professor == null) {
             throw new NullPointerException("Informe o objeto professor desejado.");
@@ -26,16 +26,16 @@ public class Turma {
     // método adiciona aluno: 
     public void addAluno(Aluno aluno, Curso curso) {
         if (aluno.curso.equals(curso.nomeCurso)) {
-            listaAlunos.add(aluno.nome);
-            System.out.println(aluno.nome+" foi adicionado ao curso de "+curso.nomeCurso);
+            listaAlunos.add(aluno.nomeAluno);
+            System.out.println(aluno.nomeAluno+" foi adicionado ao curso de "+curso.nomeCurso);
         } else {
-            System.out.println("O aluno "+aluno.nome+" é de outra turma");
+            System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno.nome);
-        System.out.println(aluno.nome+" foi removido do curso de "+curso.nomeCurso+".");
+        listaAlunos.remove(aluno.nomeAluno);
+        System.out.println(aluno.nomeAluno+" foi removido do curso de "+curso.nomeCurso+".");
     }
     // método resumo da turma:
     public String resumoTurma() {
