@@ -1,27 +1,36 @@
 public class Curso {
-    // atributos:
-    private String nomeCurso, sala;
+    // atributos curso:
+    private String nomeCurso;
     private int codigo;
     private float cargaHoraria;
-    //constructor - todos atributos:
-    public Curso(String nomeCur, int codigo, float carga) {
-        this.nomeCurso = nomeCur;
+    // constructor curso - valida e inicia atributos:
+    public Curso(String nomeCurso, int codigo, float cargaHoraria) {
+        if (nomeCurso == null) {
+            throw new NullPointerException("Informe o nome do curso.");
+        }
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("Codigo do curso deve ser maior que 0.");
+        }
+        if (cargaHoraria <= 0) {
+            throw new IllegalArgumentException("A carga horária do curso deve ser maior que 0.");
+        }
+        this.nomeCurso = nomeCurso;
         this.codigo = codigo;
-        this.cargaHoraria = carga;
+        this.cargaHoraria = cargaHoraria;
     }
-    // constructor - apenas nome:
-    public Curso (String nome) {
-        this.nomeCurso = nome;
+    //getters  - usados em Turma, CursoEAD e CursoPresencial:
+    public String getNomeCurso() {
+        return nomeCurso;
     }
-    //getters nome curso:
-    public String getNomeCurso() {return nomeCurso;}
-    public int getCodigo() {return codigo;}
-    public float getCarga() {return cargaHoraria;}
-    public void setSala(String sala) {this.sala = sala;}
-    public String getSala() {return sala;}
-    // saída curso:
+    public int getCodigo() {
+        return codigo;
+    }
+    public float cargaHoraria() {
+        return cargaHoraria;
+    }
+    // Método detalharCurso() - Será sobrescrito nas subclasses:
     public String detalharCurso() {
-        return "\n\nDados curso:\nNome do curso: "+getNomeCurso()+
+        return "\n\nDados curso:\nNome do curso: "+this.nomeCurso+        
         "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
     }
 }

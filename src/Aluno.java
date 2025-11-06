@@ -1,38 +1,45 @@
-public class Aluno extends Usuario implements Autenticacao{
-    // atributos:
-    private String nomeAluno, curso, login, senha;
-    private int matricula;
-    // constructor inicial:
-    public Aluno(String nome, String curso, int matricula) {
-        this.nomeAluno = nome;
-        this.curso = curso;
-        this.matricula = matricula;
-    }
-    // constrcutor novo - atributos da classe abstrata Usuario:
-    public Aluno(String nome, String curso, int matricula, String login, String senha) {
-        this.nomeAluno = nome;
-        this.curso = curso;
-        this.matricula = matricula;
-        this.login = login;
-        this.senha = senha;
-    }
-    // getters curso e nome - usados em Turma e Avaliacao:
-    public String getCursoAlu() {
-        return curso;
-    }
-    public String getNomeAlu() {
-        return nomeAluno;
+public class Aluno extends Usuario implements Autenticacao {
+    
+    // constrcutor aluno - valida e inicia atributos:
+    public Aluno(String nome, int matricula, String curso, String login, String senha) {
+        if (nome == null) {
+            throw new NullPointerException("Informe o nome do aluno.\n");
+        }
+        if (matricula <= 0) {
+            throw new IllegalArgumentException("Matrícula deve ser maior que 0.\n");
+        }
+        if (curso == null) {
+            throw new NullPointerException("Informe o curso do aluno.\n");
+        }
+        if (login == null) {
+            throw new NullPointerException("Informe o login.\n");
+        }
+        if (senha == null) {
+            throw new NullPointerException("Informe a senha.\n");
+        }
+        super(nome, matricula, curso, login, senha); // -> herda da superclasse abstrata Usuário
     }
     // implementação método da interface Autenticacao:
     @Override
-    public boolean autenticar(String log, String sen) {
-        if (this.login != log || this.senha != sen) { // == null também
-            System.out.println("\nFalha ao autenticar aluno: "+
-            "Login ou senha incorretos.");
+    public boolean autenticar(String login, String senha) {
+        if (login == null) {
+            throw new NullPointerException("Informe o login do aluno para autenticar.\n");
+        }
+        if (senha == null) {
+            throw new NullPointerException("Informe a senha do aluno para autenticar.\n");
+        }        
+        if ( login != this.getLogin() || senha != this.getSenha()) {
+            System.out.println("\nFalha ao autenticar aluno: Login ou senha incorretos.");
             return false;
-        } else { // true ou != null
-            System.out.println("\nLogado como aluno");
+        } else {
+            System.out.println("\nLogado como aluno.");
             return true;
         }
     }
+    // método com dados - alunos:
+    public String dadosAluno() {
+        return "\nNome do Aluno: "+this.getNomeAluno()+
+        "\nMatrícula: "+this.getMatricula()+
+        "\nCurso: "+this.getCursoAluno()+"\n";
+    }      
 }
