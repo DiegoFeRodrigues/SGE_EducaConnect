@@ -23,6 +23,9 @@ public class Curso {
     }
     // constructor apenas nome - herdado em CursoEAD e CursoPresencial:
     public Curso (String nome) {
+        if (nome == null) {
+            throw new NullPointerException("Informe o nome do curso.");
+        }
         this.nomeCurso = nome;
     }
     //getter nome do curso - usado em Turma:

@@ -4,10 +4,19 @@ public class CursoEAD extends Curso {
     // constructor - herda construtor vazio da superclasse Curso:
     public CursoEAD (String plataforma) {
         super();
+        if (plataforma == null) {
+            throw new NullPointerException("\nInforme a plataforma do curso EAD.");
+        }
         this.plataforma = plataforma;
     }
     // constructor - herda construtor apenas nome da superclasse Curso:
     public CursoEAD (String nomeCurso, String plataforma) {
+        if (nomeCurso == null) {
+            throw new NullPointerException("Informe o nome do curso EAD.");
+        }
+        if (plataforma == null) {
+            throw new NullPointerException("Informe a plataforma do curso EAD.");
+        }        
         super(nomeCurso);
         this.plataforma = plataforma;
     }

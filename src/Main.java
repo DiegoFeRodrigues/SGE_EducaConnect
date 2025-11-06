@@ -21,10 +21,14 @@ public class Main {
         // instanciando novo Curso presencial - CURSO E SALA:
         CursoPresencial artesMarciais = new CursoPresencial("Artes Marciais", "Sala do tempo");
         System.out.println(artesMarciais.detalharCurso()+"\n");
+        
+        // INSTANCIANDO NOVO CURSO PRESENCIAL - TUDO JUNTO. QUAL É MELHOR??????
+        CursoPresencial curso200 = new CursoPresencial("Teste",656856133,25648561f, "Sala de testes");
+        System.out.println(curso200.detalharCurso());
     }
         // bloco catch para captura e saída de erros em métodos e/ou objetos que não puderem ser instanciados: 
         catch (NullPointerException | IllegalArgumentException npeouiae) {
-            System.err.println("Erro: "+npeouiae.getMessage());
+            System.err.println("\nErro: "+npeouiae.getMessage());
         }  
     }  
 }
