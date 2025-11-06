@@ -18,19 +18,15 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
     }
-    // constructor vazio - herdado em CursoEAD e CursoPresencial:
-    public Curso () {
-    }
-    // constructor apenas nome - herdado em CursoEAD e CursoPresencial:
-    public Curso (String nome) {
-        if (nome == null) {
-            throw new NullPointerException("Informe o nome do curso.");
-        }
-        this.nomeCurso = nome;
-    }
-    //getter nome do curso - usado em Turma:
+    //getters  - usados em Turma, CursoEAD e CursoPresencial:
     public String getNomeCurso() {
         return nomeCurso;
+    }
+    public int getCodigo() {
+        return codigo;
+    }
+    public float cargaHoraria() {
+        return cargaHoraria;
     }
     // Método detalharCurso() - Será sobrescrito nas subclasses:
     public String detalharCurso() {

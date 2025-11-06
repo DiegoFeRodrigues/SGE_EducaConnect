@@ -1,35 +1,20 @@
 public class CursoEAD extends Curso {
-    // atributo plataforma:
+    // atributo plataforma - curso EAD:
     private String plataforma;
-    // constructor - herda construtor vazio da superclasse Curso:
-    public CursoEAD (String plataforma) {
-        super();
-        if (plataforma == null) {
-            throw new NullPointerException("\nInforme a plataforma do curso EAD.");
-        }
-        this.plataforma = plataforma;
-    }
-    // constructor - herda construtor apenas nome da superclasse Curso:
-    public CursoEAD (String nomeCurso, String plataforma) {
-        if (nomeCurso == null) {
-            throw new NullPointerException("Informe o nome do curso EAD.");
-        }
+    // constructor - herda nome, codigo e cargahoraria da superclasse Curso:
+    public CursoEAD(String nomeCurso, int codigo, float cargaHoraria, String plataforma) {
         if (plataforma == null) {
             throw new NullPointerException("Informe a plataforma do curso EAD.");
         }        
-        super(nomeCurso);
+        super(nomeCurso, codigo, cargaHoraria);
         this.plataforma = plataforma;
     }
-
     // sobrescrevendo método detalharCurso() da superclasse Curso:
     @Override
     public String detalharCurso() {
-        if (this.getNomeCurso() == null) {
-            return "\nDetalhes do curso EAD:"+
-            "\nPlataforma: "+this.plataforma+".";
-        }
-        return "\nDetalhes do curso EAD:"+
-        "\nCurso: "+this.getNomeCurso()+
-        "\nPlataforma: "+this.plataforma+".";
+        return "\nCurso: "+this.getNomeCurso()+
+        "\nCódigo: "+this.getCodigo()+
+        "\nCarga horária: "+this.cargaHoraria()+
+        "\nPlataforma: "+this.plataforma;
     }
 }

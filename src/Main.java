@@ -1,34 +1,32 @@
 public class Main {
     public static void main(String[] args) {
-        // bloco try - tenta validação de métodos e instancia de objetos:
+        // bloco try - tenta validação de instancia de objetos:
         try {
 
-        // instanciando novo Curso EAD - APENAS PLATAFORMA:
-        CursoEAD poo = new CursoEAD("Studeo");
-        // saída com método detalharCurso() sobrescrito:
-        System.out.println(poo.detalharCurso());
+            System.out.println("=== EduConnect - Sistema de Gestão Educacional (SGC) ===");
 
-        // instanciando novo Curso Presencial - APENAS SALA:
-        CursoPresencial quimica = new CursoPresencial("Laboratório de química");
-        // saída com método detalharCurso() sobrescrito:
-        System.out.println(quimica.detalharCurso());
-        
-        // instanciando novo Curso EAD - CURSO E PLATAFORMA:
-        CursoEAD ads = new CursoEAD("ADS", "Studeo");
-        // saída com método detalharCurso() sobrescrito:
-        System.out.println(ads.detalharCurso());
-        
-        // instanciando novo Curso presencial - CURSO E SALA:
-        CursoPresencial artesMarciais = new CursoPresencial("Artes Marciais", "Sala do tempo");
-        System.out.println(artesMarciais.detalharCurso()+"\n");
-        
-        // INSTANCIANDO NOVO CURSO PRESENCIAL - TUDO JUNTO. QUAL É MELHOR??????
-        CursoPresencial curso200 = new CursoPresencial("Teste",656856133,25648561f, "Sala de testes");
-        System.out.println(curso200.detalharCurso());
-    }
-        // bloco catch para captura e saída de erros em métodos e/ou objetos que não puderem ser instanciados: 
+            // instanciando Cursos - EAD:
+            CursoEAD cyberSec = new CursoEAD("Cybersegurança", 513, 2500f, "Studeo");
+            CursoEAD ads = new CursoEAD("ADS", 12345, 2180f, "Studeo");
+            
+            // saída com métodos detalharCurso() sobrescritos - CursoEAD:
+            System.out.println("\nCursos à distância disponíveis:");
+            System.out.println(cyberSec.detalharCurso());
+            System.out.println(ads.detalharCurso());
+            
+            // instanciando Cursos - Presencial:
+            CursoPresencial medicina = new CursoPresencial("Medicina", 7865, 8300, "12");
+            CursoPresencial artesMarciais = new CursoPresencial("Artes Marciais", 54321, 20000f, "Sala do tempo");
+            
+            // saída com métodos detalharCurso() sobrescritos - CursoPresencial:
+            System.out.println("\n\nCursos presenciais disponíveis:");
+            System.out.println(medicina.detalharCurso());
+            System.out.println(artesMarciais.detalharCurso()+"\n");
+
+        }  
+        // bloco catch para captura e saída de erros de objetos que não puderem ser instanciados: 
         catch (NullPointerException | IllegalArgumentException npeouiae) {
             System.err.println("\nErro: "+npeouiae.getMessage());
-        }  
-    }  
+        }
+    }    
 }
