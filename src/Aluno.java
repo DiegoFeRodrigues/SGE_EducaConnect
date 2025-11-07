@@ -25,4 +25,10 @@ public class Aluno {
     public String getNomeAluno() {
         return nomeAluno;
     }
+    // método com dados - alunos:
+    public String dadosAluno() {
+        return "\nNome do Aluno: "+this.nomeAluno+
+        "\nMatrícula: "+this.matricula+
+        "\nCurso: "+this.curso+"\n";
+    }    
 }
