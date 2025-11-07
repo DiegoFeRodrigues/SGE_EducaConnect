@@ -18,10 +18,10 @@ public class Aluno {
         this.curso = curso;
         this.matricula = matricula;
     }
-    // método saída para testar dados aluno:
+    // método com dados - alunos:
     public String dadosAluno() {
-        return "Nome do Aluno: "+this.nomeAluno+
+        return "\nNome do Aluno: "+this.nomeAluno+
         "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso;
+        "\nCurso: "+this.curso+"\n";
     }
 }

@@ -18,10 +18,10 @@ public class Professor {
         this.especialidade = especialidade;
         this.registro = registro;
     }
-    // método saída p/ testar dados professor:
+    // método com dados - professor:
     public String dadosProf() {
-        return "Nome do Professor: "+this.nomeProfessor+
+        return "\nNome do Professor: "+this.nomeProfessor+
         "\nRegistro: "+this.registro+
-        "\nEspecialidade: "+this.especialidade;
+        "\nEspecialidade: "+this.especialidade+"\n";
     }
 }
