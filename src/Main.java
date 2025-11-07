@@ -11,7 +11,7 @@ public class Main {
             Aluno aluno4 = new Aluno("Yamcha", "Artes marciais", 7);
             // cursos:
             Curso curso1 = new Curso("ADS", 54321, 2180f);
-            Curso curso2 = new Curso("Artes marciais", 98765, 10000f);
+            Curso curso2 = new Curso("Artes marciais", 98765, 20000f);
             // professores:
             Professor professor1 = new Professor("Flavio Ceci", "POO", 134679);
             Professor professor2 = new Professor("Mestre Kame", "Estilo da tartaruga", 00001);

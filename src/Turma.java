@@ -6,7 +6,8 @@ public class Turma {
     int codigo;
     Professor professor;
     Curso curso;
-    List<String> listaAlunos;
+    List<Aluno> listaAlunos;
+    List<String> listaNomeAlunos;
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
@@ -22,11 +23,13 @@ public class Turma {
         this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
+        this.listaNomeAlunos = new ArrayList<>();
     }
     // método adiciona aluno: 
     public void addAluno(Aluno aluno, Curso curso) {
         if (aluno.curso.equals(curso.nomeCurso)) {
-            listaAlunos.add(aluno.nomeAluno);
+            listaAlunos.add(aluno);
+            listaNomeAlunos.add(aluno.nomeAluno);
             System.out.println(aluno.nomeAluno+" foi adicionado ao curso de "+curso.nomeCurso);
         } else {
             System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma");
@@ -34,7 +37,8 @@ public class Turma {
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno.nomeAluno);
+        listaAlunos.remove(aluno);
+        listaNomeAlunos.remove(aluno.nomeAluno);
         System.out.println(aluno.nomeAluno+" foi removido do curso de "+curso.nomeCurso+".");
     }
     // método resumo da turma:
@@ -43,6 +47,6 @@ public class Turma {
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.nomeProfessor+
         "\nCurso: "+this.curso.nomeCurso+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos;
     }
 }
