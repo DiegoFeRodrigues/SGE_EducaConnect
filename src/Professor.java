@@ -18,4 +18,10 @@ public class Professor {
         this.especialidade = especialidade;
         this.registro = registro;
     }
+    // método com dados - professor:
+    public String dadosProf() {
+        return "\nNome do Professor: "+this.nomeProfessor+
+        "\nRegistro: "+this.registro+
+        "\nEspecialidade: "+this.especialidade+"\n";
+    }    
 }

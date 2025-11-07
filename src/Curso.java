@@ -18,4 +18,10 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
     }
+    // método com dados - curso:
+    public String dadosCurso() {
+        return "\nCurso: " +this.nomeCurso+
+        "\nCódigo: "+this.codigo+
+        "\nCarga horária: "+this.cargaHoraria+"\n";
+    }
 }

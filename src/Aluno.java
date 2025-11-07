@@ -18,4 +18,10 @@ public class Aluno {
         this.curso = curso;
         this.matricula = matricula;
     }
+    // método com dados - alunos:
+    public String dadosAluno() {
+        return "\nNome do Aluno: "+this.nomeAluno+
+        "\nMatrícula: "+this.matricula+
+        "\nCurso: "+this.curso+"\n";
+    }
 }
