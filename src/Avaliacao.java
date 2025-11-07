@@ -28,9 +28,9 @@ public class Avaliacao {
     }
     // saída com resultado da avaliação:
     public String resultado(Aluno aluno, Turma turma, Avaliacao nota) {
-        return "Nome do Aluno: "+this.aluno.getNomeAluno()+
+        return "\nNome do Aluno: "+this.aluno.getNomeAluno()+
         "\nCódigo da turma: "+this.turma.getCodigoTurma()+
         "\nDescrição da avaliação: "+this.descricao+
-        "\nNota: "+this.nota+"\n";
+        "\nNota: "+this.nota;
     }
 }

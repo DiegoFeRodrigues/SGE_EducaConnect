@@ -3,7 +3,7 @@ public class Main {
         // bloco try - tenta validação de instancia de objetos:
         try {
 
-            System.out.println("=== EduConnect - Sistema de Gestão Educacional (SGC) ===");
+            System.out.println("\n=== EduConnect - Sistema de Gestão Educacional (SGC) ===");
 
             // instanciando Cursos - EAD:
             CursoEAD cyberSec = new CursoEAD("Cybersegurança", 513, 2500f, "Studeo");

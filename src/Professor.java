@@ -22,4 +22,10 @@ public class Professor {
     public String getNomeProf() {
         return nomeProfessor;
     }
+    // método com dados - professor:
+    public String dadosProf() {
+        return "\nNome do Professor: "+this.nomeProfessor+
+        "\nRegistro: "+this.registro+
+        "\nEspecialidade: "+this.especialidade+"\n";
+    }    
 }
