@@ -6,13 +6,13 @@ public class Aluno {
     // constructor aluno - valida e inicia atributos:
     public Aluno(String nomeAluno, String curso, int matricula) {
         if (nomeAluno == null) {
-            throw new NullPointerException("Informe o nome do aluno.");
+            throw new NullPointerException("Informe o nome do aluno.\n");
         }
         if (curso == null) {
-            throw new NullPointerException("Informe o curso do aluno.");
+            throw new NullPointerException("Informe o curso do aluno.\n");
         }
         if (matricula <= 0) {
-            throw new IllegalArgumentException("O número de matrícula deve ser maior que 0.");
+            throw new IllegalArgumentException("O número de matrícula deve ser maior que 0.\n");
         }
         this.nomeAluno = nomeAluno;
         this.curso = curso;
