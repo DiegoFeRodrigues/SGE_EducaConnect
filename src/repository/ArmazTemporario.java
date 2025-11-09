@@ -13,10 +13,11 @@ public class ArmazTemporario {
     private List<Professor> listaProf = new ArrayList<>();
     private List<Curso> listaCursos = new ArrayList<>();
 
-    public void adicionaAluno() {
-        listaAlunos.add(new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$"));
-        listaAlunos.add(new Aluno("Teste", "testou",156657,"fasdfsidfa","asfasfpsofia"));
+    public void adicionaAluno(String nome, String curso, int matricula, String login, String senha) {
+        listaAlunos.add(new Aluno(nome, curso, matricula, login, senha));
+        System.out.println("Aluno cadastrado!");
     }
+    
     public List<Aluno> getListaAlunos() {
         return listaAlunos;
     }

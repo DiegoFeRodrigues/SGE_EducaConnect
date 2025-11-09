@@ -6,16 +6,49 @@ import model.Aluno;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import ui.MenuInterativo;
 
 public class MenuRelatorios {
 
-    // public static void main(String[] args) {
+    private ArmazTemporario dadosSalvos;
+
+    public MenuRelatorios(ArmazTemporario dados) {
+        this.dadosSalvos = dados;
+    }
+
     public void menuR() {
+        Scanner scan = new Scanner(System.in);
+        
+        // ArmazTemporario listaAlu = new ArmazTemporario();
 
-        // instanciando objeto da classe que contém as listas
-        ArmazTemporario listaAlu = new ArmazTemporario();
-        listaAlu.adicionaAluno();
+        // System.out.println("getLista da classe MenuRelatorios: "+ listaAlu.getListaAlunos());
+        // int opcao;
+        // do {
+        //     System.out.println("Menu Interativo:");
+        //     System.out.println("1 - Cadastrar aluno");
+        //     opcao = scan.nextInt();
+        //     scan.nextLine();
+        //     switch (opcao) {
+        //         case 1:
+        //             System.out.println("Nome do aluno:");
+        //             String nomeAluno = scan.nextLine();
+        //             System.out.println("Curso:");
+        //             String cursoAluno = scan.nextLine();
+        //             System.out.println("Matrícula:");
+        //             int matricula = scan.nextInt();
+        //             System.out.println("Login:");
+        //             String login = scan.nextLine();
+        //             System.out.println("Senha:");
+        //             String senha = scan.nextLine();
+        //             listaAlu.adicionaAluno(nomeAluno, cursoAluno, matricula, login, senha);
+        //             scan.nextLine();
+        //             break;
+                    
+        //         }
+        //     } while (opcao != 4); 
 
+
+    
         ArmazTemporario listaPro = new ArmazTemporario();
         listaPro.adicionaProf();
 
@@ -23,7 +56,6 @@ public class MenuRelatorios {
         listaCur.adicionaCurso();
         
         // instanciando novo scanner - input do usuário
-        Scanner scan = new Scanner(System.in);
         // variável de controle - escolha:
         int escolha;
         // do-while para repetir menu de escolha (executa ao menos uma vez, testa no final):
@@ -39,7 +71,8 @@ public class MenuRelatorios {
                 case 1 :    // alunos:
 
                     System.out.println("\nRelatório de alunos matriculados:");
-                    for (Aluno alunos : listaAlu.getListaAlunos()) {
+                    
+                    for (Aluno alunos : dadosSalvos.getListaAlunos()) {
                         System.out.println(alunos.gerarRelatorio());
                     }
                     break;
