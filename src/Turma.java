@@ -1,42 +1,51 @@
 import java.util.ArrayList;
 import java.util.List;
 public class Turma {
-    // atributos:
-    private Curso codigo;
-    private Curso nomeCurso;
+    // atributos turma:
+    private int codigo;
+    private Curso curso;
     private Professor professor;
     private List<String> listaAlunos;
-    // constructor:
-    public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
+    // constructor turma - valida e inicia atributos:
+    public Turma(int codigo, Curso curso, Professor professor) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("Código da turma deve ser maior que 0.");
+        }
+        if (curso == null) {
+            throw new NullPointerException("Informe o objeto curso desejado.");
+        }
+        if (professor == null) {
+            throw new NullPointerException("Informe o objeto professor desejado.");
+        }
         this.codigo = codigo;
-        this.nomeCurso = nomeCurso;
+        this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
     }
     // método adiciona aluno: 
     public void addAluno(Aluno aluno, Curso curso) {
-        if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAlu());
-            System.out.println(aluno.getNomeAlu()+
-            " foi adicionado ao curso de "+curso.getNomeCurso()+".");
+        if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
+            listaAlunos.add(aluno.getNomeAluno());
+            System.out.println(aluno.getNomeAluno()+" foi adicionado ao curso de "+curso.getNomeCurso());
+        } else {
+            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        if (aluno == null){
-            System.out.println("Aluno inválido!");
-        }else {
-            listaAlunos.remove(aluno.getNomeAlu());
-                System.out.println(aluno.getNomeAlu()+" foi removido.");
-            }
+        listaAlunos.remove(aluno.getNomeAluno());
+        System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
-    // saída com resumo da turma:
-    @Override
-    public String toString() {
-        return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
-        "\nProfessor: "+this.professor.getNomeProf()+
-        "\nCurso: "+this.nomeCurso.getNomeCurso()+
-        "\nCódigo: "+this.codigo.getCodigo()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+    // getter codigo - usado em Avaliacao:
+    public int getCodigoTurma() {
+        return codigo;
+    }
+    // método com resumo da turma:
+    public String resumoTurma() {
+        return "Dados da turma do curso de "+this.curso.getNomeCurso()+":"+
+        "\nCódigo da turma: "+this.codigo+
+        "\nProfessor: "+this.professor.getNomeProfessor()+
+        "\nCurso: "+this.curso.getNomeCurso()+
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;                 
     }
 }
