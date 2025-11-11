@@ -1,4 +1,5 @@
 public class Administrador extends Usuario implements Autenticacao{
+    
     // constructor adm - valida e inicia atributos:
     public Administrador(String login, String senha) {
         if (login == null) {
