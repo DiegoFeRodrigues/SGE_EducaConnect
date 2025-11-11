@@ -1,6 +1,6 @@
-public class Professor extends Usuario implements Autenticacao{
+public class Professor extends Usuario implements Autenticacao {
     
-    // constrcutor professor - valida e inicia atributos:
+    // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
         if (nomeProfessor == null) {
             throw new NullPointerException("Informe o nome do professor.\n");
@@ -20,7 +20,7 @@ public class Professor extends Usuario implements Autenticacao{
         super(nomeProfessor, especialidade, registro, login, senha); // -> herda da superclasse abstrata Usuário
     }
     // implementação método da interface Autenticacao:
-    @Override    
+    @Override
     public String autenticar(String login, String senha) {
         if (login == null) {
             throw new NullPointerException("Informe o login do professor para autenticar.\n");

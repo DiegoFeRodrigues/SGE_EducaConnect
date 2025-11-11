@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // bloco try - tenta validação na instancia de objetos:        
+        // bloco try - tenta validação na instancia de objetos:
         try {
             System.out.println("\n=== EduConnect - Sistema de Gestão Educacional (SGC) ===\n");        
 

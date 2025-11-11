@@ -1,5 +1,5 @@
 public class Administrador extends Usuario implements Autenticacao{
-    // constructor adm:
+    // constructor adm - valida e inicia atributos:
     public Administrador(String login, String senha) {
         if (login == null) {
             throw new NullPointerException("Informe o login de administrador.\n");
@@ -7,10 +7,10 @@ public class Administrador extends Usuario implements Autenticacao{
         if (senha == null) {
             throw new NullPointerException("Informe a senha de administrador.\n");
         }
-        super(login, senha);
+        super(login, senha); // -> herda da superclasse abstrata Usuário
     }
     // implementacão método da interface Autenticacao:
-    @Override    
+    @Override
     public String autenticar(String login, String senha) {
         if (login == null) {
             throw new NullPointerException("Informe o login de administrador para autenticar.\n");

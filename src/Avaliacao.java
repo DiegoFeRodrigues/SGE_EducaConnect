@@ -22,7 +22,7 @@ public class Avaliacao {
         if (nota < 0 || nota > 10) { // valida se nota está entre 0 e 10
             throw new IllegalArgumentException("Nota deve estar entre 0 e 10.");
         }
-        this.aluno = aluno;        
+        this.aluno = aluno;
         this.turma = turma;
         this.nota = nota;
     }
