@@ -19,6 +19,7 @@ public class Aluno extends Usuario implements Autenticacao {
         }
         super(nome, matricula, curso, login, senha); // -> herda da superclasse abstrata Usuário
     }
+    // implementação método da interface Autenticacao:    
     @Override
     public String autenticar(String login, String senha) {
         if (login == null) {
