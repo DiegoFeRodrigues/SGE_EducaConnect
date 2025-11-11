@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("=== EduConnect - Sistema de Gestão Educacional (SGC) ===");        
+
         // instanciando novos objetos - alunos:
         Aluno aluno1 = new Aluno("Diego", "ADS", 12345);
         Aluno aluno2 = new Aluno("Kuririn", "Artes marciais", 18);
@@ -68,15 +71,15 @@ public class Main {
                     for (Curso cursos : listaCursos) {
                         System.out.println(cursos.gerarRelatorio());
                     }
-                default :   // opção inválida ou sair
-                    if (escolha <= 0 || escolha > 4) {
-                        System.out.println("\nOpção inválida!");
-                    } else if (escolha == 4) {
-                        System.out.println("\nSaindo...");
-                    }
                     break;
-            }       // enquanto != 4 repete do-while
-        } while (escolha != 4);
+                case 4:     // sair:
+                    System.out.println("\nSaindo.\n"); 
+                    break;
+                default :   // se escolha != de 1, 2, 3 ou 4 = opção inválida.
+                System.out.println("\nOpção inválida!"); 
+                break;
+            }       
+        } while (escolha != 4); // se escolha != de 4 repete do-while
         scan.close();
     }
 }
