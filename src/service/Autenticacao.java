@@ -1,5 +1,5 @@
 package service;
 
 public interface Autenticacao {
-    abstract boolean autenticar(String login, String senha);
+    abstract String autenticar(String login, String senha);
 }

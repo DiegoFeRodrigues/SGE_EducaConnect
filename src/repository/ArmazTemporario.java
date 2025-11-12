@@ -5,17 +5,20 @@ import java.util.List;
 
 import model.Aluno;
 import model.Curso;
+import model.CursoEAD;
+import model.CursoPresencial;
 import model.Professor;
 
 public class ArmazTemporario {
 
     private List<Aluno> listaAlunos = new ArrayList<>();
     private List<Professor> listaProf = new ArrayList<>();
-    private List<Curso> listaCursos = new ArrayList<>();
+    private List<CursoEAD> listaCursosEAD = new ArrayList<>();
+    private List<CursoPresencial> listaCursosPres = new ArrayList<>();
 
     public void adicionaAluno() {
-        listaAlunos.add(new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$"));
-        listaAlunos.add(new Aluno("Teste", "testou",156657,"fasdfsidfa","asfasfpsofia"));
+        listaAlunos.add(new Aluno("Diego",12345, "ADS","D","senha"));
+        listaAlunos.add(new Aluno("Ana", 593150, "Letras", "Aninha", "98@k9Lç$"));
     }
     public List<Aluno> getListaAlunos() {
         return listaAlunos;
@@ -27,12 +30,19 @@ public class ArmazTemporario {
     public List<Professor> getListaProf() {
         return listaProf;
     }
-
-    public void adicionaCurso() {
-        listaCursos.add(new Curso("Engenharia", 57777, 53891f));
+    public void adicionaCursoP() {
+        listaCursosPres.add(new CursoPresencial("Engenharia", 57777, 53891f, "18"));
     }
-    public List<Curso> getListaCursos() {
-        return listaCursos;
+    public void adicionaCursoEAD() {
+        listaCursosEAD.add(new CursoEAD("ADS", 12345, 2180f, "Studeo"));
+    }
+
+
+    public List<CursoPresencial> getListaCursosP() {
+        return listaCursosPres;
+    }
+    public List<CursoEAD> getListaCursosEAD() {
+        return listaCursosEAD;
     }
     
     
