@@ -6,13 +6,19 @@ import java.util.List;
 import model.Aluno;
 import model.Curso;
 import model.Professor;
+import repository.ArmazTemporario;
 
 public class Turma {
     // atributos turma:
     private int codigo;
     private Curso curso;
     private Professor professor;
-    private List<String> listaAlunos;
+    private List<Aluno> listaAlunos;
+    private ArmazTemporario dadosSalvos;
+
+    public Turma(ArmazTemporario dados) {
+        this.dadosSalvos = dados;
+    }
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
@@ -30,13 +36,11 @@ public class Turma {
         this.listaAlunos = new ArrayList<>();
     }
     // método adiciona aluno: 
-    public void addAluno(Aluno aluno, Curso curso) {
-        if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAluno());
-            System.out.println(aluno.getNomeAluno()+" foi adicionado ao curso de "+curso.getNomeCurso());
-        } else {
-            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma");
-        }
+    public void addAluno(int matricula, String curso) {
+        Aluno aluno = dadosSalvos.encontraAluno(matricula);
+        Curso cursos = dadosSalvos.encontraCurso(curso); 
+        listaAlunos.add(aluno);
+        System.out.println("Aluno adicionado ao curso de "+cursos.getNomeCurso());  
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
