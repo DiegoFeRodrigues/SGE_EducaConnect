@@ -1,4 +1,8 @@
 public class Professor extends Usuario implements Autenticacao {
+     
+    // atributos professor:
+    private String especialidade;
+    private int registro;
     
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
@@ -17,11 +21,13 @@ public class Professor extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha.\n");
         }
-        super(nomeProfessor, especialidade, registro, login, senha); // -> herda da superclasse abstrata Usuário
+        super(nomeProfessor, login, senha); // -> herda da superclasse abstrata Usuário
+        this.especialidade = especialidade;
+        this.registro = registro;
     }
     // implementação método da interface Autenticacao:
     @Override
-    public String autenticar(String login, String senha) {
+    public boolean autenticar(String login, String senha) {
         if (login == null) {
             throw new NullPointerException("Informe o login do professor para autenticar.\n");
         }
@@ -29,15 +35,17 @@ public class Professor extends Usuario implements Autenticacao {
             throw new NullPointerException("Informe a senha do professor para autenticar.\n");
         }        
         if ( login != this.getLogin() || senha != this.getSenha()) {
-            return "\nFalha ao autenticar professor: Login ou senha incorretos.\n";
+            System.out.println("\nFalha ao autenticar professor: Login ou senha incorretos.\n");
+            return false;
         } else {
-            return"\nLogado como Professor.";
+            System.out.println("\nLogado como Professor.");
+            return true;
         }
     }
     // método polimórfico - Relatório prof.:
     public String gerarRelatorio() {
-        return "\nNome do professor: "+this.getNomeProfessor()+
-        "\nRegistro: "+this.getRegistro()+
-        "\nEspecialidade: "+this.getEspecialidade()+"\n";
+        return "\nNome do professor: "+this.getNome()+
+        "\nRegistro: "+this.registro+
+        "\nEspecialidade: "+this.especialidade+"\n";
     }
 }
