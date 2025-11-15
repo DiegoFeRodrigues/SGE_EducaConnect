@@ -6,6 +6,7 @@ public class Turma {
     private Curso curso;
     private Professor professor;
     private List<String> listaAlunos;
+
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
@@ -46,6 +47,6 @@ public class Turma {
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNomeProfessor()+
         "\nCurso: "+this.curso.getNomeCurso()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;                 
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos+"\n";                 
     }
 }

@@ -15,6 +15,6 @@ public class CursoPresencial extends Curso {
         return "\nCurso: "+this.getNomeCurso()+
         "\nCódigo: "+this.getCodigo()+
         "\nCarga horária: "+this.cargaHoraria()+
-        "\nSala: "+this.sala;
+        "\nSala: "+this.sala+"\n";
     }
 }

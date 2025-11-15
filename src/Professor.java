@@ -38,6 +38,6 @@ public class Professor extends Usuario implements Autenticacao {
     public String gerarRelatorio() {
         return "\nNome do professor: "+this.getNomeProfessor()+
         "\nRegistro: "+this.getRegistro()+
-        "\nEspecialidade: "+this.getEspecialidade();
+        "\nEspecialidade: "+this.getEspecialidade()+"\n";
     }
 }
