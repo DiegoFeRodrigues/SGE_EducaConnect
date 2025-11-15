@@ -30,7 +30,7 @@ public class Turma {
         if (aluno.curso.equals(curso.nomeCurso)) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.nomeAluno);
-            System.out.println(aluno.nomeAluno+" foi adicionado ao curso de "+curso.nomeCurso);
+            System.out.println(aluno.nomeAluno+" foi adicionado ao curso de "+curso.nomeCurso+".");
         } else {
             System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma");
         }
@@ -45,8 +45,8 @@ public class Turma {
     public String resumoTurma() {
         return "\nDados da turma do curso de "+this.curso.nomeCurso+":"+
         "\nCódigo da turma: "+this.codigo+
-        "\nProfessor: "+this.professor.nomeProfessor+
         "\nCurso: "+this.curso.nomeCurso+
+        "\nProfessor: "+this.professor.nomeProfessor+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos;
     }
 }
