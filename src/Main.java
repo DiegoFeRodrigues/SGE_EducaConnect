@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         // bloco try - tenta validação na instancia de objetos:
         try {
-            System.out.println("\n=== EduConnect - Sistema de Gestão Educacional (SGC) ===");
+            System.out.println("\n*** EduConnect - Sistema de Gestão Educacional (SGC) ***");
             
             // instanciando objetos pra testar FaseCinco: - ADMINISTRADORES:
             Administrador adm1 = new Administrador("adm", "0000");

@@ -1,8 +1,12 @@
 public class Aluno extends Usuario implements Autenticacao {
     
+    // atributos aluno:
+    private String curso;
+    private int matricula;
+    
     // constrcutor aluno - valida e inicia atributos:
-    public Aluno(String nome, int matricula, String curso, String login, String senha) {
-        if (nome == null) {
+    public Aluno(String nomeAluno, int matricula, String curso, String login, String senha) {
+        if (nomeAluno == null) {
             throw new NullPointerException("Informe o nome do aluno.\n");
         }
         if (matricula <= 0) {
@@ -17,7 +21,13 @@ public class Aluno extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha.\n");
         }
-        super(nome, matricula, curso, login, senha); // -> herda da superclasse abstrata Usuário
+        super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
+        this.matricula = matricula;
+        this.curso = curso;
+    }
+    // getter curso - usado em Turma:
+    public String getCursoAluno() {
+        return curso;
     }
     // implementação método da interface Autenticacao:
     @Override
@@ -38,8 +48,8 @@ public class Aluno extends Usuario implements Autenticacao {
     }
     // método com dados - alunos:
     public String dadosAluno() {
-        return "\nNome do Aluno: "+this.getNomeAluno()+
-        "\nMatrícula: "+this.getMatricula()+
-        "\nCurso: "+this.getCursoAluno()+"\n";
-    }      
+        return "\nNome do Aluno: "+this.getNome()+
+        "\nMatrícula: "+this.matricula+
+        "\nCurso: "+this.curso+"\n";
+    }
 }

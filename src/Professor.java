@@ -1,5 +1,9 @@
 public class Professor extends Usuario implements Autenticacao {
-
+    
+    // atributos professor:
+    private String especialidade;
+    private int registro;
+    
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
         if (nomeProfessor == null) {
@@ -17,7 +21,9 @@ public class Professor extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha.\n");
         }
-        super(nomeProfessor, especialidade, registro, login, senha); // -> herda da superclasse abstrata Usuário
+        super(nomeProfessor, login, senha); // -> herda da superclasse abstrata Usuário
+        this.especialidade = especialidade;
+        this.registro = registro;
     }
     // implementação método da interface Autenticacao:
     @Override
@@ -38,8 +44,8 @@ public class Professor extends Usuario implements Autenticacao {
     }
     // método com dados - professor:
     public String dadosProf() {
-        return "\nNome do Professor: "+this.getNomeProfessor()+
-        "\nRegistro: "+this.getRegistro()+
-        "\nEspecialidade: "+this.getEspecialidade()+"\n";
+        return "\nNome do Professor: "+this.getNome()+
+        "\nRegistro: "+this.registro+
+        "\nEspecialidade: "+this.especialidade+"\n";
     }    
 }
