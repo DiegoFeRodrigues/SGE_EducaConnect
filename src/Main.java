@@ -14,11 +14,11 @@ public class Main {
             Aluno aluno10 = new Aluno("Ana", 593150, "Letras", "Anninha", "123");
 
             // cursos - EAD:
-            CursoEAD curso1 = new CursoEAD("ADS", 54321, 2180f, "Studeo");
-            CursoEAD curso2 = new CursoEAD("Cyber Segurança", 134678, 2500f, "Studeo");
+            Curso curso1 = new CursoEAD("ADS", 54321, 2180f, "Studeo");
+            Curso curso2 = new CursoEAD("Cyber Segurança", 134678, 2500f, "Studeo");
             // Presencial:
-            CursoPresencial curso3 = new CursoPresencial("Artes marciais", 98765, 20000f, "Sala do tempo");
-            CursoPresencial curso10 = new CursoPresencial("Química", 51379, 5300f, "Laboratório");
+            Curso curso3 = new CursoPresencial("Artes marciais", 98765, 20000f, "Sala do tempo");
+            Curso curso10 = new CursoPresencial("Química", 51379, 5300f, "Laboratório");
 
             // professores:
             Professor professor1 = new Professor("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
@@ -38,11 +38,11 @@ public class Main {
             listaProf.add(professor10);
             
             // novas listas de curso (EAD e presenc.) e adicionando objetos p/ testes FASE 6:
-            List<CursoEAD> listaCursosEAD = new ArrayList<>();
+            List<Curso> listaCursosEAD = new ArrayList<>();
             listaCursosEAD.add(curso1);
             listaCursosEAD.add(curso2);
 
-            List<CursoPresencial> listaCursosPresen = new ArrayList<>();
+            List<Curso> listaCursosPresen = new ArrayList<>();
             listaCursosPresen.add(curso3);
             listaCursosPresen.add(curso10);
 
