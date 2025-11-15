@@ -12,73 +12,77 @@ import ui.MenuRelatorios;
 public class Main {
     
     public static void main(String[] args) {
+        // bloco try - tenta validação na instancia de objetos:
+        try {
+            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n");        
 
-        ArmazTemporario simuBDTemp = new ArmazTemporario();
+            ArmazTemporario simuBDTemp = new ArmazTemporario();
 
-        // Camada Model - instanciando objetos 
+            // Camada Model - instanciando objetos 
 
-        // Administrador:
-        Administrador adm = new Administrador("Admin","1234");
-        // Alunos:
-        simuBDTemp.adicionaAluno("Diego", 12345, "ADS", "D","123");
-        simuBDTemp.adicionaAluno("Kuririn", 18, "Artes marciais", "marron", "98@k9Lç$");
-        simuBDTemp.adicionaAluno("Kakarotto", 59, "Artes marciais", "Oozaru", "gohan");
-        simuBDTemp.adicionaAluno("Yamcha", 7, "Artes marciais", "Yam", "pu@l");
-        // curso EAD:
-        simuBDTemp.adicionaCurso(54321,"ADS", 2180f, "Studeo");
-        // simuBDTemp.adicionaCurso(null, 0, 0);
-        // cursos Presenciais:
-        simuBDTemp.adicionaCurso("Artes marciais", 98765, 20000f, "Sala do tempo");
-        simuBDTemp.adicionaCurso("Química", 51379, 5300f, "Laboratório");
-        // professores:
-        simuBDTemp.adicionaProf("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
-        simuBDTemp.adicionaProf("Flavio Ceci", "POO", 134679, "CeciFlavio", "FC12345");
-        simuBDTemp.adicionaProf("Walter White", "Química", 19, "WWhite", "Heisenberg{}*@s");
-        // avaliações:
-        Avaliacao prova = new Avaliacao("Prova de POO.");
-        Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
-        // turmas:
-        // Turma turma1 = new Turma(1, curso1, professor2);
-        // Turma turma2 = new Turma(2, curso2, professor1);
+            // Administrador:
+            Administrador adm = new Administrador("Admin","1234");
+            // Alunos:
+            simuBDTemp.adicionaAluno("Diego", 12345, "ADS", "D","123");
+            simuBDTemp.adicionaAluno("Kuririn", 18, "Artes marciais", "marron", "98@k9Lç$");
+            simuBDTemp.adicionaAluno("Kakarotto", 59, "Artes marciais", "Oozaru", "gohan");
+            simuBDTemp.adicionaAluno("Yamcha", 7, "Artes marciais", "Yam", "pu@l");
+            // curso EAD:
+            simuBDTemp.adicionaCurso(54321,"ADS", 2180f, "Studeo");
+            // simuBDTemp.adicionaCurso(null, 0, 0);
+            // cursos Presenciais:
+            simuBDTemp.adicionaCurso("Artes marciais", 98765, 20000f, "Sala do tempo");
+            simuBDTemp.adicionaCurso("Química", 51379, 5300f, "Laboratório");
+            // professores:
+            simuBDTemp.adicionaProf("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
+            simuBDTemp.adicionaProf("Flavio Ceci", "POO", 134679, "CeciFlavio", "FC12345");
+            simuBDTemp.adicionaProf("Walter White", "Química", 19, "WWhite", "Heisenberg{}*@s");
+            // avaliações:
+            Avaliacao prova = new Avaliacao("Prova de POO.");
+            Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
+            // turmas:
+            // Turma turma1 = new Turma(1, curso1, professor2);
+            // Turma turma2 = new Turma(2, curso2, professor1);
+            
+            // CAMADA DE REGRAS DE NEGOCIO:
+            
+            // MANIPULANDO TURMAS:
+            // adicionando aluno em suas turmas:
+            System.out.println("Alunos adicionados:");
+            // turma1.addAluno(12345, "ADS");
+            // turma2.addAluno(aluno2, curso2);
+            // turma2.addAluno(aluno3, curso2);
+            // turma2.addAluno(aluno4, curso2);
+            
+            // removendo aluno de uma turma:
+            System.out.println("\nAlunos removidos:");
+            // turma2.removeAluno(aluno4, curso2);
         
-        // CAMADA DE REGRAS DE NEGOCIO:
+            // saída com resumo das turmas:
+            // System.out.println(turma1.resumoTurma());
+            // System.out.println(turma2.resumoTurma());
+            
+            // AVALIAÇÕES
+            // atribuindo nota e saída com resultado - turma 1:
+            
+            // prova.atribuirNota(aluno1, turma1, 6f);
+            System.out.println("\nResultado avaliação da turma 1:");
+            // System.out.println(prova.resultado(aluno1, turma1, prova));
         
-        // MANIPULANDO TURMAS:
-        // adicionando aluno em suas turmas:
-        System.out.println("Alunos adicionados:");
-        // turma1.addAluno(12345, "ADS");
-        // turma2.addAluno(aluno2, curso2);
-        // turma2.addAluno(aluno3, curso2);
-        // turma2.addAluno(aluno4, curso2);
-        
-        // removendo aluno de uma turma:
-        System.out.println("\nAlunos removidos:");
-        // turma2.removeAluno(aluno4, curso2);
-       
-        // saída com resumo das turmas:
-        // System.out.println(turma1.resumoTurma());
-        // System.out.println(turma2.resumoTurma());
-        
-        // AVALIAÇÕES
-        // atribuindo nota e saída com resultado - turma 1:
-        
-        // prova.atribuirNota(aluno1, turma1, 6f);
-        System.out.println("\nResultado avaliação da turma 1:");
-        // System.out.println(prova.resultado(aluno1, turma1, prova));
-       
-        // atribuindo nota e saída com resultado - turma 2:
-        System.out.println("\nResultado avaliação da turma 2:");
-        // treino.atribuirNota(aluno2, turma2, 8f);
-        // System.out.println(treino.resultado(aluno2, turma2, treino));
+            // atribuindo nota e saída com resultado - turma 2:
+            System.out.println("\nResultado avaliação da turma 2:");
+            // treino.atribuirNota(aluno2, turma2, 8f);
+            // System.out.println(treino.resultado(aluno2, turma2, treino));
 
-        // treino.atribuirNota(aluno3, turma2, 10f);
-        // System.out.println(treino.resultado(aluno3, turma2, treino));
+            // treino.atribuirNota(aluno3, turma2, 10f);
+            // System.out.println(treino.resultado(aluno3, turma2, treino));
 
-        // CHAMANDO MENU DE RELATÓRIOS NO MAIN:
-        MenuRelatorios menuRelatorios = new MenuRelatorios(simuBDTemp);
-        menuRelatorios.menuR();
-    }
-    
-
-      
+            // CHAMANDO MENU DE RELATÓRIOS NO MAIN:
+            MenuRelatorios menuRelatorios = new MenuRelatorios(simuBDTemp);
+            menuRelatorios.menuR();
+        } // captura e tratamento de erros de objetos que não puderem ser instanciados: 
+        catch (NullPointerException | IllegalArgumentException npeouiae) {
+            System.err.println("\nErro: "+npeouiae.getMessage());        
+        }    
+    } 
 }

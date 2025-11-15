@@ -17,6 +17,6 @@ public class CursoEAD extends Curso {
         return "\nCurso: "+this.getNomeCurso()+
         "\nCódigo: "+this.getCodigo()+
         "\nCarga horária: "+this.cargaHoraria()+
-        "\nPlataforma: "+this.plataforma;
+        "\nPlataforma: "+this.plataforma+"\n";
     }
 }

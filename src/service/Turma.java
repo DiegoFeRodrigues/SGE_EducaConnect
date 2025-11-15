@@ -9,11 +9,13 @@ import model.Professor;
 import repository.ArmazTemporario;
 
 public class Turma {
+   
     // atributos turma:
     private int codigo;
     private Curso curso;
     private Professor professor;
     private List<Aluno> listaAlunos;
+    private List<String> listaNomeAlunos;    
     private ArmazTemporario dadosSalvos;
 
     public Turma(ArmazTemporario dados) {
@@ -34,18 +36,27 @@ public class Turma {
         this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
+        this.listaNomeAlunos = new ArrayList<>();        
     }
     // método adiciona aluno: 
-    public void addAluno(int matricula, String curso) {
-        Aluno aluno = dadosSalvos.encontraAluno(matricula);
-        Curso cursos = dadosSalvos.encontraCurso(curso); 
-        listaAlunos.add(aluno);
-        System.out.println("Aluno adicionado ao curso de "+cursos.getNomeCurso());  
+    public Turma(List<Aluno> lAlunos, List<Curso> lCursos) {
+        // Aluno aluno = dadosSalvos.encontraAluno(matricula);
+        // Curso cursos = dadosSalvos.encontraCurso(curso); 
+        for (Aluno aluno : lAlunos) {
+            for (Curso curso : lCursos) {
+                if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
+                    listaAlunos.add(aluno);
+                    listaNomeAlunos.add(aluno.getNome());
+                    System.out.println("Aluno adicionado ao curso de "+curso.getNomeCurso());  
+                }
+            }
+        }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
         listaAlunos.remove(aluno);
-        System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
+        listaNomeAlunos.remove(aluno.getNome());
+        System.out.println(aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
     // getter codigo - usado em Avaliacao:
     public int getCodigoTurma() {
@@ -55,8 +66,8 @@ public class Turma {
     public String resumoTurma() {
         return "Dados da turma do curso de "+this.curso.getNomeCurso()+":"+
         "\nCódigo da turma: "+this.codigo+
-        "\nProfessor: "+this.professor.getNomeProfessor()+
         "\nCurso: "+this.curso.getNomeCurso()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;                 
+        "\nProfessor: "+this.professor.getNome()+
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";
     }
 }

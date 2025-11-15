@@ -9,6 +9,7 @@ import model.Curso;
 import model.CursoEAD;
 import model.CursoPresencial;
 import model.Professor;
+import service.Turma;
 
 public class ArmazTemporario {
 
@@ -44,6 +45,11 @@ public class ArmazTemporario {
         public void adicionaCurso(int codigo, String curso, float cargaHoraria, String plataforma) {
             listaCursos.add(new CursoEAD(curso, codigo, cargaHoraria, plataforma));
         }
+        Turma turma1 = new Turma(listaAlunos, listaCursos);
+
+
+
+
         // getters de listas:
         public List<Aluno> getListaAlunos() {
             return listaAlunos;
