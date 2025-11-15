@@ -44,7 +44,7 @@ public class Turma {
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno.getNomeAluno());
+        listaAlunos.remove(aluno);
         System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
     // getter codigo - usado em Avaliacao:

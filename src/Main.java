@@ -31,9 +31,9 @@ public class Main {
         simuBDTemp.adicionaCurso("Artes marciais", 98765, 20000f, "Sala do tempo");
         simuBDTemp.adicionaCurso("Química", 51379, 5300f, "Laboratório");
         // professores:
-        Professor professor1 = new Professor("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
-        Professor professor2 = new Professor("Flavio Ceci", "POO", 134679, "CeciFlavio", "FC12345");
-        Professor professor10 = new Professor("Walter White", "Química", 19, "WWhite", "Heisenberg{}*@s");        
+        simuBDTemp.adicionaProf("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
+        simuBDTemp.adicionaProf("Flavio Ceci", "POO", 134679, "CeciFlavio", "FC12345");
+        simuBDTemp.adicionaProf("Walter White", "Química", 19, "WWhite", "Heisenberg{}*@s");
         // avaliações:
         Avaliacao prova = new Avaliacao("Prova de POO.");
         Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
