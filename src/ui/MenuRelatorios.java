@@ -6,6 +6,7 @@ import model.Aluno;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import service.Turma;
 
 public class MenuRelatorios {
     
@@ -58,14 +59,16 @@ public class MenuRelatorios {
                         }
                         break;
                     case 3:     // cursos - EAD:
-                        System.out.println("\n=== Relatório de cursos ===");
-                        System.out.println("\n-- Cursos EAD disponíveis: --");
+                        System.out.println("\n=== Relatório de cursos disponíveis ===");
                         for (Curso cursos : dadosSalvos.getListaCursos()) {
                             System.out.println(cursos.gerarRelatorio());
                         }
                         break;
                     case 4:
                         System.out.println("\n ** Relatorio de turmas **");
+                        for (Turma turma : dadosSalvos.getListaTurmas()) {
+                            System.out.println(turma.resumoTurma());
+                        }
                         break;
                     case 5:     // sair:
                         System.out.println("\nSaindo.\n"); 

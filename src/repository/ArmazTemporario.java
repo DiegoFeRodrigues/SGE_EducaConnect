@@ -3,30 +3,45 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Administrador;
 import model.Aluno;
 import model.Curso;
-import model.CursoEAD;
-import model.CursoPresencial;
 import model.Professor;
 import service.Turma;
 
 public class ArmazTemporario {
 
-    private List<Aluno> listaAlunos = new ArrayList<>();
-    private List<Professor> listaProf = new ArrayList<>();
+    public static List<Aluno> listaAlunos = new ArrayList<>();
+    public static List<Professor> listaProf = new ArrayList<>();
+    public static List<Curso> listaCursos = new ArrayList<>();
+    public static List<Turma> listaTurmas = new ArrayList<>();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // private List<CursoEAD> listaCursosEAD = new ArrayList<>();
     // private List<CursoPresencial> listaCursosPres = new ArrayList<>();
-    private List<Curso> listaCursos = new ArrayList<>();
-    private List<Administrador> listaAdmin = new ArrayList<>();
 
     // métodos que adiciona objetos nas listas:
-    public void adicionaAluno(String nomeAluno, int matricula, String Curso, String login, String senha) {
-        listaAlunos.add(new Aluno(nomeAluno, matricula, Curso, login, senha));
-    }
-    public void adicionaProf(String nomeProf, String espec, int registro, String login, String senha) {
-        listaProf.add(new Professor(nomeProf, espec, registro, login, senha));
-    }
+    // public void adicionaAluno(String nomeAluno, int matricula, String Curso, String login, String senha) {
+    //     listaAlunos.add(new Aluno(nomeAluno, matricula, Curso, login, senha));
+    // }
+    // public void adicionaProf(String nomeProf, String espec, int registro, String login, String senha) {
+    //     listaProf.add(new Professor(nomeProf, espec, registro, login, senha));
+    // }
     // public void adicionaCursoP() {
         //     listaCursosPres.add(new CursoPresencial("Engenharia", 57777, 53891f, "18"));
         // }
@@ -39,13 +54,17 @@ public class ArmazTemporario {
     // public List<CursoEAD> getListaCursosEAD() {
         //     return listaCursosEAD;
         // }
-        public void adicionaCurso(String curso, int codigo, float cargaHoraria, String sala) {
-            listaCursos.add(new CursoPresencial(curso, codigo, cargaHoraria, sala));
-        }
-        public void adicionaCurso(int codigo, String curso, float cargaHoraria, String plataforma) {
-            listaCursos.add(new CursoEAD(curso, codigo, cargaHoraria, plataforma));
-        }
-        Turma turma1 = new Turma(listaAlunos, listaCursos);
+        // public void adicionaCurso(String curso, int codigo, float cargaHoraria, String sala) {
+        //     listaCursos.add(new CursoPresencial(curso, codigo, cargaHoraria, sala));
+        // }
+        // public void adicionaCurso(int codigo, String curso, float cargaHoraria, String plataforma) {
+        //     listaCursos.add(new CursoEAD(curso, codigo, cargaHoraria, plataforma));
+        // }
+        // public void criaTurma(int codigo, String curso, String professor) {
+        //     listaTurmas.add(new Turma(codigo, curso, professor));
+        //     // Turma.criaTurmas();
+        // }
+        
 
 
 
@@ -59,6 +78,9 @@ public class ArmazTemporario {
         }
         public List<Curso> getListaCursos() {
             return listaCursos;
+        }
+        public List<Turma> getListaTurmas() {
+            return listaTurmas;
         }
 
     public Aluno encontraAluno(int matricula) {

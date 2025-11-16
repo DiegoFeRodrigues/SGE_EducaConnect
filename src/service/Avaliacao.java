@@ -11,30 +11,27 @@ public class Avaliacao {
     // constructor avaliação - valida e inicia atributo descrição:
     public Avaliacao(String descricao) {
         if (descricao == null) {
-            throw new NullPointerException("Informe a descrição da avaliação.");
+            throw new NullPointerException("Informe a descrição da avaliação.\n");
         }
         this.descricao = descricao;
     }    
     // metodo atribuir nota associando alunos em turmas e validando dados informados:
     public void atribuirNota(Aluno aluno, Turma turma, float nota) {
         if (aluno == null) {
-            throw new NullPointerException("Informe o objeto aluno desejado.");
+            throw new NullPointerException("Informe o objeto aluno desejado.\n");
         }
         if (turma == null) {
-            throw new NullPointerException("Informe o objeto turma desejado.");
+            throw new NullPointerException("Informe o objeto turma desejado.\n");
         }
         if (nota < 0 || nota > 10) { // valida se nota está entre 0 e 10
-            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.");
+            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.\n");
         }
         this.aluno = aluno;
         this.turma = turma;
         this.nota = nota;
-    }
-    // saída com resultado da avaliação:
-    public String resultado(Aluno aluno, Turma turma, Avaliacao nota) {
-        return "Nome do Aluno: "+this.aluno.getNome()+
+        System.out.println("Nome do Aluno: "+this.aluno.getNome()+
         "\nCódigo da turma: "+this.turma.getCodigoTurma()+
         "\nDescrição da avaliação: "+this.descricao+
-        "\nNota: "+this.nota+"\n";        
+        "\nNota: "+this.nota+"\n");
     }
 }
