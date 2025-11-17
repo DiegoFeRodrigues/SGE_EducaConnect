@@ -1,7 +1,6 @@
 package model;
 
 import service.Autenticacao;
-import service.Usuario;
 
 public class Administrador extends Usuario implements Autenticacao {
 
@@ -27,6 +26,7 @@ public class Administrador extends Usuario implements Autenticacao {
         }
         if ( login != this.getLogin() || senha != this.getSenha()) { 
             System.out.println("Falha ao autenticar administrador: Login ou senha incorretos.\n");
+            return false;
         } else {
             System.out.println("Administrador entrou.\n");
             return true;

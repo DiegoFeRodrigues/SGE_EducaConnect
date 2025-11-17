@@ -1,17 +1,24 @@
-package service;
-
-import model.Curso;
+package model;
 
 public class CursoPresencial extends Curso {
-    // constructor herdando o atributo nome de curso:
-    public CursoPresencial(String nome) {
-        super(nome);
+
+    // atributo sala - curso presencial:
+    private String sala;
+
+    // constructor - herda nome, codigo e cargahoraria da superclasse Curso:
+    public CursoPresencial(String nomeCurso, int codigo, float cargaHoraria, String sala) {
+        if (sala == null) {
+            throw new NullPointerException("Informe a sala do curso presencial.\n");
+        }        
+        super(nomeCurso, codigo, cargaHoraria);
+        this.sala = sala;
     }
-    // sobrescrita do método detalharCurso da classe Curso:
+    // sobrescrita do método gerarRelatorio() da superclasse Curso:
     @Override
-    public String detalharCurso() {
-        return "\nDetalhes do curso:"+
-        "\nCurso de "+this.getNomeCurso()+"."+
-        "\nSala: "+this.getSala()+".";
+    public String gerarRelatorio() {
+        return "\nCurso: "+this.getNomeCurso()+
+        "\nCódigo: "+this.getCodigo()+
+        "\nCarga horária: "+this.cargaHoraria()+
+        "\nSala: "+this.sala+"\n";
     }
 }

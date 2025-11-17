@@ -26,16 +26,17 @@ public class MenuInterativo {
                 case 1:
                     System.out.println("Nome do aluno:");
                     String nomeAluno = scanner.nextLine();
-                    System.out.println("Curso:");
-                    String cursoAluno = scanner.nextLine();
                     System.out.println("Matrícula:");
                     int matricula = scanner.nextInt();
+                    System.out.println("Curso:");
+                    String cursoAluno = scanner.nextLine();
+                    scanner.nextLine();
                     System.out.println("Login:");
                     String login = scanner.nextLine();
                     System.out.println("Senha:");
                     String senha = scanner.nextLine();
-                    salvaDados.adicionaAluno(nomeAluno, cursoAluno, matricula, login, senha);
-                    scanner.nextLine();
+                    Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, login, senha);
+                    salvaDados.listaAlunos.add(aluno);
                     break;
                     
                 }

@@ -1,26 +1,24 @@
-package service;
-
-import model.Curso;
+package model;
 
 public class CursoEAD extends Curso {
-    // atributo:
-    private String plataforma;
-    // constructor herdando atributo nome de curso:
-    public CursoEAD(String nome) {
-        super(nome);
-    }
 
-    // constructor "hibrido", herdando nome de Curso
-    // e iniciando plataforma como parâmetro no contrutor:
-    public CursoEAD (String nome, String plataforma) {
-        super(nome);
+    // atributo plataforma - curso EAD:
+    private String plataforma;
+
+    // constructor - herda nome, codigo e cargahoraria da superclasse Curso:
+    public CursoEAD(String nomeCurso, int codigo, float cargaHoraria, String plataforma) {
+        if (plataforma == null) {
+            throw new NullPointerException("Informe a plataforma do curso EAD.\n");
+        }        
+        super(nomeCurso, codigo, cargaHoraria);
         this.plataforma = plataforma;
     }
-    // sobrescrevendo método detalharCurso da classe curso:
+    // sobrescrevendo método gerarRelatorio() da superclasse Curso:
     @Override
-    public String detalharCurso() {
-        return "\nDetalhes do curso:"+
-        "\nCurso de "+this.getNomeCurso()+"."+
-        "\nPlataforma: "+this.plataforma+".";
+    public String gerarRelatorio() {
+        return "\nCurso: "+this.getNomeCurso()+
+        "\nCódigo: "+this.getCodigo()+
+        "\nCarga horária: "+this.cargaHoraria()+
+        "\nPlataforma: "+this.plataforma+"\n";
     }
 }

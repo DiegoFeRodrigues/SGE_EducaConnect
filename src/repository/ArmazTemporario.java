@@ -6,56 +6,49 @@ import java.util.List;
 import model.Aluno;
 import model.Curso;
 import model.Professor;
+import service.Turma;
 
 public class ArmazTemporario {
 
-    private List<Aluno> listaAlunos = new ArrayList<>();
-    private List<Professor> listaProf = new ArrayList<>();
-    private List<Curso> listaCursos = new ArrayList<>();
+    public List<Aluno> listaAlunos = new ArrayList<>();
+    public static List<Professor> listaProf = new ArrayList<>();
+    public static List<Curso> listaCursos = new ArrayList<>();
+    public static List<Turma> listaTurmas = new ArrayList<>();
 
-    public void adicionaAluno(String nome, String curso, int matricula, String login, String senha) {
-        listaAlunos.add(new Aluno(nome, curso, matricula, login, senha));
-        System.out.println("Aluno cadastrado!");
-    }
-    
+    // getters das listas:
     public List<Aluno> getListaAlunos() {
         return listaAlunos;
-    }
-
-    public void adicionaProf() {
-        listaProf.add(new Professor("Walter White", "Química", 19, "WWhite", "1234"));
     }
     public List<Professor> getListaProf() {
         return listaProf;
     }
-
-    public void adicionaCurso() {
-        listaCursos.add(new Curso("Engenharia", 57777, 53891f));
-    }
     public List<Curso> getListaCursos() {
         return listaCursos;
     }
-    
-    
-    // public void adicionaAluno() {
-    // public static void main(String[] args) {
-        // ArrayList<Aluno> listaAlunos = new ArrayList<>();
-        // Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
-    //     alu10.autenticar("Anninha", "98@k9Lç$");
-    //     listaAlunos.add(alu10);
-        
-    //     listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
-    // // }
-    
-    
-    // public List<Aluno> getListaAlunos () {
-    //     return listaAlunos;
-    // }
-    // public void imprimeLista() {
-    //     System.out.println(listaAlunos);
-    // }
-
+    public List<Turma> getListaTurmas() {
+        return listaTurmas;
+    }
 }
+    
+    
+// public void adicionaAluno() {
+// public static void main(String[] args) {
+// ArrayList<Aluno> listaAlunos = new ArrayList<>();
+// Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
+//     alu10.autenticar("Anninha", "98@k9Lç$");
+//     listaAlunos.add(alu10);
+    
+//     listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
+// // }
+
+
+// public List<Aluno> getListaAlunos () {
+//     return listaAlunos;
+// }
+// public void imprimeLista() {
+//     System.out.println(listaAlunos);
+// }
+
 
 //     public static void main(String[] args) {
         

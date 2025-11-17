@@ -8,42 +8,57 @@ import model.Curso;
 import model.Professor;
 
 public class Turma {
-    // atributos:
-    private Curso codigo;
-    private Curso nomeCurso;
+   
+    // atributos turma:
+    private int codigo;
+    private Curso curso;
     private Professor professor;
-    private List<String> listaAlunos;
-    // constructor:
-    public Turma(Curso codigo, Curso nomeCurso, Professor professor) {
+    private List<Aluno> listaAlunos;
+    private List<String> listaNomeAlunos;    
+    
+    // constructor turma - valida e inicia atributos:
+    public Turma(int codigo, Curso curso, Professor professor) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("Código da turma deve ser maior que 0.");
+        }
+        if (curso == null) {
+            throw new NullPointerException("Informe o objeto curso desejado.");
+        }
+        if (professor == null) {
+            throw new NullPointerException("Informe o objeto professor desejado.");
+        }    
         this.codigo = codigo;
-        this.nomeCurso = nomeCurso;
+        this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
+        this.listaNomeAlunos = new ArrayList<>();        
     }
-    // método adiciona aluno: 
-    public void addAluno(Aluno aluno, Curso curso) {
-        if (aluno.getCursoAlu().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAlu());
-            System.out.println(aluno.getNomeAlu()+
-            " foi adicionado ao curso de "+curso.getNomeCurso()+".");
+    // método adiciona aluno:
+    public void addAluno(Aluno aluno, Curso curso, Professor prof) {
+        if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
+            listaAlunos.add(aluno);
+            listaNomeAlunos.add(aluno.getNome());
+            System.out.println("\n"+aluno.getNome()+" foi adicionado ao curso de "+curso.getNomeCurso()+".");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno, Curso curso) {
-        if (aluno == null){
-            System.out.println("Aluno inválido!");
-        }else {
-            listaAlunos.remove(aluno.getNomeAlu());
-                System.out.println(aluno.getNomeAlu()+" foi removido.");
-            }
+        listaAlunos.remove(aluno);
+        listaNomeAlunos.remove(aluno.getNome());
+        System.out.println("\n"+aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
-    // saída com resumo da turma:
-    @Override
-    public String toString() {
-        return "\nDados da turma do curso de "+this.nomeCurso.getNomeCurso()+":"+
-        "\nProfessor: "+this.professor.getNomeProf()+
-        "\nCurso: "+this.nomeCurso.getNomeCurso()+
-        "\nCódigo: "+this.codigo.getCodigo()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+    // getter codigo e curso - usados em Avaliacao:
+    public int getCodigoTurma() {
+        return codigo;
+    }
+    public Curso getCursoTurma() {
+        return curso;
+    }
+    // método com resumo da turma:
+    public String resumoTurma() {
+        return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
+        "\nCódigo da turma: "+this.codigo+
+        "\nProfessor: "+this.professor.getNome()+
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";
     }
 }

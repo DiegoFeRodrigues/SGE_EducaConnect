@@ -1,7 +1,6 @@
 package model;
 
 import service.Autenticacao;
-import service.Usuario;
 
 public class Aluno extends Usuario implements Autenticacao {
      

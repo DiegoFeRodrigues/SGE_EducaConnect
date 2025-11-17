@@ -3,38 +3,50 @@ package service;
 import model.Aluno;
 
 public class Avaliacao {
-    // atributos:
+    
+    // atributos avaliação:
     private float nota;
     private String descricao;
     private Aluno aluno;
-    // constructor:
-    public Avaliacao(String descrição) {
-        this.descricao = descrição;
-    }
-    // metodo atribuir nota:
-    public void atribuirNota(Aluno aluno, float valor) {
+    private Turma turma;    
+
+    // constructor avaliação - valida e inicia atributo descrição:
+    public Avaliacao(String descricao) {
+        if (descricao == null) {
+            throw new NullPointerException("Informe a descrição da avaliação.\n");
+        }
+        this.descricao = descricao;
+    }    
+    // metodo atribuir nota associando alunos em turmas e validando dados informados:
+    public void atribuirNota(Aluno aluno, Turma turma, float nota) {
+        if (aluno == null) {
+            throw new NullPointerException("Informe o objeto aluno desejado.\n");
+        }
+        if (turma == null) {
+            throw new NullPointerException("Informe o objeto turma desejado.\n");
+        }
+        if (nota < 0 || nota > 10) { // valida se nota está entre 0 e 10
+            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.\n");
+        }
         this.aluno = aluno;
-        this.nota = valor;
-    }
-    // metodo testa nota:
-    private boolean testaNota() {
-        if (nota >= 0 && nota <= 10) {return true;}
-        else {return false;} 
-    }
-    // getter nota:
-    public float getNota() {
-        return nota;
+        this.turma = turma;
+        this.nota = nota;
+        System.out.println("Nome do Aluno: "+this.aluno.getNome()+
+        "\nCódigo da turma: "+this.turma.getCodigoTurma()+
+        "\nCurso: "+this.turma.getCursoTurma().getNomeCurso()+
+        "\nDescrição da avaliação: "+this.descricao+
+        "\nNota: "+this.nota+"\n");
     }
 
-    // saída com resumo da avaliação:
-    public String avaliacao(Aluno aluno, Turma turma, Avaliacao nota) {
-        if (!this.testaNota()) {
-            return "\nNota inválida para a avaliação "+
-            this.descricao;
-        } else {
-            return "\nNome do Aluno: "+this.aluno.getNomeAlu()+
-            "\nDescrição da avaliação: "+this.descricao+
-            "\nNota: "+this.getNota();
-        }
-    }
+    // // saída com resumo da avaliação:
+    // public String avaliacao(Aluno aluno, Turma turma, Avaliacao nota) {
+    //     if (!this.testaNota()) {
+    //         return "\nNota inválida para a avaliação "+
+    //         this.descricao;
+    //     } else {
+    //         return "\nNome do Aluno: "+this.aluno.getNomeAlu()+
+    //         "\nDescrição da avaliação: "+this.descricao+
+    //         "\nNota: "+this.getNota();
+    //     }
+    // }
 }

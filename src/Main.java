@@ -12,6 +12,6 @@ public class Main {
 
         // CHAMANDO MENU DE RELATÓRIOS NO MAIN:
         MenuRelatorios menuRelatorios = new MenuRelatorios(dadosSalvos);
-        menuRelatorios.menuR();
+        menuRelatorios.menuRelatorios();
     }
 }
