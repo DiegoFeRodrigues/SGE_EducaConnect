@@ -1,12 +1,4 @@
-import model.Administrador;
-import model.Aluno;
-import model.Curso;
-import model.Professor;
 import repository.ArmazTemporario;
-import service.Avaliacao;
-import service.CursoEAD;
-import service.CursoPresencial;
-import service.Turma;
 import ui.MenuInterativo;
 import ui.MenuRelatorios;
 

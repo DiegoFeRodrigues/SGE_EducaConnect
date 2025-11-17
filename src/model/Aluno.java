@@ -3,46 +3,59 @@ package model;
 import service.Autenticacao;
 import service.Usuario;
 
-public class Aluno extends Usuario implements Autenticacao{
-    // atributos:
-    private String nomeAluno, curso, login, senha;
+public class Aluno extends Usuario implements Autenticacao {
+     
+    // atributo aluno:
+    private String curso;
     private int matricula;
-    // constructor inicial:
-    public Aluno(String nome, String curso, int matricula) {
-        this.nomeAluno = nome;
-        this.curso = curso;
-        this.matricula = matricula;
+
+    // constrcutor aluno - valida e inicia atributos:
+    public Aluno(String nomeAluno, int matricula, String curso, String login, String senha) {
+        if (nomeAluno == null) {
+            throw new NullPointerException("Informe o nome do aluno.\n");
+        }
+        if (matricula <= 0) {
+            throw new IllegalArgumentException("Matrícula deve ser maior que 0.\n");
+        }
+        if (curso == null) {
+            throw new NullPointerException("Informe o curso do aluno.\n");
+        }
+        if (login == null) {
+            throw new NullPointerException("Informe o login.\n");
+        }
+        if (senha == null) {
+            throw new NullPointerException("Informe a senha.\n");
+        }
+        super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
     }
-    // constrcutor novo - atributos da classe abstrata Usuario:
-    public Aluno(String nome, String curso, int matricula, String login, String senha) {
-        this.nomeAluno = nome;
-        this.curso = curso;
-        this.matricula = matricula;
-        this.login = login;
-        this.senha = senha;
-    }
-    // getters curso e nome - usados em Turma e Avaliacao:
-    public String getCursoAlu() {
+    // getter curso - usado em Turma:
+    public String getCursoAluno() {
         return curso;
     }
-    public String getNomeAlu() {
-        return nomeAluno;
+    public int getMatricula() {
+        return matricula;
     }
     @Override
     // implementação método da interface Autenticacao:
-    public boolean autenticar(String log, String sen) {
-        if (this.login != log || this.senha != sen) { // false ou null
-            System.out.println("\nFalha ao autenticar aluno: "+
-            "Login ou senha incorretos.");
-            return false;
+    public boolean autenticar(String login, String senha) {
+        if (login == null) {
+            throw new NullPointerException("Informe o login do aluno para autenticar.\n");
         }
-        System.out.println("\nLogado como aluno");
-        return true;
+        if (senha == null) {
+            throw new NullPointerException("Informe a senha do aluno para autenticar.\n");
+        }        
+        if ( login != this.getLogin() || senha != this.getSenha()) {
+            System.out.println("Falha ao autenticar aluno "+this.getNome()+": Login ou senha incorretos.\n");
+            return false;
+        } else {
+            System.out.println("Aluno "+this.getNome()+" entrou.\n");
+            return true;
+        }
     }
     // método polimórfico - Relatórios aluno::
     public String gerarRelatorio() {
-        return "\nNome do aluno: "+this.nomeAluno+
+        return "Nome do aluno: "+this.getNome()+
         "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso;
+        "\nCurso: "+this.curso+"\n";
     }
 }
