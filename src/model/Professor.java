@@ -39,10 +39,10 @@ public class Professor extends Usuario implements Autenticacao {
             throw new NullPointerException("Informe a senha do professor para autenticar.\n");
         }        
         if ( login != this.getLogin() || senha != this.getSenha()) {
-            System.out.println("Falha ao autenticar professor(a) "+this.getNome()+": Login ou senha incorretos.\n");
+            System.out.println("Falha ao autenticar professor "+this.getNome()+": Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("Professor(a) "+this.getNome()+" entrou.\n");
+            System.out.println("Professor "+this.getNome()+" entrou.\n");
             return true;
         }
     }

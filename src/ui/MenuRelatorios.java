@@ -19,23 +19,18 @@ public class MenuRelatorios {
     // public static void main(String[] args) {
     public void menuR() {
 
-        // instanciando objeto da classe que contém as listas
-        // ArmazTemporario listaAlu = new ArmazTemporario();
-
-        // ArmazTemporario listaPro = new ArmazTemporario();
-        // listaPro.adicionaProf();
-
-        // ArmazTemporario listaCursos = new ArmazTemporario();
-        
         // instanciando novo scanner - input do usuário
         Scanner scan = new Scanner(System.in);
+
         // variável de controle - escolha:
         int escolha;
+
         // do-while para repetir menu de escolha (executa ao menos uma vez, testa no final):
             do {
                 // menu:
-                System.out.println("\nGerar relatórios:");
-                System.out.println("\nDigite 1 - Alunos matriculados");
+                System.out.print("\n\n*** Gerar relatórios: ***");
+                System.out.println("\n*************************\n");
+                System.out.println("Digite 1 - Alunos matriculados");
                 System.out.println("Digite 2 - Professores registrados");
                 System.out.println("Digite 3 - Cursos disponíveis");
                 System.out.println("Digite 4 - Turmas");
@@ -47,25 +42,25 @@ public class MenuRelatorios {
                 // usando switch-case para selecionar escolha do usuário:
                 switch (escolha) {
                     case 1 :    // alunos:
-                        System.out.println("\n== Relatório de alunos matriculados ==\n");
+                        System.out.println("\n\n** Relatório de alunos matriculados **\n");
                         for (Aluno alunos : dadosSalvos.getListaAlunos()) {
                             System.out.println(alunos.gerarRelatorio());
                         }
                         break;
                     case 2:     // professores:
-                        System.out.println("\n== Relatório de professores registrados ==");
+                        System.out.println("\n\n** Relatório de professores registrados **");
                         for (Professor prof : dadosSalvos.getListaProf()) {
                             System.out.println(prof.gerarRelatorio());
                         }
                         break;
                     case 3:     // cursos - EAD:
-                        System.out.println("\n=== Relatório de cursos disponíveis ===");
+                        System.out.println("\n\n** Relatório de cursos disponíveis **");
                         for (Curso cursos : dadosSalvos.getListaCursos()) {
                             System.out.println(cursos.gerarRelatorio());
                         }
                         break;
                     case 4:
-                        System.out.println("\n ** Relatorio de turmas **");
+                        System.out.println("\n\n** Relatorio de turmas **");
                         for (Turma turma : dadosSalvos.getListaTurmas()) {
                             System.out.println(turma.resumoTurma());
                         }
@@ -81,3 +76,12 @@ public class MenuRelatorios {
             scan.close();
     }
 }
+
+// instanciando objeto da classe que contém as listas
+        // ArmazTemporario listaAlu = new ArmazTemporario();
+
+        // ArmazTemporario listaPro = new ArmazTemporario();
+        // listaPro.adicionaProf();
+
+        // ArmazTemporario listaCursos = new ArmazTemporario();
+        

@@ -46,10 +46,10 @@ public class Aluno extends Usuario implements Autenticacao {
             throw new NullPointerException("Informe a senha do aluno para autenticar.\n");
         }        
         if ( login != this.getLogin() || senha != this.getSenha()) {
-            System.out.println("Falha ao autenticar aluno(a) "+this.getNome()+": Login ou senha incorretos.\n");
+            System.out.println("Falha ao autenticar aluno "+this.getNome()+": Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("Aluno(a) "+this.getNome()+" entrou.\n");
+            System.out.println("Aluno "+this.getNome()+" entrou.\n");
             return true;
         }
     }

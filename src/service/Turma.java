@@ -55,7 +55,7 @@ public class Turma {
     }
     // método com resumo da turma:
     public String resumoTurma() {
-        return "Dados da turma do curso de "+this.curso.getNomeCurso()+":"+
+        return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNome()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";

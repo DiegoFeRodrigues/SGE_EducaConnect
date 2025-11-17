@@ -14,24 +14,65 @@ public class ArmazTemporario {
     public static List<Professor> listaProf = new ArrayList<>();
     public static List<Curso> listaCursos = new ArrayList<>();
     public static List<Turma> listaTurmas = new ArrayList<>();
+
+    // getters de listas:
+    public List<Aluno> getListaAlunos() {
+        return listaAlunos;
+    }
+    public List<Professor> getListaProf() {
+        return listaProf;
+    }
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+    public List<Turma> getListaTurmas() {
+        return listaTurmas;
+    }
+
+    
+}
+
+// RASCUNHOS E LAMBANÇAS:
+
+// public Aluno encontraAluno(int matricula) {
+    //     for (Aluno aluno : listaAlunos) {
+    //         if (aluno.getMatricula() == matricula){
+    //             return aluno;
+    //         }
+    //     }
+    //     System.out.println("\nAluno não encontrado.");
+    //     return null;
+    // }
+    // public Curso encontraCurso(String curso) {
+    //     for (Curso cursos : listaCursos) {
+    //         if (cursos.getNomeCurso().equals(curso)){
+    //             return cursos;
+    //         }
+    //     }
+    //     System.out.println("\nCurso não encontrado.");
+    //     return null;
+    // }
+
+
+// public void adicionaAluno() {
+    // public static void main(String[] args) {
+        // ArrayList<Aluno> listaAlunos = new ArrayList<>();
+        // Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
+    //     alu10.autenticar("Anninha", "98@k9Lç$");
+    //     listaAlunos.add(alu10);
+        
+    //     listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
+    // // }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // public List<Aluno> getListaAlunos () {
+    //     return listaAlunos;
+    // }
+    // public void imprimeLista() {
+    //     System.out.println(listaAlunos);
+    // }
+
+
     // private List<CursoEAD> listaCursosEAD = new ArrayList<>();
     // private List<CursoPresencial> listaCursosPres = new ArrayList<>();
 
@@ -69,59 +110,9 @@ public class ArmazTemporario {
 
 
 
-        // getters de listas:
-        public List<Aluno> getListaAlunos() {
-            return listaAlunos;
-        }
-        public List<Professor> getListaProf() {
-            return listaProf;
-        }
-        public List<Curso> getListaCursos() {
-            return listaCursos;
-        }
-        public List<Turma> getListaTurmas() {
-            return listaTurmas;
-        }
 
-    public Aluno encontraAluno(int matricula) {
-        for (Aluno aluno : listaAlunos) {
-            if (aluno.getMatricula() == matricula){
-                return aluno;
-            }
-        }
-        System.out.println("\nAluno não encontrado.");
-        return null;
-    }
-    public Curso encontraCurso(String curso) {
-        for (Curso cursos : listaCursos) {
-            if (cursos.getNomeCurso().equals(curso)){
-                return cursos;
-            }
-        }
-        System.out.println("\nCurso não encontrado.");
-        return null;
-    }
-    
-    
-    // public void adicionaAluno() {
-    // public static void main(String[] args) {
-        // ArrayList<Aluno> listaAlunos = new ArrayList<>();
-        // Aluno alu10 = new Aluno("Anna", "Letras", 593150, "Anninha", "98@k9Lç$");
-    //     alu10.autenticar("Anninha", "98@k9Lç$");
-    //     listaAlunos.add(alu10);
-        
-    //     listaAlunos.add(new Aluno("Teste1","Eng.",155759,"TJQI", "52390005"));
-    // // }
-    
-    
-    // public List<Aluno> getListaAlunos () {
-    //     return listaAlunos;
-    // }
-    // public void imprimeLista() {
-    //     System.out.println(listaAlunos);
-    // }
 
-}
+
 
 //     public static void main(String[] args) {
         
