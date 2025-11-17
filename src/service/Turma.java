@@ -37,7 +37,7 @@ public class Turma {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi adicionado ao curso de "+curso.getNomeCurso());
+            System.out.println("\n"+aluno.getNome()+" foi adicionado ao curso de "+curso.getNomeCurso()+".");
         }
     }
     // método remove aluno:
@@ -46,9 +46,12 @@ public class Turma {
         listaNomeAlunos.remove(aluno.getNome());
         System.out.println("\n"+aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
     }
-    // getter codigo - usado em Avaliacao:
+    // getter codigo e curso - usados em Avaliacao:
     public int getCodigoTurma() {
         return codigo;
+    }
+    public Curso getCursoTurma() {
+        return curso;
     }
     // método com resumo da turma:
     public String resumoTurma() {

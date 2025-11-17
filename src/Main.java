@@ -15,7 +15,7 @@ public class Main {
         // bloco try - tenta validação na instancia de objetos:
         try {
             System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n");        
-            System.out.println("----------------------------------------------------------------------------------------------------------------------");    
+            System.out.println("------------------------------------------------------------------------");
             
             // CAMADA MODEL - instanciando objetos 
                 
@@ -41,6 +41,26 @@ public class Main {
                 
             // CAMADA SERVICE:
                 
+                // MANIPULANDO TURMAS:
+                    // novas turmas:
+                    Turma turma1 = new Turma(1, curso1, professor2);
+                    Turma turma2 = new Turma(2, curso2, professor1);
+                    
+                    // adicionando alunos às turmas:
+                    System.out.println("\nAlunos adicionados:");
+                    
+                    turma1.addAluno(aluno1, curso1, professor2);
+                    
+                    turma2.addAluno(aluno2, curso2, professor1);
+                    turma2.addAluno(aluno3, curso2, professor1);
+                    turma2.addAluno(aluno4, curso2, professor1);
+                    
+                    // removendo aluno de uma turma:
+                    System.out.println("\n\nAlunos removidos:");
+                    turma2.removeAluno(aluno4, curso2);
+                //
+                System.out.println("------------------------------------------------------------------------");
+                
                 // AUTENTICANDO USUÁRIOS:
                     System.out.println("\nUsuários logados:\n");
 
@@ -53,27 +73,7 @@ public class Main {
                     professor1.autenticar("roshi","jackiechun");
                     professor2.autenticar("CeciFlavio","FC12345");
                 //    
-                System.out.println("----------------------------------------------------------------------------------------------------------------------");        
-                
-                // MANIPULANDO TURMAS:
-                    // novas turmas:
-                    Turma turma1 = new Turma(1, curso1, professor2);
-                    Turma turma2 = new Turma(2, curso2, professor1);
-
-                    // adicionando alunos às turmas:
-                    System.out.println("\nAlunos adicionados:");
-                    
-                    turma1.addAluno(aluno1, curso1, professor2);
-                    
-                    turma2.addAluno(aluno2, curso2, professor1);
-                    turma2.addAluno(aluno3, curso2, professor1);
-                    turma2.addAluno(aluno4, curso2, professor1);
-                    
-                    // removendo aluno de uma turma:
-                    System.out.println("\nAlunos removidos:");
-                    turma2.removeAluno(aluno4, curso2);
-                //
-                System.out.println("----------------------------------------------------------------------------------------------------------------------");        
+                System.out.println("------------------------------------------------------------------------");
 
                 // AVALIAÇÕES 
                     // novas avaliações:
@@ -89,27 +89,33 @@ public class Main {
                     treino.atribuirNota(aluno3, turma2, 10f);
                 //
             //        
-            System.out.println("----------------------------------------------------------------------------------------------------------------------");    
+            System.out.println("------------------------------------------------------------------------");
             
-            // CAMADA REPOSITORY:
-                // adicionando dados no armazenamento temporário em listas:    
+            // CAMADA REPOSITORY - adicionando dados no armazenamento temporário em listas:    
+                
+                // instanciando objeto da classe ArmazTemporário:
+                ArmazTemporario simuBDTemp = new ArmazTemporario();
+                
+                // adicionando dados - alunos:
                 ArmazTemporario.listaAlunos.add(aluno1);
                 ArmazTemporario.listaAlunos.add(aluno2);
                 ArmazTemporario.listaAlunos.add(aluno3);
                 
+                // professores:
                 ArmazTemporario.listaProf.add(professor1);
                 ArmazTemporario.listaProf.add(professor2);
                 
+                // cursos:
                 ArmazTemporario.listaCursos.add(curso1);
                 ArmazTemporario.listaCursos.add(curso2);
                 
+                // turmas:
                 ArmazTemporario.listaTurmas.add(turma1);
                 ArmazTemporario.listaTurmas.add(turma2);
             //
                 
             // CAMADA UI
                 // novo menu de relatórios no Main:
-                    ArmazTemporario simuBDTemp = new ArmazTemporario();
                     MenuRelatorios menuRelatorios = new MenuRelatorios(simuBDTemp);
                     menuRelatorios.menuR();
                 //

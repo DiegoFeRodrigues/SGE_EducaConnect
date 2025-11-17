@@ -31,6 +31,7 @@ public class Avaliacao {
         this.nota = nota;
         System.out.println("Nome do Aluno: "+this.aluno.getNome()+
         "\nCódigo da turma: "+this.turma.getCodigoTurma()+
+        "\nCurso: "+this.turma.getCursoTurma().getNomeCurso()+
         "\nDescrição da avaliação: "+this.descricao+
         "\nNota: "+this.nota+"\n");
     }
