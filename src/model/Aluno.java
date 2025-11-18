@@ -26,8 +26,10 @@ public class Aluno extends Usuario implements Autenticacao {
             throw new NullPointerException("Informe a senha.\n");
         }
         super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
+        this.curso = curso;
+        this.matricula = matricula;
     }
-    // getter curso - usado em Turma:
+    // getter curso - usados em Turma:
     public String getCursoAluno() {
         return curso;
     }
@@ -54,7 +56,7 @@ public class Aluno extends Usuario implements Autenticacao {
     // método polimórfico - Relatórios aluno::
     public String gerarRelatorio() {
         return "Nome do aluno: "+this.getNome()+
-        "\nMatrícula: "+this.matricula+
-        "\nCurso: "+this.curso+"\n";
+        "\nMatrícula: "+this.getMatricula()+
+        "\nCurso: "+this.getCursoAluno()+"\n";
     }
 }

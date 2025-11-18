@@ -15,26 +15,26 @@ public class MenuInterativo {
 
     public void Menu() {
               
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         int opcao;
         do {
             System.out.println("Menu Interativo:");
             System.out.println("1 - Cadastrar aluno");
-            opcao = scanner.nextInt();
-            scanner.nextLine();
+            opcao = scan.nextInt();
+            scan.nextLine();
             switch (opcao) {
                 case 1:
-                    System.out.println("Nome do aluno:");
-                    String nomeAluno = scanner.nextLine();
-                    System.out.println("Matrícula:");
-                    int matricula = scanner.nextInt();
-                    System.out.println("Curso:");
-                    String cursoAluno = scanner.nextLine();
-                    scanner.nextLine();
-                    System.out.println("Login:");
-                    String login = scanner.nextLine();
-                    System.out.println("Senha:");
-                    String senha = scanner.nextLine();
+                    System.out.print("Nome do aluno: ");
+                    String nomeAluno = scan.nextLine();
+                    System.out.print("Matrícula: ");
+                    int matricula = scan.nextInt();
+                    scan.nextLine();
+                    System.out.print("Curso: ");
+                    String cursoAluno = scan.nextLine();
+                    System.out.print("Login: ");
+                    String login = scan.nextLine();
+                    System.out.print("Senha: ");
+                    String senha = scan.nextLine();
                     Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, login, senha);
                     salvaDados.listaAlunos.add(aluno);
                     break;
