@@ -8,6 +8,7 @@ import model.CursoPresencial;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import service.Turma;
 
 public class MenuInterativo {
     
@@ -77,6 +78,7 @@ public class MenuInterativo {
                     System.out.print("Carga horária: ");
                     float cargaHoraria = scan.nextFloat();
                     scan.nextLine();
+                    Curso curso = new Curso(nomeCurso, codigo, cargaHoraria);
                     if (tipoCurso == 1) {
                         System.out.print("Plataforma EAD: ");
                         String plataforma = scan.nextLine();
@@ -90,6 +92,14 @@ public class MenuInterativo {
                     }
                     break;
                 
+                case 4:
+                    System.out.print("Código da turma: ");
+                    int codigoTurma = scan.nextInt();
+                    scan.nextLine();
+                    String cursoTurma = scan.nextLine();
+                    Turma turma = new Turma(codigoTurma, cursoTurma, professor);
+                    turma.addAluno(aluno, curso, professor);
+                    System.out.println("Alunos serão associados às turmas, de acordo com seus cursos.");
                 }
             } while (opcao != 4); 
         
