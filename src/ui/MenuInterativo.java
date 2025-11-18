@@ -27,6 +27,7 @@ public class MenuInterativo {
             System.out.println("1 - Cadastrar aluno");
             System.out.println("2 - Cadastrar professor");
             System.out.println("3 - Cadastrar curso");
+            System.out.println("4 - Criar turma");
             System.out.print("Opção desejada: ");
             opcao = scan.nextInt();
             scan.nextLine();
@@ -78,7 +79,6 @@ public class MenuInterativo {
                     System.out.print("Carga horária: ");
                     float cargaHoraria = scan.nextFloat();
                     scan.nextLine();
-                    Curso curso = new Curso(nomeCurso, codigo, cargaHoraria);
                     if (tipoCurso == 1) {
                         System.out.print("Plataforma EAD: ");
                         String plataforma = scan.nextLine();
@@ -95,11 +95,31 @@ public class MenuInterativo {
                 case 4:
                     System.out.print("Código da turma: ");
                     int codigoTurma = scan.nextInt();
-                    scan.nextLine();
-                    String cursoTurma = scan.nextLine();
-                    Turma turma = new Turma(codigoTurma, cursoTurma, professor);
-                    turma.addAluno(aluno, curso, professor);
-                    System.out.println("Alunos serão associados às turmas, de acordo com seus cursos.");
+                    
+                    System.out.println("Lista de cursos:");
+                    ArmazTemporario.mostraListaCursos();
+                    System.out.print("Informe o número do curso dessa turma: ");
+                    int numCurso = scan.nextInt();
+                    
+                    System.out.println("Lista de professores: ");
+                    ArmazTemporario.mostraListaProf();
+                    System.out.print("Informe o número do professor dessa turma: ");
+                    int numProf = scan.nextInt();
+                    
+                    System.out.println("Lista de alunos: ");
+                    ArmazTemporario.mostraListaAlunos();
+                    System.out.print("Informe o número do aluno que será associado à turma: ");
+                    int numAluno = scan.nextInt();
+                    
+                    Curso cursoTurma = ArmazTemporario.listaCursos.get(numCurso);
+                    Professor profTurma = ArmazTemporario.listaProf.get(numProf);
+                    Aluno AlunoTurma = ArmazTemporario.listaAlunos.get(numAluno);
+                    
+                    Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
+                    turma.addAluno(AlunoTurma, cursoTurma, profTurma);
+
+                    salvaDados.listaTurmas.add(turma);
+                    System.out.println(AlunoTurma+" foi entrou na turma "+codigoTurma+" "+" do curso de "+cursoTurma);
                 }
             } while (opcao != 4); 
         
