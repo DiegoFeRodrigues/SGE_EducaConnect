@@ -11,7 +11,7 @@ import service.Turma;
 public class ArmazTemporario {
 
     public List<Aluno> listaAlunos = new ArrayList<>();
-    public static List<Professor> listaProf = new ArrayList<>();
+    public List<Professor> listaProf = new ArrayList<>();
     public static List<Curso> listaCursos = new ArrayList<>();
     public static List<Turma> listaTurmas = new ArrayList<>();
 
