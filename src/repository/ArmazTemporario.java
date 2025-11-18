@@ -12,22 +12,22 @@ public class ArmazTemporario {
 
     public List<Aluno> listaAlunos = new ArrayList<>();
     public List<Professor> listaProf = new ArrayList<>();
-    public static List<Curso> listaCursos = new ArrayList<>();
-    public static List<Turma> listaTurmas = new ArrayList<>();
+    public List<Curso> listaCursos = new ArrayList<>();
+    public List<Turma> listaTurmas = new ArrayList<>();
 
-    // getters das listas:
-    public List<Aluno> getListaAlunos() {
-        return listaAlunos;
-    }
-    public List<Professor> getListaProf() {
-        return listaProf;
-    }
-    public List<Curso> getListaCursos() {
-        return listaCursos;
-    }
-    public List<Turma> getListaTurmas() {
-        return listaTurmas;
-    }
+    // // getters das listas:
+    // public List<Aluno> getListaAlunos() {
+    //     return listaAlunos;
+    // }
+    // public List<Professor> getListaProf() {
+    //     return listaProf;
+    // }
+    // public List<Curso> getListaCursos() {
+    //     return listaCursos;
+    // }
+    // public List<Turma> getListaTurmas() {
+    //     return listaTurmas;
+    // }
 }
     
     

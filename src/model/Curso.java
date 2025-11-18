@@ -19,6 +19,7 @@ public class Curso {
             throw new IllegalArgumentException("A carga horária do curso deve ser maior que 0.");
         }
         this.nomeCurso = nomeCurso;
+        this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
     }        
     //getters  - usados em Turma, CursoEAD e CursoPresencial:

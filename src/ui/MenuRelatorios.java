@@ -40,25 +40,25 @@ public class MenuRelatorios {
             switch (escolha) {
                 case 1 :    // alunos:
                     System.out.println("\n\n** Relatório de alunos matriculados **\n");
-                    for (Aluno alunos : dadosSalvos.getListaAlunos()) {
+                    for (Aluno alunos : dadosSalvos.listaAlunos) {
                         System.out.println(alunos.gerarRelatorio());
                     }
                     break;
                 case 2:     // professores:
                     System.out.println("\n\n** Relatório de professores registrados **");
-                    for (Professor prof : dadosSalvos.getListaProf()) {
+                    for (Professor prof : dadosSalvos.listaProf) {
                         System.out.println(prof.gerarRelatorio());
                     }
                     break;
                 case 3:     // cursos - EAD:
                     System.out.println("\n\n** Relatório de cursos disponíveis **");
-                    for (Curso cursos : dadosSalvos.getListaCursos()) {
+                    for (Curso cursos : dadosSalvos.listaCursos) {
                         System.out.println(cursos.gerarRelatorio());
                     }
                     break;
                 case 4:
                     System.out.println("\n\n** Relatorio de turmas **");
-                    for (Turma turma : dadosSalvos.getListaTurmas()) {
+                    for (Turma turma : dadosSalvos.listaTurmas) {
                         System.out.println(turma.resumoTurma());
                     }
                     break;
