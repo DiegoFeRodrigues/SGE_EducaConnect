@@ -97,23 +97,23 @@ public class MenuInterativo {
                     int codigoTurma = scan.nextInt();
                     
                     System.out.println("Lista de cursos:");
-                    ArmazTemporario.mostraListaCursos();
+                    salvaDados.mostraListaCursos();
                     System.out.print("Informe o número do curso dessa turma: ");
                     int numCurso = scan.nextInt();
                     
                     System.out.println("Lista de professores: ");
-                    ArmazTemporario.mostraListaProf();
+                    salvaDados.mostraListaProf();
                     System.out.print("Informe o número do professor dessa turma: ");
                     int numProf = scan.nextInt();
                     
                     System.out.println("Lista de alunos: ");
-                    ArmazTemporario.mostraListaAlunos();
+                    salvaDados.mostraListaAlunos();
                     System.out.print("Informe o número do aluno que será associado à turma: ");
                     int numAluno = scan.nextInt();
                     
-                    Curso cursoTurma = ArmazTemporario.listaCursos.get(numCurso);
-                    Professor profTurma = ArmazTemporario.listaProf.get(numProf);
-                    Aluno AlunoTurma = ArmazTemporario.listaAlunos.get(numAluno);
+                    Curso cursoTurma = salvaDados.listaCursos.get(numCurso);
+                    Professor profTurma = salvaDados.listaProf.get(numProf);
+                    Aluno AlunoTurma = salvaDados.listaAlunos.get(numAluno);
                     
                     Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
                     turma.addAluno(AlunoTurma, cursoTurma, profTurma);
@@ -121,7 +121,7 @@ public class MenuInterativo {
                     salvaDados.listaTurmas.add(turma);
                     System.out.println(AlunoTurma+" foi entrou na turma "+codigoTurma+" "+" do curso de "+cursoTurma);
                 }
-            } while (opcao != 4); 
+            } while (opcao != 7); 
         
         // System.out.println("getLista da classe MenuInterativo: "+ armazenaAluno.getListaAlunos());
 

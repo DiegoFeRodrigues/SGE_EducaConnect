@@ -10,24 +10,24 @@ import service.Turma;
 
 public class ArmazTemporario {
 
-    public static List<Aluno> listaAlunos = new ArrayList<>();
-    public static List<Professor> listaProf = new ArrayList<>();
-    public static List<Curso> listaCursos = new ArrayList<>();
+    public List<Aluno> listaAlunos = new ArrayList<>();
+    public List<Professor> listaProf = new ArrayList<>();
+    public List<Curso> listaCursos = new ArrayList<>();
     public List<Turma> listaTurmas = new ArrayList<>();
 
-    public static void mostraListaCursos() {
+    public void mostraListaCursos() {
         System.out.println("Número:     Curso:");
         for (int numero = 0; numero < listaCursos.size(); numero++) {
             System.out.println(numero+" - "+listaCursos.get(numero).getNomeCurso());
         }
     }
-    public static void mostraListaProf() {
+    public void mostraListaProf() {
         System.out.println("Número:     Curso:");
         for (int numero = 0; numero < listaProf.size(); numero++) {
             System.out.println(numero+" - "+listaProf.get(numero).getNome());
         }
     }
-    public static void mostraListaAlunos() {
+    public void mostraListaAlunos() {
         System.out.println("Número:     Aluno:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
             System.out.println(numero+" - "+listaAlunos.get(numero).getNome());
