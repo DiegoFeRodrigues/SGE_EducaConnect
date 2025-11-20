@@ -8,6 +8,7 @@ import model.CursoPresencial;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import service.Avaliacao;
 import service.Turma;
 
 public class MenuInterativo {
@@ -28,11 +29,13 @@ public class MenuInterativo {
             System.out.println("2 - Cadastrar professor");
             System.out.println("3 - Cadastrar curso");
             System.out.println("4 - Criar turma");
+            System.out.println("5 - Registrar avaliação");
             System.out.print("Opção desejada: ");
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {
                 case 1:
+                    System.out.println("\n** Cadastro de aluno **");
                     System.out.print("Nome do aluno: "); 
                     String nomeAluno = scan.nextLine();
                     System.out.print("Matrícula: ");
@@ -49,6 +52,7 @@ public class MenuInterativo {
                     break;
                     
                 case 2:
+                    System.out.println("\n** Cadastro de professor **");
                     System.out.print("Nome do professor: "); 
                     String nomeProf = scan.nextLine();
                     System.out.print("Registro: ");
@@ -65,6 +69,7 @@ public class MenuInterativo {
                     break;
                 
                 case 3:
+                    System.out.println("\n** Cadastro de Curso **");
                     System.out.println("Tipo do curso:");
                     System.out.println("1 - Curso EAD");
                     System.out.println("2 - Curso Presencial");
@@ -93,6 +98,9 @@ public class MenuInterativo {
                     break;
                 
                 case 4:
+                    // int addOuRemove = scan.nextInt();
+
+                    System.out.println("\n** Criação de turmas **");
                     System.out.print("Código da turma: ");
                     int codigoTurma = scan.nextInt();
                     
@@ -110,6 +118,7 @@ public class MenuInterativo {
                     salvaDados.mostraListaAlunos();
                     System.out.print("Informe o número do aluno que será associado à turma: ");
                     int numAluno = scan.nextInt();
+                    scan.nextLine();
                     
                     Curso cursoTurma = salvaDados.listaCursos.get(numCurso);
                     Professor profTurma = salvaDados.listaProf.get(numProf);
@@ -119,7 +128,39 @@ public class MenuInterativo {
                     turma.addAluno(AlunoTurma, cursoTurma, profTurma);
 
                     salvaDados.listaTurmas.add(turma);
-                    System.out.println(AlunoTurma+" foi entrou na turma "+codigoTurma+" "+" do curso de "+cursoTurma);
+                    System.out.println(AlunoTurma.getNome()+" entrou na turma "+codigoTurma+" "+" do curso de "+cursoTurma.getNomeCurso() );
+                    break;
+                
+                case 5:
+                    System.out.println("\n** Avaliações **");
+                    System.out.print("Informe a descrição da avaliação: ");
+                    String descricao = scan.nextLine();
+
+                    Avaliacao avaliacao = new Avaliacao(descricao);
+
+                    System.out.println("Lista de alunos:");
+                    salvaDados.mostraListaAlunos();
+                    System.out.print("Número do aluno que receberá a nota: ");
+                    int numAlunoAvaliado = scan.nextInt();
+                    System.out.println("Lista de turmas:");
+                    salvaDados.mostraListaTurmas();
+                    System.out.print("Número da turma do aluno: ");
+                    int numTurma = scan.nextInt();
+                    
+                    
+                    Aluno alunoAvaliacao = salvaDados.listaAlunos.get(numAlunoAvaliado);
+                    Turma turmaAvaliacao = salvaDados.listaTurmas.get(numTurma);
+                    
+                    System.out.print("Informe a nota do aluno "+alunoAvaliacao.getNome()+": ");
+                    float notaAluno = scan.nextFloat();
+
+                    avaliacao.atribuirNota(alunoAvaliacao, turmaAvaliacao, notaAluno);
+
+                    System.out.println("Nota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".");
+                    
+                    salvaDados.listaAvaliacoes.add(avaliacao);
+
+                    
                 }
             } while (opcao != 7); 
         

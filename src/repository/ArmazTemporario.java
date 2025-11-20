@@ -6,6 +6,7 @@ import java.util.List;
 import model.Aluno;
 import model.Curso;
 import model.Professor;
+import service.Avaliacao;
 import service.Turma;
 
 public class ArmazTemporario {
@@ -14,6 +15,7 @@ public class ArmazTemporario {
     public List<Professor> listaProf = new ArrayList<>();
     public List<Curso> listaCursos = new ArrayList<>();
     public List<Turma> listaTurmas = new ArrayList<>();
+    public List<Avaliacao> listaAvaliacoes = new ArrayList<>();
 
     public void mostraListaCursos() {
         System.out.println("Número:     Curso:");
@@ -31,6 +33,12 @@ public class ArmazTemporario {
         System.out.println("Número:     Aluno:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
             System.out.println(numero+" - "+listaAlunos.get(numero).getNome());
+        }
+    }
+    public void mostraListaTurmas() {
+        System.out.println("Número:     Turma:");
+        for (int numero = 0; numero < listaTurmas.size(); numero++) {
+            System.out.println(numero+" - "+listaTurmas.get(numero).getCodigoTurma());
         }
     }
 

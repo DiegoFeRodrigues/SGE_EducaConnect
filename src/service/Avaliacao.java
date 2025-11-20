@@ -17,6 +17,10 @@ public class Avaliacao {
         }
         this.descricao = descricao;
     }    
+    // getter descrição - usado em MenuInterativo:
+    public String getDescricao() {
+        return descricao;
+    }    
     // metodo atribuir nota associando alunos em turmas e validando dados informados:
     public void atribuirNota(Aluno aluno, Turma turma, float nota) {
         if (aluno == null) {
@@ -31,22 +35,12 @@ public class Avaliacao {
         this.aluno = aluno;
         this.turma = turma;
         this.nota = nota;
-        System.out.println("Nome do Aluno: "+this.aluno.getNome()+
-        "\nCódigo da turma: "+this.turma.getCodigoTurma()+
-        "\nCurso: "+this.turma.getCursoTurma().getNomeCurso()+
-        "\nDescrição da avaliação: "+this.descricao+
-        "\nNota: "+this.nota+"\n");
     }
 
-    // // saída com resumo da avaliação:
-    // public String avaliacao(Aluno aluno, Turma turma, Avaliacao nota) {
-    //     if (!this.testaNota()) {
-    //         return "\nNota inválida para a avaliação "+
-    //         this.descricao;
-    //     } else {
-    //         return "\nNome do Aluno: "+this.aluno.getNomeAlu()+
-    //         "\nDescrição da avaliação: "+this.descricao+
-    //         "\nNota: "+this.getNota();
-    //     }
-    // }
+    // saída com resumo da avaliação:
+    public String resultadoAvaliacao() {
+        return "\nNome do Aluno: "+this.aluno.getNome()+
+        "\nDescrição da avaliação: "+this.descricao+
+        "\nNota: "+this.nota;
+    }
 }

@@ -6,6 +6,7 @@ import model.Aluno;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import service.Avaliacao;
 import service.Turma;
 
 public class MenuRelatorios {
@@ -31,8 +32,8 @@ public class MenuRelatorios {
             System.out.println("Digite 2 - Professores registrados");
             System.out.println("Digite 3 - Cursos disponíveis");
             System.out.println("Digite 4 - Turmas");
-            System.out.println("Digite 5 - Sair");
-            System.out.print("Digite o número do relatório desejado ou 5 para sair: ");
+            System.out.println("Digite 6 - Sair");
+            System.out.print("Digite o número do relatório desejado ou 6 para sair: ");
             // lendo escolha do usuário:
             escolha = scan.nextInt();
             scan.nextLine();
@@ -62,14 +63,20 @@ public class MenuRelatorios {
                         System.out.println(turma.resumoTurma());
                     }
                     break;
-                case 5:     // sair:
+                case 5:
+                    System.out.println("\n\n** Relatorio de avaliações **");
+                    for (Avaliacao avaliacao : dadosSalvos.listaAvaliacoes) {
+                        System.out.println(avaliacao.resultadoAvaliacao());
+                    }
+                    break;
+                case 6:     // sair:
                     System.out.println("\nSaindo.\n"); 
                     break;
-                default :   // se escolha != de 1, 2, 3, 4 ou 5 = opção inválida.
+                default :   // se escolha != de 1, 2, 3, 4 ou 6 = opção inválida.
                 System.out.println("\nOpção inválida!"); 
                 break;
             }
-        } while (escolha != 5); // se escolha != de 5 repete do-while
+        } while (escolha != 6); // se escolha != de 6 repete do-while
         scan.close();
     }
 }
