@@ -18,27 +18,27 @@ public class ArmazTemporario {
     public List<Avaliacao> listaAvaliacoes = new ArrayList<>();
 
     public void mostraListaCursos() {
-        System.out.println("Número:     Curso:");
+        System.out.println("Número:      Cursos:");
         for (int numero = 0; numero < listaCursos.size(); numero++) {
-            System.out.println(numero+" - "+listaCursos.get(numero).getNomeCurso());
+            System.out.println(" "+numero+"           "+listaCursos.get(numero).getNomeCurso());
         }
     }
     public void mostraListaProf() {
-        System.out.println("Número:     Curso:");
+        System.out.println("Número:      Professores:");
         for (int numero = 0; numero < listaProf.size(); numero++) {
-            System.out.println(numero+" - "+listaProf.get(numero).getNome());
+            System.out.println(" "+numero+"           "+listaProf.get(numero).getNome());
         }
     }
     public void mostraListaAlunos() {
-        System.out.println("Número:     Aluno:");
+        System.out.println("Número:       Alunos:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
-            System.out.println(numero+" - "+listaAlunos.get(numero).getNome());
+            System.out.println(" "+numero+"           "+listaAlunos.get(numero).getNome());
         }
     }
     public void mostraListaTurmas() {
-        System.out.println("Número:     Turma:");
+        System.out.println("Número:      Turmas:");
         for (int numero = 0; numero < listaTurmas.size(); numero++) {
-            System.out.println(numero+" - "+listaTurmas.get(numero).getCodigoTurma());
+            System.out.println(" "+numero+"           Curso: "+listaTurmas.get(numero).getCursoTurma().getNomeCurso()+" - Professor: "+listaTurmas.get(numero).getProfessorTurma().getNome());
         }
     }
 

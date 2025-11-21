@@ -34,25 +34,34 @@ public class Turma {
         this.listaNomeAlunos = new ArrayList<>();        
     }
     // método adiciona aluno:
-    public void addAluno(Aluno aluno, Curso curso, Professor prof) {
+    public void addAluno(Aluno aluno, Curso curso) {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
             System.out.println("\n"+aluno.getNome()+" foi adicionado ao curso de "+curso.getNomeCurso()+".");
+        } else {
+            System.out.println("\nO aluno "+aluno.getNome()+" é de outra turma.");
         }
     }
     // método remove aluno:
-    public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno);
-        listaNomeAlunos.remove(aluno.getNome());
-        System.out.println("\n"+aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
+    public void removeAluno(Aluno aluno) {
+        if (listaAlunos.contains(aluno)) {
+            listaAlunos.remove(aluno);
+            listaNomeAlunos.remove(aluno.getNome());
+            System.out.println("\n"+aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
+        } else {
+            System.out.println("\nO aluno "+aluno.getNome()+" é de outra turma ou não foi encontrado.");
+        }
     }
-    // getter codigo e curso - usados em Avaliacao:
+    // getter codigo e curso - usados em Avaliacao e/ou ArmazTemporario:
     public int getCodigoTurma() {
         return codigo;
     }
     public Curso getCursoTurma() {
         return curso;
+    }
+    public Professor getProfessorTurma() {
+        return professor;
     }
     // método com resumo da turma:
     public String resumoTurma() {

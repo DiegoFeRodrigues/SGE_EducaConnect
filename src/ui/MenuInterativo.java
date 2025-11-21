@@ -30,15 +30,18 @@ public class MenuInterativo {
             System.out.println("2 - Cadastrar professor");
             System.out.println("3 - Cadastrar curso");
             System.out.println("4 - Criar turma");
-            System.out.println("5 - Registrar avaliação");
-            System.out.println("6 - Gerar relatórios");
+            System.out.println("5 - Adicionar ou remover aluno de uma turma");
+            System.out.println("6 - Registrar avaliação");
+            System.out.println("7 - Gerar relatórios");
+            System.out.println("8 - Encerrar sistema");
             System.out.print("Opção desejada: ");
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {
                 case 1:
                     System.out.println("\n\n** Cadastro de aluno **");
-                    System.out.print("\nNome do aluno: "); 
+                    System.out.println("\nInforme os dados do aluno:");
+                    System.out.print("Nome: "); 
                     String nomeAluno = scan.nextLine();
                     System.out.print("Matrícula: ");
                     int matricula = scan.nextInt();
@@ -56,7 +59,8 @@ public class MenuInterativo {
                     
                 case 2:
                     System.out.println("\n\n** Cadastro de professor **");
-                    System.out.print("\nNome do professor: "); 
+                    System.out.println("\nInforme os dados do professor:");
+                    System.out.print("Nome: "); 
                     String nomeProf = scan.nextLine();
                     System.out.print("Registro: ");
                     int registro = scan.nextInt();
@@ -77,10 +81,11 @@ public class MenuInterativo {
                     System.out.println("\nTipo do curso:");
                     System.out.println("1 - Curso EAD");
                     System.out.println("2 - Curso Presencial");
-                    System.out.print("Informe o tipo: ");
+                    System.out.print("Informe o número que corresponde ao tipo desejado: ");
                     int tipoCurso = scan.nextInt();
                     scan.nextLine();
-                    System.out.print("\nNome do curso: "); 
+                    System.out.println("\nInforme os dados do curso:");
+                    System.out.print("Nome do curso: "); 
                     String nomeCurso = scan.nextLine();
                     System.out.print("Código: ");
                     int codigo = scan.nextInt();
@@ -99,45 +104,83 @@ public class MenuInterativo {
                         Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
                         salvaDados.listaCursos.add(cursoPresencial);
                     }
+                    System.out.println("\nCurso cadastrado.\n");
                     break;
                 
                 case 4:
                     // int addOuRemove = scan.nextInt();
 
                     System.out.println("\n** Criação de turmas **");
-                    System.out.print("\nCódigo da turma: ");
+                    System.out.println("\nInforme os dados da turma:");
+                    System.out.print("Código da turma: ");
                     int codigoTurma = scan.nextInt();
                     
-                    System.out.println("\nLista de cursos disponíveis:");
+                    System.out.println("\nLista de cursos:\n");
                     salvaDados.mostraListaCursos();
-                    System.out.print("Informe o número do curso dessa turma: ");
+                    System.out.print("\nInforme o número do curso dessa turma: ");
                     int numCurso = scan.nextInt();
                     
-                    System.out.println("\nLista de professores disponíveis: ");
+                    System.out.println("\nLista de professores:\n");
                     salvaDados.mostraListaProf();
-                    System.out.print("Informe o número do professor dessa turma: ");
+                    System.out.print("\nInforme o número do professor dessa turma: ");
                     int numProf = scan.nextInt();
                     
-                    System.out.println("\nLista de alunos matriculados: ");
-                    salvaDados.mostraListaAlunos();
-                    System.out.print("Informe o número do aluno que será associado à turma: ");
-                    int numAluno = scan.nextInt();
-                    scan.nextLine();
                     
                     Curso cursoTurma = salvaDados.listaCursos.get(numCurso);
                     Professor profTurma = salvaDados.listaProf.get(numProf);
-                    Aluno AlunoTurma = salvaDados.listaAlunos.get(numAluno);
                     
                     Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
-                    turma.addAluno(AlunoTurma, cursoTurma, profTurma);
-
+                    
                     salvaDados.listaTurmas.add(turma);
-                    System.out.println(AlunoTurma.getNome()+" entrou na turma "+codigoTurma+" do curso de "+cursoTurma.getNomeCurso() );
+                    System.out.println("\nTurma criada.\n");
+                    break;
+                    
+                case 5:
+                    System.out.println("\n** Adicionar ou remover alunos em turmas **");
+                    System.out.println("\n1 - Adicionar aluno");
+                    System.out.println("2 - Remover aluno");
+                    System.out.print("Informe o número da opção desejada: ");
+                    int addOuRemoveAluno = scan.nextInt();
+
+                    System.out.println("\nLista de turmas:");
+                    salvaDados.mostraListaTurmas();
+                    System.out.print("Informe o número da turma que será editada: ");
+                    int numTurma = scan.nextInt();
+
+                    Turma editarTurma = salvaDados.listaTurmas.get(numTurma);
+                    
+                    if (addOuRemoveAluno == 1) {
+                        System.out.println("\nLista de alunos matriculados: ");
+                        salvaDados.mostraListaAlunos();
+                        
+                        System.out.print("Informe o número do aluno que será associado à turma "+numTurma+":");
+                        int numAlunoAdd = scan.nextInt();
+                        Aluno addAluno = salvaDados.listaAlunos.get(numAlunoAdd);
+                        
+                        System.out.println("Lista de cursos: ");
+                        salvaDados.mostraListaCursos();
+                        System.out.print("Informe o número do curso: ");
+                        int numCursoTurma = scan.nextInt();
+                        Curso cursoDessaTurma = salvaDados.listaCursos.get(numCursoTurma);
+                        
+                        editarTurma.addAluno(addAluno, cursoDessaTurma);
+                    }    
+                    if (addOuRemoveAluno == 2) {
+                        System.out.println("\nLista de alunos: ");
+                        salvaDados.mostraListaAlunos();
+                        
+                        System.out.print("Informe o número do aluno que será removido da turma "+numTurma+":");
+                        int numAlunoRmv = scan.nextInt();
+                        Aluno rmveAluno = salvaDados.listaAlunos.get(numAlunoRmv);
+
+                        editarTurma.removeAluno(rmveAluno);
+                    }
                     break;
                 
-                case 5:
+                case 6:
                     System.out.println("\n** Avaliações **");
-                    System.out.print("Informe a descrição da avaliação: ");
+                    System.out.println("\nInforme os dados da avaliação: ");
+                    System.out.print("Descrição: ");
                     String descricao = scan.nextLine();
 
                     Avaliacao avaliacao = new Avaliacao(descricao);
@@ -149,11 +192,10 @@ public class MenuInterativo {
                     System.out.println("Lista de turmas:");
                     salvaDados.mostraListaTurmas();
                     System.out.print("Número da turma do aluno: ");
-                    int numTurma = scan.nextInt();
-                    
+                    int numTurmaAv = scan.nextInt();
                     
                     Aluno alunoAvaliacao = salvaDados.listaAlunos.get(numAlunoAvaliado);
-                    Turma turmaAvaliacao = salvaDados.listaTurmas.get(numTurma);
+                    Turma turmaAvaliacao = salvaDados.listaTurmas.get(numTurmaAv);
                     
                     System.out.print("Informe a nota do aluno "+alunoAvaliacao.getNome()+": ");
                     float notaAluno = scan.nextFloat();
@@ -163,17 +205,22 @@ public class MenuInterativo {
                     System.out.println("Nota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".");
                     
                     salvaDados.listaAvaliacoes.add(avaliacao);
+                    System.out.println("\nAvaliação registrada.\n");
                     break;
-                case 6:
+                
+                case 7:
                     // CHAMANDO MENU DE RELATÓRIOS:
                     MenuRelatorios menuRelatorios = new MenuRelatorios(salvaDados);
                     menuRelatorios.menuRelatorios();
-                }
-            } while (opcao != 7); 
-        
-        // System.out.println("getLista da classe MenuInterativo: "+ armazenaAluno.getListaAlunos());
+                    break;
 
-            
-            
+                case 8:
+                    System.out.println("\nEncerrando...\n");
+                    break;
+
+                default:
+                    System.out.println("\nOpção inválida!\n");
+            }
+        } while (opcao != 8); 
     }
 }
