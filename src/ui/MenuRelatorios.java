@@ -31,9 +31,10 @@ public class MenuRelatorios {
             System.out.println("Digite 1 - Alunos matriculados");
             System.out.println("Digite 2 - Professores registrados");
             System.out.println("Digite 3 - Cursos disponíveis");
-            System.out.println("Digite 4 - Turmas");
-            System.out.println("Digite 6 - Sair");
-            System.out.print("Digite o número do relatório desejado ou 6 para sair: ");
+            System.out.println("Digite 4 - Turmas criadas");
+            System.out.println("Digite 5 - Resultado de avaliações");
+            System.out.println("Digite 6 - Voltar ao Menu Interativo");
+            System.out.print("Digite o número do relatório desejado ou 6 para voltar: ");
             // lendo escolha do usuário:
             escolha = scan.nextInt();
             scan.nextLine();
@@ -70,14 +71,13 @@ public class MenuRelatorios {
                     }
                     break;
                 case 6:     // sair:
-                    System.out.println("\nSaindo.\n"); 
                     break;
                 default :   // se escolha != de 1, 2, 3, 4 ou 6 = opção inválida.
                 System.out.println("\nOpção inválida!"); 
                 break;
             }
         } while (escolha != 6); // se escolha != de 6 repete do-while
-        scan.close();
+        // scan.close();
     }
 }
 
