@@ -11,7 +11,7 @@ public class Turma {
    
     // atributos turma:
     private int codigo;
-    private Curso curso;
+    private static Curso curso;
     private Professor professor;
     private List<Aluno> listaAlunos;
     private List<String> listaNomeAlunos;    
@@ -28,19 +28,19 @@ public class Turma {
             throw new NullPointerException("Informe o objeto professor desejado.");
         }    
         this.codigo = codigo;
-        this.curso = curso;
+        Turma.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
         this.listaNomeAlunos = new ArrayList<>();        
     }
     // método adiciona aluno:
-    public void addAluno(Aluno aluno, Curso curso) {
+    public void addAluno(Aluno aluno) {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi adicionado ao curso de "+curso.getNomeCurso()+".");
+            System.out.println("\n"+aluno.getNome()+" foi adicionado a turma "+codigo+".");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" é de outra turma.");
+            System.out.println("\nO aluno "+aluno.getNome()+" é de outro curso/turma ou não foi encontrado.");
         }
     }
     // método remove aluno:
@@ -48,9 +48,9 @@ public class Turma {
         if (listaAlunos.contains(aluno)) {
             listaAlunos.remove(aluno);
             listaNomeAlunos.remove(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi removido do curso de "+curso.getNomeCurso()+".");
+            System.out.println("\n"+aluno.getNome()+" foi removido da turma "+codigo+".");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" é de outra turma ou não foi encontrado.");
+            System.out.println("\nO aluno "+aluno.getNome()+" é de outro curso/turma ou não foi encontrado.");
         }
     }
     // getter codigo e curso - usados em Avaliacao e/ou ArmazTemporario:
@@ -65,7 +65,7 @@ public class Turma {
     }
     // método com resumo da turma:
     public String resumoTurma() {
-        return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
+        return "\nDados da turma do curso de "+Turma.curso.getNomeCurso()+":"+
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNome()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";

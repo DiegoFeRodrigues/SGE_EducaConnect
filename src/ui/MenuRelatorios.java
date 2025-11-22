@@ -27,14 +27,14 @@ public class MenuRelatorios {
         do {
             // menu:
             System.out.print("\n\n*** Gerar relatórios: ***");
-            System.out.println("\n*************************\n");
-            System.out.println("Digite 1 - Alunos matriculados");
-            System.out.println("Digite 2 - Professores registrados");
-            System.out.println("Digite 3 - Cursos disponíveis");
-            System.out.println("Digite 4 - Turmas criadas");
-            System.out.println("Digite 5 - Resultado de avaliações");
-            System.out.println("Digite 6 - Voltar ao Menu Interativo");
-            System.out.print("Digite o número do relatório desejado ou 6 para voltar: ");
+            System.out.println("\n¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
+            System.out.println("1 - Alunos matriculados");
+            System.out.println("2 - Professores registrados");
+            System.out.println("3 - Cursos disponíveis");
+            System.out.println("4 - Turmas criadas");
+            System.out.println("5 - Resultado de avaliações");
+            System.out.println("6 - Voltar ao Menu Interativo");
+            System.out.print("Digite o número do relatório desejado ou 6 para voltar ao Menu Interativo: ");
             // lendo escolha do usuário:
             escolha = scan.nextInt();
             scan.nextLine();
