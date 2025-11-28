@@ -7,7 +7,7 @@ public class CursoEAD extends Curso {
 
     // constructor - herda nome, codigo e cargahoraria da superclasse Curso:
     public CursoEAD(String nomeCurso, int codigo, float cargaHoraria, String plataforma) {
-        if (plataforma == null) {
+        if (plataforma == null || plataforma.isEmpty()) {
             throw new NullPointerException("Informe a plataforma do curso EAD.\n");
         }        
         super(nomeCurso, codigo, cargaHoraria);

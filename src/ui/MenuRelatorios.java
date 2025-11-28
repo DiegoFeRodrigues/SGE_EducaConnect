@@ -27,10 +27,10 @@ public class MenuRelatorios {
         do {
             // menu:
             System.out.print("\n\n*** Gerar relatórios: ***");
-            System.out.println("\n¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
+            System.out.println("\n¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
             System.out.println("1 - Alunos matriculados");
             System.out.println("2 - Professores registrados");
-            System.out.println("3 - Cursos disponíveis");
+            System.out.println("3 - Cursos cadastrados");
             System.out.println("4 - Turmas criadas");
             System.out.println("5 - Resultado de avaliações");
             System.out.println("6 - Voltar ao Menu Interativo");

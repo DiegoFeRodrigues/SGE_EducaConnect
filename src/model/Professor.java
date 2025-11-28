@@ -10,20 +10,20 @@ public class Professor extends Usuario implements Autenticacao {
 
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
-        if (nomeProfessor == null) {
+        if (nomeProfessor == null || nomeProfessor.isEmpty()) {
             throw new NullPointerException("Informe o nome do professor.\n");
         }
-        if (especialidade == null) {
+        if (especialidade == null || especialidade.isEmpty()) {
             throw new NullPointerException("Informe a especialidade do professor.\n");
         }
         if (registro <= 0) {
             throw new IllegalArgumentException("Registro inválido.\n");
         }
-        if (login == null) {
-            throw new NullPointerException("Informe o login.\n");
+        if (login == null || login.isEmpty()) {
+            throw new NullPointerException("Informe o login do professor.\n");
         }
-        if (senha == null) {
-            throw new NullPointerException("Informe a senha.\n");
+        if (senha == null || senha.isEmpty()) {
+            throw new NullPointerException("Informe a senha do professor.\n");
         }
         super(nomeProfessor, login, senha); // -> herda da superclasse abstrata Usuário
         this.especialidade = especialidade;

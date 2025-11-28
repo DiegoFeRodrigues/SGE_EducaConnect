@@ -38,9 +38,9 @@ public class Turma {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi adicionado a turma "+codigo+".");
+            System.out.println("\n"+aluno.getNome()+" foi adicionado a turma "+codigo+". \n\n");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" é de outro curso/turma ou não foi encontrado.");
+            System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
     }
     // método remove aluno:
@@ -48,9 +48,9 @@ public class Turma {
         if (listaAlunos.contains(aluno)) {
             listaAlunos.remove(aluno);
             listaNomeAlunos.remove(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi removido da turma "+codigo+".");
+            System.out.println("\n"+aluno.getNome()+" foi removido da turma "+codigo+".\n\n");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" é de outro curso/turma ou não foi encontrado.");
+            System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
     }
     // getter codigo e curso - usados em Avaliacao e/ou ArmazTemporario:

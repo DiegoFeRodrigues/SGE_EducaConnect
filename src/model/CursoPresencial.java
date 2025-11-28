@@ -7,7 +7,7 @@ public class CursoPresencial extends Curso {
 
     // constructor - herda nome, codigo e cargahoraria da superclasse Curso:
     public CursoPresencial(String nomeCurso, int codigo, float cargaHoraria, String sala) {
-        if (sala == null) {
+        if (sala == null || sala.isEmpty()) {
             throw new NullPointerException("Informe a sala do curso presencial.\n");
         }        
         super(nomeCurso, codigo, cargaHoraria);

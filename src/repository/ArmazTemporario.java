@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.Aluno;
 import model.Curso;
+import model.CursoEAD;
 import model.Professor;
 import service.Avaliacao;
 import service.Turma;
@@ -14,29 +15,30 @@ public class ArmazTemporario {
     public List<Aluno> listaAlunos = new ArrayList<>();
     public List<Professor> listaProf = new ArrayList<>();
     public List<Curso> listaCursos = new ArrayList<>();
+    public List<CursoEAD> listaCursosEAD = new ArrayList<>();
     public List<Turma> listaTurmas = new ArrayList<>();
     public List<Avaliacao> listaAvaliacoes = new ArrayList<>();
 
     public void mostraListaCursos() {
-        System.out.println("Número:      Cursos:");
+        System.out.println("Número:      Curso:");
         for (int numero = 0; numero < listaCursos.size(); numero++) {
             System.out.println(" "+numero+"           "+listaCursos.get(numero).getNomeCurso());
         }
     }
     public void mostraListaProf() {
-        System.out.println("Número:      Professores:");
+        System.out.println("Número:      Professor:");
         for (int numero = 0; numero < listaProf.size(); numero++) {
             System.out.println(" "+numero+"           "+listaProf.get(numero).getNome());
         }
     }
     public void mostraListaAlunos() {
-        System.out.println("Número:       Alunos:");
+        System.out.println("Número:       Aluno:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
             System.out.println(" "+numero+"           "+listaAlunos.get(numero).getNome());
         }
     }
     public void mostraListaTurmas() {
-        System.out.println("Número:      Turmas:");
+        System.out.println("Número:      Turma:");
         for (int numero = 0; numero < listaTurmas.size(); numero++) {
             System.out.println(" "+numero+"           Curso: "+listaTurmas.get(numero).getCursoTurma().getNomeCurso()+" - Professor: "+listaTurmas.get(numero).getProfessorTurma().getNome());
         }
