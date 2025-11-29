@@ -38,7 +38,7 @@ public class Turma {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi adicionado a turma "+codigo+". \n\n");
+            System.out.println("\n"+aluno.getNome()+" foi adicionado à turma "+codigo+". \n\n");
         } else {
             System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }

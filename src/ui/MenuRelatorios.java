@@ -26,7 +26,7 @@ public class MenuRelatorios {
         // do-while para repetir menu de escolha (executa ao menos uma vez, testa no final):
         do {
             // menu:
-            System.out.print("\n\n*** Gerar relatórios: ***");
+            System.out.print("\n\n\n*** Gerar relatórios: ***");
             System.out.println("\n¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
             System.out.println("1 - Alunos matriculados");
             System.out.println("2 - Professores registrados");
@@ -71,6 +71,7 @@ public class MenuRelatorios {
                     }
                     break;
                 case 6:     // sair:
+                    System.out.println("\n\n");
                     break;
                 default :   // se escolha != de 1, 2, 3, 4 ou 6 = opção inválida.
                 System.out.println("\nOpção inválida!"); 

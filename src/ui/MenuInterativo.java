@@ -26,16 +26,7 @@ public class MenuInterativo {
             scan.nextLine();
         }
     }
-    private boolean evitaAlunoDuplicado(int numero) {
-        for (Aluno alunos : salvaDados.listaAlunos) {
-            if (alunos.getMatricula() == numero) {
-                System.out.println("\nErro: Não é possível cadastrar aluno.");
-                System.out.println("\nJá existe aluno com a matrícula informada.\n\n");
-                return false;
-            }
-        } 
-        return true;
-    }
+    
     public void Menu() {
               
         Scanner scan = new Scanner(System.in);
@@ -74,22 +65,21 @@ public class MenuInterativo {
                         scan.nextLine();
                     }
                     int matricula = scan.nextInt();
-                    if (!evitaAlunoDuplicado(matricula)) {
-                        break;
-                    }
+                    
                     scan.nextLine();
                     System.out.println("\nCursos disponíveis:\n");
                     salvaDados.mostraListaCursos();
                     System.out.print("\nInforme o número que corresponde ao curso do aluno "+nomeAluno+": ");
                     testaNumeroMenu(scan);
                     int numeCurso = scan.nextInt();
-                    while (numeCurso >= salvaDados.listaCursos.size()) {
-                        System.out.println("Erro: Opção inválida");
-                        scan.nextLine();
-                        System.out.print("Confira a lista acima e digite o número do curso do aluno "+nomeAluno+": ");
-                        numeCurso = scan.nextInt();
-                    }
                     scan.nextLine();
+                    while (numeCurso > salvaDados.listaCursos.size()) {
+                        System.out.println("\nErro: Opção inválida");
+                        System.out.print("Confira a lista acima e digite o número do curso do aluno "+nomeAluno+": ");
+                        testaNumeroMenu(scan);
+                        numeCurso = scan.nextInt();
+                        scan.nextLine();
+                    }
                     String cursoAluno = salvaDados.listaCursos.get(numeCurso).getNomeCurso();
                     System.out.print("Login: ");
                     String loginAluno = scan.nextLine();
@@ -266,35 +256,51 @@ public class MenuInterativo {
                         System.out.println("Digite 1 = Adicionar aluno em turma.");
                         System.out.println("Digite 2 = Remover aluno de turma.");
                         System.out.print("Opção desejada: ");
+                        testaNumeroMenu(scan);
                         addOuRemoveAluno = scan.nextInt();
                     }
-
+                    
+                    scan.nextLine();
                     System.out.println("\nLista de turmas:");
                     salvaDados.mostraListaTurmas();
-                    System.out.print("Informe o número da turma que será editada: ");
+                    System.out.print("Informe o número da turma que será alterada: ");
+                    testaNumeroMenu(scan);
                     int numTurma = scan.nextInt();
+                    scan.nextLine();
+                    
+                    while (numTurma >= salvaDados.listaTurmas.size()) {
+                        System.out.println("\nErro: Opção inválida!");
+                        System.out.println("Confira a lista de turmas acima.");
+                        System.out.print("Digite o número correspondente da turma do aluno: ");
+                        testaNumeroMenu(scan);
+                        numTurma = scan.nextInt();
+                        scan.nextLine();
+                    }
 
                     Turma editarTurma = salvaDados.listaTurmas.get(numTurma);
                     
+                    System.out.println("\nLista de alunos matriculados: ");
+                    salvaDados.mostraListaAlunos();
+
+                    
                     if (addOuRemoveAluno == 1) {
-                        System.out.println("\nLista de alunos matriculados: ");
-                        salvaDados.mostraListaAlunos();
-                        
                         System.out.print("Informe o número do aluno que será associado à turma do professor "+salvaDados.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
+                        testaNumeroMenu(scan);
                         int numAlunoAdd = scan.nextInt();
+                        scan.nextLine();
+                        while (numAlunoAdd > salvaDados.listaAlunos.size()) {
+                            System.out.println("\nErro: Opção inválida!");
+                            System.out.println("Confira a lista de alunos acima.");
+                            System.out.print("Digite o número correspondente ao aluno que será associado à turma: ");
+                            testaNumeroMenu(scan);
+                            numAlunoAdd = scan.nextInt();
+                            scan.nextLine();
+                        }
                         Aluno addAluno = salvaDados.listaAlunos.get(numAlunoAdd);
-                        
-                        // System.out.println("\nLista de cursos: ");
-                        // salvaDados.mostraListaCursos();
-                        // System.out.print("Informe o número do curso: ");
-                        // int numCursoTurma = scan.nextInt();
-                        // Curso cursoDessaTurma = salvaDados.listaCursos.get(numCursoTurma);
                         
                         editarTurma.addAluno(addAluno);
                     }    
                     if (addOuRemoveAluno == 2) {
-                        System.out.println("\nLista de alunos: ");
-                        salvaDados.mostraListaAlunos();
                         
                         System.out.print("Informe o número do aluno que será removido da turma do professor "+salvaDados.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
                         int numAlunoRmv = scan.nextInt();
@@ -351,3 +357,11 @@ public class MenuInterativo {
         } while (opcao != 8); 
     }
 }
+
+
+                        
+                        // System.out.println("\nLista de cursos: ");
+                        // salvaDados.mostraListaCursos();
+                        // System.out.print("Informe o número do curso: ");
+                        // int numCursoTurma = scan.nextInt();
+                        // Curso cursoDessaTurma = salvaDados.listaCursos.get(numCursoTurma);
