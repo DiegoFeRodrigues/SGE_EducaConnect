@@ -26,8 +26,21 @@ public class MenuInterativo {
             scan.nextLine();
         }
     }
+    // método para testar se valor digitado é número inteiro - usado em cadastro de dados (matrículas, registros e códigos):
+    private void testaNumeroDados(Scanner scan, String dado) {
+        while (!scan.hasNextInt()) {
+            System.out.println("\nErro: O número digitado é inválido.");
+            System.out.println("Digite apenas números inteiros, sem letras.");
+            System.out.print("Informe "+dado);
+            scan.nextLine();
+        }
+    }
     
     private void testaCursosArmazenados(Scanner scan) {
+        System.out.println("\nCursos disponíveis:\n");
+        salvaDados.mostraListaCursos();
+        System.out.print("\nInforme o número que corresponde ao curso do aluno: ");
+        testaNumeroMenu(scan);
         while (scan.nextInt() >= salvaDados.listaCursos.size()) {
             System.out.println("\nErro: Opção inválida");
             System.out.print("Confira a lista acima e digite o número do curso: ");
@@ -67,18 +80,13 @@ public class MenuInterativo {
                     System.out.print("Nome: "); 
                     String nomeAluno = scan.nextLine();
                     System.out.print("Matrícula: ");
-                    while (!scan.hasNextInt()) {
-                        System.out.println("\nErro: Número de matrícula não pode conter letras.");
-                        System.out.print("Digite o número de matrícula do aluno "+nomeAluno+": ");
-                        scan.nextLine();
-                    }
+                    
+                    String testaMatricula = "a matrícula do aluno: ";
+                    testaNumeroDados(scan, testaMatricula);
+
                     int matricula = scan.nextInt();
                     scan.nextLine();
-                    System.out.println("\nCursos disponíveis:\n");
-                    salvaDados.mostraListaCursos();
-                    System.out.print("\nInforme o número que corresponde ao curso do aluno "+nomeAluno+": ");
-
-                    testaNumeroMenu(scan);
+                    
                     testaCursosArmazenados(scan);
                     
                     int numeCurso = scan.nextInt();
@@ -185,8 +193,8 @@ public class MenuInterativo {
                 case 4:
                     if (salvaDados.listaCursos.isEmpty() || salvaDados.listaProf.isEmpty()) {
                         System.out.println("\nErro: Não é possível criar turma.");
-                        System.out.println("O sistema não possui cursos ou professores cadastrados.");
-                        System.out.println("Cadastre curso e professor primeiro.\n\n");
+                        System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui professores e cursos cadastrados.");
+                        System.out.println("\nCaso professores ou cursos não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;
                     }
                     System.out.println("\n\n** Criação de turmas **");
@@ -242,7 +250,7 @@ public class MenuInterativo {
                 case 5:
                     if (salvaDados.listaAlunos.isEmpty() || salvaDados.listaTurmas.isEmpty()) {
                         System.out.println("\nErro: Não é possível adicionar ou remover alunos.");
-                        System.out.println("\nAcesse o menu de Gerar Relatórios e confira se possui alunos e turmas cadastrados.");
+                        System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
                         System.out.println("\nCaso alunos ou turmas não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;
                     }
@@ -345,7 +353,7 @@ public class MenuInterativo {
                     break;
                 
                 case 7:
-                    // CHAMANDO MENU DE RELATÓRIOS:
+                    // CHAMANDa opção de RELATÓRIOS: no menu
                     MenuRelatorios menuRelatorios = new MenuRelatorios(salvaDados);
                     menuRelatorios.menuRelatorios();
                     break;
