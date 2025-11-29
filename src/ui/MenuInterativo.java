@@ -27,6 +27,14 @@ public class MenuInterativo {
         }
     }
     
+    private void testaCursosArmazenados(Scanner scan) {
+        while (scan.nextInt() >= salvaDados.listaCursos.size()) {
+            System.out.println("\nErro: Opção inválida");
+            System.out.print("Confira a lista acima e digite o número do curso: ");
+            scan.nextLine();
+        }
+    }
+
     public void Menu() {
               
         Scanner scan = new Scanner(System.in);
@@ -45,10 +53,10 @@ public class MenuInterativo {
             System.out.print("Opção desejada: ");
             testaNumeroMenu(scan);
             opcao = scan.nextInt();
+            scan.nextLine();
             switch (opcao) {
 
                 case 1:
-                    scan.nextLine();
                     if (salvaDados.listaCursos.isEmpty()) {
                         System.out.println("\n\nErro: Não é possível cadastrar aluno.");
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
@@ -65,21 +73,17 @@ public class MenuInterativo {
                         scan.nextLine();
                     }
                     int matricula = scan.nextInt();
-                    
                     scan.nextLine();
                     System.out.println("\nCursos disponíveis:\n");
                     salvaDados.mostraListaCursos();
                     System.out.print("\nInforme o número que corresponde ao curso do aluno "+nomeAluno+": ");
+
                     testaNumeroMenu(scan);
+                    testaCursosArmazenados(scan);
+                    
                     int numeCurso = scan.nextInt();
                     scan.nextLine();
-                    while (numeCurso > salvaDados.listaCursos.size()) {
-                        System.out.println("\nErro: Opção inválida");
-                        System.out.print("Confira a lista acima e digite o número do curso do aluno "+nomeAluno+": ");
-                        testaNumeroMenu(scan);
-                        numeCurso = scan.nextInt();
-                        scan.nextLine();
-                    }
+
                     String cursoAluno = salvaDados.listaCursos.get(numeCurso).getNomeCurso();
                     System.out.print("Login: ");
                     String loginAluno = scan.nextLine();
@@ -129,7 +133,6 @@ public class MenuInterativo {
                     System.out.println("1 - Curso EAD");
                     System.out.println("2 - Curso Presencial");
                     System.out.print("Informe o número que corresponde ao tipo de curso desejado: ");
-                    scan.nextLine();
                     testaNumeroMenu(scan);
                     int tipoCurso = scan.nextInt();
                     while (tipoCurso <= 0 || tipoCurso > 2) {
