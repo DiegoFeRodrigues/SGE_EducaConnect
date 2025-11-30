@@ -22,8 +22,8 @@ public class TestaDados {
     // método para testar se valor digitado é número inteiro - usado em cadastro de dados (matrículas, registros e códigos):
     public static void testaNumeroDados(Scanner scan, String dado) {
         while (!scan.hasNextInt()) {
-            System.out.println("\nErro: O número digitado é inválido.");
-            System.out.println("Digite apenas números inteiros, sem letras.");
+            System.out.println("\nErro: O valor digitado é inválido.");
+            System.out.println("Digite apenas números inteiros. Não digite letras.");
             System.out.print("Informe "+dado);
             scan.nextLine();
             if (scan.hasNextInt()) {
@@ -40,8 +40,10 @@ public class TestaDados {
         while (scan.nextInt() >= ArmazTemporario.listaCursos.size()) {
             System.out.println("\nErro: Opção inválida");
             System.out.print("Confira a lista acima e digite o número do curso: ");
+            testaNumeroMenu(scan);
             scan.nextLine();
         }
     }
+    
 
 }

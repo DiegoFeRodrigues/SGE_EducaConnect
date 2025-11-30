@@ -58,6 +58,9 @@ public class CadastraCurso {
             System.out.println("\nCarga horária não pode conter letras.");
             System.out.print("Informe a carga horária do curso de "+nomeCurso+": ");
             scan.nextLine();
+            if (scan.hasNextFloat()) {
+                System.out.println("");
+            }
         }
         float cargaHoraria = scan.nextFloat();
         scan.nextLine();
