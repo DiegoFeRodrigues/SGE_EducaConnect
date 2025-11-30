@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de professores
-    Com input (scanner) de dados e usando método de apoio da classe TestaDados para testar e validar número de registro informado. 
+    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe TestaDados.
 */
 
 package service;
@@ -11,7 +11,8 @@ import model.Professor;
 
 public class CadastraProfessor {
     
-    public static void cadastraProf() {
+    // método polimórfico:
+    public static void cadastro() {
 
         Scanner scan = new Scanner(System.in);
 
@@ -25,7 +26,7 @@ public class CadastraProfessor {
         // registro:
         System.out.print("Registro: ");
         String registroProf = "o NÚMERO de registro do professor: "; 
-        TestaDados.testaNumeroDados(scan, registroProf);    // -> testa se valor informado é número inteiro.
+        TestaDados.testaNumeroDados(scan, registroProf);    // -> testa se valor de dado informado é número inteiro.
         int registro = scan.nextInt();
         scan.nextLine();
 
@@ -43,11 +44,12 @@ public class CadastraProfessor {
         
         // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Professor:    
         try {
+            // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
             Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
             repository.ArmazTemporario.listaProf.add(professor);
             System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
         }
-        // captura exceções:
+        // captura exceções lançadas na instancia de objetos:
         catch (NullPointerException npe) {
             System.err.println("Falha ao cadastrar professor: "+npe+"\n\n");
         }        

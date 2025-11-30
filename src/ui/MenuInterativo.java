@@ -3,14 +3,13 @@ package ui;
 import java.util.Scanner;
 
 import model.Aluno;
-import model.CursoEAD;
-import model.CursoPresencial;
 import model.Curso;
 import model.Professor;
 import service.Avaliacao;
 import service.TestaDados;
 import service.Turma;
 import service.CadastraAluno;
+import service.CadastraCurso;
 import service.CadastraProfessor;
 
 public class MenuInterativo {
@@ -42,66 +41,15 @@ public class MenuInterativo {
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }
-                    CadastraAluno.cadastraAluno();
+                    CadastraAluno.cadastro();
                     break;
                     
                 case 2:
-                    CadastraProfessor.cadastraProf();
+                    CadastraProfessor.cadastro();
                     break;
                 
                 case 3:
-                    System.out.println("\n\n** Cadastro de Curso **");
-                    System.out.println("\nTipo do curso:");
-                    System.out.println("1 - Curso EAD");
-                    System.out.println("2 - Curso Presencial");
-                    System.out.print("Informe o número que corresponde ao tipo de curso desejado: ");
-                    TestaDados.testaNumeroMenu(scan);
-                    int tipoCurso = scan.nextInt();
-                    while (tipoCurso <= 0 || tipoCurso > 2) {
-                        System.out.println("\nErro: Opção inválida!");
-                        scan.nextLine();
-                        System.out.println("Digite 1 = Cadastrar curso EAD.");
-                        System.out.println("Digite 2 = Cadastrar curso Presencial.");
-                        System.out.print("Opção desejada: ");
-                        tipoCurso = scan.nextInt();
-                    }
-                    scan.nextLine();
-                    System.out.println("\nInforme os dados do curso:");
-                    System.out.print("Nome do curso: "); 
-                    String nomeCurso = scan.nextLine();
-                    System.out.print("Código: ");
-                    while (!scan.hasNextInt()) {
-                        System.out.println("\nCódigo do curso não pode conter letras.");
-                        System.out.print("Informe o código do curso de "+nomeCurso+": ");
-                        scan.nextLine();
-                    }
-                    int codigo = scan.nextInt();
-                    scan.nextLine();
-                    System.out.print("Carga horária: ");
-                    while (!scan.hasNextFloat()) {
-                        System.out.println("\nCarga horária não pode conter letras.");
-                        System.out.print("Informe a carga horária do curso de "+nomeCurso+": ");
-                        scan.nextLine();
-                    }
-                    float cargaHoraria = scan.nextFloat();
-                    scan.nextLine();
-                    try {
-                        if (tipoCurso == 1) {
-                            System.out.print("Plataforma EAD: ");
-                            String plataforma = scan.nextLine();
-                            Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
-                            repository.ArmazTemporario.listaCursos.add(cursoEAD);
-                            System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
-                        } else if (tipoCurso == 2) {
-                            System.out.print("Sala: ");
-                            String sala = scan.nextLine();
-                            Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
-                            repository.ArmazTemporario.listaCursos.add(cursoPresencial);
-                            System.out.println("\nCurso Presencial de "+cursoPresencial.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
-                        }
-                    } catch (NullPointerException npe) {
-                        System.err.println("\nFalha ao cadastrar curso: "+ npe+"\n\n");
-                    }
+                    CadastraCurso.cadastro();
                     break;
                 
                 case 4:

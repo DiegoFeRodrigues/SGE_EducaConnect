@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de alunos
-    Com input (scanner) de dados e usando métodos de apoio da classe TestaDados para testar e validar dados informados. 
+    Com método polimórfico, input (scanner) de dados e usando métodos de apoio da classe TestaDados.
 */
 
 package service;
@@ -12,7 +12,8 @@ import repository.ArmazTemporario;
 
 public class CadastraAluno {
     
-    public static void cadastraAluno() {
+    // método polimórfico:
+    public static void cadastro() {
         
         Scanner scan = new Scanner(System.in);
         
@@ -25,8 +26,8 @@ public class CadastraAluno {
         
         // matricula:
         System.out.print("Matrícula: ");
-        String testaMatricula = "a matrícula do aluno: ";
-        TestaDados.testaNumeroDados(scan, testaMatricula);  // -> testa se valor informado é número inteiro.
+        String testaMatricula = "a matrícula do aluno "+nomeAluno+": ";
+        TestaDados.testaNumeroDados(scan, testaMatricula);  // -> testa se valor de matrícula informada é número inteiro.
         int matricula = scan.nextInt();
         scan.nextLine();
         
@@ -47,11 +48,12 @@ public class CadastraAluno {
 
         // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
         try {
+            // instanciando objetos Aluno com dados informados e adicionando no armazenamento temporário em lista:
             Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
             ArmazTemporario.listaAlunos.add(aluno);
             System.out.println("\nAluno "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
         } 
-        // captura exceções:
+        // captura exceções lançadas na instancia de objetos:
         catch(NullPointerException npe) {
             System.err.println("\nFalha ao cadastrar aluno: "+npe+"\n\n");
         }
