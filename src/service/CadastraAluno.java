@@ -32,14 +32,13 @@ public class CadastraAluno {
         scan.nextLine();
         
         // curso:
-        TestaDados.testaCursosArmazenados(scan);    // -> mostra lista de cursos e evita que número informado seja maior que a lista
-        int numeCurso = scan.nextInt();
-        scan.nextLine();
+        int numeCurso = 0;
+        TestaDados.testaCursosArmazenados(scan, numeCurso);    // -> mostra lista de cursos e evita que número informado seja maior que a lista
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 
         // login:
-        System.out.print("Login: ");
+        System.out.print("\nLogin: ");
         String loginAluno = scan.nextLine();
         
         // senha:

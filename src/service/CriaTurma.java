@@ -27,8 +27,8 @@ public class CriaTurma {
         int codigoTurma = scan.nextInt();
         scan.nextLine();
         
-        TestaDados.testaCursosArmazenados(scan);
         int numCurso = scan.nextInt();
+        TestaDados.testaCursosArmazenados(scan, numCurso);
         
         // System.out.println("\nLista de cursos:\n");
         // repository.ArmazTemporario.mostraListaCursos();

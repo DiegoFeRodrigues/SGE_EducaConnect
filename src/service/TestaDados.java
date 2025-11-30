@@ -31,16 +31,19 @@ public class TestaDados {
             }
         }
     }
-    // método que verifica se valor informado é maior que o número de cursos no armazenamento em lista:
-    public static void testaCursosArmazenados(Scanner scan) {
+    // mostra lista de cursos e seus índices e verifica se valor do índice informado é maior que o número de cursos no armazenamento em lista:
+    public static void testaCursosArmazenados(Scanner scan, int numero) {
         System.out.println("\nCursos disponíveis:\n");
-        ArmazTemporario.mostraListaCursos();
+        ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         System.out.print("\nInforme o número que corresponde ao curso do aluno: ");
-        testaNumeroMenu(scan);
-        while (scan.nextInt() >= ArmazTemporario.listaCursos.size()) {
+        testaNumeroMenu(scan);  // testa se valor digitado é número inteiro
+        numero = scan.nextInt();
+        scan.nextLine();
+        while (numero >= ArmazTemporario.listaCursos.size()) {
             System.out.println("\nErro: Opção inválida");
             System.out.print("Confira a lista acima e digite o número do curso: ");
-            testaNumeroMenu(scan);
+            testaNumeroMenu(scan);  // testa se valor digitado é número inteiro
+            numero = scan.nextInt();
             scan.nextLine();
         }
     }
