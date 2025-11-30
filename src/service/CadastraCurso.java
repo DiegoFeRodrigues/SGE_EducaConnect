@@ -25,7 +25,7 @@ public class CadastraCurso {
         System.out.println("2 - Curso Presencial");
         System.out.print("Informe o número que corresponde ao tipo de curso desejado: ");
         
-        TestaDados.testaNumeroMenu(scan);   // -> testa se valor de menu informado é número inteiro.
+        TestaDados.testaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
 
         // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
         int tipoCurso = scan.nextInt();
@@ -35,7 +35,7 @@ public class CadastraCurso {
             System.out.println("Digite 1 = Cadastrar curso EAD.");
             System.out.println("Digite 2 = Cadastrar curso Presencial.");
             System.out.print("Opção desejada: ");
-            TestaDados.testaNumeroMenu(scan);   // -> testa se valor de menu informado é número inteiro.
+            TestaDados.testaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
             tipoCurso = scan.nextInt();
             scan.nextLine();
         }
@@ -48,13 +48,13 @@ public class CadastraCurso {
         // código:
         System.out.print("Código: ");
         String codigoCurso = "o código do curso de "+nomeCurso+": ";
-        TestaDados.testaNumeroDados(scan, codigoCurso);     // -> testa se valor de código informado é número inteiro.
+        TestaDados.testaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
         int codigo = scan.nextInt();
         scan.nextLine();
 
         // carga horária:
         System.out.print("Carga horária: ");
-        while (!scan.hasNextFloat()) {  // -> testa se valor de carga horária informada é número (real, flutuante);
+        while (!scan.hasNextFloat()) {  // testa se valor de carga horária informada é número (real, flutuante);
             System.out.println("\nCarga horária não pode conter letras.");
             System.out.print("Informe a carga horária do curso de "+nomeCurso+": ");
             scan.nextLine();

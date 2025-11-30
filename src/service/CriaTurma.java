@@ -23,48 +23,52 @@ public class CriaTurma {
         // código:
         System.out.print("Código da turma: ");
         String testaTurma = "o código da turma: ";
-        TestaDados.testaNumeroDados(scan, testaTurma);      // -> testa se valor de código informado é número inteiro.
+        TestaDados.testaNumeroDados(scan, testaTurma);      // testa se valor de código informado é número inteiro.
         int codigoTurma = scan.nextInt();
         scan.nextLine();
-        
-        int numCurso = scan.nextInt();
-        TestaDados.testaCursosArmazenados(scan, numCurso);
-        
-        // System.out.println("\nLista de cursos:\n");
-        // repository.ArmazTemporario.mostraListaCursos();
-        // System.out.print("\nInforme o número do curso dessa turma: ");
-        // TestaDados.testaNumeroMenu(scan);
-        // int numCurso = scan.nextInt();
-        // while (numCurso >= repository.ArmazTemporario.listaCursos.size()) {
-        //     System.out.println("\nErro: Opção inválida");
-        //     scan.nextLine();
-        //     System.out.print("Confira a lista de cursos acima e digite o número do curso que será lecionado na turma "+codigoTurma+": ");
-        //     TestaDados.testaNumeroMenu(scan);
-        //     numCurso = scan.nextInt();
-        // }
+
+        // curso:
+        int numCurso = 0;
+        TestaDados.testaCursosArmazenados(scan, numCurso);  // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+
+        // saída acessando nome do curso do índice informado pelo usuário:
         System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
-        scan.nextLine();
-        
+
+        // professor:
         System.out.println("\nLista de professores:\n");
-        repository.ArmazTemporario.mostraListaProf();
+        repository.ArmazTemporario.mostraListaProf();   // mostra lista de cursos salvos no armazenamento temporário em lista
+        
         System.out.print("\nInforme o número do professor dessa turma: ");
-        TestaDados.testaNumeroMenu(scan);
+        TestaDados.testaNumeroMenu(scan);   // testa se valor digitado é número inteiro
         int numProf = scan.nextInt();
+
+        // testa se número do índice do professor informado é maior que a lista:
         while (numProf >= repository.ArmazTemporario.listaProf.size()) {
             System.out.println("\nErro: Opção inválida");
             scan.nextLine();
-            System.out.print("Confira a lista de professores acima e digite o número do professor dará aulas para a turma "+codigoTurma+": ");
+            System.out.print("Confira a lista de professores acima e digite o número do professor que dará aulas para a turma "+codigoTurma+": ");
             TestaDados.testaNumeroMenu(scan);
             numProf = scan.nextInt();
         }
+        // saída acessando nome do professor do índice informado pelo usuário:
         System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numCurso).getNome()+" cadastrado na turma "+codigoTurma+".\n");
         
+        // buscando objetos de Curso e Professor dos índices informados pelo usuário:
         Curso cursoTurma = repository.ArmazTemporario.listaCursos.get(numCurso);
         Professor profTurma = repository.ArmazTemporario.listaProf.get(numProf);
         
-        Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
-        
-        repository.ArmazTemporario.listaTurmas.add(turma);
-        System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
+        // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Turma:
+        try {
+            // instanciando objeto de Turma com objetos buscados e salvando no armazenamento temporário em lista:
+            Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
+            repository.ArmazTemporario.listaTurmas.add(turma);
+
+            // saída de sucesso na criação da turma:
+            System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
+        }
+        // captura exceções lançadas na instancia de objetos:
+        catch(NullPointerException npe) {
+            System.err.println("Falha ao criar turma: "+npe);
+        }
     }
 }

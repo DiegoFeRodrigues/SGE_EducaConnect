@@ -27,13 +27,13 @@ public class CadastraAluno {
         // matricula:
         System.out.print("Matrícula: ");
         String testaMatricula = "a matrícula do aluno "+nomeAluno+": ";
-        TestaDados.testaNumeroDados(scan, testaMatricula);  // -> testa se valor de matrícula informada é número inteiro.
+        TestaDados.testaNumeroDados(scan, testaMatricula);  // testa se valor de matrícula informada é número inteiro.
         int matricula = scan.nextInt();
         scan.nextLine();
         
         // curso:
         int numeCurso = 0;
-        TestaDados.testaCursosArmazenados(scan, numeCurso);    // -> mostra lista de cursos e evita que número informado seja maior que a lista
+        TestaDados.testaCursosArmazenados(scan, numeCurso);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 
