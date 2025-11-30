@@ -26,6 +26,9 @@ public class TestaDados {
             System.out.println("Digite apenas números inteiros, sem letras.");
             System.out.print("Informe "+dado);
             scan.nextLine();
+            if (scan.hasNextInt()) {
+                System.out.println("");
+            }
         }
     }
     // método que verifica se valor informado é maior que o número de cursos no armazenamento em lista:

@@ -45,7 +45,7 @@ public class CadastraAluno {
         System.out.print("Senha: ");
         String senhaAluno = scan.nextLine();
 
-        // testa a validação dos dados informados conforme exceções tratadas no construtor 
+        // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
         try {
             Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
             ArmazTemporario.listaAlunos.add(aluno);

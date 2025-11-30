@@ -11,6 +11,7 @@ import service.Avaliacao;
 import service.TestaDados;
 import service.Turma;
 import service.CadastraAluno;
+import service.CadastraProfessor;
 
 public class MenuInterativo {
     
@@ -45,31 +46,7 @@ public class MenuInterativo {
                     break;
                     
                 case 2:
-                    System.out.println("\n\n** Cadastro de professor **");
-                    System.out.println("\nInforme os dados do professor:");
-                    System.out.print("Nome: "); 
-                    String nomeProf = scan.nextLine();
-                    System.out.print("Registro: ");
-                    while (!scan.hasNextInt()) {
-                        System.out.println("Erro: Número de registro não pode conter letras.");
-                        System.out.print("Informe o número de registro do professor "+nomeProf+": ");
-                        scan.nextLine();
-                    }
-                    int registro = scan.nextInt();
-                    scan.nextLine();
-                    System.out.print("Especialidade: ");
-                    String especialidade = scan.nextLine();
-                    System.out.print("Login: ");
-                    String loginProf = scan.nextLine();
-                    System.out.print("Senha: ");
-                    String senhaProf = scan.nextLine();
-                    try {
-                        Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
-                        repository.ArmazTemporario.listaProf.add(professor);
-                        System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
-                    } catch (NullPointerException npe) {
-                        System.err.println("Falha ao cadastrar professor: "+npe+"\n\n");
-                    }
+                    CadastraProfessor.cadastraProf();
                     break;
                 
                 case 3:
