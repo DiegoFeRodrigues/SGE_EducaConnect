@@ -12,32 +12,32 @@ import service.Turma;
 
 public class ArmazTemporario {
 
-    public List<Aluno> listaAlunos = new ArrayList<>();
-    public List<Professor> listaProf = new ArrayList<>();
-    public List<Curso> listaCursos = new ArrayList<>();
-    public List<CursoEAD> listaCursosEAD = new ArrayList<>();
-    public List<Turma> listaTurmas = new ArrayList<>();
-    public List<Avaliacao> listaAvaliacoes = new ArrayList<>();
+    public static List<Aluno> listaAlunos = new ArrayList<>();
+    public static List<Professor> listaProf = new ArrayList<>();
+    public static List<Curso> listaCursos = new ArrayList<>();
+    public static List<CursoEAD> listaCursosEAD = new ArrayList<>();
+    public static List<Turma> listaTurmas = new ArrayList<>();
+    public static List<Avaliacao> listaAvaliacoes = new ArrayList<>();
 
-    public void mostraListaCursos() {
+    public static void mostraListaCursos() {
         System.out.println("Número:      Curso:");
         for (int numero = 0; numero < listaCursos.size(); numero++) {
             System.out.println(" "+numero+"           "+listaCursos.get(numero).getNomeCurso());
         }
     }
-    public void mostraListaProf() {
+    public static void mostraListaProf() {
         System.out.println("Número:      Professor:");
         for (int numero = 0; numero < listaProf.size(); numero++) {
             System.out.println(" "+numero+"           "+listaProf.get(numero).getNome());
         }
     }
-    public void mostraListaAlunos() {
+    public static void mostraListaAlunos() {
         System.out.println("Número:       Aluno:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
             System.out.println(" "+numero+"           "+listaAlunos.get(numero).getNome());
         }
     }
-    public void mostraListaTurmas() {
+    public static void mostraListaTurmas() {
         System.out.println("Número:      Turma:");
         for (int numero = 0; numero < listaTurmas.size(); numero++) {
             System.out.println(" "+numero+"           Curso: "+listaTurmas.get(numero).getCursoTurma().getNomeCurso()+" - Professor: "+listaTurmas.get(numero).getProfessorTurma().getNome());

@@ -7,47 +7,13 @@ import model.CursoEAD;
 import model.CursoPresencial;
 import model.Curso;
 import model.Professor;
-import repository.ArmazTemporario;
 import service.Avaliacao;
+import service.TestaDados;
 import service.Turma;
+import service.CadastraAluno;
 
 public class MenuInterativo {
     
-    private ArmazTemporario salvaDados;
-
-    public MenuInterativo(ArmazTemporario dados) {
-        this.salvaDados = dados;
-    }
-    // método para testar se valor digitado é número inteiro - usado em menus de opções:
-    private void testaNumeroMenu(Scanner scan) {
-        while (!scan.hasNextInt()) {
-            System.out.println("\nErro: Opção inválida.");
-            System.out.print("Confira as opções acima e digite o NÚMERO correspondente à opção desejada: ");
-            scan.nextLine();
-        }
-    }
-    // método para testar se valor digitado é número inteiro - usado em cadastro de dados (matrículas, registros e códigos):
-    private void testaNumeroDados(Scanner scan, String dado) {
-        while (!scan.hasNextInt()) {
-            System.out.println("\nErro: O número digitado é inválido.");
-            System.out.println("Digite apenas números inteiros, sem letras.");
-            System.out.print("Informe "+dado);
-            scan.nextLine();
-        }
-    }
-    
-    private void testaCursosArmazenados(Scanner scan) {
-        System.out.println("\nCursos disponíveis:\n");
-        salvaDados.mostraListaCursos();
-        System.out.print("\nInforme o número que corresponde ao curso do aluno: ");
-        testaNumeroMenu(scan);
-        while (scan.nextInt() >= salvaDados.listaCursos.size()) {
-            System.out.println("\nErro: Opção inválida");
-            System.out.print("Confira a lista acima e digite o número do curso: ");
-            scan.nextLine();
-        }
-    }
-
     public void Menu() {
               
         Scanner scan = new Scanner(System.in);
@@ -64,52 +30,23 @@ public class MenuInterativo {
             System.out.println("7 - Gerar relatórios");
             System.out.println("8 - Encerrar sistema");
             System.out.print("Opção desejada: ");
-            testaNumeroMenu(scan);
+            TestaDados.testaNumeroMenu(scan);
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {
 
                 case 1:
-                    if (salvaDados.listaCursos.isEmpty()) {
+                    if (repository.ArmazTemporario.listaCursos.isEmpty()) {
                         System.out.println("\n\nErro: Não é possível cadastrar aluno.");
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }
-                    System.out.println("\n\n** Cadastro de aluno **");
-                    System.out.println("\nInforme os dados do aluno:");
-                    System.out.print("Nome: "); 
-                    String nomeAluno = scan.nextLine();
-                    System.out.print("Matrícula: ");
-                    
-                    String testaMatricula = "a matrícula do aluno: ";
-                    testaNumeroDados(scan, testaMatricula);
-
-                    int matricula = scan.nextInt();
-                    scan.nextLine();
-                    
-                    testaCursosArmazenados(scan);
-                    
-                    int numeCurso = scan.nextInt();
-                    scan.nextLine();
-
-                    String cursoAluno = salvaDados.listaCursos.get(numeCurso).getNomeCurso();
-                    System.out.print("Login: ");
-                    String loginAluno = scan.nextLine();
-                    System.out.print("Senha: ");
-                    String senhaAluno = scan.nextLine();
-                    try {
-                        Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
-                        salvaDados.listaAlunos.add(aluno);
-                        System.out.println("\nAluno "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
-                    } catch(NullPointerException npe) {
-                        System.err.println("\nFalha ao cadastrar aluno: "+npe+"\n\n");
-                    } 
+                    CadastraAluno.cadastraAluno();
                     break;
                     
                 case 2:
                     System.out.println("\n\n** Cadastro de professor **");
                     System.out.println("\nInforme os dados do professor:");
-                    scan.nextLine();
                     System.out.print("Nome: "); 
                     String nomeProf = scan.nextLine();
                     System.out.print("Registro: ");
@@ -128,7 +65,7 @@ public class MenuInterativo {
                     String senhaProf = scan.nextLine();
                     try {
                         Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
-                        salvaDados.listaProf.add(professor);
+                        repository.ArmazTemporario.listaProf.add(professor);
                         System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
                     } catch (NullPointerException npe) {
                         System.err.println("Falha ao cadastrar professor: "+npe+"\n\n");
@@ -141,7 +78,7 @@ public class MenuInterativo {
                     System.out.println("1 - Curso EAD");
                     System.out.println("2 - Curso Presencial");
                     System.out.print("Informe o número que corresponde ao tipo de curso desejado: ");
-                    testaNumeroMenu(scan);
+                    TestaDados.testaNumeroMenu(scan);
                     int tipoCurso = scan.nextInt();
                     while (tipoCurso <= 0 || tipoCurso > 2) {
                         System.out.println("\nErro: Opção inválida!");
@@ -176,13 +113,13 @@ public class MenuInterativo {
                             System.out.print("Plataforma EAD: ");
                             String plataforma = scan.nextLine();
                             Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
-                            salvaDados.listaCursos.add(cursoEAD);
+                            repository.ArmazTemporario.listaCursos.add(cursoEAD);
                             System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
                         } else if (tipoCurso == 2) {
                             System.out.print("Sala: ");
                             String sala = scan.nextLine();
                             Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
-                            salvaDados.listaCursos.add(cursoPresencial);
+                            repository.ArmazTemporario.listaCursos.add(cursoPresencial);
                             System.out.println("\nCurso Presencial de "+cursoPresencial.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
                         }
                     } catch (NullPointerException npe) {
@@ -191,7 +128,7 @@ public class MenuInterativo {
                     break;
                 
                 case 4:
-                    if (salvaDados.listaCursos.isEmpty() || salvaDados.listaProf.isEmpty()) {
+                    if (repository.ArmazTemporario.listaCursos.isEmpty() || repository.ArmazTemporario.listaProf.isEmpty()) {
                         System.out.println("\nErro: Não é possível criar turma.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui professores e cursos cadastrados.");
                         System.out.println("\nCaso professores ou cursos não estiverem cadastrados, cadastre-os primeiro.\n\n");
@@ -200,7 +137,6 @@ public class MenuInterativo {
                     System.out.println("\n\n** Criação de turmas **");
                     System.out.println("\nInforme os dados da turma:");
                     System.out.print("Código da turma: ");
-                    scan.nextLine();
                     while (!scan.hasNextInt()) {
                         System.out.println("\nErro: Código da turma não pode conter letras.");
                         System.out.print("Informe o código da turma: ");
@@ -209,46 +145,46 @@ public class MenuInterativo {
                     int codigoTurma = scan.nextInt();
                     
                     System.out.println("\nLista de cursos:\n");
-                    salvaDados.mostraListaCursos();
+                    repository.ArmazTemporario.mostraListaCursos();
                     System.out.print("\nInforme o número do curso dessa turma: ");
                     scan.nextLine();
-                    testaNumeroMenu(scan);
+                    TestaDados.testaNumeroMenu(scan);
                     int numCurso = scan.nextInt();
-                    while (numCurso >= salvaDados.listaCursos.size()) {
+                    while (numCurso >= repository.ArmazTemporario.listaCursos.size()) {
                         System.out.println("\nErro: Opção inválida");
                         scan.nextLine();
                         System.out.print("Confira a lista de cursos acima e digite o número do curso que será lecionado na turma "+codigoTurma+": ");
-                        testaNumeroMenu(scan);
+                        TestaDados.testaNumeroMenu(scan);
                         numCurso = scan.nextInt();
                     }
-                    System.out.println("\n\nCurso de "+salvaDados.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
+                    System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
                     scan.nextLine();
                     
                     System.out.println("\nLista de professores:\n");
-                    salvaDados.mostraListaProf();
+                    repository.ArmazTemporario.mostraListaProf();
                     System.out.print("\nInforme o número do professor dessa turma: ");
-                    testaNumeroMenu(scan);
+                    TestaDados.testaNumeroMenu(scan);
                     int numProf = scan.nextInt();
-                    while (numProf >= salvaDados.listaProf.size()) {
+                    while (numProf >= repository.ArmazTemporario.listaProf.size()) {
                         System.out.println("\nErro: Opção inválida");
                         scan.nextLine();
                         System.out.print("Confira a lista de professores acima e digite o número do professor dará aulas para a turma "+codigoTurma+": ");
-                        testaNumeroMenu(scan);
+                        TestaDados.testaNumeroMenu(scan);
                         numProf = scan.nextInt();
                     }
-                    System.out.println("\n\nProfessor "+salvaDados.listaProf.get(numCurso).getNome()+" cadastrado na turma "+codigoTurma+".\n");
+                    System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numCurso).getNome()+" cadastrado na turma "+codigoTurma+".\n");
                     
-                    Curso cursoTurma = salvaDados.listaCursos.get(numCurso);
-                    Professor profTurma = salvaDados.listaProf.get(numProf);
+                    Curso cursoTurma = repository.ArmazTemporario.listaCursos.get(numCurso);
+                    Professor profTurma = repository.ArmazTemporario.listaProf.get(numProf);
                     
                     Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
                     
-                    salvaDados.listaTurmas.add(turma);
+                    repository.ArmazTemporario.listaTurmas.add(turma);
                     System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
                     break;
                     
                 case 5:
-                    if (salvaDados.listaAlunos.isEmpty() || salvaDados.listaTurmas.isEmpty()) {
+                    if (repository.ArmazTemporario.listaAlunos.isEmpty() || repository.ArmazTemporario.listaTurmas.isEmpty()) {
                         System.out.println("\nErro: Não é possível adicionar ou remover alunos.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
                         System.out.println("\nCaso alunos ou turmas não estiverem cadastrados, cadastre-os primeiro.\n\n");
@@ -258,8 +194,7 @@ public class MenuInterativo {
                     System.out.println("\n1 - Adicionar aluno");
                     System.out.println("2 - Remover aluno");
                     System.out.print("Informe o número da opção desejada: ");
-                    scan.nextLine();
-                    testaNumeroMenu(scan);
+                    TestaDados.testaNumeroMenu(scan);
                     int addOuRemoveAluno = scan.nextInt();
                     while (addOuRemoveAluno <= 0 || addOuRemoveAluno > 2) {
                         System.out.println("\nErro: Opção inválida!");
@@ -267,55 +202,55 @@ public class MenuInterativo {
                         System.out.println("Digite 1 = Adicionar aluno em turma.");
                         System.out.println("Digite 2 = Remover aluno de turma.");
                         System.out.print("Opção desejada: ");
-                        testaNumeroMenu(scan);
+                        TestaDados.testaNumeroMenu(scan);
                         addOuRemoveAluno = scan.nextInt();
                     }
                     
                     scan.nextLine();
                     System.out.println("\nLista de turmas:");
-                    salvaDados.mostraListaTurmas();
+                    repository.ArmazTemporario.mostraListaTurmas();
                     System.out.print("Informe o número da turma que será alterada: ");
-                    testaNumeroMenu(scan);
+                    TestaDados.testaNumeroMenu(scan);
                     int numTurma = scan.nextInt();
                     scan.nextLine();
                     
-                    while (numTurma >= salvaDados.listaTurmas.size()) {
+                    while (numTurma >= repository.ArmazTemporario.listaTurmas.size()) {
                         System.out.println("\nErro: Opção inválida!");
                         System.out.println("Confira a lista de turmas acima.");
                         System.out.print("Digite o número correspondente da turma do aluno: ");
-                        testaNumeroMenu(scan);
+                        TestaDados.testaNumeroMenu(scan);
                         numTurma = scan.nextInt();
                         scan.nextLine();
                     }
 
-                    Turma editarTurma = salvaDados.listaTurmas.get(numTurma);
+                    Turma editarTurma = repository.ArmazTemporario.listaTurmas.get(numTurma);
                     
                     System.out.println("\nLista de alunos matriculados: ");
-                    salvaDados.mostraListaAlunos();
+                    repository.ArmazTemporario.mostraListaAlunos();
 
                     
                     if (addOuRemoveAluno == 1) {
-                        System.out.print("Informe o número do aluno que será associado à turma do professor "+salvaDados.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
-                        testaNumeroMenu(scan);
+                        System.out.print("Informe o número do aluno que será associado à turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
+                        TestaDados.testaNumeroMenu(scan);
                         int numAlunoAdd = scan.nextInt();
                         scan.nextLine();
-                        while (numAlunoAdd > salvaDados.listaAlunos.size()) {
+                        while (numAlunoAdd > repository.ArmazTemporario.listaAlunos.size()) {
                             System.out.println("\nErro: Opção inválida!");
                             System.out.println("Confira a lista de alunos acima.");
                             System.out.print("Digite o número correspondente ao aluno que será associado à turma: ");
-                            testaNumeroMenu(scan);
+                            TestaDados.testaNumeroMenu(scan);
                             numAlunoAdd = scan.nextInt();
                             scan.nextLine();
                         }
-                        Aluno addAluno = salvaDados.listaAlunos.get(numAlunoAdd);
+                        Aluno addAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoAdd);
                         
                         editarTurma.addAluno(addAluno);
                     }    
                     if (addOuRemoveAluno == 2) {
                         
-                        System.out.print("Informe o número do aluno que será removido da turma do professor "+salvaDados.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
+                        System.out.print("Informe o número do aluno que será removido da turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
                         int numAlunoRmv = scan.nextInt();
-                        Aluno rmveAluno = salvaDados.listaAlunos.get(numAlunoRmv);
+                        Aluno rmveAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoRmv);
 
                         editarTurma.removeAluno(rmveAluno);
                     }
@@ -330,16 +265,16 @@ public class MenuInterativo {
                     Avaliacao avaliacao = new Avaliacao(descricao);
 
                     System.out.println("\nLista de alunos:");
-                    salvaDados.mostraListaAlunos();
+                    repository.ArmazTemporario.mostraListaAlunos();
                     System.out.print("Número do aluno que receberá a nota: ");
                     int numAlunoAvaliado = scan.nextInt();
                     System.out.println("\nLista de turmas:");
-                    salvaDados.mostraListaTurmas();
+                    repository.ArmazTemporario.mostraListaTurmas();
                     System.out.print("Número da turma do aluno: ");
                     int numTurmaAv = scan.nextInt();
                     
-                    Aluno alunoAvaliacao = salvaDados.listaAlunos.get(numAlunoAvaliado);
-                    Turma turmaAvaliacao = salvaDados.listaTurmas.get(numTurmaAv);
+                    Aluno alunoAvaliacao = repository.ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
+                    Turma turmaAvaliacao = repository.ArmazTemporario.listaTurmas.get(numTurmaAv);
                     
                     System.out.print("Informe a nota do aluno "+alunoAvaliacao.getNome()+": ");
                     float notaAluno = scan.nextFloat();
@@ -348,13 +283,13 @@ public class MenuInterativo {
 
                     System.out.println("Nota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".");
                     
-                    salvaDados.listaAvaliacoes.add(avaliacao);
+                    repository.ArmazTemporario.listaAvaliacoes.add(avaliacao);
                     System.out.println("\nAvaliação registrada.\n");
                     break;
                 
                 case 7:
                     // CHAMANDa opção de RELATÓRIOS: no menu
-                    MenuRelatorios menuRelatorios = new MenuRelatorios(salvaDados);
+                    MenuRelatorios menuRelatorios = new MenuRelatorios();
                     menuRelatorios.menuRelatorios();
                     break;
 
@@ -366,13 +301,15 @@ public class MenuInterativo {
                     System.out.println("\nOpção inválida!\n");
             }
         } while (opcao != 8); 
+        scan.close();
     }
 }
 
 
+
                         
                         // System.out.println("\nLista de cursos: ");
-                        // salvaDados.mostraListaCursos();
+                        // ArmazTemporario.mostraListaCursos();
                         // System.out.print("Informe o número do curso: ");
                         // int numCursoTurma = scan.nextInt();
-                        // Curso cursoDessaTurma = salvaDados.listaCursos.get(numCursoTurma);
+                        // Curso cursoDessaTurma = ArmazTemporario.listaCursos.get(numCursoTurma);

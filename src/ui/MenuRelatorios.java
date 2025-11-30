@@ -11,12 +11,6 @@ import service.Turma;
 
 public class MenuRelatorios {
 
-    private ArmazTemporario dadosSalvos;
-    
-    public MenuRelatorios (ArmazTemporario dados) {
-        this.dadosSalvos = dados;
-    }
-
     public void menuRelatorios() {
         Scanner scan = new Scanner(System.in);
         
@@ -42,31 +36,31 @@ public class MenuRelatorios {
             switch (escolha) {
                 case 1 :    // alunos:
                     System.out.println("\n\n** Relatório de alunos matriculados **\n");
-                    for (Aluno alunos : dadosSalvos.listaAlunos) {
+                    for (Aluno alunos : ArmazTemporario.listaAlunos) {
                         System.out.println(alunos.gerarRelatorio());
                     }
                     break;
                 case 2:     // professores:
                     System.out.println("\n\n** Relatório de professores registrados **");
-                    for (Professor prof : dadosSalvos.listaProf) {
+                    for (Professor prof : ArmazTemporario.listaProf) {
                         System.out.println(prof.gerarRelatorio());
                     }
                     break;
                 case 3:     // cursos - EAD:
                     System.out.println("\n\n** Relatório de cursos disponíveis **");
-                    for (Curso cursos : dadosSalvos.listaCursos) {
+                    for (Curso cursos : ArmazTemporario.listaCursos) {
                         System.out.println(cursos.gerarRelatorio());
                     }
                     break;
                 case 4:
                     System.out.println("\n\n** Relatorio de turmas **");
-                    for (Turma turma : dadosSalvos.listaTurmas) {
+                    for (Turma turma : ArmazTemporario.listaTurmas) {
                         System.out.println(turma.resumoTurma());
                     }
                     break;
                 case 5:
                     System.out.println("\n\n** Relatorio de avaliações **");
-                    for (Avaliacao avaliacao : dadosSalvos.listaAvaliacoes) {
+                    for (Avaliacao avaliacao : ArmazTemporario.listaAvaliacoes) {
                         System.out.println(avaliacao.resultadoAvaliacao());
                     }
                     break;
@@ -78,7 +72,6 @@ public class MenuRelatorios {
                 break;
             }
         } while (escolha != 6); // se escolha != de 6 repete do-while
-        // scan.close();
     }
 }
 
