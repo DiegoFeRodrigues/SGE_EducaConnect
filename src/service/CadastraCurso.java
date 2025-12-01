@@ -23,35 +23,22 @@ public class CadastraCurso {
         System.out.println("\nTipo do curso:");
         System.out.println("1 - Curso EAD");
         System.out.println("2 - Curso Presencial");
-        System.out.print("Informe o número que corresponde ao tipo de curso desejado: ");
         
-        TestaDados.testaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
-
         // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
-        int tipoCurso = scan.nextInt();
-        scan.nextLine();
-        while (tipoCurso <= 0 || tipoCurso > 2) {
-            System.out.println("\nErro: Opção inválida!");
-            System.out.println("Digite 1 = Cadastrar curso EAD.");
-            System.out.println("Digite 2 = Cadastrar curso Presencial.");
-            System.out.print("Opção desejada: ");
-            TestaDados.testaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
-            tipoCurso = scan.nextInt();
-            scan.nextLine();
-        }
-        System.out.println("\nInforme os dados do curso:");
+        String mensagem = "ao tipo de curso desejado: ";
+        String msg = "Digite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
+        int tipoCurso = TestaDados.testaMenu1ou2(scan, mensagem, msg);
 
+        System.out.println("\nInforme os dados do curso:");
         // nome curso:
         System.out.print("Nome do curso: "); 
         String nomeCurso = scan.nextLine();
-        
         // código:
         System.out.print("Código: ");
         String codigoCurso = "o código do curso de "+nomeCurso+": ";
         TestaDados.testaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
         int codigo = scan.nextInt();
         scan.nextLine();
-
         // carga horária:
         System.out.print("Carga horária: ");
         while (!scan.hasNextFloat()) {  // testa se valor de carga horária informada é número (real, flutuante);
@@ -83,7 +70,7 @@ public class CadastraCurso {
             }
         }
         // captura exceções lançadas na instancia de objetos:
-        catch (NullPointerException npe) {
+        catch (NullPointerException | IllegalArgumentException npe) {
             System.err.println("\nFalha ao cadastrar curso: "+ npe+"\n\n");
         }        
     }

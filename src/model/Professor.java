@@ -46,6 +46,10 @@ public class Professor extends Usuario implements Autenticacao {
             return true;
         }
     }
+    // getter especialidade - usado no armazenamento em lista:
+    public String getEspecialidade() {
+        return especialidade;
+    }
     // método polimórfico - Relatório prof.:
     public String gerarRelatorio() {
         return "\nNome do professor: "+this.getNome()+

@@ -36,9 +36,11 @@ public class AddOuRemoveAluno {
         // turmas:
         System.out.println("\nLista de turmas:\n");
         repository.ArmazTemporario.mostraListaTurmas();     // mostra lista de turmas salvas no armazenamento temporário em lista
-        int numTurma = 0;
         String mensagem = "à turma que será alterada: ";
-        TestaDados.testaDadosArmazenados(mensagem, scan, numTurma, ArmazTemporario.listaTurmas);
+
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        int numTurma = TestaDados.testaDadosArmazenados(mensagem, scan, ArmazTemporario.listaTurmas);
+        
         // busca do objeto Turma do índice informado pelo usuário:
         Turma editarTurma = repository.ArmazTemporario.listaTurmas.get(numTurma);
         
@@ -47,23 +49,29 @@ public class AddOuRemoveAluno {
         repository.ArmazTemporario.mostraListaAlunos();     // mostra lista de alunos salvos no armazenamento temporário em lista
         // opção 1 = adicionar aluno:
         if (addOuRemoveAluno == 1) {
-            // busca nome do professor do número do objeto turma informado p/ msg personalizada:
+            // msg personalizada buscando nome do professor do número do objeto turma informado:
             String msg = "ao número do aluno que será associado à turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+": ";
-            int numAlunoAdd = 0;
-            // mostra lista de alunos e seus índices e evita que índice informado seja maior que a lista: 
-            TestaDados.testaDadosArmazenados(msg, scan, numAlunoAdd, ArmazTemporario.listaAlunos); 
+            
+            // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+            int numAlunoAdd = TestaDados.testaDadosArmazenados(msg, scan, ArmazTemporario.listaAlunos); 
+            
             // busca objeto aluno pelo índice da lista informado:
             Aluno addAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoAdd);
+            
             // ADICIONA aluno buscado na lista de armazenamento, na lista de alunos da turma:
             editarTurma.addAluno(addAluno); 
-        } else if (addOuRemoveAluno == 2) {    // opção 2 = remove aluno:
-            // busca nome do professor do número do objeto turma informado p/ msg personalizada:
+        } 
+        // opção 2 = remove aluno:
+        if (addOuRemoveAluno == 2) {    
+            // msg personalizada buscando nome do professor do número do objeto turma informado:
             String msg = "ao número do aluno que será removido da turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+": ";
-            int numAlunoRmve = 0;
-            // mostra lista de alunos e seus índices e evita que índice informado seja maior que a lista: 
-            TestaDados.testaDadosArmazenados(msg, scan, numAlunoRmve, ArmazTemporario.listaAlunos);
+            
+            // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+            int numAlunoRmve = TestaDados.testaDadosArmazenados(msg, scan, ArmazTemporario.listaAlunos);
+
             // busca aluno pelo índice da lista informado:
             Aluno rmveAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoRmve);
+
             // REMOVE aluno buscado na lista de armazenamento, na lista de alunos da turma:
             editarTurma.removeAluno(rmveAluno);
         }

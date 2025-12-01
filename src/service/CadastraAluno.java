@@ -34,9 +34,9 @@ public class CadastraAluno {
         // curso:
         System.out.println("\nCursos cadastrados:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
-        int numeCurso = 0;
         String mensagem = "ao curso do aluno "+nomeAluno+": ";
-        TestaDados.testaDadosArmazenados(mensagem, scan, numeCurso, ArmazTemporario.listaCursos);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        int numeCurso = TestaDados.testaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 
@@ -56,7 +56,7 @@ public class CadastraAluno {
             System.out.println("\nAluno "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
         } 
         // captura exceções lançadas na instancia de objetos:
-        catch(NullPointerException npe) {
+        catch(NullPointerException | IllegalArgumentException npe) {
             System.err.println("\nFalha ao cadastrar aluno: "+npe+"\n\n");
         }
     }

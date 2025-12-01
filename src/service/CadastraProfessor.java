@@ -50,7 +50,7 @@ public class CadastraProfessor {
             System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
-        catch (NullPointerException npe) {
+        catch (NullPointerException | IllegalArgumentException npe) {
             System.err.println("Falha ao cadastrar professor: "+npe+"\n\n");
         }        
     }

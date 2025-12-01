@@ -31,22 +31,20 @@ public class CriaTurma {
         // curso:
         System.out.println("\nCursos cadastrados:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
-        int numCurso = 0;
-        String mensagem = "ao curso da turma "+codigoTurma+": ";
-        // método de apoio que testa índice das listas:
-        TestaDados.testaDadosArmazenados(mensagem, scan, numCurso, ArmazTemporario.listaCursos);  // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+        String mensagem = "ao curso da Turma "+codigoTurma+": ";
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        int numCurso = TestaDados.testaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
         // saída de sucesso acessando nome do curso do índice informado pelo usuário:
         System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
         
         // professor:
         System.out.println("\nLista de professores:\n");
         repository.ArmazTemporario.mostraListaProf();   // mostra lista de professores salvos no armazenamento temporário em lista
-        int numProf = 0;
-        String msg = "ao professor da turma "+codigoTurma+": ";
-        // método de apoio que testa índice das listas:
-        TestaDados.testaDadosArmazenados(msg, scan, numProf, ArmazTemporario.listaProf);
+        String msg = "ao professor da Turma "+codigoTurma+": ";
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        int numProf = TestaDados.testaDadosArmazenados(msg, scan, ArmazTemporario.listaProf);
         // saída acessando nome do professor do índice informado pelo usuário:
-        System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numCurso).getNome()+" cadastrado na turma "+codigoTurma+".\n");
+        System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numProf).getNome()+" cadastrado na turma "+codigoTurma+".\n");
         
         // busca de objetos de Curso e Professor dos índices informados pelo usuário:
         Curso cursoTurma = repository.ArmazTemporario.listaCursos.get(numCurso);
@@ -61,7 +59,7 @@ public class CriaTurma {
             System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
-        catch(NullPointerException npe) {
+        catch(NullPointerException | IllegalArgumentException npe) {
             System.err.println("Falha ao criar turma: "+npe);
         }
     }
