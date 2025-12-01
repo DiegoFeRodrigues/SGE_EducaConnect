@@ -32,9 +32,11 @@ public class CadastraAluno {
         scan.nextLine();
         
         // curso:
+        System.out.println("\nCursos cadastrados:\n");
+        ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         int numeCurso = 0;
-        String mensagem = "do aluno "+nomeAluno+": ";
-        TestaDados.testaCursosArmazenados(scan, mensagem, numeCurso);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+        String mensagem = "ao curso do aluno "+nomeAluno+": ";
+        TestaDados.testaDadosArmazenados(mensagem, scan, numeCurso, ArmazTemporario.listaCursos);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 
