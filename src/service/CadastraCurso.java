@@ -65,7 +65,7 @@ public class CadastraCurso {
         float cargaHoraria = scan.nextFloat();
         scan.nextLine();
 
-        // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Curso:        
+        // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor das classes Curso, CursoEAD e CursoPresencial:
         try {
             // instanciando objetos Curso (EAD e Presencial) com dados informados e adicionando no armazenamento temporário em lista:
             if (tipoCurso == 1) {   // CURSO EAD - PLATAFORMA:

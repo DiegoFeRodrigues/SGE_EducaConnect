@@ -11,7 +11,7 @@ public class Turma {
    
     // atributos turma:
     private int codigo;
-    private static Curso curso;
+    private Curso curso;
     private Professor professor;
     private List<Aluno> listaAlunos;
     private List<String> listaNomeAlunos;    
@@ -28,7 +28,7 @@ public class Turma {
             throw new NullPointerException("Informe o objeto professor desejado.");
         }    
         this.codigo = codigo;
-        Turma.curso = curso;
+        this.curso = curso;
         this.professor = professor;
         this.listaAlunos = new ArrayList<>();
         this.listaNomeAlunos = new ArrayList<>();        
@@ -38,7 +38,7 @@ public class Turma {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi adicionado à turma "+codigo+". \n\n");
+            System.out.println("\nO aluno "+aluno.getNome()+" foi adicionado à turma "+codigo+". \n\n");
         } else {
             System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
@@ -48,7 +48,7 @@ public class Turma {
         if (listaAlunos.contains(aluno)) {
             listaAlunos.remove(aluno);
             listaNomeAlunos.remove(aluno.getNome());
-            System.out.println("\n"+aluno.getNome()+" foi removido da turma "+codigo+".\n\n");
+            System.out.println("\nO aluno "+aluno.getNome()+" foi removido da turma "+codigo+".\n\n");
         } else {
             System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
@@ -65,7 +65,7 @@ public class Turma {
     }
     // método com resumo da turma:
     public String resumoTurma() {
-        return "\nDados da turma do curso de "+Turma.curso.getNomeCurso()+":"+
+        return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNome()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";

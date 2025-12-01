@@ -33,7 +33,8 @@ public class CadastraAluno {
         
         // curso:
         int numeCurso = 0;
-        TestaDados.testaCursosArmazenados(scan, numeCurso);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+        String mensagem = "do aluno "+nomeAluno+": ";
+        TestaDados.testaCursosArmazenados(scan, mensagem, numeCurso);    // mostra lista de cursos e evita que número do índice informado seja maior que a lista
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 

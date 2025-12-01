@@ -29,7 +29,8 @@ public class CriaTurma {
 
         // curso:
         int numCurso = 0;
-        TestaDados.testaCursosArmazenados(scan, numCurso);  // mostra lista de cursos e evita que número do índice informado seja maior que a lista
+        String mensagem = "da turma "+codigoTurma+": ";
+        TestaDados.testaCursosArmazenados(scan, mensagem, numCurso);  // mostra lista de cursos e evita que número do índice informado seja maior que a lista
 
         // saída acessando nome do curso do índice informado pelo usuário:
         System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");

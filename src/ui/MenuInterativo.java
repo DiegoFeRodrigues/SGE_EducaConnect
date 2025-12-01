@@ -3,6 +3,7 @@ package ui;
 import java.util.Scanner;
 
 import model.Aluno;
+import service.AddOuRemoveAluno;
 import service.Avaliacao;
 import service.TestaDados;
 import service.Turma;
@@ -68,70 +69,7 @@ public class MenuInterativo {
                         System.out.println("\nCaso alunos ou turmas não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;
                     }
-                    System.out.println("\n\n** Adicionar ou remover alunos em turmas **");
-                    System.out.println("\n1 - Adicionar aluno");
-                    System.out.println("2 - Remover aluno");
-                    System.out.print("Informe o número da opção desejada: ");
-                    TestaDados.testaNumeroMenu(scan);
-                    int addOuRemoveAluno = scan.nextInt();
-                    while (addOuRemoveAluno <= 0 || addOuRemoveAluno > 2) {
-                        System.out.println("\nErro: Opção inválida!");
-                        scan.nextLine();
-                        System.out.println("Digite 1 = Adicionar aluno em turma.");
-                        System.out.println("Digite 2 = Remover aluno de turma.");
-                        System.out.print("Opção desejada: ");
-                        TestaDados.testaNumeroMenu(scan);
-                        addOuRemoveAluno = scan.nextInt();
-                    }
-                    
-                    scan.nextLine();
-                    System.out.println("\nLista de turmas:");
-                    repository.ArmazTemporario.mostraListaTurmas();
-                    System.out.print("Informe o número da turma que será alterada: ");
-                    TestaDados.testaNumeroMenu(scan);
-                    int numTurma = scan.nextInt();
-                    scan.nextLine();
-                    
-                    while (numTurma >= repository.ArmazTemporario.listaTurmas.size()) {
-                        System.out.println("\nErro: Opção inválida!");
-                        System.out.println("Confira a lista de turmas acima.");
-                        System.out.print("Digite o número correspondente da turma do aluno: ");
-                        TestaDados.testaNumeroMenu(scan);
-                        numTurma = scan.nextInt();
-                        scan.nextLine();
-                    }
-
-                    Turma editarTurma = repository.ArmazTemporario.listaTurmas.get(numTurma);
-                    
-                    System.out.println("\nLista de alunos matriculados: ");
-                    repository.ArmazTemporario.mostraListaAlunos();
-
-                    
-                    if (addOuRemoveAluno == 1) {
-                        System.out.print("Informe o número do aluno que será associado à turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
-                        TestaDados.testaNumeroMenu(scan);
-                        int numAlunoAdd = scan.nextInt();
-                        scan.nextLine();
-                        while (numAlunoAdd > repository.ArmazTemporario.listaAlunos.size()) {
-                            System.out.println("\nErro: Opção inválida!");
-                            System.out.println("Confira a lista de alunos acima.");
-                            System.out.print("Digite o número correspondente ao aluno que será associado à turma: ");
-                            TestaDados.testaNumeroMenu(scan);
-                            numAlunoAdd = scan.nextInt();
-                            scan.nextLine();
-                        }
-                        Aluno addAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoAdd);
-                        
-                        editarTurma.addAluno(addAluno);
-                    }    
-                    if (addOuRemoveAluno == 2) {
-                        
-                        System.out.print("Informe o número do aluno que será removido da turma do professor "+repository.ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+":");
-                        int numAlunoRmv = scan.nextInt();
-                        Aluno rmveAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoRmv);
-
-                        editarTurma.removeAluno(rmveAluno);
-                    }
+                    AddOuRemoveAluno.adicionarOuRemover();
                     break;
                 
                 case 6:
