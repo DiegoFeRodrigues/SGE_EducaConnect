@@ -1,7 +1,7 @@
 
 /*
     Classe para criação de turmas
-    Com input (scanner) de dados e usando métodos de apoio da classe TestaDados.
+    Com input (scanner) de dados e usando métodos de apoio da classe ValidaDados.
 */
 
 package service;

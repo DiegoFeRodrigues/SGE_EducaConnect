@@ -1,7 +1,7 @@
 
 /*
     Classe para adicionar ou remover alunos de turmas
-    Com input (scanner) de dados e usando métodos de apoio da classe TestaDados.
+    Com input (scanner) de dados e usando métodos de apoio da classe ValidaDados.
 */
 
 package service;
@@ -20,32 +20,24 @@ public class AddOuRemoveAluno {
         System.out.println("2 - Remover aluno");
         System.out.print("Informe o número da opção desejada: ");
         ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
-        int addOuRemoveAluno = scan.nextInt();
-        scan.nextLine();
-
-        // testa se valor informado é maior que as opções disponíveis (1 ou 2):
-        while (addOuRemoveAluno <= 0 || addOuRemoveAluno > 2) {
-            System.out.println("\nErro: Opção inválida!");
-            System.out.println("Digite 1 = Adicionar aluno em turma.");
-            System.out.println("Digite 2 = Remover aluno de turma.");
-            System.out.print("Opção desejada: ");
-            ValidaDados.validaNumeroMenu(scan);
-            addOuRemoveAluno = scan.nextInt();
-            scan.nextLine();
-        }
+        
+        // tratando se usuário digita apenas as opções disponíveis (1 ou 2):
+        String msg1 = "à opção desejada: ";
+        String msg2 = "\nDigite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
+        int addOuRemoveAluno = ValidaDados.validaMenu1ou2(scan, msg1, msg2);
+        
         // turmas:
         System.out.println("\nLista de turmas:\n");
-        repository.ArmazTemporario.mostraListaTurmas();     // mostra lista de turmas salvas no armazenamento temporário em lista
+        repository.ArmazTemporario.mostraListaTurmas();  // mostra lista de turmas salvas no armazenamento temporário em lista
         String mensagem = "à turma que será alterada: ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
         int numTurma = ValidaDados.validaDadosArmazenados(mensagem, scan, ArmazTemporario.listaTurmas);
-        // busca do objeto Turma do índice informado pelo usuário:
+        // busca o objeto Turma do índice informado pelo usuário:
         Turma editarTurma = repository.ArmazTemporario.listaTurmas.get(numTurma);
         
         // alunos:
         System.out.println("\nLista de alunos:\n");
-        repository.ArmazTemporario.mostraListaAlunos();     // mostra lista de alunos salvos no armazenamento temporário em lista
-
+        repository.ArmazTemporario.mostraListaAlunos();  // mostra lista de alunos salvos no armazenamento temporário em lista
         // opção 1 = adicionar aluno:
         if (addOuRemoveAluno == 1) {
             // msg personalizada buscando nome do professor do número do objeto turma informado:
@@ -65,7 +57,7 @@ public class AddOuRemoveAluno {
             int numAlunoRmve = ValidaDados.validaDadosArmazenados(msg, scan, ArmazTemporario.listaAlunos);
             // busca aluno pelo índice da lista informado:
             Aluno rmveAluno = repository.ArmazTemporario.listaAlunos.get(numAlunoRmve);
-            // REMOVE aluno buscado na lista de armazenamento, na lista de alunos da turma:
+            // REMOVE aluno buscado na lista de armazenamento, da lista de alunos da turma:
             editarTurma.removeAluno(rmveAluno);
         }
     }

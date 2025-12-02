@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de professores
-    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe TestaDados.
+    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe ValidaDados.
 */
 
 package service;

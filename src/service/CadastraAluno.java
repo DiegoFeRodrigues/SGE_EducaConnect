@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de alunos
-    Com método polimórfico, input (scanner) de dados e usando métodos de apoio da classe TestaDados.
+    Com método polimórfico, input (scanner) de dados e usando métodos de apoio da classe ValidaDados.
 */
 
 package service;

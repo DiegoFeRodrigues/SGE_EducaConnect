@@ -21,29 +21,28 @@ public class ArmazTemporario {
 
     public static void mostraListaCursos() {
         System.out.println("Número:      Curso:");
-        for (int numero = 0; numero < listaCursos.size(); numero++) {
-            System.out.println(" "+numero+"           "+listaCursos.get(numero).getNomeCurso());
+        for (int contador = 0; contador < listaCursos.size(); contador++) {
+            System.out.println(" "+contador+"           "+listaCursos.get(contador).getNomeCurso());
         }
     }
     public static void mostraListaProf() {
         System.out.println("Número:      Professor:");
-        for (int numero = 0; numero < listaProf.size(); numero++) {
-            System.out.println(" "+numero+"           "+listaProf.get(numero).getNome()+" - Especialidade: "+listaProf.get(numero).getEspecialidade());
+        for (int contador = 0; contador < listaProf.size(); contador++) {
+            System.out.println(" "+contador+"           "+listaProf.get(contador).getNome()+" - Especialidade: "+listaProf.get(contador).getEspecialidade());
         }
     }
     public static void mostraListaAlunos() {
         System.out.println("Número:       Aluno:");
-        for (int numero = 0; numero < listaAlunos.size(); numero++) {
-            System.out.println(" "+numero+"            "+listaAlunos.get(numero).getNome()+" - Matriculado no curso de: "+listaAlunos.get(numero).getCursoAluno());
+        for (int contador = 0; contador < listaAlunos.size(); contador++) {
+            System.out.println(" "+contador+"            "+listaAlunos.get(contador).getNome()+" - Matriculado no curso de: "+listaAlunos.get(contador).getCursoAluno());
         }
     }
     public static void mostraListaTurmas() {
         System.out.println("Número:      Turma:");
-        for (int numero = 0; numero < listaTurmas.size(); numero++) {
-            System.out.println(" "+numero+"           Curso: "+listaTurmas.get(numero).getCursoTurma().getNomeCurso()+" - Professor: "+listaTurmas.get(numero).getProfessorTurma().getNome());
+        for (int contador = 0; contador < listaTurmas.size(); contador++) {
+            System.out.println(" "+contador+"           Curso: "+listaTurmas.get(contador).getCursoTurma().getNomeCurso()+" - Professor: "+listaTurmas.get(contador).getProfessorTurma().getNome());
         }
     }
-
 }
 
 // // getters das listas:
