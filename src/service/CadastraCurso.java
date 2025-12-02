@@ -27,7 +27,7 @@ public class CadastraCurso {
         // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
         String mensagem = "ao tipo de curso desejado: ";
         String msg = "Digite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
-        int tipoCurso = TestaDados.testaMenu1ou2(scan, mensagem, msg);
+        int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, msg);
 
         System.out.println("\nInforme os dados do curso:");
         // nome curso:
@@ -36,7 +36,7 @@ public class CadastraCurso {
         // código:
         System.out.print("Código: ");
         String codigoCurso = "o código do curso de "+nomeCurso+": ";
-        TestaDados.testaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
+        ValidaDados.validaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
         int codigo = scan.nextInt();
         scan.nextLine();
         // carga horária:

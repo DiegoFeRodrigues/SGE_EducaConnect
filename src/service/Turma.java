@@ -53,7 +53,7 @@ public class Turma {
             System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
     }
-    // getter codigo e curso - usados em Avaliacao e/ou ArmazTemporario:
+    // getter codigo e curso - usados em Turma e/ou Avaliacao e/ou AddOuRemoveAluno e/ou ArmazTemporario:
     public int getCodigoTurma() {
         return codigo;
     }

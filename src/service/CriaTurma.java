@@ -23,8 +23,8 @@ public class CriaTurma {
 
         // código:
         System.out.print("Código da turma: ");
-        String testaTurma = "o código da turma: ";
-        TestaDados.testaNumeroDados(scan, testaTurma);  // testa se valor de código informado é número inteiro.
+        String msgTurma = "o código da turma: ";
+        ValidaDados.validaNumeroDados(scan, msgTurma);  // testa se valor de código informado é número inteiro.
         int codigoTurma = scan.nextInt();
         scan.nextLine();
 
@@ -33,7 +33,7 @@ public class CriaTurma {
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String mensagem = "ao curso da Turma "+codigoTurma+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
-        int numCurso = TestaDados.testaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
+        int numCurso = ValidaDados.validaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
         // saída de sucesso acessando nome do curso do índice informado pelo usuário:
         System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
         
@@ -42,7 +42,7 @@ public class CriaTurma {
         repository.ArmazTemporario.mostraListaProf();   // mostra lista de professores salvos no armazenamento temporário em lista
         String msg = "ao professor da Turma "+codigoTurma+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
-        int numProf = TestaDados.testaDadosArmazenados(msg, scan, ArmazTemporario.listaProf);
+        int numProf = ValidaDados.validaDadosArmazenados(msg, scan, ArmazTemporario.listaProf);
         // saída acessando nome do professor do índice informado pelo usuário:
         System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numProf).getNome()+" cadastrado na turma "+codigoTurma+".\n");
         

@@ -26,7 +26,7 @@ public class CadastraProfessor {
         // registro:
         System.out.print("Registro: ");
         String registroProf = "o NÚMERO de registro do professor: "; 
-        TestaDados.testaNumeroDados(scan, registroProf);    // -> testa se valor de dado informado é número inteiro.
+        ValidaDados.validaNumeroDados(scan, registroProf);    // -> testa se valor de dado informado é número inteiro.
         int registro = scan.nextInt();
         scan.nextLine();
 

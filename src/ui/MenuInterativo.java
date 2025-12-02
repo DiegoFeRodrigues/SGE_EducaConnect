@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.Aluno;
 import service.AddOuRemoveAluno;
 import service.Avaliacao;
-import service.TestaDados;
+import service.ValidaDados;
 import service.Turma;
 import service.CadastraAluno;
 import service.CadastraCurso;
@@ -30,7 +30,7 @@ public class MenuInterativo {
             System.out.println("7 - Gerar relatórios");
             System.out.println("8 - Encerrar sistema");
             System.out.print("Opção desejada: ");
-            TestaDados.testaNumeroMenu(scan);
+            ValidaDados.validaNumeroMenu(scan);
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {

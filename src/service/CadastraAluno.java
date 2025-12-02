@@ -27,7 +27,7 @@ public class CadastraAluno {
         // matricula:
         System.out.print("Matrícula: ");
         String testaMatricula = "a matrícula do aluno "+nomeAluno+": ";
-        TestaDados.testaNumeroDados(scan, testaMatricula);  // testa se valor de matrícula informada é número inteiro.
+        ValidaDados.validaNumeroDados(scan, testaMatricula);  // testa se valor de matrícula informada é número inteiro.
         int matricula = scan.nextInt();
         scan.nextLine();
         
@@ -36,7 +36,7 @@ public class CadastraAluno {
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String mensagem = "ao curso do aluno "+nomeAluno+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
-        int numeCurso = TestaDados.testaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
+        int numeCurso = ValidaDados.validaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 

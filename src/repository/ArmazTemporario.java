@@ -34,7 +34,7 @@ public class ArmazTemporario {
     public static void mostraListaAlunos() {
         System.out.println("Número:       Aluno:");
         for (int numero = 0; numero < listaAlunos.size(); numero++) {
-            System.out.println(" "+numero+"           "+listaAlunos.get(numero).getNome()+" - Matriculado no curso de: "+listaAlunos.get(numero).getCursoAluno());
+            System.out.println(" "+numero+"            "+listaAlunos.get(numero).getNome()+" - Matriculado no curso de: "+listaAlunos.get(numero).getCursoAluno());
         }
     }
     public static void mostraListaTurmas() {
