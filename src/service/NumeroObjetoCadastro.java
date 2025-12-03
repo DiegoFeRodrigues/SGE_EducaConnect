@@ -8,5 +8,5 @@
 package service;
 
 public interface NumeroObjetoCadastro {
-    int getNumero();
+    public int getNumero();
 }

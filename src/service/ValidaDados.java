@@ -1,7 +1,7 @@
 /*
-    Classe de apoio com métodos que verifica dados informados pelo usuário (input - scanner)
+    Classe de apoio com métodos auxiliares
     Forçando a digitação de números inteiros ou reais nas opções de menus e/ou testando se número informado
-    é maior que as opções mostradas.
+    é maior que as opções mostradas e/ou auxiliando com listas de objetos.
 */
 
 package service;
@@ -23,8 +23,9 @@ public class ValidaDados {
     public static void validaNumeroDados(Scanner scan, String texto) {
         while (!scan.hasNextInt()) {
             System.out.println("\nErro: O valor digitado é inválido.");
-            System.out.println("Digite apenas números inteiros. Não digite letras.");
-            System.out.print("Informe "+texto);
+            System.out.println("Digite apenas números inteiros.");
+            System.out.println("Não digite letras nem símbolos especiais.");
+            System.out.print("\nInforme "+texto);
             scan.nextLine();
             if (scan.hasNextInt()) {
                 System.out.println("");
@@ -60,8 +61,8 @@ public class ValidaDados {
         return numero;
     }
     // método que valida se valor do índice informado é maior que os índices da lista no armazenamento:
-    public static int validaDadosArmazenados(String mensagem, Scanner scan, List lista) {
-        System.out.print("\nInforme o número que corresponde "+mensagem);
+    public static int validaDadosArmazenados(String texto, Scanner scan, List lista) {
+        System.out.print("\nInforme o número que corresponde "+texto);
         validaNumeroMenu(scan);  // testa se valor digitado é número inteiro
         int numero = scan.nextInt();
         scan.nextLine();
@@ -69,16 +70,16 @@ public class ValidaDados {
         while (numero >= lista.size()) {
             System.out.println("\nErro: Opção inválida.");
             System.out.print("Confira a lista acima.");
-            System.out.print("Digite o número que corresponde "+mensagem);
+            System.out.print("\nDigite o número que corresponde "+texto);
             validaNumeroMenu(scan);  // testa se valor digitado é número inteiro
             numero = scan.nextInt();
             scan.nextLine();
         }
         return numero;
     }
-    // método com objeto genérico, implementa a interface NumeroCadastroObjetos para acessar
-    //  números de cadastro (matricula, registro ou código) utilizei essa opção para evitar 
-    // ter que criar um foreach para cada tipo de objeto:
+    /* Generics: método com objeto genérico, implementa a interface NumeroCadastroObjetos para acessar
+       números de cadastro (matricula, registro ou código) utilizei essa opção para evitar 
+       ter que criar um foreach para cada tipo de objeto: */
     public static <T extends NumeroObjetoCadastro> boolean evitaObjetoDuplicado(int numero, List<T> lista) {
         for (T objeto : lista) {
             if (numero == objeto.getNumero()) {

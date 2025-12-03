@@ -18,14 +18,14 @@ public class CadastraAluno {
         Scanner scan = new Scanner(System.in);
         
         // nome:
-        System.out.print("Nome do aluno: "); 
+        System.out.print("\nNome do aluno: "); 
         String nomeAluno = scan.nextLine();
         
         // matricula:
         int matricula = numero; // matricula recebe valor informado e validado ainda no MenuInterativo
         
         // curso:
-        System.out.println("\n\nCursos cadastrados:\n");
+        System.out.println("\nCursos cadastrados:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String texto2 = "ao curso do aluno "+nomeAluno+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
@@ -41,7 +41,7 @@ public class CadastraAluno {
         System.out.print("Senha: ");
         String senhaAluno = scan.nextLine();
 
-        // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
+        // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
         try {
             // instanciando objetos Aluno com dados informados e adicionando no armazenamento temporário em lista:
             Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);

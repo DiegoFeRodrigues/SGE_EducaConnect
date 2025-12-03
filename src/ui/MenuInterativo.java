@@ -36,25 +36,28 @@ public class MenuInterativo {
             switch (opcao) {
 
                 case 1:
+                    // Não é possível cadastrar aluno se nenhum curso tiver sido cadastrado:
                     if (repository.ArmazTemporario.listaCursos.isEmpty()) {
                         System.out.println("\n\nErro: Não é possível cadastrar aluno.");
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }
+
                     System.out.println("\n\n** Cadastro de aluno **");
                     System.out.println("\nInforme os dados do aluno:");
                     
+                    // matrícula - atributo de controle p/ permitir ou não permitir cadastro
                     System.out.print("\nNúmero de matrícula: ");
                     String texto = "o número da matricula do novo aluno: ";
-                    ValidaDados.validaNumeroDados(scan, texto); // testa se número scanneado é número inteiro
+                    ValidaDados.validaNumeroDados(scan, texto); // testa se valor no buffer é número inteiro
                     int matricula = scan.nextInt();
                     scan.nextLine();
                     
-                    // método de apoio que percorre objetos da lista. Se número de matrícula informado já existir, encerra o cadastro
+                    // método de apoio que percorre a lista. Se número de matrícula informado já existir, não permite cadastro
                     if (!ValidaDados.evitaObjetoDuplicado(matricula, ArmazTemporario.listaAlunos)) {
                         System.out.println("\n\nNão é possível cadastrar aluno.");
                         System.out.println("\nO número de matrícula informado já foi cadastrado.\n\n");
-                    } else {    // se número de matrícula informado não existir, continua cadastro no método da classe CadastraAluno
+                    } else {    // se matrícula informada não existir, continua cadastro no método da classe CadastraAluno levando matricula informada
                         CadastraAluno.cadastro(matricula);
                     }
                     break;
