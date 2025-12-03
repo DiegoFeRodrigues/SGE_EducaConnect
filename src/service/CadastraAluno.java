@@ -56,8 +56,8 @@ public class CadastraAluno {
             System.out.println("\nAluno "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
         } 
         // captura exceções lançadas na instancia de objetos:
-        catch(NullPointerException | IllegalArgumentException npe) {
-            System.err.println("\nFalha ao cadastrar aluno: "+npe+"\n\n");
+        catch(NullPointerException | IllegalArgumentException npeOUiae) {
+            System.err.println("\nFalha ao cadastrar aluno: "+npeOUiae+"\n\n");
         }
     }
 }

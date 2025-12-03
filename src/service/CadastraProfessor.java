@@ -26,7 +26,7 @@ public class CadastraProfessor {
         // registro:
         System.out.print("Registro: ");
         String registroProf = "o NÚMERO de registro do professor: "; 
-        ValidaDados.validaNumeroDados(scan, registroProf);    // -> testa se valor de dado informado é número inteiro.
+        ValidaDados.validaNumeroDados(scan, registroProf);    // testa se valor de dado informado é número inteiro.
         int registro = scan.nextInt();
         scan.nextLine();
 
@@ -50,8 +50,8 @@ public class CadastraProfessor {
             System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
-        catch (NullPointerException | IllegalArgumentException npe) {
-            System.err.println("Falha ao cadastrar professor: "+npe+"\n\n");
+        catch (NullPointerException | IllegalArgumentException npeOUiae) {
+            System.err.println("\nFalha ao cadastrar professor: "+npeOUiae+"\n\n");
         }        
     }
 }

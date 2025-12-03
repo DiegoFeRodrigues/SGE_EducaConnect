@@ -11,19 +11,19 @@ public class Aluno extends Usuario implements Autenticacao {
     // constrcutor aluno - valida e inicia atributos:
     public Aluno(String nomeAluno, int matricula, String curso, String login, String senha) {
         if (nomeAluno == null || nomeAluno.isEmpty()) {
-            throw new NullPointerException("Informe o nome do aluno.\n");
+            throw new NullPointerException("Informe o nome do aluno.\n\n");
         }
         if (matricula <= 0) {
-            throw new IllegalArgumentException("Matrícula deve ser maior que 0.\n");
+            throw new IllegalArgumentException("Matrícula deve ser maior que 0.\n\n");
         }
         if (curso == null || curso.isEmpty()) {
-            throw new NullPointerException("Informe o curso do aluno.\n");
+            throw new NullPointerException("Informe o curso do aluno.\n\n");
         }
         if (login == null || login.isEmpty()) {
-            throw new NullPointerException("Informe o login do aluno.\n");
+            throw new NullPointerException("Informe o login do aluno.\n\n");
         }
         if (senha == null || senha.isEmpty()) {
-            throw new NullPointerException("Informe a senha do aluno.\n");
+            throw new NullPointerException("Informe a senha do aluno.\n\n");
         }
         super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
         this.curso = curso;

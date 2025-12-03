@@ -20,6 +20,10 @@ public class ArmazTemporario {
     public static List<Avaliacao> listaAvaliacoes = new ArrayList<>();
 
     public static void mostraListaCursos() {
+
+        if (listaCursos.isEmpty()) {
+            System.out.println("Não há cursos.");
+        }
         System.out.println("Número:      Curso:");
         for (int contador = 0; contador < listaCursos.size(); contador++) {
             System.out.println(" "+contador+"           "+listaCursos.get(contador).getNomeCurso());

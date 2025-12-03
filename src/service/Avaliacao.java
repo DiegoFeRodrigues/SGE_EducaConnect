@@ -24,13 +24,13 @@ public class Avaliacao {
     // metodo atribuir nota associando alunos em turmas e validando dados informados:
     public void atribuirNota(Aluno aluno, Turma turma, float nota) {
         if (aluno == null) {
-            throw new NullPointerException("Informe o objeto aluno desejado.\n");
+            throw new NullPointerException("Informe o objeto aluno desejado.\n\n");
         }
         if (turma == null) {
-            throw new NullPointerException("Informe o objeto turma desejado.\n");
+            throw new NullPointerException("Informe o objeto turma desejado.\n\n");
         }
         if (nota < 0 || nota > 10) { // valida se nota está entre 0 e 10
-            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.\n");
+            throw new IllegalArgumentException("Nota deve estar entre 0 e 10.\n\n");
         }
         this.aluno = aluno;
         this.turma = turma;

@@ -18,12 +18,10 @@ public class AddOuRemoveAluno {
         System.out.println("\n\n** Adicionar ou remover alunos em turmas **");
         System.out.println("\n1 - Adicionar aluno");
         System.out.println("2 - Remover aluno");
-        System.out.print("Informe o número da opção desejada: ");
-        ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
         
         // tratando se usuário digita apenas as opções disponíveis (1 ou 2):
         String msg1 = "à opção desejada: ";
-        String msg2 = "\nDigite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
+        String msg2 = "Digite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
         int addOuRemoveAluno = ValidaDados.validaMenu1ou2(scan, msg1, msg2);
         
         // turmas:

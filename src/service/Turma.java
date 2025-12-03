@@ -19,13 +19,13 @@ public class Turma {
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
-            throw new IllegalArgumentException("Código da turma deve ser maior que 0.");
+            throw new IllegalArgumentException("Código da turma deve ser maior que 0.\n\n");
         }
         if (curso == null) {
-            throw new NullPointerException("Informe o objeto curso desejado.");
+            throw new NullPointerException("Informe o objeto curso desejado.\n\n");
         }
         if (professor == null) {
-            throw new NullPointerException("Informe o objeto professor desejado.");
+            throw new NullPointerException("Informe o objeto professor desejado.\n\n");
         }    
         this.codigo = codigo;
         this.curso = curso;

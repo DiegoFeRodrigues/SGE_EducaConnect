@@ -35,40 +35,61 @@ public class MenuRelatorios {
             // usando switch-case para selecionar escolha do usuário:
             switch (escolha) {
                 case 1 :    // alunos:
-                    System.out.println("\n\n** Relatório de alunos matriculados **\n");
-                    for (Aluno alunos : ArmazTemporario.listaAlunos) {
-                        System.out.println(alunos.gerarRelatorio());
+                    if (ArmazTemporario.listaAlunos.isEmpty()) {
+                        System.out.println("\n\nO sistema não possui nenhum aluno cadastrado.");
+                    } else {
+                        System.out.println("\n\n** Relatório de alunos matriculados **\n");
+                        for (Aluno alunos : ArmazTemporario.listaAlunos) {
+                            System.out.println(alunos.gerarRelatorio());
+                        }
                     }
                     break;
                 case 2:     // professores:
-                    System.out.println("\n\n** Relatório de professores registrados **");
-                    for (Professor prof : ArmazTemporario.listaProf) {
-                        System.out.println(prof.gerarRelatorio());
+                    if (ArmazTemporario.listaProf.isEmpty()) {
+                        System.out.println("\n\nO sistema não possui nenhum professor cadastrado.");
+                    } else {
+                        System.out.println("\n\n** Relatório de professores registrados **");
+                        for (Professor prof : ArmazTemporario.listaProf) {
+                            System.out.println(prof.gerarRelatorio());
+                        }
                     }
                     break;
                 case 3:     // cursos - EAD:
-                    System.out.println("\n\n** Relatório de cursos disponíveis **");
-                    for (Curso cursos : ArmazTemporario.listaCursos) {
-                        System.out.println(cursos.gerarRelatorio());
+                    if (ArmazTemporario.listaCursos.isEmpty()) {
+                        System.out.println("\n\nO sistema não possui nenhum curso cadastrado.");
+                    } else {
+                        System.out.println("\n\n** Relatório de cursos disponíveis **");
+                        for (Curso cursos : ArmazTemporario.listaCursos) {
+                            System.out.println(cursos.gerarRelatorio());
+                        }
                     }
                     break;
                 case 4:
-                    System.out.println("\n\n** Relatorio de turmas **");
-                    for (Turma turma : ArmazTemporario.listaTurmas) {
-                        System.out.println(turma.resumoTurma());
+                    if (ArmazTemporario.listaTurmas.isEmpty()) {
+                        System.out.println("\n\nNenhuma turma foi criada.");
+                    } else {
+                        System.out.println("\n\n** Relatorio de turmas **");
+                        for (Turma turma : ArmazTemporario.listaTurmas) {
+                            System.out.println(turma.resumoTurma());
+                        }
                     }
                     break;
                 case 5:
-                    System.out.println("\n\n** Relatorio de avaliações **");
-                    for (Avaliacao avaliacao : ArmazTemporario.listaAvaliacoes) {
-                        System.out.println(avaliacao.resultadoAvaliacao());
+                    if (ArmazTemporario.listaAvaliacoes.isEmpty()) {
+                        System.out.println("\n\nO sistema não possui nenhuma avaliação registrada.");
+                    } else {
+                        System.out.println("\n\n** Relatorio de avaliações **");
+                        for (Avaliacao avaliacao : ArmazTemporario.listaAvaliacoes) {
+                            System.out.println(avaliacao.resultadoAvaliacao());
+                        }
                     }
                     break;
-                case 6:     // sair:
+                case 6:     // voltar ao menu interativo:
                     System.out.println("\n\n");
                     break;
-                default :   // se escolha != de 1, 2, 3, 4 ou 6 = opção inválida.
-                System.out.println("\nOpção inválida!"); 
+                default :   // se escolha != de 1, 2, 3, 4, 5 ou 6 = opção inválida.
+                System.out.println("\n\nOpção inválida!"); 
+                System.out.println("\nConfira as opções no menu de relatórios."); 
                 break;
             }
         } while (escolha != 6); // se escolha != de 6 repete do-while

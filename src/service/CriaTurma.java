@@ -59,8 +59,8 @@ public class CriaTurma {
             System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
-        catch(NullPointerException | IllegalArgumentException npe) {
-            System.err.println("Falha ao criar turma: "+npe);
+        catch(NullPointerException | IllegalArgumentException npeOUiae) {
+            System.err.println("Falha ao criar turma: "+npeOUiae);
         }
     }
 }

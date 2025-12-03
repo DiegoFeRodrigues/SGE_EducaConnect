@@ -2,15 +2,14 @@ package ui;
 
 import java.util.Scanner;
 
-import model.Aluno;
+import repository.ArmazTemporario;
 import service.AddOuRemoveAluno;
-import service.Avaliacao;
 import service.ValidaDados;
-import service.Turma;
 import service.CadastraAluno;
 import service.CadastraCurso;
 import service.CadastraProfessor;
 import service.CriaTurma;
+import service.RegistraAvaliacoes;
 
 public class MenuInterativo {
     
@@ -33,6 +32,7 @@ public class MenuInterativo {
             ValidaDados.validaNumeroMenu(scan);
             opcao = scan.nextInt();
             scan.nextLine();
+            
             switch (opcao) {
 
                 case 1:
@@ -73,34 +73,14 @@ public class MenuInterativo {
                     break;
                 
                 case 6:
-                    System.out.println("\n\n** Avaliações **");
-                    System.out.println("\nInforme os dados da avaliação: ");
-                    System.out.print("Descrição: ");
-                    String descricao = scan.nextLine();
-
-                    Avaliacao avaliacao = new Avaliacao(descricao);
-
-                    System.out.println("\nLista de alunos:");
-                    repository.ArmazTemporario.mostraListaAlunos();
-                    System.out.print("Número do aluno que receberá a nota: ");
-                    int numAlunoAvaliado = scan.nextInt();
-                    System.out.println("\nLista de turmas:");
-                    repository.ArmazTemporario.mostraListaTurmas();
-                    System.out.print("Número da turma do aluno: ");
-                    int numTurmaAv = scan.nextInt();
-                    
-                    Aluno alunoAvaliacao = repository.ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
-                    Turma turmaAvaliacao = repository.ArmazTemporario.listaTurmas.get(numTurmaAv);
-                    
-                    System.out.print("Informe a nota do aluno "+alunoAvaliacao.getNome()+": ");
-                    float notaAluno = scan.nextFloat();
-
-                    avaliacao.atribuirNota(alunoAvaliacao, turmaAvaliacao, notaAluno);
-
-                    System.out.println("Nota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".");
-                    
-                    repository.ArmazTemporario.listaAvaliacoes.add(avaliacao);
-                    System.out.println("\nAvaliação registrada.\n");
+                    if (ArmazTemporario.listaAlunos.isEmpty() || ArmazTemporario.listaTurmas.isEmpty()) {
+                        System.out.println("\nErro: Não é possível registrar avaliação.");
+                        System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
+                        System.out.println("\nCaso alunos ou turmas não estiverem cadastrados, cadastre-os primeiro.\n\n");
+                        break;
+                    } else {
+                        RegistraAvaliacoes.registrar();
+                    }
                     break;
                 
                 case 7:

@@ -28,7 +28,6 @@ public class CadastraCurso {
         String mensagem = "ao tipo de curso desejado: ";
         String msg = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
         int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, msg);
-        scan.nextLine();
         
         System.out.println("\nInforme os dados do curso:");
         // nome curso:
@@ -70,8 +69,8 @@ public class CadastraCurso {
             }
         }
         // captura exceções lançadas na instancia de objetos:
-        catch (NullPointerException | IllegalArgumentException npe) {
-            System.err.println("\nFalha ao cadastrar curso: "+ npe+"\n\n");
+        catch (NullPointerException | IllegalArgumentException npeOUiae) {
+            System.err.println("\nFalha ao cadastrar curso: "+ npeOUiae+"\n\n");
         }        
     }
 }
