@@ -1,8 +1,9 @@
 package model;
 
 import service.Autenticacao;
+import service.NumeroObjetoCadastro;
 
-public class Aluno extends Usuario implements Autenticacao {
+public class Aluno extends Usuario implements Autenticacao, NumeroObjetoCadastro {
      
     // atributo aluno:
     private String curso;
@@ -34,6 +35,9 @@ public class Aluno extends Usuario implements Autenticacao {
         return curso;
     }
     public int getMatricula() {
+        return matricula;
+    }
+    public int getNumero() {
         return matricula;
     }
     @Override

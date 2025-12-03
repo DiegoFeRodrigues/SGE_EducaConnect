@@ -13,23 +13,16 @@ import repository.ArmazTemporario;
 public class CadastraAluno {
     
     // método polimórfico:
-    public static void cadastro() {
+    public static void cadastro(int numero) {
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("\n\n** Cadastro de aluno **");
-        System.out.println("\nInforme os dados do aluno:");
-        
         // nome:
-        System.out.print("Nome: "); 
+        System.out.print("Nome do aluno: "); 
         String nomeAluno = scan.nextLine();
         
         // matricula:
-        System.out.print("Matrícula: ");
-        String texto1 = "a matrícula do aluno "+nomeAluno+": ";
-        ValidaDados.validaNumeroDados(scan, texto1);  // testa se valor de matrícula informada é número inteiro.
-        int matricula = scan.nextInt();
-        scan.nextLine();
+        int matricula = numero; // matricula recebe valor informado e validado ainda no MenuInterativo
         
         // curso:
         System.out.println("\n\nCursos cadastrados:\n");

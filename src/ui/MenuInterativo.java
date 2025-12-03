@@ -41,7 +41,22 @@ public class MenuInterativo {
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }
-                    CadastraAluno.cadastro();
+                    System.out.println("\n\n** Cadastro de aluno **");
+                    System.out.println("\nInforme os dados do aluno:");
+                    
+                    System.out.print("\nNúmero de matrícula: ");
+                    String texto = "o número da matricula do novo aluno: ";
+                    ValidaDados.validaNumeroDados(scan, texto); // testa se número scanneado é número inteiro
+                    int matricula = scan.nextInt();
+                    scan.nextLine();
+                    
+                    // método de apoio que percorre objetos da lista. Se número de matrícula informado já existir, encerra o cadastro
+                    if (!ValidaDados.evitaObjetoDuplicado(matricula, ArmazTemporario.listaAlunos)) {
+                        System.out.println("\n\nNão é possível cadastrar aluno.");
+                        System.out.println("\nO número de matrícula informado já foi cadastrado.\n\n");
+                    } else {    // se número de matrícula informado não existir, continua cadastro no método da classe CadastraAluno
+                        CadastraAluno.cadastro(matricula);
+                    }
                     break;
                     
                 case 2:

@@ -33,7 +33,7 @@ public class ValidaDados {
     }
     // método que valida se valor digitado é número real (ponto flutuante) - usado em carga horária de curso e registrar avaliações:
     public static void validaNumeroReal(Scanner scan, String texto) {
-        System.out.print("\nInforme "+texto);
+        System.out.print("Informe "+texto);
         while (!scan.hasNextFloat()) {
             System.out.println("\nErro: O valor digitado é inválido.");
             System.out.print("\nInforme "+texto);
@@ -44,14 +44,14 @@ public class ValidaDados {
         }
     }
     // método que valida números digitados em menus com apenas duas opções (1 ou 2):
-    public static int validaMenu1ou2(Scanner scan, String mensagem, String msg) {
-        System.out.print("Informe o número que corresponde "+mensagem);
+    public static int validaMenu1ou2(Scanner scan, String texto1, String texto2) {
+        System.out.print("Informe o número que corresponde "+texto1);
         ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
         int numero = scan.nextInt();
         scan.nextLine();
         while (numero <= 0 || numero > 2) {
             System.out.println("\nErro: Opção inválida!");
-            System.out.println(msg);
+            System.out.println(texto2);
             System.out.print("Digite opção: ");
             ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
             numero = scan.nextInt();
@@ -76,4 +76,16 @@ public class ValidaDados {
         }
         return numero;
     }
+    // método com objeto genérico, implementa a interface NumeroCadastroObjetos para acessar
+    //  números de cadastro (matricula, registro ou código) utilizei essa opção para evitar 
+    // ter que criar um foreach para cada tipo de objeto:
+    public static <T extends NumeroObjetoCadastro> boolean evitaObjetoDuplicado(int numero, List<T> lista) {
+        for (T objeto : lista) {
+            if (numero == objeto.getNumero()) {
+                return false;
+            } 
+        } 
+        return true;
+    }
+
 }
