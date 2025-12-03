@@ -1,6 +1,6 @@
 /*
     Classe de apoio com métodos que verifica dados informados pelo usuário (input - scanner)
-    Forçando a digitação de números inteiros nas opções de menus e/ou testando se número informado
+    Forçando a digitação de números inteiros ou reais nas opções de menus e/ou testando se número informado
     é maior que as opções mostradas.
 */
 
@@ -20,18 +20,30 @@ public class ValidaDados {
         }
     }
     // método que valida se valor digitado é número inteiro - usado em cadastro de dados (matrículas, registros e códigos):
-    public static void validaNumeroDados(Scanner scan, String dado) {
+    public static void validaNumeroDados(Scanner scan, String texto) {
         while (!scan.hasNextInt()) {
             System.out.println("\nErro: O valor digitado é inválido.");
             System.out.println("Digite apenas números inteiros. Não digite letras.");
-            System.out.print("Informe "+dado);
+            System.out.print("Informe "+texto);
             scan.nextLine();
             if (scan.hasNextInt()) {
                 System.out.println("");
             }
         }
     }
-    // método que valida opção digitada em menus com duas opções (1 ou 2): 
+    // método que valida se valor digitado é número real (ponto flutuante) - usado em carga horária de curso e registrar avaliações:
+    public static void validaNumeroReal(Scanner scan, String texto) {
+        System.out.print("\nInforme "+texto);
+        while (!scan.hasNextFloat()) {
+            System.out.println("\nErro: O valor digitado é inválido.");
+            System.out.print("\nInforme "+texto);
+            scan.nextLine();
+            if (scan.hasNextFloat()) {
+                System.out.println("");
+            }
+        }
+    }
+    // método que valida números digitados em menus com apenas duas opções (1 ou 2):
     public static int validaMenu1ou2(Scanner scan, String mensagem, String msg) {
         System.out.print("Informe o número que corresponde "+mensagem);
         ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.

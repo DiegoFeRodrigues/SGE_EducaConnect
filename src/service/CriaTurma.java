@@ -29,7 +29,7 @@ public class CriaTurma {
         scan.nextLine();
 
         // curso:
-        System.out.println("\nCursos cadastrados:\n");
+        System.out.println("\n\nCursos cadastrados:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String mensagem = "ao curso da Turma "+codigoTurma+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:

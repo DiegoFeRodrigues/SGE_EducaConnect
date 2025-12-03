@@ -19,29 +19,22 @@ public class RegistraAvaliacoes {
         // turma:
         System.out.println("\n\nLista de turmas:\n");
         ArmazTemporario.mostraListaTurmas();
-        String msg1 = "à turma do aluno que receberá a nota: ";
-        int numTurmaAv = ValidaDados.validaDadosArmazenados(msg1, scan, ArmazTemporario.listaTurmas);
+        String texto1 = "à turma do aluno que receberá a nota: ";
+        int numTurmaAv = ValidaDados.validaDadosArmazenados(texto1, scan, ArmazTemporario.listaTurmas);
         
         // aluno:
         System.out.println("\n\nLista de alunos:\n");
         ArmazTemporario.mostraListaAlunos();
-        String msg2 = "ao aluno que receberá a nota: ";
-        int numAlunoAvaliado = ValidaDados.validaDadosArmazenados(msg2, scan, ArmazTemporario.listaAlunos);
+        String texto2 = "ao aluno que receberá a nota: ";
+        int numAlunoAvaliado = ValidaDados.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaAlunos);
         
         // busca objetos de turma e aluno do índice informado:
         Aluno alunoAvaliacao = repository.ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
         Turma turmaAvaliacao = repository.ArmazTemporario.listaTurmas.get(numTurmaAv);
         
         // nota:
-        System.out.print("\n\nInforme a nota do aluno "+alunoAvaliacao.getNome()+": ");
-        while (!scan.hasNextFloat()) {
-            System.out.println("\nValor de nota incorreto!");
-            System.out.print("Informe a nota do aluno "+alunoAvaliacao.getNome()+": ");
-            scan.nextLine();
-            if (scan.hasNextFloat()) {
-                System.out.println("");
-            }
-        }
+        String texto3 = "a nota do aluno "+alunoAvaliacao.getNome()+": ";
+        ValidaDados.validaNumeroReal(scan, texto3); // valida número real digitado, não permitindo letras
         float notaAluno = scan.nextFloat();
 
         try {

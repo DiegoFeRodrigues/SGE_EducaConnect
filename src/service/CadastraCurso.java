@@ -18,7 +18,7 @@ public class CadastraCurso {
 
         Scanner scan = new Scanner(System.in);
 
-        // menu de seleção de tipo de curso:
+        // menu seleção de tipo de curso:
         System.out.println("\n\n** Cadastro de Curso **");
         System.out.println("\nTipo do curso:");
         System.out.println("1 - Curso EAD");
@@ -26,28 +26,24 @@ public class CadastraCurso {
         
         // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
         String mensagem = "ao tipo de curso desejado: ";
-        String msg = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
-        int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, msg);
+        String texto1 = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
+        int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, texto1);
         
         System.out.println("\nInforme os dados do curso:");
         // nome curso:
         System.out.print("Nome do curso: "); 
         String nomeCurso = scan.nextLine();
+        
         // código:
         System.out.print("Código: ");
         String codigoCurso = "o código do curso de "+nomeCurso+": ";
         ValidaDados.validaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
         int codigo = scan.nextInt();
+        scan.nextLine();
+        
         // carga horária:
-        System.out.print("Carga horária: ");
-        while (!scan.hasNextFloat()) {  // testa se valor de carga horária informada é número (real, flutuante);
-            System.out.println("\nCarga horária não pode conter letras.");
-            System.out.print("Informe a carga horária do curso de "+nomeCurso+": ");
-            scan.nextLine();
-            if (scan.hasNextFloat()) {
-                System.out.println("");
-            }
-        }
+        String texto2 = "a carga horária do curso de "+nomeCurso+": ";
+        ValidaDados.validaNumeroReal(scan, texto2); // testa se valor de carga horária informada é número real
         float cargaHoraria = scan.nextFloat();
         scan.nextLine();
 
@@ -58,13 +54,13 @@ public class CadastraCurso {
                 System.out.print("Plataforma EAD: ");
                 String plataforma = scan.nextLine();
                 Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
-                repository.ArmazTemporario.listaCursos.add(cursoEAD);
+                repository.ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
                 System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             } else if (tipoCurso == 2) {    // CURSO PRESENCIAL - SALA:
                 System.out.print("Sala: ");
                 String sala = scan.nextLine();
                 Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
-                repository.ArmazTemporario.listaCursos.add(cursoPresencial);
+                repository.ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista
                 System.out.println("\nCurso Presencial de "+cursoPresencial.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             }
         }
