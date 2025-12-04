@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class MenuInterativo {
     
-    public void Menu() {
+    public static void Menu() {
               
         Scanner scan = new Scanner(System.in);
         int opcao;

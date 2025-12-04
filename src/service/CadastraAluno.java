@@ -28,7 +28,7 @@ public class CadastraAluno {
         System.out.println("\nCurso do aluno "+nomeAluno+":\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String texto2 = "ao curso do aluno "+nomeAluno+": ";
-        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numeCurso = Apoio.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaCursos);
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();

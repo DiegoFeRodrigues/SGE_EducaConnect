@@ -25,7 +25,7 @@ public class CadastraCurso {
         System.out.println("1 - Curso EAD");
         System.out.println("2 - Curso Presencial");
         
-        // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
+        // seleção de tipo de curso, trata se valor digitado está entre as opções disponíveis (1 ou 2) e retorna valor:
         String mensagem = "ao tipo de curso desejado: ";
         String texto1 = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
         int tipoCurso = Apoio.validaMenu1ou2(scan, mensagem, texto1);

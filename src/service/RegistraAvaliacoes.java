@@ -10,9 +10,10 @@ public class RegistraAvaliacoes {
 
         Scanner scan = new Scanner(System.in);
 
-        // descrição:
         System.out.println("\n\n** Avaliações **");
         System.out.println("\nInforme os dados da avaliação: ");
+        
+        // descrição:
         System.out.print("\nDescrição da avaliação: ");
         String descricao = scan.nextLine();
 
@@ -20,12 +21,14 @@ public class RegistraAvaliacoes {
         System.out.println("\n\nLista de turmas:\n");
         ArmazTemporario.mostraListaTurmas();
         String texto1 = "à turma do aluno que receberá a nota: ";
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numTurmaAv = Apoio.validaDadosArmazenados(texto1, scan, ArmazTemporario.listaTurmas);
         
         // aluno:
         System.out.println("\n\nLista de alunos:\n");
         ArmazTemporario.mostraListaAlunos();
         String texto2 = "ao aluno que receberá a nota: ";
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numAlunoAvaliado = Apoio.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaAlunos);
         
         // busca objetos de turma e aluno dos índices informados:

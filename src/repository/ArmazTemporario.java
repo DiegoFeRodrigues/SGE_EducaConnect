@@ -3,9 +3,9 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Administrador;
 import model.Aluno;
 import model.Curso;
-import model.CursoEAD;
 import model.Professor;
 import service.Avaliacao;
 import service.Turma;
@@ -15,15 +15,17 @@ public class ArmazTemporario {
     public static List<Aluno> listaAlunos = new ArrayList<>();
     public static List<Professor> listaProf = new ArrayList<>();
     public static List<Curso> listaCursos = new ArrayList<>();
-    public static List<CursoEAD> listaCursosEAD = new ArrayList<>();
     public static List<Turma> listaTurmas = new ArrayList<>();
     public static List<Avaliacao> listaAvaliacoes = new ArrayList<>();
+    public static List<Administrador> listaAdm = new ArrayList<>();
 
-    public static void mostraListaCursos() {
-
-        if (listaCursos.isEmpty()) {
-            System.out.println("Não há cursos.");
+    public static void mostraListaAdms() {
+        System.out.println("Número:      Administrador:");
+        for (int contador = 0; contador < listaAdm.size(); contador++) {
+            System.out.println(" "+contador+"           "+listaAdm.get(contador).getLogin());
         }
+    }
+    public static void mostraListaCursos() {
         System.out.println("Número:      Curso:");
         for (int contador = 0; contador < listaCursos.size(); contador++) {
             System.out.println(" "+contador+"           "+listaCursos.get(contador).getNomeCurso());

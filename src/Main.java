@@ -1,3 +1,4 @@
+import model.Administrador;
 import model.Aluno;
 import model.CursoPresencial;
 import model.Curso;
@@ -12,6 +13,8 @@ public class Main {
             System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n\n");
             
             // objetos pré informados p/ popular armazenamento temporário e agilizar testes:
+            // Administrador:
+            
             // aluno:
                 ArmazTemporario.listaAlunos.add(new Aluno("Diego", 1, "ADS", "ddd", "sss"));
             // professor:
@@ -23,8 +26,7 @@ public class Main {
             // turma:
                 ArmazTemporario.listaTurmas.add(new Turma(1, curso, prof));
 
-            MenuInterativo menuI = new MenuInterativo();
-            menuI.Menu();        
+            MenuInterativo.Menu();        
         }
         catch (NullPointerException | IllegalArgumentException npeOUiae) {
             System.err.println(npeOUiae);

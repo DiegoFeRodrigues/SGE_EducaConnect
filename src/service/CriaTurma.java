@@ -28,7 +28,7 @@ public class CriaTurma {
         System.out.println("\n\nCurso da turma:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String mensagem = "ao curso da Turma "+codigoTurma+": ";
-        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numCurso = Apoio.validaDadosArmazenados(mensagem, scan, ArmazTemporario.listaCursos);
         // saída de sucesso acessando nome do curso do índice informado pelo usuário:
         System.out.println("\n\nCurso de "+repository.ArmazTemporario.listaCursos.get(numCurso).getNomeCurso()+" cadastrado na turma "+codigoTurma+".\n");
@@ -37,7 +37,7 @@ public class CriaTurma {
         System.out.println("\nLista de professores:\n");
         ArmazTemporario.mostraListaProf();   // mostra lista de professores salvos no armazenamento temporário em lista
         String msg = "ao professor da Turma "+codigoTurma+": ";
-        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numProf = Apoio.validaDadosArmazenados(msg, scan, ArmazTemporario.listaProf);
         // saída acessando nome do professor do índice informado pelo usuário:
         System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numProf).getNome()+" cadastrado na turma "+codigoTurma+".\n");

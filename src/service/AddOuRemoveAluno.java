@@ -19,7 +19,7 @@ public class AddOuRemoveAluno {
         System.out.println("\n1 - Adicionar aluno");
         System.out.println("2 - Remover aluno");
         
-        // tratando se usuário digita apenas as opções disponíveis (1 ou 2):
+        // Trata se valor digitado está entre as opções disponíveis (1 ou 2) e retorna valor:
         String msg1 = "à opção desejada: ";
         String msg2 = "Digite 1 = Cadastrar curso EAD.\nDigite 2 = Cadastrar curso Presencial.";
         int addOuRemoveAluno = Apoio.validaMenu1ou2(scan, msg1, msg2);
@@ -28,7 +28,7 @@ public class AddOuRemoveAluno {
         System.out.println("\nLista de turmas:\n");
         ArmazTemporario.mostraListaTurmas();  // mostra lista de turmas salvas no armazenamento temporário em lista
         String mensagem = "à turma que será alterada: ";
-        // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+        // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numTurma = Apoio.validaDadosArmazenados(mensagem, scan, ArmazTemporario.listaTurmas);
         // busca o objeto Turma do índice informado pelo usuário:
         Turma editarTurma = ArmazTemporario.listaTurmas.get(numTurma);
@@ -40,7 +40,7 @@ public class AddOuRemoveAluno {
         if (addOuRemoveAluno == 1) {
             // msg personalizada buscando nome do professor do número do objeto turma informado:
             String msg = "ao número do aluno que será associado à turma do professor "+ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+": ";
-            // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+            // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
             int numAlunoAdd = Apoio.validaDadosArmazenados(msg, scan, ArmazTemporario.listaAlunos); 
             // busca objeto aluno pelo índice da lista informado:
             Aluno addAluno = ArmazTemporario.listaAlunos.get(numAlunoAdd);
@@ -51,7 +51,7 @@ public class AddOuRemoveAluno {
         if (addOuRemoveAluno == 2) {    
             // msg personalizada buscando nome do professor do número do objeto turma informado:
             String msg = "ao número do aluno que será removido da turma do professor "+ArmazTemporario.listaTurmas.get(numTurma).getProfessorTurma().getNome()+": ";
-            // índice informado passa por método de apoio que evita que índice seja maior que a lista:
+            // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
             int numAlunoRmve = Apoio.validaDadosArmazenados(msg, scan, ArmazTemporario.listaAlunos);
             // busca aluno pelo índice da lista informado:
             Aluno rmveAluno = ArmazTemporario.listaAlunos.get(numAlunoRmve);
