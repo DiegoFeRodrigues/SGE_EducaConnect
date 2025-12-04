@@ -9,7 +9,7 @@ package service;
 import java.util.List;
 import java.util.Scanner;
 
-public class ValidaDados {
+public class Apoio {
 
     // método que valida se valor digitado é número inteiro - usado em menus de opções e seleção de índices:
     public static void validaNumeroMenu(Scanner scan) {
@@ -47,14 +47,14 @@ public class ValidaDados {
     // método que valida números digitados em menus com apenas duas opções (1 ou 2):
     public static int validaMenu1ou2(Scanner scan, String texto1, String texto2) {
         System.out.print("Informe o número que corresponde "+texto1);
-        ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
+        Apoio.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
         int numero = scan.nextInt();
         scan.nextLine();
         while (numero <= 0 || numero > 2) {
             System.out.println("\nErro: Opção inválida!");
             System.out.println(texto2);
             System.out.print("Digite opção: ");
-            ValidaDados.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
+            Apoio.validaNumeroMenu(scan);   // testa se valor de menu informado é número inteiro.
             numero = scan.nextInt();
             scan.nextLine();
         }

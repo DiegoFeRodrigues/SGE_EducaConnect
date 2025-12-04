@@ -2,7 +2,7 @@ package ui;
 
 import repository.ArmazTemporario;
 import service.AddOuRemoveAluno;
-import service.ValidaDados;
+import service.Apoio;
 import service.CadastraAluno;
 import service.CadastraCurso;
 import service.CadastraProfessor;
@@ -29,7 +29,7 @@ public class MenuInterativo {
             System.out.println("7 - Gerar relatórios");
             System.out.println("8 - Encerrar sistema");
             System.out.print("Opção desejada: ");
-            ValidaDados.validaNumeroMenu(scan);
+            Apoio.validaNumeroMenu(scan);
             opcao = scan.nextInt();
             scan.nextLine();
             
@@ -42,12 +42,12 @@ public class MenuInterativo {
                     // código do curso - atributo de controle p/ permitir ou não permitir cadastro de curso:
                     System.out.print("\nCódigo do curso: ");
                     String texto2 = "o código do novo curso: ";
-                    ValidaDados.validaNumeroDados(scan, texto2);     // valida se valor no buffer é número inteiro.
+                    Apoio.validaNumeroDados(scan, texto2);     // valida se valor no buffer é número inteiro.
                     int codigoCurso = scan.nextInt();
                     scan.nextLine();
 
                     // método de apoio percorre a lista. Se código de curso informado já existir, não permite cadastro:
-                    if (!ValidaDados.evitaNumeroDuplicado(codigoCurso, ArmazTemporario.listaCursos)) {
+                    if (!Apoio.evitaNumeroDuplicado(codigoCurso, ArmazTemporario.listaCursos)) {
                         System.out.println("\n\nNão é possível cadastrar curso.");
                         System.out.println("\nO código de curso informado já foi cadastrado.\n\n");
                     } else {    // se código informado não existir, continua cadastro no método da classe CadastraCurso levando código informado:
@@ -62,12 +62,12 @@ public class MenuInterativo {
                     // registro - atributo de controle p/ permitir ou não permitir cadastro de professor:
                     System.out.print("\nNúmero de registro: ");
                     String texto1 = "o NÚMERO de registro do novo professor: "; 
-                    ValidaDados.validaNumeroDados(scan, texto1);    // valida se valor no buffer é número inteiro.
+                    Apoio.validaNumeroDados(scan, texto1);    // valida se valor no buffer é número inteiro.
                     int registro = scan.nextInt();
                     scan.nextLine();
                     
                     // método de apoio percorre a lista. Se número de registro informado já existir, não permite cadastro:
-                    if (!ValidaDados.evitaNumeroDuplicado(registro, ArmazTemporario.listaProf)) {
+                    if (!Apoio.evitaNumeroDuplicado(registro, ArmazTemporario.listaProf)) {
                         System.out.println("\n\nNão é possível cadastrar professor.");
                         System.out.println("\nO número de registro informado já foi cadastrado.\n\n");
                     } else {    // se registro informado não existir, continua cadastro no método da classe CadastraProfessor levando registro informado:
@@ -89,12 +89,12 @@ public class MenuInterativo {
                     // matrícula - atributo de controle p/ permitir ou não permitir cadastro de aluno:
                     System.out.print("\nNúmero de matrícula: ");
                     String texto = "o NÚMERO da matricula do novo aluno: ";
-                    ValidaDados.validaNumeroDados(scan, texto); // valida se valor no buffer é número inteiro
+                    Apoio.validaNumeroDados(scan, texto); // valida se valor no buffer é número inteiro
                     int matricula = scan.nextInt();
                     scan.nextLine();
                     
                     // método de apoio percorre a lista. Se número de matrícula informado já existir, não permite cadastro:
-                    if (!ValidaDados.evitaNumeroDuplicado(matricula, ArmazTemporario.listaAlunos)) {
+                    if (!Apoio.evitaNumeroDuplicado(matricula, ArmazTemporario.listaAlunos)) {
                         System.out.println("\n\nNão é possível cadastrar aluno.");
                         System.out.println("\nO número de matrícula informado já foi cadastrado.\n\n");
                     } else {    // se matrícula informada não existir, continua cadastro no método da classe CadastraAluno levando matricula informada
@@ -112,12 +112,12 @@ public class MenuInterativo {
                     // código da turma - atributo de controle p/ permitir ou não permitir a criação de turma:
                     System.out.print("\nCódigo da turma: ");
                     String texto3 = "o código da turma: ";
-                    ValidaDados.validaNumeroDados(scan, texto3);  // testa se valor no buffer é número inteiro.
+                    Apoio.validaNumeroDados(scan, texto3);  // testa se valor no buffer é número inteiro.
                     int codigoTurma = scan.nextInt();
                     scan.nextLine();
 
                     // método de apoio percorre a lista. Se código de turma informado já existir, não permite criar turma:
-                    if (!ValidaDados.evitaNumeroDuplicado(codigoTurma, ArmazTemporario.listaTurmas)) {
+                    if (!Apoio.evitaNumeroDuplicado(codigoTurma, ArmazTemporario.listaTurmas)) {
                         System.out.println("\n\nNão é possível criar turma.");
                         System.out.println("\nO código de turma informado já foi cadastrado.\n\n");
                     } else {    // se código informado não existir, continua cadastro no método da classe CriaTurma levando código informado:

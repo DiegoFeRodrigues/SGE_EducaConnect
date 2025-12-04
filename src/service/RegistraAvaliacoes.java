@@ -20,13 +20,13 @@ public class RegistraAvaliacoes {
         System.out.println("\n\nLista de turmas:\n");
         ArmazTemporario.mostraListaTurmas();
         String texto1 = "à turma do aluno que receberá a nota: ";
-        int numTurmaAv = ValidaDados.validaDadosArmazenados(texto1, scan, ArmazTemporario.listaTurmas);
+        int numTurmaAv = Apoio.validaDadosArmazenados(texto1, scan, ArmazTemporario.listaTurmas);
         
         // aluno:
         System.out.println("\n\nLista de alunos:\n");
         ArmazTemporario.mostraListaAlunos();
         String texto2 = "ao aluno que receberá a nota: ";
-        int numAlunoAvaliado = ValidaDados.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaAlunos);
+        int numAlunoAvaliado = Apoio.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaAlunos);
         
         // busca objetos de turma e aluno dos índices informados:
         Aluno alunoAvaliacao = repository.ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
@@ -34,7 +34,7 @@ public class RegistraAvaliacoes {
         
         // nota:
         String texto3 = "a nota do aluno "+alunoAvaliacao.getNome()+": ";
-        ValidaDados.validaNumeroReal(scan, texto3); // valida número real digitado, não permitindo letras
+        Apoio.validaNumeroReal(scan, texto3); // valida número real digitado, não permitindo letras
         float notaAluno = scan.nextFloat();
 
         // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Avaliacao:

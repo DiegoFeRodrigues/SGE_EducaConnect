@@ -27,7 +27,7 @@ public class CadastraCurso {
         // seleção de tipo de curso, tratando se usuário digita apenas as opções disponíveis (1 ou 2):
         String mensagem = "ao tipo de curso desejado: ";
         String texto1 = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
-        int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, texto1);
+        int tipoCurso = Apoio.validaMenu1ou2(scan, mensagem, texto1);
         
         
         // nome curso:
@@ -39,7 +39,7 @@ public class CadastraCurso {
         
         // carga horária:
         String texto2 = "a carga horária do curso de "+nomeCurso+": ";
-        ValidaDados.validaNumeroReal(scan, texto2); // testa se valor de carga horária informada é número real
+        Apoio.validaNumeroReal(scan, texto2); // testa se valor de carga horária informada é número real
         float cargaHoraria = scan.nextFloat();
         scan.nextLine();
 
