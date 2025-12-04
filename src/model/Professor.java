@@ -1,8 +1,9 @@
 package model;
 
 import service.Autenticacao;
+import service.NumeroObjetoCadastro;
 
-public class Professor extends Usuario implements Autenticacao {
+public class Professor extends Usuario implements Autenticacao, NumeroObjetoCadastro{
      
     // atributos professor:
     private String especialidade;
@@ -47,9 +48,12 @@ public class Professor extends Usuario implements Autenticacao {
             return true;
         }
     }
-    // getter especialidade - usado no armazenamento em lista:
+    // getters - usados no armazenamento em lista e na interface NumeroObjetoCadastro:
     public String getEspecialidade() {
         return especialidade;
+    }
+    public int getNumero() {
+        return registro;
     }
     // método polimórfico - Relatório prof.:
     public String gerarRelatorio() {

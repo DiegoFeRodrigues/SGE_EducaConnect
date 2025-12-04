@@ -1,5 +1,5 @@
 import model.Aluno;
-import model.CursoEAD;
+import model.CursoPresencial;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
@@ -15,10 +15,10 @@ public class Main {
             // aluno:
                 ArmazTemporario.listaAlunos.add(new Aluno("Diego", 1, "ADS", "ddd", "sss"));
             // professor:
-                Professor prof = new Professor("Flavio Ceci", "Poo", 1, "fff", "sss");
+                Professor prof = new Professor("Mestre Kame", "Artes Marciais", 1, "kkk", "sss");
                 ArmazTemporario.listaProf.add(prof);
             // curso:
-                Curso curso = new CursoEAD("ADS", 1, 2180, "Studeo");
+                Curso curso = new CursoPresencial("Artes Marciais", 1, 20000, "Sala do tempo");
                 ArmazTemporario.listaCursos.add(curso);
             // turma:
                 ArmazTemporario.listaTurmas.add(new Turma(1, curso, prof));

@@ -14,12 +14,12 @@ import model.CursoPresencial;
 public class CadastraCurso {
     
     // método polimórfico:
-    public static void cadastro() {
+    public static void cadastro(int numero) {
 
         Scanner scan = new Scanner(System.in);
 
         // menu seleção de tipo de curso:
-        System.out.println("\n\n** Cadastro de Curso **");
+        
         System.out.println("\nTipo do curso:");
         System.out.println("1 - Curso EAD");
         System.out.println("2 - Curso Presencial");
@@ -29,17 +29,13 @@ public class CadastraCurso {
         String texto1 = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
         int tipoCurso = ValidaDados.validaMenu1ou2(scan, mensagem, texto1);
         
-        System.out.println("\nInforme os dados do curso:");
+        
         // nome curso:
-        System.out.print("Nome do curso: "); 
+        System.out.print("\nNome do curso: "); 
         String nomeCurso = scan.nextLine();
         
         // código:
-        System.out.print("Código: ");
-        String codigoCurso = "o código do curso de "+nomeCurso+": ";
-        ValidaDados.validaNumeroDados(scan, codigoCurso);     // testa se valor de código informado é número inteiro.
-        int codigo = scan.nextInt();
-        scan.nextLine();
+        int codigo = numero;
         
         // carga horária:
         String texto2 = "a carga horária do curso de "+nomeCurso+": ";
@@ -51,13 +47,13 @@ public class CadastraCurso {
         try {
             // instanciando objetos Curso (EAD e Presencial) com dados informados e adicionando no armazenamento temporário em lista:
             if (tipoCurso == 1) {   // CURSO EAD - PLATAFORMA:
-                System.out.print("Plataforma EAD: ");
+                System.out.print("\nPlataforma EAD: ");
                 String plataforma = scan.nextLine();
                 Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
                 repository.ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
                 System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             } else if (tipoCurso == 2) {    // CURSO PRESENCIAL - SALA:
-                System.out.print("Sala: ");
+                System.out.print("\nSala: ");
                 String sala = scan.nextLine();
                 Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
                 repository.ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista

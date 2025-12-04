@@ -14,7 +14,7 @@ import repository.ArmazTemporario;
 
 public class CriaTurma {
 
-    public static void criar() {
+    public static void criar(int numero) {
 
         Scanner scan = new Scanner(System.in);
 
@@ -22,11 +22,7 @@ public class CriaTurma {
         System.out.println("\nInforme os dados da turma:");
 
         // código:
-        System.out.print("Código da turma: ");
-        String msgTurma = "o código da turma: ";
-        ValidaDados.validaNumeroDados(scan, msgTurma);  // testa se valor de código informado é número inteiro.
-        int codigoTurma = scan.nextInt();
-        scan.nextLine();
+        int codigoTurma = numero;
 
         // curso:
         System.out.println("\n\nCursos cadastrados:\n");

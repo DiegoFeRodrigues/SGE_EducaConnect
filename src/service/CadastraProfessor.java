@@ -12,30 +12,23 @@ import model.Professor;
 public class CadastraProfessor {
     
     // método polimórfico:
-    public static void cadastro() {
+    public static void cadastro(int numero) {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("\n\n** Cadastro de professor **");
-        System.out.println("\nInforme os dados do professor:");
-        
         // nome:
-        System.out.print("Nome: "); 
+        System.out.print("\nNome do professor: "); 
         String nomeProf = scan.nextLine();
         
         // registro:
-        System.out.print("Registro: ");
-        String texto = "o NÚMERO de registro do professor: "; 
-        ValidaDados.validaNumeroDados(scan, texto);    // testa se valor de dado informado é número inteiro.
-        int registro = scan.nextInt();
-        scan.nextLine();
-
+        int registro = numero;
+        
         // especialidade:
-        System.out.print("Especialidade do professor "+nomeProf+": ");
+        System.out.print("\nEspecialidade do professor "+nomeProf+": ");
         String especialidade = scan.nextLine();
         
         // login:
-        System.out.print("Login: ");
+        System.out.print("\nLogin: ");
         String loginProf = scan.nextLine();
         
         // senha:

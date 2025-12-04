@@ -1,6 +1,8 @@
 package model;
 
-public class Curso {
+import service.NumeroObjetoCadastro;
+
+public class Curso implements NumeroObjetoCadastro {
 
     // atributos curso:
     private String nomeCurso;
@@ -22,7 +24,7 @@ public class Curso {
         this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
     }        
-    //getters  - usados em Turma, CursoEAD e CursoPresencial:
+    //getters  - usados em Turma, CursoEAD, CursoPresencial e na interface NumeroObjetoCadastro:
     public String getNomeCurso() {
         return nomeCurso;
     }
@@ -31,6 +33,9 @@ public class Curso {
     }
     public float cargaHoraria() {
         return cargaHoraria;
+    }    
+    public int getNumero() {
+        return codigo;
     }    
     // Método gerarRelatorio() - Será sobrescrito nas subclasses:
     public String gerarRelatorio() {

@@ -7,7 +7,7 @@ import model.Aluno;
 import model.Curso;
 import model.Professor;
 
-public class Turma {
+public class Turma implements NumeroObjetoCadastro{
    
     // atributos turma:
     private int codigo;
@@ -53,7 +53,7 @@ public class Turma {
             System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
         }
     }
-    // getter codigo e curso - usados em Turma e/ou Avaliacao e/ou AddOuRemoveAluno e/ou ArmazTemporario:
+    // getters - usados em Turma e/ou Avaliacao e/ou AddOuRemoveAluno e/ou ArmazTemporario e/ou NumeroObjetoCadastro:
     public int getCodigoTurma() {
         return codigo;
     }
@@ -62,6 +62,9 @@ public class Turma {
     }
     public Professor getProfessorTurma() {
         return professor;
+    }
+    public int getNumero() {
+        return codigo;
     }
     // método com resumo da turma:
     public String resumoTurma() {
