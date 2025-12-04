@@ -5,6 +5,7 @@ import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
 import service.Turma;
+import ui.MenuInicial;
 import ui.MenuInterativo;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
             
             // objetos pré informados p/ popular armazenamento temporário e agilizar testes:
             // Administrador:
+                
             
             // aluno:
                 ArmazTemporario.listaAlunos.add(new Aluno("Diego", 1, "ADS", "ddd", "sss"));
@@ -26,7 +28,7 @@ public class Main {
             // turma:
                 ArmazTemporario.listaTurmas.add(new Turma(1, curso, prof));
 
-            MenuInterativo.Menu();        
+            MenuInicial.bemVindo();
         }
         catch (NullPointerException | IllegalArgumentException npeOUiae) {
             System.err.println(npeOUiae);
