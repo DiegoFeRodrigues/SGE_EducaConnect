@@ -25,7 +25,7 @@ public class CriaTurma {
         int codigoTurma = numero;
 
         // curso:
-        System.out.println("\n\nCursos cadastrados:\n");
+        System.out.println("\n\nCurso da turma:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String mensagem = "ao curso da Turma "+codigoTurma+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
@@ -35,7 +35,7 @@ public class CriaTurma {
         
         // professor:
         System.out.println("\nLista de professores:\n");
-        repository.ArmazTemporario.mostraListaProf();   // mostra lista de professores salvos no armazenamento temporário em lista
+        ArmazTemporario.mostraListaProf();   // mostra lista de professores salvos no armazenamento temporário em lista
         String msg = "ao professor da Turma "+codigoTurma+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:
         int numProf = Apoio.validaDadosArmazenados(msg, scan, ArmazTemporario.listaProf);
@@ -43,14 +43,14 @@ public class CriaTurma {
         System.out.println("\n\nProfessor "+repository.ArmazTemporario.listaProf.get(numProf).getNome()+" cadastrado na turma "+codigoTurma+".\n");
         
         // busca de objetos de Curso e Professor dos índices informados pelo usuário:
-        Curso cursoTurma = repository.ArmazTemporario.listaCursos.get(numCurso);
-        Professor profTurma = repository.ArmazTemporario.listaProf.get(numProf);
+        Curso cursoTurma = ArmazTemporario.listaCursos.get(numCurso);
+        Professor profTurma = ArmazTemporario.listaProf.get(numProf);
         
         // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Turma:
         try {
             // instanciando objeto de Turma com objetos buscados e salvando no armazenamento temporário em lista:
             Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
-            repository.ArmazTemporario.listaTurmas.add(turma);
+            ArmazTemporario.listaTurmas.add(turma);
             // saída de sucesso na criação da turma:
             System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
         }

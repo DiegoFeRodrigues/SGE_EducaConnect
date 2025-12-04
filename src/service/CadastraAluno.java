@@ -25,7 +25,7 @@ public class CadastraAluno {
         int matricula = numero; // matricula recebe valor informado e validado ainda no MenuInterativo
         
         // curso:
-        System.out.println("\nCursos cadastrados:\n");
+        System.out.println("\nCurso do aluno "+nomeAluno+":\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
         String texto2 = "ao curso do aluno "+nomeAluno+": ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista:

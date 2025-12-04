@@ -13,7 +13,7 @@ public class RegistraAvaliacoes {
         // descrição:
         System.out.println("\n\n** Avaliações **");
         System.out.println("\nInforme os dados da avaliação: ");
-        System.out.print("Descrição da avaliação: ");
+        System.out.print("\nDescrição da avaliação: ");
         String descricao = scan.nextLine();
 
         // turma:
@@ -29,11 +29,11 @@ public class RegistraAvaliacoes {
         int numAlunoAvaliado = Apoio.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaAlunos);
         
         // busca objetos de turma e aluno dos índices informados:
-        Aluno alunoAvaliacao = repository.ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
-        Turma turmaAvaliacao = repository.ArmazTemporario.listaTurmas.get(numTurmaAv);
+        Aluno alunoAvaliacao = ArmazTemporario.listaAlunos.get(numAlunoAvaliado);
+        Turma turmaAvaliacao = ArmazTemporario.listaTurmas.get(numTurmaAv);
         
         // nota:
-        String texto3 = "a nota do aluno "+alunoAvaliacao.getNome()+": ";
+        String texto3 = "\nNota do aluno "+alunoAvaliacao.getNome()+": ";
         Apoio.validaNumeroReal(scan, texto3); // valida número real digitado, não permitindo letras
         float notaAluno = scan.nextFloat();
 
@@ -44,7 +44,7 @@ public class RegistraAvaliacoes {
             avaliacao.atribuirNota(alunoAvaliacao, turmaAvaliacao, notaAluno);
             
             // adiciona avaliação no armazenamento temporário em lista.
-            repository.ArmazTemporario.listaAvaliacoes.add(avaliacao);
+            ArmazTemporario.listaAvaliacoes.add(avaliacao);
 
             System.out.println("\n\nAvaliação registrada.\n");
             System.out.println("\nNota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".\n\n");

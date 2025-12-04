@@ -10,6 +10,7 @@ import java.util.Scanner;
 import model.Curso;
 import model.CursoEAD;
 import model.CursoPresencial;
+import repository.ArmazTemporario;
 
 public class CadastraCurso {
     
@@ -38,7 +39,7 @@ public class CadastraCurso {
         int codigo = numero;
         
         // carga horária:
-        String texto2 = "a carga horária do curso de "+nomeCurso+": ";
+        String texto2 = "Carga horária do curso de "+nomeCurso+": ";
         Apoio.validaNumeroReal(scan, texto2); // testa se valor de carga horária informada é número real
         float cargaHoraria = scan.nextFloat();
         scan.nextLine();
@@ -50,13 +51,13 @@ public class CadastraCurso {
                 System.out.print("\nPlataforma EAD: ");
                 String plataforma = scan.nextLine();
                 Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
-                repository.ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
+                ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
                 System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             } else if (tipoCurso == 2) {    // CURSO PRESENCIAL - SALA:
                 System.out.print("\nSala: ");
                 String sala = scan.nextLine();
                 Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
-                repository.ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista
+                ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista
                 System.out.println("\nCurso Presencial de "+cursoPresencial.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             }
         }

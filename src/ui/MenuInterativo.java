@@ -82,7 +82,6 @@ public class MenuInterativo {
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }
-
                     System.out.println("\n\n** Cadastro de aluno **");
                     System.out.println("\nInforme os dados do aluno:");
                     

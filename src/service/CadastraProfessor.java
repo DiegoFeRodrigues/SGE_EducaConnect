@@ -8,6 +8,7 @@ package service;
 
 import java.util.Scanner;
 import model.Professor;
+import repository.ArmazTemporario;
 
 public class CadastraProfessor {
     
@@ -39,7 +40,7 @@ public class CadastraProfessor {
         try {
             // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
             Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
-            repository.ArmazTemporario.listaProf.add(professor);
+            ArmazTemporario.listaProf.add(professor);
             System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
