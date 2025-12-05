@@ -26,7 +26,7 @@ public class Turma {
         this.listaNomeAlunos = new ArrayList<>();
     }
     // método adiciona aluno: 
-    public void addAluno(Aluno aluno, Curso curso) {
+    public void addAluno(Aluno aluno) {
         if (aluno.curso.equals(curso.nomeCurso)) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.nomeAluno);
@@ -36,7 +36,7 @@ public class Turma {
         }
     }
     // método remove aluno:
-    public void removeAluno(Aluno aluno, Curso curso) {
+    public void removeAluno(Aluno aluno) {
         listaAlunos.remove(aluno);
         listaNomeAlunos.remove(aluno.nomeAluno);
         System.out.println(aluno.nomeAluno+" foi removido do curso de "+curso.nomeCurso+".");

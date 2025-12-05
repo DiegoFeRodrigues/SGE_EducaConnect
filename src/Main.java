@@ -19,22 +19,22 @@ public class Main {
             Turma turma1 = new Turma(12345, curso1, professor1);
             Turma turma2 = new Turma(54321, curso2, professor2);
 
-            // adicionando aluno em seus cursos:
+            // adicionando alunos em seus cursos:
             System.out.println("\nAlunos adicionados:");
             //turma 1:
-            turma1.addAluno(aluno1, curso1);
+            turma1.addAluno(aluno1);
             //turma 2:
-            turma2.addAluno(aluno2, curso2);
-            turma2.addAluno(aluno3, curso2);
-            turma2.addAluno(aluno4, curso2);
+            turma2.addAluno(aluno2);
+            turma2.addAluno(aluno3);
+            turma2.addAluno(aluno4);
     
             // removendo aluno:
             System.out.println("\nAlunos removidos:");
-            turma2.removeAluno(aluno4, curso2);
+            turma2.removeAluno(aluno4);
     
-            // saídas com retorno do método resumoTurma() - turma 1:
+            // saídas com retorno do método resumoTurma():
+            // turma 1:
             System.out.println(turma1.resumoTurma());
-
             // turma2:
             System.out.println(turma2.resumoTurma()+"\n");
         }
