@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         // bloco try para tentar a validação na instancia de objetos:
         try {
-            System.out.println("**** EduConnect - Sistema de Gestão Educacional (SGC) ****");
+            System.out.println("\n****EduConnect - Sistema de Gestão Educacional (SGC) ****");
             
             // instanciando objetos - alunos:
             Aluno aluno1 = new Aluno("Diego", "ADS", 12345);
