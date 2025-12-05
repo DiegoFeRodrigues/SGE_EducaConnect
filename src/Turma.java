@@ -58,6 +58,6 @@ public class Turma {
         "\nCódigo da turma: "+this.codigo+
         "\nProfessor: "+this.professor.getNomeProf()+
         "\nCurso: "+this.curso.getNomeCurso()+
-        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaAlunos;
+        "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos;
     }
 }
