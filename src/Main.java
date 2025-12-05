@@ -9,7 +9,7 @@ public class Main {
             Curso ads = new CursoEAD("ADS", 12345, 2180f, "Studeo");
             
             // saída com métodos detalharCurso() sobrescritos - CursoEAD:
-            System.out.println("\nCursos à distância disponíveis:");
+            System.out.println("\nCursos EAD disponíveis:");
             System.out.println(cyberSec.detalharCurso());
             System.out.println(ads.detalharCurso());
             
