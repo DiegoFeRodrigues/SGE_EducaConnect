@@ -32,14 +32,18 @@ public class Turma {
             listaNomeAlunos.add(aluno.nomeAluno);
             System.out.println(aluno.nomeAluno+" foi adicionado ao curso de "+curso.nomeCurso+".");
         } else {
-            System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma");
+            System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma ou não foi encontrado.");
         }
     }
     // método remove aluno:
     public void removeAluno(Aluno aluno) {
-        listaAlunos.remove(aluno);
-        listaNomeAlunos.remove(aluno.nomeAluno);
-        System.out.println(aluno.nomeAluno+" foi removido do curso de "+curso.nomeCurso+".");
+        if (listaAlunos.contains(aluno)) {
+            listaAlunos.remove(aluno);
+            listaNomeAlunos.remove(aluno.nomeAluno);
+            System.out.println(aluno.nomeAluno+" foi removido do curso de "+curso.nomeCurso+".");
+        } else {
+            System.out.println("O aluno "+aluno.nomeAluno+" é de outra turma ou não foi encontrado.");
+        }
     }
     // método resumo da turma:
     public String resumoTurma() {
