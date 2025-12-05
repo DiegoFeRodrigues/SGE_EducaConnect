@@ -6,7 +6,8 @@ public class Turma {
     private int codigo;
     private Professor professor;
     private Curso curso;
-    private List<String> listaAlunos;
+    List<Aluno> listaAlunos;
+    List<String> listaNomeAlunos;
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
@@ -24,18 +25,24 @@ public class Turma {
         this.listaAlunos = new ArrayList<>();
     }
     // método adiciona aluno: 
-    public void addAluno(Aluno aluno, Curso curso) {
+    public void addAluno(Aluno aluno) {
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
-            listaAlunos.add(aluno.getNomeAluno());
+            listaAlunos.add(aluno);
+            listaNomeAlunos.add(aluno.getNomeAluno());
             System.out.println(aluno.getNomeAluno()+" foi adicionado ao curso de "+curso.getNomeCurso());
         } else {
-            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma");
+            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma ou não foi encontrado.");
         }
     }
     // método remove aluno:
-    public void removeAluno(Aluno aluno, Curso curso) {
-        listaAlunos.remove(aluno.getNomeAluno());
-        System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
+    public void removeAluno(Aluno aluno) {
+        if (listaAlunos.contains(aluno)) {
+            listaAlunos.remove(aluno);
+            listaNomeAlunos.remove(aluno.getNomeAluno());
+            System.out.println(aluno.getNomeAluno()+" foi removido do curso de "+curso.getNomeCurso()+".");
+        } else {
+            System.out.println("O aluno "+aluno.getNomeAluno()+" é de outra turma ou não foi encontrado.");
+        }
     }
     // getter codigo - usado em Avaliacao:
     public int getCodigoTurma() {
