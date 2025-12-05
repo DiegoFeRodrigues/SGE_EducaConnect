@@ -10,11 +10,11 @@ public class Main {
             Aluno aluno3 = new Aluno("Kakarotto", "Artes marciais", 59);
             Aluno aluno4 = new Aluno("Yamcha", "Artes marciais", 7);
             // cursos:
-            Curso curso1 = new Curso("ADS", 54321, 2180f);
-            Curso curso2 = new Curso("Artes marciais", 98765, 20000f);
+            Curso curso1 = new Curso("Artes marciais", 98765, 20000f);
+            Curso curso2 = new Curso("ADS", 54321, 2180f);
             // professores:
-            Professor professor1 = new Professor("Flavio Ceci", "POO", 134679);
-            Professor professor2 = new Professor("Mestre Kame", "Estilo da tartaruga", 00001);
+            Professor professor1 = new Professor("Mestre Kame", "Estilo da tartaruga", 00001);
+            Professor professor2 = new Professor("Flavio Ceci", "POO", 134679);
             // turmas:
             Turma turma1 = new Turma(12345, curso1, professor1);
             Turma turma2 = new Turma(54321, curso2, professor2);
@@ -22,26 +22,25 @@ public class Main {
             // adicionando alunos em seus cursos:
             System.out.println("\nAlunos adicionados:");
             //turma 1:
-            turma1.addAluno(aluno1);
+            turma2.addAluno(aluno1);
             //turma 2:
-            turma2.addAluno(aluno2);
-            turma2.addAluno(aluno3);
-            turma2.addAluno(aluno4);
+            turma1.addAluno(aluno2);
+            turma1.addAluno(aluno3);
+            turma1.addAluno(aluno4);
     
             // removendo aluno:
             System.out.println("\nAlunos removidos:");
-            turma2.removeAluno(aluno4);
+            turma1.removeAluno(aluno4);
     
             // saídas com retorno do método resumoTurma():
             // turma 1:
-            System.out.println(turma1.resumoTurma());
+            System.out.println(turma2.resumoTurma());
             // turma2:
-            System.out.println(turma2.resumoTurma()+"\n");
+            System.out.println(turma1.resumoTurma()+"\n");
         }
         // bloco catch para captura e saída de erros de objetos que não puderem ser instanciados: 
         catch (NullPointerException | IllegalArgumentException npeouiae) {
             System.err.println("Erro: "+npeouiae.getMessage());
         }
-
     }
 }
