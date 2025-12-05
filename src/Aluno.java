@@ -1,9 +1,7 @@
 public class Aluno extends Usuario implements Autenticacao {
-    
     // atributos aluno:
     private String curso;
     private int matricula;
-    
     // constrcutor aluno - valida e inicia atributos:
     public Aluno(String nomeAluno, int matricula, String curso, String login, String senha) {
         if (nomeAluno == null) {
@@ -21,7 +19,7 @@ public class Aluno extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha.\n");
         }
-        super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
+        super(nomeAluno, login, senha); // herda da superclasse abstrata Usuário
         this.matricula = matricula;
         this.curso = curso;
     }
@@ -37,14 +35,14 @@ public class Aluno extends Usuario implements Autenticacao {
         }
         if (senha == null) {
             throw new NullPointerException("Informe a senha do aluno para autenticar.\n");
-        }        
-        if ( login != this.getLogin() || senha != this.getSenha()) {
+        }   
+        // compara login informado com login cadastrado na construção do objeto:
+        if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) {
             System.out.println("\nFalha ao autenticar aluno: Login ou senha incorretos.");
             return false;
-        } else {
-            System.out.println("\nLogado como aluno.");
-            return true;
-        }
+        } 
+        System.out.println("\nLogado como aluno.");
+        return true;
     }
     // método com dados - alunos:
     public String dadosAluno() {

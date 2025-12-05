@@ -8,7 +8,7 @@ public class Administrador extends Usuario implements Autenticacao{
         if (senha == null) {
             throw new NullPointerException("Informe a senha de administrador.\n");
         }
-        super(login, senha); // -> herda da superclasse abstrata Usuário
+        super(login, senha); // herda da superclasse abstrata Usuário
     }
     // implementacão método da interface Autenticacao:
     @Override
@@ -19,10 +19,11 @@ public class Administrador extends Usuario implements Autenticacao{
         if (senha == null) {
             throw new NullPointerException("Informe a senha de administrador para autenticar.\n");
         }
-        if ( login != this.getLogin() || senha != this.getSenha()) { 
+        // compara login informado com login cadastrado na construção do objeto:
+        if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) {
             System.out.println("\nFalha ao autenticar administrador: Login ou senha incorretos.");
             return false;
-        }
+        } 
         System.out.println("\nLogado como administrador.");
         return true;
     }
