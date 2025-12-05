@@ -36,7 +36,10 @@ public class MenuInicial {
                     
                     System.out.print("\nSenha de Administrador: ");
                     String senha = scan.nextLine();
-                    adm.autenticar(login, senha);
+
+                    if (adm.autenticar(login, senha)) {
+                        MenuInterativo.Menu();
+                    }
                     // if ()) {
                     //     MenuInterativo.Menu();
                     //     break;

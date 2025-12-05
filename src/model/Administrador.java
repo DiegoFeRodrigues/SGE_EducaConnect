@@ -24,11 +24,11 @@ public class Administrador extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha de administrador para autenticar.\n\n");
         }
-        if (login != this.getLogin() || senha != this.getSenha()) { 
-            System.out.println("Falha ao autenticar administrador: Login ou senha incorretos.\n\n");
+        if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) { 
+            System.out.println("\n\nFalha ao autenticar administrador: Login ou senha incorretos.\n\n");
             return false;
         } else {
-            System.out.println("Administrador entrou.\n\n");
+            System.out.println("\n\nBem vindo(a) Administrador(a).\n\n");
             return true;
         }
     }
