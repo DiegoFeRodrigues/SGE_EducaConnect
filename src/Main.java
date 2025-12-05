@@ -14,7 +14,7 @@ public class Main {
             System.out.println(ads.detalharCurso());
             
             // instanciando Cursos - Presencial:
-            Curso medicina = new CursoPresencial("Medicina", 7865, 8300, "12");
+            Curso medicina = new CursoPresencial("Medicina", 7865, 8300, "Ambulatório 12");
             Curso artesMarciais = new CursoPresencial("Artes Marciais", 54321, 20000f, "Sala do tempo");
             
             // saída com métodos detalharCurso() sobrescritos - CursoPresencial:
