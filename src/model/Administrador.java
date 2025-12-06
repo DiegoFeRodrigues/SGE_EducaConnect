@@ -23,7 +23,8 @@ public class Administrador extends Usuario implements Autenticacao {
         if (senha == null) {
             throw new NullPointerException("Informe a senha de administrador para autenticar.\n");
         }
-        if ( login != this.getLogin() || senha != this.getSenha()) { 
+        // compara login informado com login cadastrado na construção do objeto:
+        if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) { 
             System.out.println("Falha ao autenticar administrador: Login ou senha incorretos.\n");
             return false;
         } else {
@@ -32,17 +33,3 @@ public class Administrador extends Usuario implements Autenticacao {
         }
     }
 }
-
-/*
- *  // implementando método autenticar da classe abstrata autenticacao:
-    @Override
-    public void autenticar(String l, String s) {
-        if ((login == null || l == null) || (senha == null || s == null)) {
-            System.out.println("\nInforme login e senha.");
-        } else if (login == l && senha == s){
-            System.out.println("\nLogado como administrador.");
-        } else {
-            System.out.println("\nLogin ou senha incorretos.");
-        }
-    }
- */

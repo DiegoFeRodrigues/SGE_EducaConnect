@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         // bloco try - tenta validação na instancia de objetos:
         try {
-            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n");        
+            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");        
             System.out.println("------------------------------------------------------------------------");
             
             // CAMADA MODEL - instanciando objetos 
@@ -46,32 +46,32 @@ public class Main {
                     Turma turma1 = new Turma(1, curso1, professor2);
                     Turma turma2 = new Turma(2, curso2, professor1);
                     
-                    // adicionando alunos às turmas:
+                    // adicionando alunos nas turmas:
                     System.out.println("\nAlunos adicionados:");
                     
-                    turma1.addAluno(aluno1, curso1, professor2);
+                    turma1.addAluno(aluno1);
                     
-                    turma2.addAluno(aluno2, curso2, professor1);
-                    turma2.addAluno(aluno3, curso2, professor1);
-                    turma2.addAluno(aluno4, curso2, professor1);
+                    turma2.addAluno(aluno2);
+                    turma2.addAluno(aluno3);
+                    turma2.addAluno(aluno4);
                     
-                    // removendo aluno de uma turma:
+                    // removendo aluno de turma:
                     System.out.println("\n\nAlunos removidos:");
-                    turma2.removeAluno(aluno4, curso2);
+                    turma2.removeAluno(aluno4);
                 //
                 System.out.println("------------------------------------------------------------------------");
                 
                 // AUTENTICANDO USUÁRIOS:
-                    System.out.println("\nUsuários logados:\n");
+                    System.out.println("\nUsuários autenticados ou não autenticados:\n");
 
                     adm.autenticar("Admin", "1234");
                     
                     aluno1.autenticar("D", "123");
                     aluno2.autenticar("marron", "98@k9Lç$");
-                    aluno3.autenticar("", "");
+                    aluno3.autenticar("Ozaru", "gohan"); // login errado
                     
                     professor1.autenticar("roshi","jackiechun");
-                    professor2.autenticar("CeciFlavio","FC12345");
+                    professor2.autenticar("CeciFlavio","F12345"); // senha errada
                 //    
                 System.out.println("------------------------------------------------------------------------");
 
@@ -81,7 +81,7 @@ public class Main {
                     Avaliacao treino = new Avaliacao("Carregar caixas de leite.");
                     
                     //atribuindo notas e saída com resultados:
-                    System.out.println("\nResultado das avaliações:\n");
+                    System.out.println("\nResultados de avaliações:\n");
                     
                     prova.atribuirNota(aluno1, turma1, 6f);
                     
@@ -91,12 +91,11 @@ public class Main {
             //        
             System.out.println("------------------------------------------------------------------------");
             
-            // CAMADA REPOSITORY - adicionando dados no armazenamento temporário em listas:    
+            // CAMADA REPOSITORY     
                 
-                // instanciando objeto da classe ArmazTemporário:
-                ArmazTemporario simuBDTemp = new ArmazTemporario();
+                // adicionando objetos nas listas de repository.ArmazTemporário:
                 
-                // adicionando dados - alunos:
+                // alunos:
                 ArmazTemporario.listaAlunos.add(aluno1);
                 ArmazTemporario.listaAlunos.add(aluno2);
                 ArmazTemporario.listaAlunos.add(aluno3);
@@ -115,9 +114,8 @@ public class Main {
             //
                 
             // CAMADA UI
-                // novo menu de relatórios no Main:
-                    MenuRelatorios menuRelatorios = new MenuRelatorios(simuBDTemp);
-                    menuRelatorios.menuR();
+                // chamando menu de relatórios no Main:
+                    MenuRelatorios.menu();
                 //
             //
 
@@ -127,21 +125,3 @@ public class Main {
         }    
     } 
 }
-// saída com resumo das turmas:
-// System.out.println(turma1.resumoTurma());
-// System.out.println(turma2.resumoTurma());
-
-// System.out.println("\nResultado avaliação da turma 1:");
-                // System.out.println(prova.resultado(aluno1, turma1, prova));
-                
-                // atribuindo nota e saída com resultado - turma 2:
-                // System.out.println("\nResultado avaliação da turma 2:");
-                // System.out.println(treino.resultado(aluno2, turma2, treino));
-                
-                // treino.atribuirNota(aluno3, turma2, 10f);
-                // System.out.println(treino.resultado(aluno3, turma2, treino));
-
-// turma2.addAluno(aluno3, curso2, professor1);
-
-
-// simuBDTemp.adicionaCurso("Química", 51379, 5300f, "Laboratório");

@@ -9,15 +9,8 @@ import repository.ArmazTemporario;
 import service.Turma;
 
 public class MenuRelatorios {
-    
-    private ArmazTemporario dadosSalvos;
-    
-    public MenuRelatorios (ArmazTemporario dados) {
-        this.dadosSalvos = dados;
-    }
 
-    // public static void main(String[] args) {
-    public void menuR() {
+    public static void menu() {
 
         // instanciando novo scanner - input do usuário
         Scanner scan = new Scanner(System.in);
@@ -32,7 +25,7 @@ public class MenuRelatorios {
                 System.out.println("\n*************************\n");
                 System.out.println("Digite 1 - Alunos matriculados");
                 System.out.println("Digite 2 - Professores registrados");
-                System.out.println("Digite 3 - Cursos disponíveis");
+                System.out.println("Digite 3 - Cursos cadastrados");
                 System.out.println("Digite 4 - Turmas");
                 System.out.println("Digite 5 - Sair");
                 System.out.print("Digite o número do relatório desejado ou 5 para sair: ");
@@ -43,30 +36,35 @@ public class MenuRelatorios {
                 switch (escolha) {
                     case 1 :    // alunos:
                         System.out.println("\n\n** Relatório de alunos matriculados **\n");
-                        for (Aluno alunos : dadosSalvos.getListaAlunos()) {
+                        for (Aluno alunos : ArmazTemporario.listaAlunos) {
                             System.out.println(alunos.gerarRelatorio());
                         }
+                        System.out.println("------------------------------------------------------------------------");
                         break;
                     case 2:     // professores:
                         System.out.println("\n\n** Relatório de professores registrados **");
-                        for (Professor prof : dadosSalvos.getListaProf()) {
+                        for (Professor prof : ArmazTemporario.listaProf) {
                             System.out.println(prof.gerarRelatorio());
                         }
+                        System.out.println("------------------------------------------------------------------------");
                         break;
-                    case 3:     // cursos - EAD:
-                        System.out.println("\n\n** Relatório de cursos disponíveis **");
-                        for (Curso cursos : dadosSalvos.getListaCursos()) {
+                    case 3:     // cursos:
+                        System.out.println("\n\n** Relatório de cursos cadastrados **");
+                        for (Curso cursos : ArmazTemporario.listaCursos) {
                             System.out.println(cursos.gerarRelatorio());
                         }
+                        System.out.println("------------------------------------------------------------------------");
                         break;
-                    case 4:
+                    case 4:     // turmas:
                         System.out.println("\n\n** Relatorio de turmas **");
-                        for (Turma turma : dadosSalvos.getListaTurmas()) {
+                        for (Turma turma : ArmazTemporario.listaTurmas) {
                             System.out.println(turma.resumoTurma());
                         }
+                        System.out.println("------------------------------------------------------------------------");
                         break;
                     case 5:     // sair:
                         System.out.println("\nSaindo.\n"); 
+                        System.out.println("------------------------------------------------------------------------");
                         break;
                     default :   // se escolha != de 1, 2, 3, 4 ou 5 = opção inválida.
                     System.out.println("\nOpção inválida!"); 

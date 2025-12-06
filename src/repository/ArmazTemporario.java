@@ -9,27 +9,11 @@ import model.Professor;
 import service.Turma;
 
 public class ArmazTemporario {
-
+    // listas dos tipos Aluno, Professor, Curso e Turma:
     public static List<Aluno> listaAlunos = new ArrayList<>();
     public static List<Professor> listaProf = new ArrayList<>();
     public static List<Curso> listaCursos = new ArrayList<>();
     public static List<Turma> listaTurmas = new ArrayList<>();
-
-    // getters de listas:
-    public List<Aluno> getListaAlunos() {
-        return listaAlunos;
-    }
-    public List<Professor> getListaProf() {
-        return listaProf;
-    }
-    public List<Curso> getListaCursos() {
-        return listaCursos;
-    }
-    public List<Turma> getListaTurmas() {
-        return listaTurmas;
-    }
-
-    
 }
 
 // RASCUNHOS E LAMBANÇAS:
