@@ -9,7 +9,7 @@ import model.Professor;
 import service.Turma;
 
 public class ArmazTemporario {
-    // listas dos tipos Aluno, Professor, Curso e Turma:
+    // listas dos tipos Aluno, Professor, Curso e Turma - public e static
     public static List<Aluno> listaAlunos = new ArrayList<>();
     public static List<Professor> listaProf = new ArrayList<>();
     public static List<Curso> listaCursos = new ArrayList<>();
