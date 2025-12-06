@@ -1,5 +1,5 @@
 public class Aluno extends Usuario implements Autenticacao {
-     
+    
     // atributos aluno:
     private String curso;
     private int matricula;

@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         // bloco try - tenta validação na instancia de objetos:
         try {
-            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n");        
+            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");        
 
             // instanciando objetos - alunos:
             Aluno aluno1 = new Aluno("Diego", 12345, "ADS", "D", "98765");
@@ -18,7 +18,7 @@ public class Main {
             Curso curso2 = new CursoEAD("Cyber Segurança", 134678, 2500f, "Studeo");
             // Presencial:
             Curso curso3 = new CursoPresencial("Artes marciais", 98765, 20000f, "Sala do tempo");
-            Curso curso10 = new CursoPresencial("Química", 51379, 5300f, "Laboratório");
+            Curso curso10 = new CursoPresencial("Química", 51379, 5300f, "Laboratório de química");
 
             // professores:
             Professor professor1 = new Professor("Mestre Kame", "Estilo da targatura", 1, "roshi", "jackiechun");
@@ -50,12 +50,12 @@ public class Main {
             // lista de Turma e adicionando objetos p/ testes FASE 6:
             List<Turma> listaTurmas = new ArrayList<>();
             Turma turma1 = new Turma(123, curso1, professor2);
-            turma1.addAluno(aluno1, curso1);
+            turma1.addAluno(aluno1);
             listaTurmas.add(turma1);
             
             Turma turma2 = new Turma(321, curso10, professor10);
-            turma2.addAluno(aluno10, curso10);
-            turma2.addAluno(aluno11, curso10);
+            turma2.addAluno(aluno10);
+            turma2.addAluno(aluno11);
             listaTurmas.add(turma2);
 
             // instanciando novo scanner - input do usuário
