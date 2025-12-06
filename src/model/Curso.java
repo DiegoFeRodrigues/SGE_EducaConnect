@@ -39,7 +39,9 @@ public class Curso implements NumeroObjetoCadastro {
     }    
     // Método gerarRelatorio() - Será sobrescrito nas subclasses:
     public String gerarRelatorio() {
-        return "\nDados curso:\nNome do curso: "+this.nomeCurso+        
-        "\nCódigo: "+this.codigo+"\nCarga horária: "+this.cargaHoraria;
+        return "\nDados curso:"+
+        "\nNome do curso: "+this.nomeCurso+        
+        "\nCódigo: "+this.codigo+
+        "\nCarga horária: "+this.cargaHoraria;
     }
 }

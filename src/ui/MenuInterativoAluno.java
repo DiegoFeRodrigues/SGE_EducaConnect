@@ -2,7 +2,6 @@ package ui;
 
 import java.util.Scanner;
 
-import model.Aluno;
 import repository.ArmazTemporario;
 import service.Apoio;
 import service.Avaliacao;

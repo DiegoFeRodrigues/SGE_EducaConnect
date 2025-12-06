@@ -1,27 +1,29 @@
+
+/*
+    Classe com menu inicial.
+    Com Login, autenticação e cadastro de usuários
+*/
+
 package ui;
 
 import java.util.Scanner;
 
-import model.Administrador;
-import model.Aluno;
-import model.Professor;
 import repository.ArmazTemporario;
 import service.Apoio;
 
 public class MenuInicial {
     public static void bemVindo() {
 
-        
         Scanner scan = new Scanner(System.in);
         
         int opcao;
         do {
-            System.out.println(ArmazTemporario.listaProf);
+            System.out.println("************************************************************************");
+            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");                    
             System.out.println("------------------------------------------------------------------------");
-            
-            System.out.println("\n\nBem vindo(a)");
+            System.out.println("\nBem vindo(a) visitante.");
+            System.out.println("------------------------------------------------------------------------");
             System.out.println("\n\n*** Menu Inicial: ***");
-            System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
             System.out.println("\nFazer login como:");
             System.out.println("\n\n1 - Administrador(a)");
             System.out.println("\n2 - Professor(a)");
@@ -34,29 +36,68 @@ public class MenuInicial {
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {
-                case 1:
-                    System.out.println("\nDigite login e senha de Administrador(a):");    
+                case 1:     // login administrador:
+                    System.out.println("\nEntrar como Administrador(a):");    
 
-                    System.out.print("\nLogin: ");
+                    System.out.print("\nDigite o Login: ");
                     String loginADM = scan.nextLine();
                     
-                    System.out.print("\nSenha: ");
+                    System.out.print("\nDigite a Senha: ");
                     String senhaADM = scan.nextLine();
 
-                    if (Apoio.listaObjetos(loginADM, senhaADM, ArmazTemporario.listaAdm)) {
-                        MenuInterativo.menu();
+                    // autenticação do objeto usando método de apoio:
+                    if (Apoio.autenticaUsuario(loginADM, senhaADM, ArmazTemporario.listaAdm)) {
+                        MenuInterativoADM.menu();   // se autenticação for true = entra no menu de Administrador
                     }
                     break;
 
-                case 2:
-                    System.out.println("\nDigite login e senha de Professor(a):");    
+                case 2:     // login professor:
+                    System.out.println("\nEntrar como Professor(a):");    
 
-                    System.out.print("\nLogin: ");
+                    System.out.print("\nDigite o Login: ");
                     String loginProf = scan.nextLine();
                     
-                    System.out.print("\nSenha: ");
+                    System.out.print("\nDigite a Senha: ");
                     String senhaProf = scan.nextLine();
+                      
+                    // autenticação do objeto usando método de apoio:
+                    if (Apoio.autenticaUsuario(loginProf, senhaProf, ArmazTemporario.listaProf)) {
+                        MenuInterativoProfessor.menu(); // se autenticação for true = entra no menu de Professor
+                    }
+                    break;
+
+                case 3:     // login aluno(a)
+                    System.out.println("\nEntrar como Aluno(a):");    
+
+                    System.out.print("\nDigite o Login: ");
+                    String loginAluno = scan.nextLine();
                     
+                    System.out.print("\nDigite a Senha: ");
+                    String senhaAluno = scan.nextLine();
+
+                    int numeroAluno = Apoio.numeroAluno(loginAluno);
+                    if (Apoio.autenticaUsuario(loginAluno, senhaAluno, ArmazTemporario.listaAlunos)) {
+                        
+                        MenuInterativoAluno.menu(numeroAluno);
+                    }
+                    break;
+
+                case 4:
+                    MenuCadastro.novoCadastro();
+                    break;
+                    
+                case 5:
+                    System.out.println("\n\nEncerrando...\n\n");
+                    break;
+
+                default :
+                    System.out.println("\n\nOpção inválida.\n\n");
+            }
+        } while (opcao != 5);
+    }
+}
+
+
                     // for (Professor prof : ArmazTemporario.listaProf) {
                     //     if (loginProf.equals(prof.getLogin())) {
                     //         prof.autenticar(loginProf, senhaProf);
@@ -80,46 +121,4 @@ public class MenuInicial {
                     //     }
                     //     break;
                     // }
-                    //  
-                    if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
-                        MenuInterativoProfessor.menu();
-                    } else {
-                        System.out.println("Falha ao autenticar professor(a): Login ou senha incorretos.\n\n");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println("\nDigite login e senha do Aluno(a):");    
-
-                    System.out.print("\nLogin: ");
-                    String loginAluno = scan.nextLine();
-                    
-                    System.out.print("\nSenha: ");
-                    String senhaAluno = scan.nextLine();
-
-                    int numeroAluno = Apoio.numeroAluno(loginAluno);
-                    if (Apoio.listaObjetos(loginAluno, senhaAluno, ArmazTemporario.listaAlunos)) {
-                        
-                        MenuInterativoAluno.menu(numeroAluno);
-                    } else {
-                        System.out.println("Falha ao autenticar aluno(a): Login ou senha incorretos.\n\n");
-                    }
-
-                    break;
-
-                case 4:
-                    MenuCadastro.novoCadastro();
-                    break;
-                    
-                case 5:
-                    System.out.println("\n\nEncerrando...\n\n");
-                    break;
-                default :
-                    System.out.println("\n\nOpção inválida.\n\n");
-                    break;
-            }
-        } while (opcao != 5);
-
-    }
-}
-
+                    //

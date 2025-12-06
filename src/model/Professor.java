@@ -8,7 +8,7 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
     // atributos professor:
     private String especialidade;
     private int registro;
-    
+
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
         if (nomeProfessor == null || nomeProfessor.isEmpty()) {
@@ -40,9 +40,10 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
             throw new NullPointerException("Informe a senha do(a) professor(a) para autenticar.\n\n");
         }        
         if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) {
+            System.out.println("Falha ao autenticar professor(a): Login ou senha incorretos.\n\n");
             return false;
         } else {
-            System.out.println("Professor(a) "+this.getNome()+" entrou.\n\n");
+            System.out.println("Bem vindo(a) Professor(a) "+this.getNome()+".\n\n");
             return true;
         }
     }

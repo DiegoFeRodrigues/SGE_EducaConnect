@@ -66,7 +66,7 @@ public class Turma implements NumeroObjetoCadastro{
     public int getNumero() {
         return codigo;
     }
-    public List<Aluno> getListaAlunos() {
+    public List<Aluno> getListaAlunos() { // usado em RegistraAvaliacoes
         return listaAlunos;
     }
     // método com resumo da turma:

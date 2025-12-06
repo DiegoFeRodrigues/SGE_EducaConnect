@@ -7,17 +7,14 @@ import repository.ArmazTemporario;
 import service.Avaliacao;
 import service.Turma;
 import ui.MenuInicial;
-import ui.MenuInterativo;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            System.out.println("************************************************************************");
-            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");        
             
             // objetos pré informados p/ popular armazenamento temporário e agilizar testes:
             // Administrador:
-            ArmazTemporario.listaAdm.add(new Administrador("adm", "000"));
+                ArmazTemporario.listaAdm.add(new Administrador("adm", "000"));
             // aluno:
                 // ArmazTemporario.listaAlunos.add(new Aluno("Diego", 1, "ADS", "ddd", "sss"));
                 Aluno aluno = new Aluno("Diego", 1, "ADS", "ddd", "sss");

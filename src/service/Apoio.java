@@ -9,7 +9,6 @@ package service;
 import java.util.List;
 import java.util.Scanner;
 
-import model.Aluno;
 import repository.ArmazTemporario;
 
 public class Apoio {
@@ -91,14 +90,18 @@ public class Apoio {
         } 
         return true;
     }
-
-    public static <T extends Autenticacao, Usuario> boolean listaObjetos(String login, String senha, List<T> lista) {
+    /* Generics: método com objeto genérico, implementa a interface Autenticação e a classe Usuario 
+       para acessar o método getLogin() (que também foi adicionado à interface Autenticação)
+       O método percorre as listas do tipo do objeto informado como parâmetro, autenticando-os
+       Se o login informado for diferente do cadastro = false, se for igual = true */
+    public static <T extends Autenticacao, Usuario> boolean autenticaUsuario(String login, String senha, List<T> lista) {
         for (T objeto : lista) {
-            if (login.equals(objeto.getLogin())) {
+            if (!login.equals(objeto.getLogin())) {
                 objeto.autenticar(login, senha);
-                return true;
+                return false;
             } else {
                 objeto.autenticar(login, senha);
+                return true;
             }
         } 
         return false;

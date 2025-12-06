@@ -17,28 +17,31 @@ public class CadastraAluno {
         
         Scanner scan = new Scanner(System.in);
         
+        System.out.println("****  Cadastro de aluno(a)  ****");
+
         // nome:
-        System.out.print("\nNome do(a) aluno(a): "); 
+        System.out.print("\nNome do aluno(a): "); 
         String nomeAluno = scan.nextLine();
         
         // matricula:
         int matricula = numero; // matricula recebe valor informado e validado ainda no MenuInterativo
         
         // curso:
-        System.out.println("\nCurso do(a) aluno(a) "+nomeAluno+":\n");
+        System.out.println("\nCursos disponíveis para matrícula:\n");
         ArmazTemporario.mostraListaCursos();    // mostra lista de cursos salvos no armazenamento temporário em lista
-        String texto2 = "ao curso do(a) aluno(a) "+nomeAluno+": ";
+        String texto2 = "ao curso desejado: ";
         // índice informado passa por método de apoio que evita que índice seja maior que a lista, retornando valor:
         int numeCurso = Apoio.validaDadosArmazenados(texto2, scan, ArmazTemporario.listaCursos);
         // acessa nome do curso com base no número informado pelo usuário:
         String cursoAluno = ArmazTemporario.listaCursos.get(numeCurso).getNomeCurso();
 
         // login:
-        System.out.print("\nLogin: ");
+        System.out.println("** \nDados de login: **");
+        System.out.print("\nDigite o Login: ");
         String loginAluno = scan.nextLine();
         
         // senha:
-        System.out.print("Senha: ");
+        System.out.print("Digite a Senha: ");
         String senhaAluno = scan.nextLine();
 
         // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
@@ -46,7 +49,7 @@ public class CadastraAluno {
             // instanciando objetos Aluno com dados informados e adicionando no armazenamento temporário em lista:
             Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
             ArmazTemporario.listaAlunos.add(aluno);
-            System.out.println("\nAluno(a) "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
+            System.out.println("\nBem vindo(a) "+aluno.getNome()+" foi cadastrado com sucesso.\n\n");
         } 
         // captura exceções lançadas na instancia de objetos:
         catch(NullPointerException | IllegalArgumentException npeOUiae) {

@@ -2,9 +2,7 @@ package ui;
 
 import java.util.Scanner;
 
-import repository.ArmazTemporario;
 import service.Apoio;
-import service.Avaliacao;
 import service.RegistraAvaliacoes;
 
 public class MenuInterativoProfessor {
