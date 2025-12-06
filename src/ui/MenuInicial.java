@@ -56,11 +56,15 @@ public class MenuInicial {
                     System.out.print("\nSenha: ");
                     String senhaProf = scan.nextLine();
                     
-                    for (Professor professor : ArmazTemporario.listaProf) {
-                        if (loginProf.equals(professor.getLogin())) {
-                            professor.autenticar(loginProf, senhaProf);
+                    for (int cont = 0; cont < ArmazTemporario.listaProf.size(); cont++) {
+                        for (Professor prof : ArmazTemporario.listaProf) {
+                            if (loginProf.equals(prof.getLogin())) {
+                                prof.autenticar(loginProf, senhaProf);
+                                MenuInterativo.Menu();
+                                break;
+                            }
+                            prof.autenticar(loginProf, senhaProf);
                         }
-                        MenuInterativo.Menu();
                         break;
                     }
                     // if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
