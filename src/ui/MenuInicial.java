@@ -3,6 +3,7 @@ package ui;
 import java.util.Scanner;
 
 import model.Administrador;
+import model.Aluno;
 import model.Professor;
 import repository.ArmazTemporario;
 import service.Apoio;
@@ -43,7 +44,7 @@ public class MenuInicial {
                     String senhaADM = scan.nextLine();
 
                     if (Apoio.listaObjetos(loginADM, senhaADM, ArmazTemporario.listaAdm)) {
-                        MenuInterativo.Menu();
+                        MenuInterativo.menu();
                     }
                     break;
 
@@ -81,10 +82,29 @@ public class MenuInicial {
                     // }
                     //  
                     if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
-                        MenuInterativo.Menu();
+                        MenuInterativo.menu();
                     } else {
                         System.out.println("Falha ao autenticar professor(a): Login ou senha incorretos.\n\n");
                     }
+                    break;
+
+                case 3:
+                    System.out.println("\nDigite login e senha do Aluno(a):");    
+
+                    System.out.print("\nLogin: ");
+                    String loginAluno = scan.nextLine();
+                    
+                    System.out.print("\nSenha: ");
+                    String senhaAluno = scan.nextLine();
+
+                    int numeroAluno = Apoio.numeroAluno(loginAluno);
+                    if (Apoio.listaObjetos(loginAluno, senhaAluno, ArmazTemporario.listaAlunos)) {
+                        
+                        MenuInterativoAluno.menu(numeroAluno);
+                    } else {
+                        System.out.println("Falha ao autenticar aluno(a): Login ou senha incorretos.\n\n");
+                    }
+
                     break;
 
                 case 4:

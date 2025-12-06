@@ -12,8 +12,8 @@ import service.RegistraAvaliacoes;
 import java.util.Scanner;
 
 public class MenuInterativo {
-    
-    public static void Menu() {
+    // método polimórifico para menus interativos:
+    public static void menu() {
               
         Scanner scan = new Scanner(System.in);
         int opcao;

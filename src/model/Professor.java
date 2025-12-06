@@ -8,7 +8,7 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
     // atributos professor:
     private String especialidade;
     private int registro;
-
+    
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
         if (nomeProfessor == null || nomeProfessor.isEmpty()) {

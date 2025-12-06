@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import repository.ArmazTemporario;
 import service.Apoio;
+import service.CadastraAluno;
 import service.CadastraProfessor;
 
 public class MenuCadastro {
@@ -36,12 +37,26 @@ public class MenuCadastro {
                     Random geraRegistro = new Random();
                     
                     int registro = geraRegistro.nextInt(999);
-                   
+                    
                     if (!Apoio.evitaNumeroDuplicado(registro, ArmazTemporario.listaProf)) {
                         System.out.println("\n\nNão é possível cadastrar professor(a).");
                         System.out.println("\nO número de registro informado já foi cadastrado.\n\n");
                     } else {    // se registro informado não existir, continua cadastro no método da classe CadastraProfessor levando registro informado:
                         CadastraProfessor.cadastro(registro);
+                    }
+                    break;
+                    
+                    case 2:
+                    
+                    Random geraMatricula = new Random();
+                    
+                    int matricula = geraMatricula.nextInt(999);
+                   
+                    if (!Apoio.evitaNumeroDuplicado(matricula, ArmazTemporario.listaProf)) {
+                        System.out.println("\n\nNão é possível cadastrar aluno(a).");
+                        System.out.println("\nO número de registro informado já foi cadastrado.\n\n");
+                    } else {    // se registro informado não existir, continua cadastro no método da classe CadastraProfessor levando registro informado:
+                        CadastraAluno.cadastro(matricula);
                     }
                     break;
 
