@@ -1,3 +1,9 @@
+
+/*
+    Classe para registro de avaliações
+    Com input (scanner) de dados e usando métodos de apoio da classe Apoio.
+*/
+
 package service;
 
 import java.util.Scanner;

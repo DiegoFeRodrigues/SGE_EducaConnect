@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de cursos
-    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe ValidaDados.
+    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe Apoio.
 */
 
 package service;

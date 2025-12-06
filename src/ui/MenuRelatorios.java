@@ -6,6 +6,7 @@ import model.Aluno;
 import model.Curso;
 import model.Professor;
 import repository.ArmazTemporario;
+import service.Apoio;
 import service.Avaliacao;
 import service.Turma;
 
@@ -29,6 +30,8 @@ public class MenuRelatorios {
             System.out.println("5 - Resultado de avaliações");
             System.out.println("6 - Voltar ao Menu Interativo");
             System.out.print("Digite o número do relatório desejado ou 6 para voltar ao Menu Interativo: ");
+            Apoio.validaNumeroMenu(scan); // valida se valor no buffer é número inteiro.
+
             // lendo escolha do usuário:
             escolha = scan.nextInt();
             scan.nextLine();

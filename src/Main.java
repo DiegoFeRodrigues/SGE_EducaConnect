@@ -11,12 +11,12 @@ import ui.MenuInterativo;
 public class Main {
     public static void main(String[] args) {
         try {
-            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGC) ****\n\n");
+            System.out.println("************************************************************************");
+            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");        
             
             // objetos pré informados p/ popular armazenamento temporário e agilizar testes:
             // Administrador:
-                
-            
+            ArmazTemporario.listaAdm.add(new Administrador("adm", "000"));
             // aluno:
                 ArmazTemporario.listaAlunos.add(new Aluno("Diego", 1, "ADS", "ddd", "sss"));
             // professor:

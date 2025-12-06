@@ -22,7 +22,7 @@ public class Apoio {
     // método que valida se valor do buffer é número inteiro - usado em cadastro de dados (matrículas, registros e códigos):
     public static void validaNumeroDados(Scanner scan, String texto) {
         while (!scan.hasNextInt()) {
-            System.out.println("\nErro: O valor do buffer é inválido.");
+            System.out.println("\nErro: O valor informado é inválido.");
             System.out.println("Digite apenas números inteiros.");
             System.out.println("Não digite letras nem símbolos especiais.");
             System.out.print("\nInforme "+texto);
@@ -36,7 +36,7 @@ public class Apoio {
     public static void validaNumeroReal(Scanner scan, String texto) {
         System.out.print(texto);
         while (!scan.hasNextFloat()) {
-            System.out.println("\nErro: O valor do buffer é inválido.");
+            System.out.println("\nErro: O valor informado é inválido.");
             System.out.print("\nInforme "+texto);
             scan.nextLine();
             if (scan.hasNextFloat()) {
@@ -79,7 +79,7 @@ public class Apoio {
     }
     /* Generics: método com objeto genérico, implementa a interface NumeroCadastroObjetos para acessar
        números de cadastro (matricula, registro ou código) utilizei essa opção para evitar 
-       ter que criar um foreach para cada tipo de objeto como fiz no MenuRelatorios: */
+       ter que criar um foreach para cada tipo de objeto como fiz no MenuRelatorios por desconhecer essa maravilha: */
     public static <T extends NumeroObjetoCadastro> boolean evitaNumeroDuplicado(int numero, List<T> lista) {
         for (T objeto : lista) {
             if (numero == objeto.getNumero()) {
@@ -89,4 +89,12 @@ public class Apoio {
         return true;
     }
 
+    public static <T extends Autenticacao> boolean listaObjetos(String login, String senha, List<T> lista) {
+        for (T objeto : lista) {
+            if (!objeto.autenticar(login, senha)) {
+                return false;
+            } 
+        } 
+        return true;
+    }
 }

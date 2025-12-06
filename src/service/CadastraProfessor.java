@@ -1,7 +1,7 @@
 
 /*
     Classe para cadastro de professores
-    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe ValidaDados.
+    Com método polimórfico, input (scanner) de dados e usando método de apoio da classe Apoio.
 */
 
 package service;
@@ -18,14 +18,14 @@ public class CadastraProfessor {
         Scanner scan = new Scanner(System.in);
 
         // nome:
-        System.out.print("\nNome do professor: "); 
+        System.out.print("\nNome do(a) professor(a): "); 
         String nomeProf = scan.nextLine();
         
         // registro:
         int registro = numero;
         
         // especialidade:
-        System.out.print("\nEspecialidade do professor "+nomeProf+": ");
+        System.out.print("\nEspecialidade: ");
         String especialidade = scan.nextLine();
         
         // login:
@@ -41,11 +41,11 @@ public class CadastraProfessor {
             // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
             Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
             ArmazTemporario.listaProf.add(professor);
-            System.out.println("\nProfessor "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
+            System.out.println("\n\nProfessor(a) "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
         }
         // captura exceções lançadas na instancia de objetos:
         catch (NullPointerException | IllegalArgumentException npeOUiae) {
-            System.err.println("\nFalha ao cadastrar professor: "+npeOUiae+"\n\n");
+            System.err.println("\n\nFalha ao cadastrar professor(a): "+npeOUiae+"\n\n");
         }        
     }
 }

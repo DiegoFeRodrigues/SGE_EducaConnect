@@ -32,13 +32,13 @@ public class ArmazTemporario {
         }
     }
     public static void mostraListaProf() {
-        System.out.println("Número:      Professor:");
+        System.out.println("Número:      Professor(a):");
         for (int contador = 0; contador < listaProf.size(); contador++) {
             System.out.println(" "+contador+"           "+listaProf.get(contador).getNome()+" - Especialidade: "+listaProf.get(contador).getEspecialidade());
         }
     }
     public static void mostraListaAlunos() {
-        System.out.println("Número:       Aluno:");
+        System.out.println("Número:       Aluno(a):");
         for (int contador = 0; contador < listaAlunos.size(); contador++) {
             System.out.println(" "+contador+"            "+listaAlunos.get(contador).getNome()+" - Matriculado no curso de: "+listaAlunos.get(contador).getCursoAluno());
         }
