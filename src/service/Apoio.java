@@ -89,12 +89,15 @@ public class Apoio {
         return true;
     }
 
-    public static <T extends Autenticacao> boolean listaObjetos(String login, String senha, List<T> lista) {
+    public static <T extends Autenticacao, Usuario> boolean listaObjetos(String login, String senha, List<T> lista) {
         for (T objeto : lista) {
-            if (!objeto.autenticar(login, senha)) {
-                return false;
-            } 
+            if (login.equals(objeto.getLogin())) {
+                objeto.autenticar(login, senha);
+                return true;
+            } else {
+                objeto.autenticar(login, senha);
+            }
         } 
-        return true;
+        return false;
     }
 }

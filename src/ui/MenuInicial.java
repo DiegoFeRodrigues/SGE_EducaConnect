@@ -56,20 +56,35 @@ public class MenuInicial {
                     System.out.print("\nSenha: ");
                     String senhaProf = scan.nextLine();
                     
-                    for (int cont = 0; cont < ArmazTemporario.listaProf.size(); cont++) {
-                        for (Professor prof : ArmazTemporario.listaProf) {
-                            if (loginProf.equals(prof.getLogin())) {
-                                prof.autenticar(loginProf, senhaProf);
-                                MenuInterativo.Menu();
-                                break;
-                            }
-                            prof.autenticar(loginProf, senhaProf);
-                        }
-                        break;
-                    }
-                    // if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
-                    //     MenuInterativo.Menu();
+                    // for (Professor prof : ArmazTemporario.listaProf) {
+                    //     if (loginProf.equals(prof.getLogin())) {
+                    //         prof.autenticar(loginProf, senhaProf);
+                    //         MenuInterativo.Menu();
+                    //         break;
+                    //     } else {
+                    //         prof.autenticar(loginProf, senhaProf);
+                    //     }
                     // }
+                    
+
+
+                    // for (int cont = 0; cont < ArmazTemporario.listaProf.size(); cont++) {
+                    //     for (Professor prof : ArmazTemporario.listaProf) {
+                    //         if (loginProf.equals(prof.getLogin())) {
+                    //             prof.autenticar(loginProf, senhaProf);
+                    //             MenuInterativo.Menu();
+                    //             break;
+                    //         }
+                    //         prof.autenticar(loginProf, senhaProf);
+                    //     }
+                    //     break;
+                    // }
+                    //  
+                    if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
+                        MenuInterativo.Menu();
+                    } else {
+                        System.out.println("Falha ao autenticar professor(a): Login ou senha incorretos.\n\n");
+                    }
                     break;
 
                 case 4:
