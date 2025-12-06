@@ -66,6 +66,9 @@ public class Turma implements NumeroObjetoCadastro{
     public int getNumero() {
         return codigo;
     }
+    public List<Aluno> getListaAlunos() {
+        return listaAlunos;
+    }
     // método com resumo da turma:
     public String resumoTurma() {
         return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+

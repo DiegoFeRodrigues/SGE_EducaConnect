@@ -82,7 +82,7 @@ public class MenuInicial {
                     // }
                     //  
                     if (Apoio.listaObjetos(loginProf, senhaProf, ArmazTemporario.listaProf)) {
-                        MenuInterativo.menu();
+                        MenuInterativoProfessor.menu();
                     } else {
                         System.out.println("Falha ao autenticar professor(a): Login ou senha incorretos.\n\n");
                     }

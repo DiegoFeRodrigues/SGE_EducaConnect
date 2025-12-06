@@ -34,7 +34,7 @@ public class Avaliacao {
         }
         this.aluno = aluno;
         this.turma = turma;
-        this.nota = nota;
+        this.nota = nota;        
     }
 
     // saída com resumo da avaliação:

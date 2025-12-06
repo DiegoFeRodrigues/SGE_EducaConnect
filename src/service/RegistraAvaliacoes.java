@@ -46,21 +46,27 @@ public class RegistraAvaliacoes {
         Apoio.validaNumeroReal(scan, texto3); // valida número real digitado, não permitindo letras
         float notaAluno = scan.nextFloat();
 
-        // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Avaliacao:
-        try {
-            Avaliacao avaliacao = new Avaliacao(descricao);
-            // método atribuirNota recebe objetos buscados e nota:
-            avaliacao.atribuirNota(alunoAvaliacao, turmaAvaliacao, notaAluno);
-            
-            // adiciona avaliação no armazenamento temporário em lista.
-            ArmazTemporario.listaAvaliacoes.add(avaliacao);
-
-            System.out.println("\n\nAvaliação registrada.\n");
-            System.out.println("\nNota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".\n\n");
-        }
-        // captura exceções lançadas na instancia de objetos:
-        catch (NullPointerException | IllegalArgumentException npeOUiae) {
-            System.err.println("\nFalha ao registrar avaliação: "+npeOUiae);
+        if (!turmaAvaliacao.getListaAlunos().contains(alunoAvaliacao)) {
+            System.out.println("\n\nErro: Professor, não é possível registrar avaliação.");
+            System.out.println("O aluno "+alunoAvaliacao.getNome()+" é de outra turma ou não foi adicionado à sua turma ainda.");
+            System.out.println("Aguarde um(a) Administrador(a) adicionar ele(a) na sua turma.\n\n");
+        } else {
+            // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Avaliacao:
+            try {
+                Avaliacao avaliacao = new Avaliacao(descricao);
+                // método atribuirNota recebe objetos buscados e nota:
+                avaliacao.atribuirNota(alunoAvaliacao, turmaAvaliacao, notaAluno);
+                
+                // adiciona avaliação no armazenamento temporário em lista.
+                ArmazTemporario.listaAvaliacoes.add(avaliacao);
+    
+                System.out.println("\n\nAvaliação registrada.\n");
+                System.out.println("\nNota adicionada ao aluno "+alunoAvaliacao.getNome()+" na avaliação "+avaliacao.getDescricao()+".\n\n");
+            }
+            // captura exceções lançadas na instancia de objetos:
+            catch (NullPointerException | IllegalArgumentException npeOUiae) {
+                System.err.println("\nFalha ao registrar avaliação: "+npeOUiae);
+            }
         }
     }
 }
