@@ -74,12 +74,3 @@ public class MenuRelatorios {
             scan.close();
     }
 }
-
-// instanciando objeto da classe que contém as listas
-        // ArmazTemporario listaAlu = new ArmazTemporario();
-
-        // ArmazTemporario listaPro = new ArmazTemporario();
-        // listaPro.adicionaProf();
-
-        // ArmazTemporario listaCursos = new ArmazTemporario();
-        
