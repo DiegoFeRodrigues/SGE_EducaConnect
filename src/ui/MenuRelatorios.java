@@ -67,7 +67,7 @@ public class MenuRelatorios {
                         }
                     }
                     break;
-                case 4:
+                case 4:     // turmas:
                     if (ArmazTemporario.listaTurmas.isEmpty()) {
                         System.out.println("\n\nNenhuma turma foi criada.");
                     } else {
@@ -77,7 +77,7 @@ public class MenuRelatorios {
                         }
                     }
                     break;
-                case 5:
+                case 5:     // avaliações:
                     if (ArmazTemporario.listaAvaliacoes.isEmpty()) {
                         System.out.println("\n\nO sistema não possui nenhuma avaliação registrada.");
                     } else {

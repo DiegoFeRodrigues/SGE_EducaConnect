@@ -29,6 +29,7 @@ public class CadastraProfessor {
         String especialidade = scan.nextLine();
         
         // login:
+        System.out.println("** \nDados de login: **");
         System.out.print("\nLogin: ");
         String loginProf = scan.nextLine();
         

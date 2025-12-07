@@ -90,7 +90,7 @@ public class Apoio {
         } 
         return true;
     }
-    /* Generics: método com objeto genérico, implementa a interface Autenticação e a classe Usuario 
+    /* Generics: método com objeto genérico, implementa a interface Autenticação e extende classe Usuario 
        para acessar o método getLogin() (que também foi adicionado à interface Autenticação)
        O método percorre as listas do tipo do objeto informado como parâmetro, autenticando-os
        Se o login informado for diferente do cadastro = false, se for igual = true */

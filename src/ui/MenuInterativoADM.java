@@ -18,8 +18,9 @@ public class MenuInterativoADM {
         Scanner scan = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("*** Menu Interativo: ***");
-            System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+            System.out.println("\n******************************************");
+            System.out.println("\n*** Menu Interativo de Administrador: ***");
+            System.out.println("\n******************************************");
             System.out.println("1 - Cadastrar curso");
             System.out.println("2 - Cadastrar professor(a)");
             System.out.println("3 - Cadastrar aluno(a)");

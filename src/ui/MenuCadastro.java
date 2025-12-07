@@ -24,16 +24,17 @@ public class MenuCadastro {
         int opcao;
 
         do {
-            System.out.println("------------------------------------------------------------------------");
             
-            System.out.println("\n\nCadastrar novo usuário:\n");
+            System.out.println("\n\n------------------------------------------------------------------------");
+            System.out.println("\n***  Cadastrar novo usuário:  ***\n");
+            System.out.println("------------------------------------------------------------------------");
     
             System.out.println("\nFazer cadastro de:");
             System.out.println("\n1 - Professor(a)");
             System.out.println("\n2 - Aluno(a)");
             System.out.println("\n3 - Voltar ao Menu Inicial");
             System.out.print("\nDigite opção: ");
-            Apoio.validaNumeroMenu(scan); // valida se número de menu digitado é número inteiro
+            Apoio.validaNumeroMenu(scan); // valida se número de menu no buffer é número inteiro
             opcao = scan.nextInt();
             scan.nextLine();
 

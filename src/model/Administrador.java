@@ -25,10 +25,10 @@ public class Administrador extends Usuario implements Autenticacao {
             throw new NullPointerException("Informe a senha de administrador(a) para autenticar.\n\n");
         }
         if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) { 
-            System.out.println("\n\nFalha ao autenticar administrador(a): Login ou senha incorretos.\n\n");
+            System.out.println("\n\n\n\nFalha ao autenticar administrador(a): Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("\n\nPermissão de Administrador(a) concedida.\n\n");
+            System.out.println("\n\n\n\nPermissão de Administrador(a) concedida.\n");
             return true;
         }
     }

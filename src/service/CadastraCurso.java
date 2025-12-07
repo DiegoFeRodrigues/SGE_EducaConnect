@@ -20,7 +20,6 @@ public class CadastraCurso {
         Scanner scan = new Scanner(System.in);
 
         // menu seleção de tipo de curso:
-        
         System.out.println("\nTipo do curso:");
         System.out.println("1 - Curso EAD");
         System.out.println("2 - Curso Presencial");
@@ -29,7 +28,6 @@ public class CadastraCurso {
         String mensagem = "ao tipo de curso desejado: ";
         String texto1 = "Digite 1 = Cadastrar curso EAD. \nDigite 2 = Cadastrar curso Presencial.";
         int tipoCurso = Apoio.validaMenu1ou2(scan, mensagem, texto1);
-        
         
         // nome curso:
         System.out.print("\nNome do curso: "); 
