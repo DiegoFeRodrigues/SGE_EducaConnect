@@ -36,8 +36,6 @@ public class MenuInterativoADM {
             switch (opcao) {
 
                 case 1: // cadastro curso por ADM
-                    System.out.println("\n\n**           Cadastro de Curso           **");
-                    System.out.println("\n******************************************");
                     
                     System.out.println("\nInforme os dados do curso:");
                     
@@ -58,8 +56,6 @@ public class MenuInterativoADM {
                     break;
                     
                 case 2: // cadastro professor por ADM
-                    System.out.println("\n\n**      Cadastro de professor(a)      **");
-                    System.out.println("\n******************************************");
 
                     System.out.println("\nInforme os dados do(a) professor(a):");
                     
@@ -86,8 +82,6 @@ public class MenuInterativoADM {
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }   // cadastro aluno por ADM:
-                    System.out.println("\n\n**        Cadastro de aluno(a)        **");
-                    System.out.println("\n******************************************");
 
                     System.out.println("\nInforme os dados do(a) aluno(a):");
                     
@@ -114,8 +108,6 @@ public class MenuInterativoADM {
                         System.out.println("\nCaso professores ou cursos não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;
                     }
-                    System.out.println("\n\n**             Criar turma            **");
-                    System.out.println("\n******************************************");
 
                     // código da turma - atributo de controle p/ permitir ou não permitir a criação de turma:
                     System.out.print("\nCódigo da turma: ");

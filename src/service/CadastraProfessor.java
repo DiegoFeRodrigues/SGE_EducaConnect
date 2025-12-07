@@ -30,7 +30,7 @@ public class CadastraProfessor {
         String especialidade = scan.nextLine();
         
         // login:
-        System.out.println("** \nDados de login: **");
+        System.out.println("\n\n** Dados de login: **");
         System.out.print("\nLogin: ");
         String loginProf = scan.nextLine();
         
@@ -41,9 +41,8 @@ public class CadastraProfessor {
         // testa a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Professor:    
         try {
             // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
-            Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
-            ArmazTemporario.listaProf.add(professor);
-            System.out.println("\n\nProfessor(a) "+nomeProf+" foi cadastrado com sucesso.");
+            ArmazTemporario.listaProf.add(new Professor(nomeProf, especialidade, registro, loginProf, senhaProf));
+            System.out.println("\n\nProfessor(a) "+nomeProf+" foi cadastrado(a) com sucesso.");
             System.out.println("\nVolte ao Menu Inicial para fazer login.\n");
         }
         // captura exceções lançadas na instancia de objetos:

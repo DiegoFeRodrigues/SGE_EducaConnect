@@ -20,6 +20,8 @@ public class CadastraCurso {
         Scanner scan = new Scanner(System.in);
 
         // menu seleção de tipo de curso:
+        System.out.println("\n\n***      Cadastrar curso     ***");
+        System.out.println("*********************************");
         System.out.println("\nTipo do curso:");
         System.out.println("1 - Curso EAD");
         System.out.println("2 - Curso Presencial");
@@ -46,13 +48,13 @@ public class CadastraCurso {
         try {
             // instanciando objetos Curso (EAD e Presencial) com dados informados e adicionando no armazenamento temporário em lista:
             if (tipoCurso == 1) {   // CURSO EAD - PLATAFORMA:
-                System.out.print("\nPlataforma EAD: ");
+                System.out.print("Plataforma EAD: ");
                 String plataforma = scan.nextLine();
                 Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
                 ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
                 System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
             } else if (tipoCurso == 2) {    // CURSO PRESENCIAL - SALA:
-                System.out.print("\nSala: ");
+                System.out.print("Sala: ");
                 String sala = scan.nextLine();
                 Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
                 ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista

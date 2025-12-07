@@ -47,10 +47,9 @@ public class CadastraAluno {
         // tenta a validação dos dados informados (atributos) conforme exceções tratadas no construtor da classe Aluno:
         try {
             // instanciando objetos Aluno com dados informados e adicionando no armazenamento temporário em lista:
-            Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
-            ArmazTemporario.listaAlunos.add(aluno);
-            System.out.println("\n\nAluno(a) cadastrado com sucesso.");
-            System.out.println("\nBem vindo(a) "+aluno.getNome()+".");
+            ArmazTemporario.listaAlunos.add(new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno));
+            System.out.println("\n\nAluno(a) "+nomeAluno+" foi cadastrado com sucesso.");
+            System.out.println("\nVolte ao Menu Inicial para fazer login.\n");
         } 
         // captura exceções lançadas na instancia de objetos:
         catch(NullPointerException | IllegalArgumentException npeOUiae) {
