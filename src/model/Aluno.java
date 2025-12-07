@@ -53,7 +53,7 @@ public class Aluno extends Usuario implements Autenticacao, NumeroObjetoCadastro
             System.out.println("\n\nFalha ao autenticar aluno(a): Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("\n\nBem vindo(a) Aluno(a) "+this.getNome()+".");
+            System.out.println("\n\nBem vindo(a) Aluno(a) "+this.getNome()+".\n");
             return true;
         }
     }

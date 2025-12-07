@@ -25,7 +25,7 @@ public class MenuCadastro {
 
         do {
             
-            System.out.println("\n\n***  Cadastrar novo usuário:  ***");
+            System.out.println("\n***  Cadastrar novo usuário:  ***");
             System.out.println("*********************************");
             System.out.println("\nCadastro de:");
             System.out.println("\n1 - Professor(a)");

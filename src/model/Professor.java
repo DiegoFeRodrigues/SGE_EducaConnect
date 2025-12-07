@@ -43,7 +43,7 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
             System.out.println("\n\n\nFalha ao autenticar professor(a): Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("\n\nBem vindo(a) Professor(a) "+this.getNome()+".");
+            System.out.println("\n\nBem vindo(a) Professor(a) "+this.getNome()+".\n");
             return true;
         }
     }

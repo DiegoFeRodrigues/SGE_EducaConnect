@@ -36,7 +36,6 @@ public class Avaliacao {
         this.turma = turma;
         this.nota = nota;        
     }
-
     // saída com resumo da avaliação:
     public String resultadoAvaliacao() {
         return "\nNome do(a) Aluno(a): "+this.aluno.getNome()+

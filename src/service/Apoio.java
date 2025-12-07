@@ -9,9 +9,6 @@ package service;
 import java.util.List;
 import java.util.Scanner;
 
-import model.Aluno;
-import repository.ArmazTemporario;
-
 public class Apoio {
 
     // método que valida se valor do buffer é número inteiro - usado em menus de opções e seleção de índices:
@@ -100,9 +97,8 @@ public class Apoio {
             if (login.equals(objeto.getLogin())) {
                 objeto.autenticar(login, senha);
                 return true;
-            } else {
-                objeto.autenticar(login, senha);
             }
+            // objeto.autenticar(login, senha);
         } 
         return false;
     }

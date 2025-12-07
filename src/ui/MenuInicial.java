@@ -12,7 +12,7 @@ import repository.ArmazTemporario;
 import service.Apoio;
 
 public class MenuInicial {
-    public static void bemVindo() {
+    public static void menu() {
 
         Scanner scan = new Scanner(System.in);
         
@@ -52,7 +52,7 @@ public class MenuInicial {
                     break;
 
                 case 2:     // login professor:
-                    System.out.println("\n** Entrar como Professor(a): **");    
+                    System.out.println("\n\n** Entrar como Professor(a): **");    
                     System.out.println("****************************");
 
                     System.out.print("\nDigite o Login: ");
@@ -68,7 +68,7 @@ public class MenuInicial {
                     break;
 
                 case 3:     // login aluno(a)
-                    System.out.println("** Entrar como Aluno(a): **");    
+                    System.out.println("\n\n** Entrar como Aluno(a): **");    
                     System.out.println("***************************");
 
                     System.out.print("\nDigite o Login: ");
@@ -96,29 +96,3 @@ public class MenuInicial {
         } while (opcao != 5);
     }
 }
-
-
-                    // for (Professor prof : ArmazTemporario.listaProf) {
-                    //     if (loginProf.equals(prof.getLogin())) {
-                    //         prof.autenticar(loginProf, senhaProf);
-                    //         MenuInterativo.Menu();
-                    //         break;
-                    //     } else {
-                    //         prof.autenticar(loginProf, senhaProf);
-                    //     }
-                    // }
-                    
-
-
-                    // for (int cont = 0; cont < ArmazTemporario.listaProf.size(); cont++) {
-                    //     for (Professor prof : ArmazTemporario.listaProf) {
-                    //         if (loginProf.equals(prof.getLogin())) {
-                    //             prof.autenticar(loginProf, senhaProf);
-                    //             MenuInterativo.Menu();
-                    //             break;
-                    //         }
-                    //         prof.autenticar(loginProf, senhaProf);
-                    //     }
-                    //     break;
-                    // }
-                    //

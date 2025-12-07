@@ -7,7 +7,6 @@
 package service;
 
 import java.util.Scanner;
-import model.Curso;
 import model.CursoEAD;
 import model.CursoPresencial;
 import repository.ArmazTemporario;
@@ -50,15 +49,13 @@ public class CadastraCurso {
             if (tipoCurso == 1) {   // CURSO EAD - PLATAFORMA:
                 System.out.print("Plataforma EAD: ");
                 String plataforma = scan.nextLine();
-                Curso cursoEAD = new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma);
-                ArmazTemporario.listaCursos.add(cursoEAD); // adiciona curso EAD criado no armazenamento temporário em lista
-                System.out.println("\nCurso EAD de "+cursoEAD.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
+                ArmazTemporario.listaCursos.add(new CursoEAD(nomeCurso, codigo, cargaHoraria, plataforma)); // adiciona curso EAD criado no armazenamento temporário em lista
+                System.out.println("\nCurso EAD de "+nomeCurso+" foi cadastrado com sucesso.\n\n");
             } else if (tipoCurso == 2) {    // CURSO PRESENCIAL - SALA:
                 System.out.print("Sala: ");
                 String sala = scan.nextLine();
-                Curso cursoPresencial = new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala);
-                ArmazTemporario.listaCursos.add(cursoPresencial); // adiciona curso Presencial criado no armazenamento temporário em lista
-                System.out.println("\nCurso Presencial de "+cursoPresencial.getNomeCurso()+" foi cadastrado com sucesso.\n\n");
+                ArmazTemporario.listaCursos.add(new CursoPresencial(nomeCurso, codigo, cargaHoraria, sala)); // adiciona curso Presencial criado no armazenamento temporário em lista
+                System.out.println("\nCurso Presencial de "+nomeCurso+" foi cadastrado com sucesso.\n\n");
             }
         }
         // captura exceções lançadas na instancia de objetos:

@@ -1,3 +1,8 @@
+
+/*
+    classe Menu de Administrador
+*/
+
 package ui;
 
 import repository.ArmazTemporario;
@@ -18,7 +23,7 @@ public class MenuInterativoADM {
         Scanner scan = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("\n***        Menu de Administrador:        ***");
+            System.out.println("***        Menu de Administrador:        ***");
             System.out.println("********************************************");
             System.out.println("\n1 - Cadastrar curso");
             System.out.println("2 - Cadastrar professor(a)");
@@ -27,7 +32,7 @@ public class MenuInterativoADM {
             System.out.println("5 - Adicionar ou remover aluno(a) de turma");
             System.out.println("6 - Registrar avaliação");
             System.out.println("7 - Gerar relatórios");
-            System.out.println("8 - Fazer logoff - Voltar ao Menu Inicial");
+            System.out.println("8 - Sair - Voltar ao Menu Inicial");
             System.out.print("\nOpção desejada: ");
             Apoio.validaNumeroMenu(scan);
             opcao = scan.nextInt();
@@ -137,7 +142,7 @@ public class MenuInterativoADM {
                 
                 case 6: // registrar avaliação por ADM
                     if (ArmazTemporario.listaAlunos.isEmpty() || ArmazTemporario.listaTurmas.isEmpty()) {
-                        System.out.println("\nErro: Não é possível registrar avaliação.");
+                        System.out.println("\n\nErro: Não é possível registrar avaliação.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
                         System.out.println("\nCaso alunos ou turmas não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;

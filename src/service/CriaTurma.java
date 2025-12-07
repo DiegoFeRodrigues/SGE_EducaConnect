@@ -52,7 +52,7 @@ public class CriaTurma {
             Turma turma = new Turma(codigoTurma, cursoTurma, profTurma);
             ArmazTemporario.listaTurmas.add(turma);
             // saída de sucesso na criação da turma:
-            System.out.println("\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n\n\n");
+            System.out.println("\n\nTurma do curso de "+cursoTurma.getNomeCurso()+" do professor "+profTurma.getNome()+" foi criada com sucesso.\n");
         }
         // captura exceções lançadas na instancia de objetos:
         catch(NullPointerException | IllegalArgumentException npeOUiae) {

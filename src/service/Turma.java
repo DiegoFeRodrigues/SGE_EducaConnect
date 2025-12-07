@@ -19,13 +19,13 @@ public class Turma implements NumeroObjetoCadastro{
     // constructor turma - valida e inicia atributos:
     public Turma(int codigo, Curso curso, Professor professor) {
         if (codigo <= 0) {
-            throw new IllegalArgumentException("Código da turma deve ser maior que 0.\n\n");
+            throw new IllegalArgumentException("\n\nCódigo da turma deve ser maior que 0.\n");
         }
         if (curso == null) {
-            throw new NullPointerException("Informe o objeto curso desejado.\n\n");
+            throw new NullPointerException("\n\nInforme o objeto curso desejado.\n");
         }
         if (professor == null) {
-            throw new NullPointerException("Informe o objeto professor desejado.\n\n");
+            throw new NullPointerException("\n\nInforme o objeto professor desejado.\n");
         }    
         this.codigo = codigo;
         this.curso = curso;
@@ -38,9 +38,9 @@ public class Turma implements NumeroObjetoCadastro{
         if (aluno.getCursoAluno().equals(curso.getNomeCurso())) {
             listaAlunos.add(aluno);
             listaNomeAlunos.add(aluno.getNome());
-            System.out.println("\nO aluno "+aluno.getNome()+" foi adicionado à turma "+codigo+". \n\n");
+            System.out.println("\n\nO(a) aluno(a) "+aluno.getNome()+" foi adicionado(a) à turma "+codigo+". \n");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
+            System.out.println("\n\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado(a).\n");
         }
     }
     // método remove aluno:
@@ -48,9 +48,9 @@ public class Turma implements NumeroObjetoCadastro{
         if (listaAlunos.contains(aluno)) {
             listaAlunos.remove(aluno);
             listaNomeAlunos.remove(aluno.getNome());
-            System.out.println("\nO aluno "+aluno.getNome()+" foi removido da turma "+codigo+".\n\n");
+            System.out.println("\n\nO(a) aluno(a) "+aluno.getNome()+" foi removido(a) da turma "+codigo+".\n");
         } else {
-            System.out.println("\nO aluno "+aluno.getNome()+" não é dessa turma ou não foi encontrado.\n\n");
+            System.out.println("\n\nO(a) aluno(a) "+aluno.getNome()+" não é dessa turma ou não foi encontrado(a).\n");
         }
     }
     // getters - usados em Turma e/ou Avaliacao e/ou AddOuRemoveAluno e/ou ArmazTemporario e/ou NumeroObjetoCadastro:
@@ -73,7 +73,7 @@ public class Turma implements NumeroObjetoCadastro{
     public String resumoTurma() {
         return "\nDados da turma do curso de "+this.curso.getNomeCurso()+":"+
         "\nCódigo da turma: "+this.codigo+
-        "\nProfessor: "+this.professor.getNome()+
+        "\nProfessor(a): "+this.professor.getNome()+
         "\nQuantidade de alunos: "+listaAlunos.size()+" - "+listaNomeAlunos+"\n";
     }
 }

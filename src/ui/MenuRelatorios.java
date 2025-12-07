@@ -1,3 +1,8 @@
+
+/*
+    classe Menu de Relatórios:
+*/
+
 package ui;
 
 import java.util.Scanner;
@@ -21,15 +26,15 @@ public class MenuRelatorios {
         // do-while para repetir menu de escolha (executa ao menos uma vez, testa no final):
         do {
             // menu:
-            System.out.print("\n\n\n*** Gerar relatórios: ***");
-            System.out.println("\n¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-            System.out.println("1 - Alunos matriculados");
+            System.out.println("\n\n***   Gerar relatórios:  ***");
+            System.out.println("****************************");
+            System.out.println("\n1 - Alunos matriculados");
             System.out.println("2 - Professores registrados");
             System.out.println("3 - Cursos cadastrados");
             System.out.println("4 - Turmas criadas");
             System.out.println("5 - Resultado de avaliações");
             System.out.println("6 - Voltar ao Menu Interativo");
-            System.out.print("Digite o número do relatório desejado ou 6 para voltar ao Menu Interativo: ");
+            System.out.print("\nDigite o número do relatório desejado ou 6 para voltar ao Menu: ");
             Apoio.validaNumeroMenu(scan); // valida se valor no buffer é número inteiro.
 
             // lendo escolha do usuário:

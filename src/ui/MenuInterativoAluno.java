@@ -1,3 +1,8 @@
+
+/*
+    classe Menu de Aluno
+*/
+
 package ui;
 
 import java.util.Scanner;
@@ -15,12 +20,12 @@ public class MenuInterativoAluno {
         int opcao;
         
         do {
-            System.out.println("\n\n***           Menu:           ***");
+            System.out.println("***           Menu:           ***");
             System.out.println("*********************************");
             // System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
             System.out.println("\n1 - Consultar avaliações registradas");
             System.out.println("2 - Sair - Voltar ao Menu Inicial");
-            System.out.print("\nDigite opção:");
+            System.out.print("\nDigite opção: ");
             Apoio.validaNumeroMenu(scan); // valida numero inteiro no menu
 
             opcao = scan.nextInt();
@@ -29,17 +34,22 @@ public class MenuInterativoAluno {
             switch (opcao) {
 
                 case 1: // resultado avaliações:
-                    System.out.println("Resultado de avaliações:");
-                    for (Avaliacao avaliacao : ArmazTemporario.listaAvaliacoes) {
-                        System.out.println(avaliacao.resultadoAvaliacao());
+                    if (ArmazTemporario.listaAvaliacoes.isEmpty()) {
+                        System.out.println("\n\nAté o momento nenhuma avaliação foi registrada.\n\n");
+                    } else {
+                        System.out.println("\n\nResultado de avaliações:");
+                        for (Avaliacao avaliacao : ArmazTemporario.listaAvaliacoes) {
+                            System.out.println(avaliacao.resultadoAvaliacao());
+                        }
+                        System.out.println("\n\n");
                     }
                     break;
                case 2:
-                    System.out.println("\n\n\nSaindo...\n");
+                    System.out.println("\n\nSaindo...\n");
                     break;
 
                 default:
-                    System.out.println("\n\n\nOpção inválida!\n");
+                    System.out.println("\n\nOpção inválida!\n");
             }
         } while (opcao != 2); 
     }
