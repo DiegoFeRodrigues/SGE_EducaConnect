@@ -1,8 +1,8 @@
 
 /*
-    Classe com o armazenamento temporário em lista Armazena todos os objetos
-    e possui métodos que mostra as listas de objetos em menus de seleção, usando
-    os índices para selecioná-los.
+    Classe com o armazenamento temporário em lista 
+    Armazena todos os objetos e possui métodos que mostra as 
+    listas de objetos em menus de seleção, usando os índices para selecioná-los.
 */
 
 package repository;

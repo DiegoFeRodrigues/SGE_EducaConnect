@@ -81,8 +81,8 @@ public class MenuInicial {
                     System.out.print("\nDigite a Senha: ");
                     String senhaAluno = scan.nextLine();
 
-                    int numeroAluno = Apoio.numeroAluno(loginAluno);
                     if (Apoio.autenticaUsuario(loginAluno, senhaAluno, ArmazTemporario.listaAlunos)) {
+                        int numeroAluno = Apoio.numeroAluno(loginAluno);
                         MenuInterativoAluno.menu(numeroAluno);
                     }
                     break;

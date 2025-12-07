@@ -18,10 +18,10 @@ public class CadastraAluno {
         Scanner scan = new Scanner(System.in);
         
         System.out.println("\n\n****  Cadastro de aluno(a)  ****");
-        System.out.println("------------------------------------------------------------------------");        
+        System.out.println("---------------------------------------");        
 
         // nome:
-        System.out.print("\nNome do aluno(a): "); 
+        System.out.print("\nNome do(a) aluno(a): "); 
         String nomeAluno = scan.nextLine();
         
         // matricula:

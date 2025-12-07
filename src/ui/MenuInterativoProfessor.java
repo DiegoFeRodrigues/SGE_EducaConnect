@@ -15,17 +15,17 @@ public class MenuInterativoProfessor {
         
         do {
             System.out.println("*** Menu Interativo: ***");
-            System.out.println("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+            System.out.println("**************************");
             System.out.println("1 - Registrar avaliação");
             System.out.println("2 - Fazer logoff - Voltar ao Menu Inicial:");
             System.out.print("Digite opção:");
-            Apoio.validaNumeroMenu(scan);
+            Apoio.validaNumeroMenu(scan); // valida se número de menu informado é número inteiro
 
             opcao = scan.nextInt();
             scan.nextLine();
 
             switch (opcao) {
-                case 1:
+                case 1:     // registrar avalições:
                     RegistraAvaliacoes.registrar();
                     break;
             

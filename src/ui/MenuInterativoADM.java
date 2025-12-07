@@ -36,7 +36,7 @@ public class MenuInterativoADM {
             
             switch (opcao) {
 
-                case 1:
+                case 1: // cadastro curso por ADM
                     System.out.println("\n\n** Cadastro de Curso **");
                     System.out.println("\nInforme os dados do curso:");
                     
@@ -56,7 +56,7 @@ public class MenuInterativoADM {
                     }
                     break;
                     
-                case 2:
+                case 2: // cadastro professor por ADM
                     System.out.println("\n\n** Cadastro de professor(a) **");
                     System.out.println("\nInforme os dados do(a) professor(a):");
                     
@@ -82,7 +82,7 @@ public class MenuInterativoADM {
                         System.out.println("\n\nErro: Não é possível cadastrar aluno(a).");
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
-                    }
+                    }   // cadastro aluno por ADM:
                     System.out.println("\n\n** Cadastro de aluno(a) **");
                     System.out.println("\nInforme os dados do(a) aluno(a):");
                     
@@ -102,7 +102,7 @@ public class MenuInterativoADM {
                     }
                     break;
                 
-                case 4:
+                case 4: // criação de turma por ADM:
                     if (repository.ArmazTemporario.listaCursos.isEmpty() || repository.ArmazTemporario.listaProf.isEmpty()) {
                         System.out.println("\nErro: Não é possível criar turma.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui professores e cursos cadastrados.");
@@ -125,7 +125,7 @@ public class MenuInterativoADM {
                     }
                     break;
                     
-                case 5:
+                case 5: // adicionar ou remover aluno de turma por ADM:
                     if (repository.ArmazTemporario.listaAlunos.isEmpty() || repository.ArmazTemporario.listaTurmas.isEmpty()) {
                         System.out.println("\nErro: Não é possível adicionar ou remover alunos.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
@@ -135,7 +135,7 @@ public class MenuInterativoADM {
                     AddOuRemoveAluno.adicionarOuRemover();
                     break;
                 
-                case 6:
+                case 6: // registrar avaliação por ADM
                     if (ArmazTemporario.listaAlunos.isEmpty() || ArmazTemporario.listaTurmas.isEmpty()) {
                         System.out.println("\nErro: Não é possível registrar avaliação.");
                         System.out.println("\nAcesse a opção de Gerar Relatórios no menu e confira se possui alunos e turmas cadastrados.");
