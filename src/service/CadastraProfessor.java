@@ -43,8 +43,8 @@ public class CadastraProfessor {
             // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
             Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
             ArmazTemporario.listaProf.add(professor);
-            System.out.println("\n\nProfessor(a) "+professor.getNome()+" foi cadastrado com sucesso.");
-            System.out.println("\nBem vindo(a) professor(a) "+nomeProf+".");
+            System.out.println("\n\nProfessor(a) "+nomeProf+" foi cadastrado com sucesso.");
+            System.out.println("\nVolte ao Menu Inicial para fazer login.\n");
         }
         // captura exceções lançadas na instancia de objetos:
         catch (NullPointerException | IllegalArgumentException npeOUiae) {

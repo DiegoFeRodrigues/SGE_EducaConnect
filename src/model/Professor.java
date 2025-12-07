@@ -12,19 +12,19 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
     // constructor professor - valida e inicia atributos:
     public Professor(String nomeProfessor, String especialidade, int registro, String login, String senha) {
         if (nomeProfessor == null || nomeProfessor.isEmpty()) {
-            throw new NullPointerException("\n\nInforme o nome do(a) professor(a).");
+            throw new NullPointerException("\n\nInforme o nome do(a) professor(a).\n");
         }
         if (especialidade == null || especialidade.isEmpty()) {
-            throw new NullPointerException("\n\nInforme a especialidade do(a) professor(a).");
+            throw new NullPointerException("\n\nInforme a especialidade do(a) professor(a).\n");
         }
         if (registro <= 0) {
             throw new IllegalArgumentException("\n\nRegistro inválido.\n");
         }
         if (login == null || login.isEmpty()) {
-            throw new NullPointerException("\n\nInforme o login do(a) professor(a).");
+            throw new NullPointerException("\n\nInforme o login do(a) professor(a).\n");
         }
         if (senha == null || senha.isEmpty()) {
-            throw new NullPointerException("\n\nInforme a senha do(a) professor(a).");
+            throw new NullPointerException("\n\nInforme a senha do(a) professor(a).\n");
         }
         super(nomeProfessor, login, senha); // -> herda da superclasse abstrata Usuário
         this.especialidade = especialidade;
@@ -34,13 +34,13 @@ public class Professor extends Usuario implements Autenticacao, NumeroObjetoCada
     @Override
     public boolean autenticar(String login, String senha) {
         if (login == null) {
-            throw new NullPointerException("\n\nInforme o login do(a) professor(a) para autenticar.");
+            throw new NullPointerException("\n\nInforme o login do(a) professor(a) para autenticar.\n");
         }
         if (senha == null) {
-            throw new NullPointerException("\n\nInforme a senha do(a) professor(a) para autenticar.");
+            throw new NullPointerException("\n\nInforme a senha do(a) professor(a) para autenticar.\n");
         }        
         if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) {
-            System.out.println("\n\n\nFalha ao autenticar professor(a): Login ou senha incorretos.");
+            System.out.println("\n\n\nFalha ao autenticar professor(a): Login ou senha incorretos.\n");
             return false;
         } else {
             System.out.println("\n\nBem vindo(a) Professor(a) "+this.getNome()+".");

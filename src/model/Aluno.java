@@ -12,19 +12,19 @@ public class Aluno extends Usuario implements Autenticacao, NumeroObjetoCadastro
     // constrcutor aluno - valida e inicia atributos:
     public Aluno(String nomeAluno, int matricula, String curso, String login, String senha) {
         if (nomeAluno == null || nomeAluno.isEmpty()) {
-            throw new NullPointerException("\n\nInforme o nome do(a) aluno(a).");
+            throw new NullPointerException("\n\nInforme o nome do(a) aluno(a).\n");
         }
         if (matricula <= 0) {
-            throw new IllegalArgumentException("\n\nMatrícula deve ser maior que 0.");
+            throw new IllegalArgumentException("\n\nMatrícula deve ser maior que 0.\n");
         }
         if (curso == null || curso.isEmpty()) {
-            throw new NullPointerException("\n\nInforme o curso do(a) aluno(a).");
+            throw new NullPointerException("\n\nInforme o curso do(a) aluno(a).\n");
         }
         if (login == null || login.isEmpty()) {
-            throw new NullPointerException("\n\nInforme o login do(a) aluno(a).");
+            throw new NullPointerException("\n\nInforme o login do(a) aluno(a).\n");
         }
         if (senha == null || senha.isEmpty()) {
-            throw new NullPointerException("\n\nInforme a senha do(a) aluno(a).");
+            throw new NullPointerException("\n\nInforme a senha do(a) aluno(a).\n");
         }
         super(nomeAluno, login, senha); // -> herda da superclasse abstrata Usuário
         this.curso = curso;
@@ -44,16 +44,16 @@ public class Aluno extends Usuario implements Autenticacao, NumeroObjetoCadastro
     // implementação método da interface Autenticacao:
     public boolean autenticar(String login, String senha) {
         if (login == null) {
-            throw new NullPointerException("\n\nInforme o login do(a) aluno(a) para autenticar.");
+            throw new NullPointerException("\n\nInforme o login do(a) aluno(a) para autenticar.\n");
         }
         if (senha == null) {
-            throw new NullPointerException("\n\nInforme a senha do(a) aluno(a) para autenticar.");
+            throw new NullPointerException("\n\nInforme a senha do(a) aluno(a) para autenticar.\n");
         }        
         if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) {
-            System.out.println("\n\n\nFalha ao autenticar aluno(a): Login ou senha incorretos.");
+            System.out.println("\n\nFalha ao autenticar aluno(a): Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("\n\n\nBem vindo(a) Aluno(a) "+this.getNome()+".");
+            System.out.println("\n\nBem vindo(a) Aluno(a) "+this.getNome()+".");
             return true;
         }
     }
