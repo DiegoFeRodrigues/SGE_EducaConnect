@@ -25,14 +25,12 @@ public class MenuCadastro {
 
         do {
             
-            System.out.println("\n\n------------------------------------");
-            System.out.println("\n***  Cadastrar novo usuário:  ***\n");
-            System.out.println("----------------------------------------");
-    
-            System.out.println("\nFazer cadastro de:");
+            System.out.println("\n\n***  Cadastrar novo usuário:  ***");
+            System.out.println("*********************************");
+            System.out.println("\nCadastro de:");
             System.out.println("\n1 - Professor(a)");
-            System.out.println("\n2 - Aluno(a)");
-            System.out.println("\n3 - Voltar ao Menu Inicial");
+            System.out.println("2 - Aluno(a)");
+            System.out.println("3 - Voltar ao Menu Inicial");
             System.out.print("\nDigite opção: ");
             Apoio.validaNumeroMenu(scan);   // valida se número de menu no buffer é número inteiro
 
@@ -71,7 +69,7 @@ public class MenuCadastro {
                     break;
 
                 default:
-                    System.out.println("\n\n\nOpção inválida.\n\n");
+                    System.out.println("\n\nOpção inválida.");
             }
 
         } while (opcao != 3);

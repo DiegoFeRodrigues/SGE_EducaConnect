@@ -18,28 +18,26 @@ public class MenuInicial {
         
         int opcao;
         do {
+            System.out.println("\n****        EduConnect - Sistema de Gestão Educacional (SGE)        ****\n");
             System.out.println("************************************************************************");
-            System.out.println("\n**** EduConnect - Sistema de Gestão Educacional (SGE) ****\n");                    
-            System.out.println("************************************************************************");
-            System.out.println("\n\nBem vindo(a) visitante.");
-            System.out.println("\n\n*** Menu Inicial: ***");
+            System.out.println("\nBem vindo(a) visitante.");
+            System.out.println("\n***    Menu Inicial:    ***");
             System.out.println("***************************");
             System.out.println("\nFazer login como:");
-            System.out.println("\n\n1 - Administrador(a)");
-            System.out.println("\n2 - Professor(a)");
-            System.out.println("\n3 - Aluno(a)");
-            System.out.println("\n\nAinda não está cadastrado(a)?");
-            System.out.println("\n4 - Fazer cadastro");
-            System.out.println("\n\n5 - Encerrar sistema");
+            System.out.println("1 - Administrador(a)");
+            System.out.println("2 - Professor(a)");
+            System.out.println("3 - Aluno(a)");
+            System.out.println("\nNão está cadastrado(a)?");
+            System.out.println("4 - Fazer cadastro");
+            System.out.println("\n5 - Encerrar sistema");
             System.out.print("\nDigite opção: ");  
             Apoio.validaNumeroMenu(scan);   // valida se número de menu digitado é número inteiro
             opcao = scan.nextInt();
             scan.nextLine();
             switch (opcao) {
                 case 1:     // login administrador:
-                    System.out.println("\n\n\n****************************");
-                    System.out.println("\nEntrar como Administrador(a)");    
-                    System.out.println("\n****************************");
+                    System.out.println("\n\n**   Entrar como Administrador(a)   **");    
+                    System.out.println("**************************************");
 
                     System.out.print("\nLogin de Administrador(a): ");
                     String loginADM = scan.nextLine();
@@ -54,9 +52,8 @@ public class MenuInicial {
                     break;
 
                 case 2:     // login professor:
-                    System.out.println("\n\n\n****************************");
-                    System.out.println("\nEntrar como Professor(a):");    
-                    System.out.println("\n****************************");
+                    System.out.println("\n** Entrar como Professor(a): **");    
+                    System.out.println("****************************");
 
                     System.out.print("\nDigite o Login: ");
                     String loginProf = scan.nextLine();
@@ -71,9 +68,8 @@ public class MenuInicial {
                     break;
 
                 case 3:     // login aluno(a)
-                    System.out.println("\n\n\n********************");
-                    System.out.println("\nEntrar como Aluno(a):");    
-                    System.out.println("\n********************");
+                    System.out.println("** Entrar como Aluno(a): **");    
+                    System.out.println("***************************");
 
                     System.out.print("\nDigite o Login: ");
                     String loginAluno = scan.nextLine();
@@ -82,8 +78,7 @@ public class MenuInicial {
                     String senhaAluno = scan.nextLine();
 
                     if (Apoio.autenticaUsuario(loginAluno, senhaAluno, ArmazTemporario.listaAlunos)) {
-                        int numeroAluno = Apoio.numeroAluno(loginAluno);
-                        MenuInterativoAluno.menu(numeroAluno);
+                        MenuInterativoAluno.menu();
                     }
                     break;
 

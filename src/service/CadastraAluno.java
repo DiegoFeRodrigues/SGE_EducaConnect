@@ -16,9 +16,8 @@ public class CadastraAluno {
     public static void cadastro(int numero) {
         
         Scanner scan = new Scanner(System.in);
-        
         System.out.println("\n\n****  Cadastro de aluno(a)  ****");
-        System.out.println("---------------------------------------");        
+        System.out.println("*********************************");        
 
         // nome:
         System.out.print("\nNome do(a) aluno(a): "); 
@@ -51,7 +50,7 @@ public class CadastraAluno {
             Aluno aluno = new Aluno(nomeAluno, matricula, cursoAluno, loginAluno, senhaAluno);
             ArmazTemporario.listaAlunos.add(aluno);
             System.out.println("\n\nAluno(a) cadastrado com sucesso.");
-            System.out.println("\nBem vindo(a) "+aluno.getNome()+".\n\n");
+            System.out.println("\nBem vindo(a) "+aluno.getNome()+".");
         } 
         // captura exceções lançadas na instancia de objetos:
         catch(NullPointerException | IllegalArgumentException npeOUiae) {

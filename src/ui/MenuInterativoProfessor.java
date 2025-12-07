@@ -14,11 +14,12 @@ public class MenuInterativoProfessor {
         int opcao;
         
         do {
-            System.out.println("*** Menu Interativo: ***");
-            System.out.println("**************************");
-            System.out.println("1 - Registrar avaliação");
-            System.out.println("2 - Fazer logoff - Voltar ao Menu Inicial:");
-            System.out.print("Digite opção:");
+            System.out.println("************************************");
+            System.out.println("** Menu: **");
+            System.out.println("************************************");
+            System.out.println("\n1 - Registrar avaliação");
+            System.out.println("2 - Sair - Voltar ao Menu Inicial:");
+            System.out.print("\nDigite opção:");
             Apoio.validaNumeroMenu(scan); // valida se número de menu informado é número inteiro
 
             opcao = scan.nextInt();
@@ -30,7 +31,7 @@ public class MenuInterativoProfessor {
                     break;
             
                case 2:
-                   System.out.println("\nSaindo da sua conta...\n");
+                   System.out.println("\nSaindo...\n");
                    System.out.println("\nAté logo, professor.\n");
                     break;
 

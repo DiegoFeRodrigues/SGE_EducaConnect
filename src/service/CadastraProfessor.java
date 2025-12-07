@@ -16,7 +16,8 @@ public class CadastraProfessor {
     public static void cadastro(int numero) {
 
         Scanner scan = new Scanner(System.in);
-
+        System.out.println("\n\n***  Cadastrar Professor(a):  ***");
+        System.out.println("*********************************");
         // nome:
         System.out.print("\nNome do(a) professor(a): "); 
         String nomeProf = scan.nextLine();
@@ -42,7 +43,8 @@ public class CadastraProfessor {
             // instanciando objetos Professor com dados informados e adicionando no armazenamento temporário em lista:
             Professor professor = new Professor(nomeProf, especialidade, registro, loginProf, senhaProf);
             ArmazTemporario.listaProf.add(professor);
-            System.out.println("\n\nProfessor(a) "+professor.getNome()+" foi cadastrado com sucesso.\n\n");
+            System.out.println("\n\nProfessor(a) "+professor.getNome()+" foi cadastrado com sucesso.");
+            System.out.println("\nBem vindo(a) professor(a) "+nomeProf+".");
         }
         // captura exceções lançadas na instancia de objetos:
         catch (NullPointerException | IllegalArgumentException npeOUiae) {

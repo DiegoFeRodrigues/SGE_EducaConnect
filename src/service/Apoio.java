@@ -106,13 +106,4 @@ public class Apoio {
         } 
         return false;
     }
-
-    public static int numeroAluno(String login) {
-        for (int cont = 0; cont <= ArmazTemporario.listaAlunos.size(); cont++) {
-            if (ArmazTemporario.listaAlunos.get(cont).getLogin().equals(login)) {
-                return cont;
-            }
-        }
-        return -1;
-    }
 }

@@ -18,10 +18,9 @@ public class MenuInterativoADM {
         Scanner scan = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("\n******************************************");
-            System.out.println("\n*** Menu Interativo de Administrador: ***");
-            System.out.println("\n******************************************");
-            System.out.println("1 - Cadastrar curso");
+            System.out.println("\n***        Menu de Administrador:        ***");
+            System.out.println("********************************************");
+            System.out.println("\n1 - Cadastrar curso");
             System.out.println("2 - Cadastrar professor(a)");
             System.out.println("3 - Cadastrar aluno(a)");
             System.out.println("4 - Criar turma");
@@ -29,7 +28,7 @@ public class MenuInterativoADM {
             System.out.println("6 - Registrar avaliação");
             System.out.println("7 - Gerar relatórios");
             System.out.println("8 - Fazer logoff - Voltar ao Menu Inicial");
-            System.out.print("Opção desejada: ");
+            System.out.print("\nOpção desejada: ");
             Apoio.validaNumeroMenu(scan);
             opcao = scan.nextInt();
             scan.nextLine();
@@ -37,7 +36,9 @@ public class MenuInterativoADM {
             switch (opcao) {
 
                 case 1: // cadastro curso por ADM
-                    System.out.println("\n\n** Cadastro de Curso **");
+                    System.out.println("\n\n**           Cadastro de Curso           **");
+                    System.out.println("\n******************************************");
+                    
                     System.out.println("\nInforme os dados do curso:");
                     
                     // código do curso - atributo de controle p/ permitir ou não permitir cadastro de curso:
@@ -57,7 +58,9 @@ public class MenuInterativoADM {
                     break;
                     
                 case 2: // cadastro professor por ADM
-                    System.out.println("\n\n** Cadastro de professor(a) **");
+                    System.out.println("\n\n**      Cadastro de professor(a)      **");
+                    System.out.println("\n******************************************");
+
                     System.out.println("\nInforme os dados do(a) professor(a):");
                     
                     // registro - atributo de controle p/ permitir ou não permitir cadastro de professor:
@@ -83,7 +86,9 @@ public class MenuInterativoADM {
                         System.out.println("Nenhum curso foi cadastrado. Cadastre o curso primeiro.\n\n");
                         break;
                     }   // cadastro aluno por ADM:
-                    System.out.println("\n\n** Cadastro de aluno(a) **");
+                    System.out.println("\n\n**        Cadastro de aluno(a)        **");
+                    System.out.println("\n******************************************");
+
                     System.out.println("\nInforme os dados do(a) aluno(a):");
                     
                     // matrícula - atributo de controle p/ permitir ou não permitir cadastro de aluno:
@@ -109,6 +114,9 @@ public class MenuInterativoADM {
                         System.out.println("\nCaso professores ou cursos não estiverem cadastrados, cadastre-os primeiro.\n\n");
                         break;
                     }
+                    System.out.println("\n\n**             Criar turma            **");
+                    System.out.println("\n******************************************");
+
                     // código da turma - atributo de controle p/ permitir ou não permitir a criação de turma:
                     System.out.print("\nCódigo da turma: ");
                     String texto3 = "o código da turma: ";

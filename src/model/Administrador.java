@@ -7,10 +7,10 @@ public class Administrador extends Usuario implements Autenticacao {
     // constructor adm - valida e inicia atributos:
     public Administrador(String login, String senha) {
         if (login == null) {
-            throw new NullPointerException("Informe o login de administrador(a).\n\n");
+            throw new NullPointerException("\n\nInforme o login de administrador(a).\n");
         }
         if (senha == null) {
-            throw new NullPointerException("Informe a senha de administrador(a).\n\n");
+            throw new NullPointerException("\n\nInforme a senha de administrador(a).\n");
         }
         super(login, senha); // -> herda da superclasse abstrata Usuário
     }
@@ -19,16 +19,16 @@ public class Administrador extends Usuario implements Autenticacao {
     @Override
     public boolean autenticar(String login, String senha) {
         if (login == null) {
-            throw new NullPointerException("Informe o login de administrador(a) para autenticar.\n\n");
+            throw new NullPointerException("\n\nInforme o login de administrador(a) para autenticar.\n");
         }
         if (senha == null) {
-            throw new NullPointerException("Informe a senha de administrador(a) para autenticar.\n\n");
+            throw new NullPointerException("\n\nInforme a senha de administrador(a) para autenticar.\n");
         }
         if (!login.equals(this.getLogin()) || !senha.equals(this.getSenha())) { 
-            System.out.println("\n\n\n\nFalha ao autenticar administrador(a): Login ou senha incorretos.\n");
+            System.out.println("\n\nFalha ao autenticar administrador(a): Login ou senha incorretos.\n");
             return false;
         } else {
-            System.out.println("\n\n\n\nPermissão de Administrador(a) concedida.\n");
+            System.out.println("\n\nPermissão de Administrador(a) concedida.\n");
             return true;
         }
     }

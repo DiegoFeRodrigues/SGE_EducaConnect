@@ -16,6 +16,7 @@ public class AddOuRemoveAluno {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("\n\n** Adicionar ou remover alunos em turmas **");
+        System.out.println("**********************************************");
         System.out.println("\n1 - Adicionar aluno(a)");
         System.out.println("2 - Remover aluno(a)");
         
