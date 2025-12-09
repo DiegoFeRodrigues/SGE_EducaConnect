@@ -2,7 +2,7 @@
 Material de Avaliação Prática de Aprendizagem - Unicesumar 
 Aluno: Diego Ferreira Rodrigues 
 R.A.: 24547188-5 
-Disciplina: Programação orientada a objetos. 
+Disciplina: Imersão profissional - POO. 
 */ 
 
 import model.Administrador;
